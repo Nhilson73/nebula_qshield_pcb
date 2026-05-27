@@ -1,0 +1,74 @@
+(version 1)
+
+;; Nebula Q-Shield® Design Rules
+;; IPC-2221B Class 2 | 4-Layer FR-4 Tg170 | ENIG
+;; Minimum feature: 0.2mm track, 0.2mm space, 0.3mm drill
+
+;; Default signal rule
+(rule "Signal_Default"
+  (constraint track_width (min 0.2mm))
+  (constraint clearance (min 0.2mm))
+  (constraint via_diameter (min 0.6mm))
+  (constraint hole_size (min 0.3mm))
+  (constraint annular_width (min 0.15mm))
+)
+
+;; Power nets: 5V, 3.3V rails
+(rule "Power_Rails"
+  (constraint track_width (min 0.5mm))
+  (constraint clearance (min 0.3mm))
+  (constraint via_diameter (min 0.8mm))
+  (constraint hole_size (min 0.4mm))
+  (condition "A.NetClass == 'Power'")
+)
+
+;; High-current nets: 12V rail, motor, chiller, relay contacts
+(rule "High_Current_12V"
+  (constraint track_width (min 1.0mm))
+  (constraint clearance (min 0.5mm))
+  (constraint via_diameter (min 1.0mm))
+  (constraint hole_size (min 0.5mm))
+  (condition "A.NetClass == 'HighCurrent'")
+)
+
+;; Analog signal nets: require extra clearance for noise immunity
+(rule "Analog_Signals"
+  (constraint track_width (min 0.25mm))
+  (constraint clearance (min 0.3mm))
+  (condition "A.NetClass == 'Analog'")
+)
+
+;; I2C bus nets
+(rule "I2C_Bus"
+  (constraint track_width (min 0.25mm))
+  (constraint clearance (min 0.25mm))
+  (condition "A.NetClass == 'I2C'")
+)
+
+;; Relay high-voltage contacts: large clearance for safety
+(rule "Relay_HV_Contacts"
+  (constraint track_width (min 1.0mm))
+  (constraint clearance (min 2.5mm))
+  (condition "A.NetClass == 'RelayHV'")
+)
+
+;; Galvanic isolation barrier: minimum 2.5mm clearance between isolated domains
+(rule "Isolation_Barrier"
+  (constraint clearance (min 2.5mm))
+  (condition "A.NetClass == 'Analog' && B.NetClass == 'Power'")
+)
+
+;; Silk screen to pad clearance
+(rule "Silk_to_Pad"
+  (constraint silk_clearance (min 0.15mm))
+)
+
+;; Courtyard overlap check
+(rule "Courtyard_Overlap"
+  (constraint courtyard_clearance (min 0.25mm))
+)
+
+;; Edge clearance (board edge to copper)
+(rule "Board_Edge"
+  (constraint edge_clearance (min 0.3mm))
+)

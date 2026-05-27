@@ -1,0 +1,146 @@
+(kicad_sch
+  (version 20231120)
+  (generator "devin")
+  (generator_version "1.0")
+  (uuid "f0abc02e-c003-4012-a748-ccc6149d5387")
+  (paper "A3")
+  (title_block
+    (title "Nebula Q-Shield — HMI & Connectors")
+    (date "2026-05-27")
+    (rev "1.0")
+    (company "Cafelium SRL / Nebula Ecosystem")
+    (comment 1 "Sheet 5 of 5: HMI UART (Nextion), Shield Header J21, DC Input J17")
+    (comment 2 "CORRECTED: HMI UART replaces HDMI+USB display")
+  )
+
+  (text "HMI & CONNECTORS\nHMI via UART (D0/D1) — Nextion/Stone compatible\nShield header J21 connects to Arduino UNO Q\nDC input J17 on power_management sheet"
+    (at 25.4 15.24 0)
+    (effects (font (size 2.54 2.54)))
+    (uuid "e9934e5b-d6eb-4828-b500-1e0f7d6e247a")
+  )
+
+  ;; =====================================================
+  ;; HMI UART Connector (replaces HDMI + USB)
+  ;; JST-XH 4-pin: VCC(5V) / TX / RX / GND
+  ;; =====================================================
+  (text "HMI DISPLAY — UART Interface\nJST-XH 4-pin: 5V / MCU_TX(D1) / MCU_RX(D0) / GND\nCompatible: Nextion, Stone, DWIN HMI panels\nProtection: TVS ESD on TX/RX lines"
+    (at 25.4 30.48 0)
+    (effects (font (size 1.524 1.524)))
+    (uuid "3c4dfa67-2c63-47c8-8ae4-a58eb75b22da")
+  )
+
+  (symbol
+    (lib_id "Connector_Generic:Conn_01x04")
+    (at 63.5 50.8 0) (unit 1)
+    (exclude_from_sim no) (in_bom yes) (on_board yes)
+    (uuid "bc59448e-ca54-45f6-9944-af362aabe4ec")
+    (property "Reference" "J_HMI" (at 63.5 40.64 0) (effects (font (size 1.27 1.27))))
+    (property "Value" "HMI UART" (at 63.5 43.18 0) (effects (font (size 1.27 1.27))))
+    (property "Footprint" "Connector_JST:JST_XH_B4B-XH-A_1x04_P2.50mm_Vertical"
+      (at 63.5 50.8 0) (effects (font (size 1.27 1.27)) hide))
+    (property "Description" "HMI display connector: 5V/TX/RX/GND — Nextion compatible"
+      (at 63.5 50.8 0) (effects (font (size 1.27 1.27)) hide))
+    (pin "1" (uuid "10c88fb4-ecf4-441d-b31d-5772a84e76cf"))
+    (pin "2" (uuid "6ada2264-d95c-4cf0-aff3-b07e108a8e05"))
+    (pin "3" (uuid "bae6e206-ab2c-4f2f-aa1b-d1ec9d5f8ce1"))
+    (pin "4" (uuid "340e501b-7263-408c-ab54-b8765b97beb4"))
+  )
+
+  ;; D_HMI — TVS ESD protection on UART lines
+  (symbol
+    (lib_id "Diode:PESD3V3S2USF")
+    (at 86.36 50.8 0) (unit 1)
+    (exclude_from_sim no) (in_bom yes) (on_board yes)
+    (uuid "a7052331-feb4-461d-807a-1b133998d9c8")
+    (property "Reference" "D_HMI" (at 86.36 45.72 0) (effects (font (size 1.27 1.27))))
+    (property "Value" "PESD3V3S2USF" (at 86.36 48.26 0) (effects (font (size 1.27 1.27))))
+    (property "Footprint" "Package_TO_SOT_SMD:SOT-23-3" (at 86.36 50.8 0) (effects (font (size 1.27 1.27)) hide))
+    (property "MPN" "PESD3V3S2USF" (at 86.36 50.8 0) (effects (font (size 1.27 1.27)) hide))
+    (pin "1" (uuid "99f7c46f-1288-44b8-81c8-69ee3e74aadd")) (pin "2" (uuid "d82dacf6-08ad-4e71-9599-737cd8516ec5")) (pin "3" (uuid "6b6ccf8a-7ea2-4a15-b3d6-ad3a432a5cde"))
+  )
+
+  ;; =====================================================
+  ;; Arduino UNO Q Shield Header (J21)
+  ;; =====================================================
+  (text "ARDUINO UNO Q SHIELD HEADER — J21\n2x20 stackable pin header, 2.54mm pitch\nAll signals routed through this connector"
+    (at 25.4 73.66 0)
+    (effects (font (size 1.524 1.524)))
+    (uuid "854a43c3-4ff3-4ae6-a522-fecf9154dedb")
+  )
+
+  (symbol
+    (lib_id "nebula_symbols:Arduino_UNO_Q_Shield_Header")
+    (at 88.9 119.38 0) (unit 1)
+    (exclude_from_sim no) (in_bom yes) (on_board yes)
+    (uuid "24060acf-dc68-451b-8785-7030aecd6c3a")
+    (property "Reference" "J21" (at 88.9 88.9 0) (effects (font (size 1.27 1.27))))
+    (property "Value" "Arduino UNO Q Shield Header" (at 88.9 91.44 0) (effects (font (size 1.27 1.27))))
+    (property "Footprint" "nebula_footprints:Arduino_UNO_Shield_2x20"
+      (at 88.9 119.38 0) (effects (font (size 1.27 1.27)) hide))
+    (pin "1" (uuid "f2f5d8e3-a7e6-4bd6-adc8-1636043d17e8"))  (pin "2" (uuid "dca552f0-594f-4e91-9cee-692c408d8e4a"))  (pin "3" (uuid "9e941c7d-f2d7-43a2-9a61-e081f905b7c4"))
+    (pin "4" (uuid "f92785ea-901e-4989-a4d0-1a067ae75752"))  (pin "5" (uuid "f3897bbb-3dd4-4241-bd3a-5032e4b650b7"))  (pin "6" (uuid "6b4113e0-64df-490e-875b-447306d38754"))
+    (pin "7" (uuid "f98a2587-64ad-4449-ad26-2abac41b5f77"))  (pin "8" (uuid "2e732c06-e334-40fa-8e3d-f466625430ab"))  (pin "9" (uuid "d0101733-3337-4a93-baa7-040a26750981"))
+    (pin "10" (uuid "9c6caf11-64d2-4343-bc16-93c20df226a2")) (pin "11" (uuid "28199b26-1978-495b-9390-c1db77b56f31")) (pin "12" (uuid "369406d2-01dc-4a47-aadb-dfd4f8ae7528"))
+    (pin "13" (uuid "3958a492-a568-4741-bd0b-2ad827bef215")) (pin "14" (uuid "1cc13e53-daed-4176-9012-d68224513fb8")) (pin "15" (uuid "b609193f-0fe9-435f-9746-a2c2d97cf034"))
+    (pin "25" (uuid "0a787443-bd94-4294-8d76-d1f38a70013c")) (pin "26" (uuid "31b2585d-997d-4435-ac10-539151644aa6")) (pin "27" (uuid "a38d8c2f-1364-4622-a402-0049ffc58adf"))
+    (pin "28" (uuid "2d332e80-93d3-405c-9656-e115a38c1e82")) (pin "29" (uuid "995bc77b-580f-46b3-a81c-f928de86bc4f")) (pin "30" (uuid "078c6dfa-70e5-44b3-96e3-aafca0650fe9"))
+    (pin "31" (uuid "c9bbb853-e90f-47a7-9889-87c769e6ec07")) (pin "32" (uuid "7d225b17-4543-4da1-ac34-bd7e12e5265e")) (pin "33" (uuid "8748bf81-f992-44b6-a13c-4d5930920e11"))
+    (pin "34" (uuid "df66c1b6-1a2a-4089-a817-cf33015a9107")) (pin "35" (uuid "aac923c8-f054-4f2d-91a4-0ceabaf11a24")) (pin "36" (uuid "2007d456-d65a-4f0e-88ec-08b08a8ae562"))
+    (pin "37" (uuid "6c389584-94c0-4418-a610-dad5dfe6a115")) (pin "38" (uuid "4b0fe08c-41cc-4c84-9ca0-289a73416d13")) (pin "39" (uuid "db5b1f2d-c289-436d-8322-818caa29b982"))
+    (pin "40" (uuid "7a6565d4-fb6f-4d62-94c1-5468b4f26c38"))
+  )
+
+  ;; =====================================================
+  ;; Sensor Clamp Diodes
+  ;; =====================================================
+  (symbol (lib_id "Diode:BAT54S") (at 170.18 50.8 0) (unit 1) (exclude_from_sim no) (in_bom yes) (on_board yes)
+    (uuid "374c5e77-ec22-4a98-8692-3218e487511e")
+    (property "Reference" "D_CL1" (at 170.18 45.72 0) (effects (font (size 1.27 1.27))))
+    (property "Value" "BAT54S" (at 170.18 48.26 0) (effects (font (size 1.27 1.27))))
+    (property "Footprint" "Package_TO_SOT_SMD:SOT-23-3" (at 170.18 50.8 0) (effects (font (size 1.27 1.27)) hide))
+    (pin "1" (uuid "735cbd5c-742a-4c23-8129-38b3ea8c74ff")) (pin "2" (uuid "4e877625-f79b-4d83-b834-57024e4e6298")) (pin "3" (uuid "ee61e6d1-e36d-4fe2-a4d7-aaa0979a57db"))
+  )
+  (symbol (lib_id "Diode:BAT54S") (at 182.88 50.8 0) (unit 1) (exclude_from_sim no) (in_bom yes) (on_board yes)
+    (uuid "b1449fdd-4a06-4190-b610-861659f259b2")
+    (property "Reference" "D_CL2" (at 182.88 45.72 0) (effects (font (size 1.27 1.27))))
+    (property "Value" "BAT54S" (at 182.88 48.26 0) (effects (font (size 1.27 1.27))))
+    (property "Footprint" "Package_TO_SOT_SMD:SOT-23-3" (at 182.88 50.8 0) (effects (font (size 1.27 1.27)) hide))
+    (pin "1" (uuid "d9bc26af-8ad0-43ee-a7ce-1f773cbc2086")) (pin "2" (uuid "198fe20b-84d5-4034-8258-a6c8be5ed794")) (pin "3" (uuid "fb4923b4-1cf1-493f-8525-5ad2f9073659"))
+  )
+  (symbol (lib_id "Diode:BAT54S") (at 195.58 50.8 0) (unit 1) (exclude_from_sim no) (in_bom yes) (on_board yes)
+    (uuid "3c045671-2a1a-4783-9243-bb6aabb99a34")
+    (property "Reference" "D_CL3" (at 195.58 45.72 0) (effects (font (size 1.27 1.27))))
+    (property "Value" "BAT54S" (at 195.58 48.26 0) (effects (font (size 1.27 1.27))))
+    (property "Footprint" "Package_TO_SOT_SMD:SOT-23-3" (at 195.58 50.8 0) (effects (font (size 1.27 1.27)) hide))
+    (pin "1" (uuid "2561e163-799c-4b4d-980a-b70a358da8aa")) (pin "2" (uuid "43c65366-a7dd-4880-ab78-d29c21204a2e")) (pin "3" (uuid "1f202e79-c214-405d-9fb1-27b74d58a99f"))
+  )
+
+  ;; =====================================================
+  ;; Hierarchical Labels
+  ;; =====================================================
+  (hierarchical_label "PH_ADC"      (shape input) (at 55.88 95.25 180)  (effects (font (size 1.27 1.27))) (uuid "8964c9e1-1d03-4385-9371-a6b45e40933b"))
+  (hierarchical_label "ORP_ADC"     (shape input) (at 55.88 97.79 180)  (effects (font (size 1.27 1.27))) (uuid "b31f8904-c60b-416c-a42a-e2aa646dbbd5"))
+  (hierarchical_label "CO2_ADC"     (shape input) (at 55.88 100.33 180) (effects (font (size 1.27 1.27))) (uuid "cb8ede89-7768-4717-9790-705c0f18d409"))
+  (hierarchical_label "DO_ADC"      (shape input) (at 55.88 102.87 180) (effects (font (size 1.27 1.27))) (uuid "5cf19156-ce9d-4b8b-95e5-94e68c11dc85"))
+  (hierarchical_label "TEMP_ADC"    (shape input) (at 55.88 105.41 180) (effects (font (size 1.27 1.27))) (uuid "c1dc173b-372e-43e6-bf0c-8c33c7a8ff89"))
+  (hierarchical_label "HUM_ADC"     (shape input) (at 55.88 107.95 180) (effects (font (size 1.27 1.27))) (uuid "94c310a2-4230-48a2-bd5c-f4ff7abe9186"))
+  (hierarchical_label "I2C_SDA"     (shape bidirectional) (at 55.88 107.95 180) (effects (font (size 1.27 1.27))) (uuid "0ccc864b-f4bd-4bc0-a465-4a9fca1bbc4f"))
+  (hierarchical_label "I2C_SCL"     (shape bidirectional) (at 55.88 110.49 180) (effects (font (size 1.27 1.27))) (uuid "d6022f68-e8ea-4b2b-b30c-dc4f97679c74"))
+  (hierarchical_label "HX711_DOUT"  (shape input) (at 121.92 138.43 0)  (effects (font (size 1.27 1.27))) (uuid "406736fc-eb10-4cbe-a2eb-52d1352b96c9"))
+  (hierarchical_label "HX711_SCK"   (shape output)(at 121.92 135.89 0)  (effects (font (size 1.27 1.27))) (uuid "67b9eee7-de5c-4661-bd90-da0eb81c3faf"))
+  (hierarchical_label "PUMP_DIR"    (shape output)(at 121.92 133.35 0)  (effects (font (size 1.27 1.27))) (uuid "e2636133-b3cf-49a3-a298-5e64973a9766"))
+  (hierarchical_label "PUMP_PWM"    (shape output)(at 121.92 130.81 0)  (effects (font (size 1.27 1.27))) (uuid "71f849d1-5ced-43ef-9eff-c0eb79d3ae17"))
+  (hierarchical_label "CHILLER_CTL" (shape output)(at 121.92 128.27 0)  (effects (font (size 1.27 1.27))) (uuid "3d678f8c-6e14-4e51-84ce-f1741a0c5ef9"))
+  (hierarchical_label "CO2_SOL_CTL" (shape output)(at 121.92 125.73 0)  (effects (font (size 1.27 1.27))) (uuid "eecb0932-e916-4d46-b371-08aaba57241c"))
+  (hierarchical_label "CO2_PWM"     (shape output)(at 121.92 121.92 0)  (effects (font (size 1.27 1.27))) (uuid "15a84ab4-539b-4c8e-b0a8-575f6649934c"))
+  (hierarchical_label "LED_STATUS"  (shape output)(at 121.92 110.49 0)  (effects (font (size 1.27 1.27))) (uuid "70c5c778-c08a-4cd2-84f5-53a5fe30259a"))
+  (hierarchical_label "HMI_TX"      (shape output)(at 121.92 143.51 0)  (effects (font (size 1.27 1.27))) (uuid "3d19d100-ec29-46b3-a9da-b03e41843aef"))
+  (hierarchical_label "HMI_RX"      (shape input) (at 121.92 146.05 0)  (effects (font (size 1.27 1.27))) (uuid "7a56e1dc-d8df-4118-b1eb-5603ee6abc32"))
+  (hierarchical_label "MCU_WDI"     (shape output)(at 121.92 148.59 0)  (effects (font (size 1.27 1.27))) (uuid "35dbaf14-af41-437a-b5d4-78a7fe3f8666"))
+  (hierarchical_label "MCU_NRST"    (shape input) (at 55.88 112.39 180) (effects (font (size 1.27 1.27))) (uuid "858358ba-2d6b-4a32-b260-786d0e281c6e"))
+  (hierarchical_label "5V_RAIL"     (shape bidirectional)(at 55.88 117.48 180) (effects (font (size 1.27 1.27))) (uuid "be6119b9-bff0-40e1-a22a-dad0f97d1edf"))
+  (hierarchical_label "3V3_RAIL"    (shape bidirectional)(at 55.88 115.57 180) (effects (font (size 1.27 1.27))) (uuid "7d36b65f-44c9-4f90-8597-63ccc83eb663"))
+  (hierarchical_label "12V_RAIL"    (shape input)  (at 10.16 25.4 0)    (effects (font (size 1.27 1.27))) (uuid "6329de91-dfde-4cf8-8817-818ab33f4384"))
+  (hierarchical_label "GND"         (shape bidirectional)(at 55.88 119.38 180) (effects (font (size 1.27 1.27))) (uuid "5b6a52e5-7219-4670-aa1c-fa76e275a8fa"))
+
+)

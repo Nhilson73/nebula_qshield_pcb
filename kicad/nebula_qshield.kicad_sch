@@ -1,0 +1,188 @@
+(kicad_sch
+  (version 20231120)
+  (generator "devin")
+  (generator_version "1.0")
+  (uuid "c6da75fc-541f-4933-b134-f5eb8982a11b")
+  (paper "A3")
+  (title_block
+    (title "Nebula Q-Shield® — Root Schematic")
+    (date "2026-05-27")
+    (rev "1.0")
+    (company "Cafelium SRL / Nebula Ecosystem")
+    (comment 1 "Industrial Fermentation Monitor Shield for Arduino UNO Q")
+    (comment 2 "Single PCB design — 3 tiers via DNP: Essential / Insight / Signature")
+    (comment 3 "IPC Class 2 | 4-Layer | FR-4 Tg170 | ENIG | IEC 61010-1")
+    (comment 4 "HMI via UART (Nextion) | Galvanic isolation on-board | TPS3823 watchdog all tiers")
+  )
+
+  (lib_symbols)
+
+  ;; =====================================================
+  ;; Hierarchical Sheet 1: Power Management
+  ;; =====================================================
+  (sheet
+    (at 25.4 50.8)
+    (size 50.8 30.48)
+    (fields_autoplaced yes)
+    (stroke (width 0.1524) (type solid))
+    (fill (color 255 240 220 1.0))
+    (uuid "f1fcd624-5e99-46e0-8ec7-0072ddfd5246")
+    (property "Sheetname" "Power Management"
+      (at 25.4 49.53 0)
+      (effects (font (size 1.524 1.524)) (justify left bottom))
+    )
+    (property "Sheetfile" "power_management.kicad_sch"
+      (at 25.4 82.55 0)
+      (effects (font (size 1.27 1.27)) (justify left top))
+    )
+    (pin "12V_RAIL"  output      (at 76.2 55.88 0)  (effects (font (size 1.27 1.27))) (uuid "5a028819-1ea5-43fb-9d03-0ce6b28e3d25"))
+    (pin "5V_RAIL"   output      (at 76.2 60.96 0)  (effects (font (size 1.27 1.27))) (uuid "ef9205a6-09a1-4e57-8bc3-d1b280b3ce78"))
+    (pin "3V3_RAIL"  output      (at 76.2 66.04 0)  (effects (font (size 1.27 1.27))) (uuid "39be6115-3664-4a76-acba-ce31883c317e"))
+    (pin "GND"       bidirectional (at 76.2 71.12 0) (effects (font (size 1.27 1.27))) (uuid "fbc5467d-f7dc-48c3-b955-0b2e51fcfab0"))
+    (pin "MCU_WDI"   input       (at 25.4 60.96 180)(effects (font (size 1.27 1.27))) (uuid "7b7224f9-9eec-4e53-b9cb-2fa2afc90fc2"))
+    (pin "MCU_NRST"  output      (at 76.2 76.2 0)   (effects (font (size 1.27 1.27))) (uuid "ecd10e12-c247-43aa-b183-4943b5e55e3b"))
+  )
+
+  ;; =====================================================
+  ;; Hierarchical Sheet 2: Analog Acquisition
+  ;; =====================================================
+  (sheet
+    (at 25.4 101.6)
+    (size 50.8 30.48)
+    (fields_autoplaced yes)
+    (stroke (width 0.1524) (type solid))
+    (fill (color 220 255 220 1.0))
+    (uuid "9688e820-0346-4732-9e7d-cc0365bc1e8b")
+    (property "Sheetname" "Analog Acquisition"
+      (at 25.4 100.33 0)
+      (effects (font (size 1.524 1.524)) (justify left bottom))
+    )
+    (property "Sheetfile" "analog_acquisition.kicad_sch"
+      (at 25.4 133.35 0)
+      (effects (font (size 1.27 1.27)) (justify left top))
+    )
+    (pin "PH_ADC"    output      (at 76.2 106.68 0)  (effects (font (size 1.27 1.27))) (uuid "ec4bbc5e-4625-4cbf-89bf-0d48795b643c"))
+    (pin "ORP_ADC"   output      (at 76.2 109.22 0)  (effects (font (size 1.27 1.27))) (uuid "3ce91138-6131-4cc7-9eaa-c50bde09393c"))
+    (pin "CO2_ADC"   output      (at 76.2 111.76 0)  (effects (font (size 1.27 1.27))) (uuid "7d103358-fc03-4545-be9c-b73e7a050bad"))
+    (pin "DO_ADC"    output      (at 76.2 114.3 0)   (effects (font (size 1.27 1.27))) (uuid "64a687b5-e3ec-4aa7-83de-45b4c37188a1"))
+    (pin "TEMP_ADC"  output      (at 76.2 116.84 0)  (effects (font (size 1.27 1.27))) (uuid "771443af-29cc-461c-91aa-11059c9a4645"))
+    (pin "HUM_ADC"   output      (at 76.2 119.38 0)  (effects (font (size 1.27 1.27))) (uuid "40a4211c-c000-4eaa-8539-01bf38ebfa58"))
+    (pin "3V3_RAIL"  input       (at 25.4 106.68 180)(effects (font (size 1.27 1.27))) (uuid "6cb3010b-2d0a-4091-964f-36cf38ee51c9"))
+    (pin "5V_RAIL"   input       (at 25.4 109.22 180)(effects (font (size 1.27 1.27))) (uuid "27d93650-ade1-44d6-b5f5-784da91f529a"))
+    (pin "GND"       bidirectional (at 25.4 114.3 180)(effects (font (size 1.27 1.27))) (uuid "d6172e7f-3860-4b9e-a3dd-d7a8f94647ba"))
+    (pin "AGND"      bidirectional (at 25.4 116.84 180)(effects (font (size 1.27 1.27))) (uuid "55583825-890f-4eb7-919c-2475abc140a3"))
+  )
+
+  ;; =====================================================
+  ;; Hierarchical Sheet 3: Digital & I2C
+  ;; =====================================================
+  (sheet
+    (at 25.4 152.4)
+    (size 50.8 30.48)
+    (fields_autoplaced yes)
+    (stroke (width 0.1524) (type solid))
+    (fill (color 220 220 255 1.0))
+    (uuid "43ec48b6-2639-4f87-888d-e2ac5bc6a498")
+    (property "Sheetname" "Digital & I2C"
+      (at 25.4 151.13 0)
+      (effects (font (size 1.524 1.524)) (justify left bottom))
+    )
+    (property "Sheetfile" "digital_i2c.kicad_sch"
+      (at 25.4 184.15 0)
+      (effects (font (size 1.27 1.27)) (justify left top))
+    )
+    (pin "I2C_SDA"    bidirectional (at 76.2 157.48 0)  (effects (font (size 1.27 1.27))) (uuid "d6183ab0-7503-43c8-854b-7148f58ff9a0"))
+    (pin "I2C_SCL"    bidirectional (at 76.2 160.02 0)  (effects (font (size 1.27 1.27))) (uuid "fdf8cb99-5901-467b-8e7a-002413e4ebb5"))
+    (pin "HX711_DOUT" output      (at 76.2 162.56 0)    (effects (font (size 1.27 1.27))) (uuid "a9ca1ee7-1156-4109-a1bd-d902131e444c"))
+    (pin "HX711_SCK"  input       (at 76.2 165.1 0)     (effects (font (size 1.27 1.27))) (uuid "4661ec09-e5a7-4a0a-bcbd-6a89a570cf8e"))
+    (pin "LED_STATUS" input       (at 25.4 157.48 180)  (effects (font (size 1.27 1.27))) (uuid "a92ba3bd-be5a-43c1-8142-a5c306392a19"))
+    (pin "RS485_TX"   output      (at 76.2 170.18 0)    (effects (font (size 1.27 1.27))) (uuid "49d36c26-30d9-4c1f-8b0f-4087c1bb6aef"))
+    (pin "RS485_RX"   input       (at 76.2 172.72 0)    (effects (font (size 1.27 1.27))) (uuid "bb02d2f7-61ee-41d4-a46a-ab8299e2af7b"))
+    (pin "3V3_RAIL"   input       (at 25.4 160.02 180)  (effects (font (size 1.27 1.27))) (uuid "97408a00-54cf-4894-82a8-0cf0cf551000"))
+    (pin "5V_RAIL"    input       (at 25.4 162.56 180)  (effects (font (size 1.27 1.27))) (uuid "91d16945-357e-4a04-92b7-af7d1eca8b11"))
+    (pin "GND"        bidirectional (at 25.4 167.64 180)(effects (font (size 1.27 1.27))) (uuid "75d3ba90-3cd8-46c9-bf25-cb5ea4642a18"))
+  )
+
+  ;; =====================================================
+  ;; Hierarchical Sheet 4: Actuator Drivers
+  ;; =====================================================
+  (sheet
+    (at 25.4 203.2)
+    (size 50.8 30.48)
+    (fields_autoplaced yes)
+    (stroke (width 0.1524) (type solid))
+    (fill (color 255 220 220 1.0))
+    (uuid "20b0ceca-a23d-4442-9c81-682496868387")
+    (property "Sheetname" "Actuator Drivers"
+      (at 25.4 201.93 0)
+      (effects (font (size 1.524 1.524)) (justify left bottom))
+    )
+    (property "Sheetfile" "actuator_drivers.kicad_sch"
+      (at 25.4 234.95 0)
+      (effects (font (size 1.27 1.27)) (justify left top))
+    )
+    (pin "PUMP_DIR"    input   (at 25.4 208.28 180)  (effects (font (size 1.27 1.27))) (uuid "df1dae70-b95d-4d10-ac0d-69ff82986cb9"))
+    (pin "PUMP_PWM"    input   (at 25.4 210.82 180)  (effects (font (size 1.27 1.27))) (uuid "09dbbcd1-6f08-453b-8c2f-e2c8b5dd8d5f"))
+    (pin "CO2_SOL_CTL" input   (at 25.4 213.36 180)  (effects (font (size 1.27 1.27))) (uuid "8212f5f8-4cde-42da-883d-af6efdac5d14"))
+    (pin "CHILLER_CTL" input   (at 25.4 215.9 180)   (effects (font (size 1.27 1.27))) (uuid "7639bb2f-2616-4f03-ad83-867b779ecb0c"))
+    (pin "CO2_PWM"     input   (at 25.4 218.44 180)  (effects (font (size 1.27 1.27))) (uuid "9cdb04c5-cf82-4fe2-9818-9315de143f04"))
+    (pin "12V_RAIL"    input   (at 25.4 223.52 180)  (effects (font (size 1.27 1.27))) (uuid "65643e8b-25a0-4e5e-af59-731dae93df8d"))
+    (pin "5V_RAIL"     input   (at 25.4 226.06 180)  (effects (font (size 1.27 1.27))) (uuid "fe442f21-b781-4607-8db8-534033c11e79"))
+    (pin "GND"         bidirectional (at 25.4 228.6 180)(effects (font (size 1.27 1.27))) (uuid "767840d3-9438-445f-a493-48b90b47410f"))
+    (pin "PGND"        bidirectional (at 25.4 231.14 180)(effects (font (size 1.27 1.27))) (uuid "6914abca-b4bf-4fa7-bc46-d22afb0f9475"))
+  )
+
+  ;; =====================================================
+  ;; Hierarchical Sheet 5: HMI & Connectors
+  ;; =====================================================
+  (sheet
+    (at 119.38 50.8)
+    (size 50.8 55.88)
+    (fields_autoplaced yes)
+    (stroke (width 0.1524) (type solid))
+    (fill (color 255 255 220 1.0))
+    (uuid "f787f9da-3fea-4da5-bd0c-c3201676b3de")
+    (property "Sheetname" "HMI & Connectors"
+      (at 119.38 49.53 0)
+      (effects (font (size 1.524 1.524)) (justify left bottom))
+    )
+    (property "Sheetfile" "hmi_connectors.kicad_sch"
+      (at 119.38 107.95 0)
+      (effects (font (size 1.27 1.27)) (justify left top))
+    )
+    (pin "PH_ADC"      input       (at 119.38 55.88 180) (effects (font (size 1.27 1.27))) (uuid "b8e2709c-9c89-4442-bbd7-8df52f2ee54a"))
+    (pin "ORP_ADC"     input       (at 119.38 58.42 180) (effects (font (size 1.27 1.27))) (uuid "62177727-1cb5-43ca-9eed-2d9275e71afb"))
+    (pin "CO2_ADC"     input       (at 119.38 60.96 180) (effects (font (size 1.27 1.27))) (uuid "8f038fc6-5839-4ac0-bbfd-9510e7716e3e"))
+    (pin "DO_ADC"      input       (at 119.38 63.5 180)  (effects (font (size 1.27 1.27))) (uuid "3d2a81fa-f0df-4f58-9651-e94a9e075190"))
+    (pin "TEMP_ADC"    input       (at 119.38 66.04 180) (effects (font (size 1.27 1.27))) (uuid "c76ec268-6f33-4fae-96b9-83a2da691ea4"))
+    (pin "HUM_ADC"     input       (at 119.38 68.58 180) (effects (font (size 1.27 1.27))) (uuid "f46a3326-f179-4e22-b823-07a795eab51c"))
+    (pin "I2C_SDA"     bidirectional (at 119.38 71.12 180)(effects (font (size 1.27 1.27))) (uuid "01aa3f5d-25c3-463d-8cbd-0bdcacfeabef"))
+    (pin "I2C_SCL"     bidirectional (at 119.38 73.66 180)(effects (font (size 1.27 1.27))) (uuid "da44d6fb-a91a-4d75-a551-2876aa48a45f"))
+    (pin "HX711_DOUT"  input       (at 170.18 55.88 0)   (effects (font (size 1.27 1.27))) (uuid "796e9847-a47d-403e-86f9-1ffcc30203ac"))
+    (pin "HX711_SCK"   output      (at 170.18 58.42 0)   (effects (font (size 1.27 1.27))) (uuid "ae099560-c2f6-4393-acac-785e53588c19"))
+    (pin "PUMP_DIR"    output      (at 170.18 60.96 0)    (effects (font (size 1.27 1.27))) (uuid "5eb63fc0-0223-42ab-9f99-a4a973f13b30"))
+    (pin "PUMP_PWM"    output      (at 170.18 63.5 0)     (effects (font (size 1.27 1.27))) (uuid "8649e092-3cd6-4d4a-aa4d-1390286574bb"))
+    (pin "CHILLER_CTL" output      (at 170.18 66.04 0)    (effects (font (size 1.27 1.27))) (uuid "e4a03068-e11f-4069-96ee-2be3677f0a23"))
+    (pin "CO2_SOL_CTL" output      (at 170.18 68.58 0)    (effects (font (size 1.27 1.27))) (uuid "4977288d-1d3c-417e-af41-d3635708ce2b"))
+    (pin "CO2_PWM"     output      (at 170.18 71.12 0)    (effects (font (size 1.27 1.27))) (uuid "979b430e-5c4f-44e1-bbb6-f45749a935d9"))
+    (pin "LED_STATUS"  output      (at 170.18 73.66 0)    (effects (font (size 1.27 1.27))) (uuid "f9d4cfcd-5041-4e06-b023-4062bff52db9"))
+    (pin "HMI_TX"      output      (at 170.18 76.2 0)     (effects (font (size 1.27 1.27))) (uuid "c6a1a987-3723-46ca-afac-88e9a0b11c9a"))
+    (pin "HMI_RX"      input       (at 170.18 78.74 0)    (effects (font (size 1.27 1.27))) (uuid "59b285ed-daf5-447e-ae84-a0570115892f"))
+    (pin "MCU_WDI"     output      (at 170.18 81.28 0)    (effects (font (size 1.27 1.27))) (uuid "a9d19ead-b78f-4b13-b5d3-a379ce223799"))
+    (pin "MCU_NRST"    input       (at 119.38 76.2 180)   (effects (font (size 1.27 1.27))) (uuid "01c18e82-1a0b-49fc-be5f-c171fbd3bb41"))
+    (pin "5V_RAIL"     bidirectional (at 119.38 81.28 180)(effects (font (size 1.27 1.27))) (uuid "78784bd8-9229-4749-ad22-ead8e6156838"))
+    (pin "3V3_RAIL"    bidirectional (at 119.38 83.82 180)(effects (font (size 1.27 1.27))) (uuid "cc153077-2a8a-47be-91b5-bee1e4500ea9"))
+    (pin "12V_RAIL"    input       (at 119.38 86.36 180)  (effects (font (size 1.27 1.27))) (uuid "feab76c8-0422-4632-9f17-22b4ec95ef44"))
+    (pin "GND"         bidirectional (at 119.38 88.9 180) (effects (font (size 1.27 1.27))) (uuid "e0c44d03-347d-4682-876e-050ba045a22a"))
+  )
+
+  ;; =====================================================
+  ;; Title block and notes
+  ;; =====================================================
+  (text "NEBULA Q-SHIELD® — Hierarchical Root Schematic\n\nIndustrial fermentation monitor shield for Arduino UNO Q (4GB)\n12 sensors, 3 actuators, 3 tiers (Essential/Insight/Signature)\nSingle PCB with DNP component selection per tier\n\nDesign decisions:\n- Galvanic isolation: ON-BOARD (Option A) for all wet sensors\n- Display: HMI UART (Nextion/Stone) — NOT HDMI\n- Watchdog: TPS3823 populated ALL tiers\n- RS485: DNP option for Hamilton Incyte/Dencytee\n- Connectors: All polarized/keyed, plug-and-play"
+    (at 25.4 25.4 0)
+    (effects (font (size 2.54 2.54)))
+    (uuid "87d128fd-8841-4680-899c-07eea2118cbc")
+  )
+
+)
