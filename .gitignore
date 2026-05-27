@@ -1,0 +1,69 @@
+# ═══════════════════════════════════════════════════════════
+# Nebula Q-Shield® PCB — .gitignore
+# KiCad 8.x + Hardware Design Files
+# ═══════════════════════════════════════════════════════════
+
+# ── KiCad Backup & Temporary ────────────────────────────
+*~
+*.bak
+*.tmp
+*.swp
+*-backups/
+_autosave-*
+*.kicad_pcb-bak
+*.kicad_sch-bak
+*.kicad_pro.lck
+fp-info-cache
+
+# ── KiCad Generated (rebuild from project) ──────────────
+# Uncomment if you want to track these:
+# *.kicad_prl       # Project local settings (user-specific)
+*.kicad_prl
+
+# ── Build Artifacts ─────────────────────────────────────
+*.dsn
+*.ses
+*.gbr
+*.drl
+!gerber/*.gbr
+!gerber/*.drl
+!gerber/*.gbrjob
+
+# ── OS Files ────────────────────────────────────────────
+.DS_Store
+Thumbs.db
+desktop.ini
+*.lnk
+
+# ── IDE / Editor ────────────────────────────────────────
+.vscode/
+.idea/
+*.code-workspace
+*.sublime-project
+*.sublime-workspace
+
+# ── Python (tools/scripts) ──────────────────────────────
+__pycache__/
+*.pyc
+*.pyo
+.env
+venv/
+.venv/
+
+# ── Secrets ─────────────────────────────────────────────
+*.pem
+*.key
+credentials.*
+.env.local
+.env.production
+
+# ── Large binary files (use Git LFS if needed) ─────────
+# *.step
+# *.stp
+# *.wrl
+
+# ── Temporary test/simulation files ─────────────────────
+*.log
+*.csv
+!test/**/*.csv
+!production/bom/*.csv
