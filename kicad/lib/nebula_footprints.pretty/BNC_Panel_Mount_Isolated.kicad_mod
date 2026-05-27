@@ -1,0 +1,75 @@
+(footprint "BNC_Panel_Mount_Isolated"
+  (version 20240108)
+  (generator "devin")
+  (generator_version "1.0")
+  (layer "F.Cu")
+  (descr "BNC panel-mount receptacle, isolated shell, for pH/ORP/DO probes")
+  (tags "BNC connector panel mount isolated")
+  (property "Reference" "REF**"
+    (at 0 -8.5 0)
+    (layer "F.SilkS")
+    (effects (font (size 1 1) (thickness 0.15)))
+  )
+  (property "Value" "BNC_Panel_Mount_Isolated"
+    (at 0 8.5 0)
+    (layer "F.Fab")
+    (effects (font (size 1 1) (thickness 0.15)))
+  )
+  (attr through_hole)
+  ;; Center signal pin
+  (pad "1" thru_hole circle
+    (at 0 0)
+    (size 2.5 2.5)
+    (drill 1.5)
+    (layers "*.Cu" "*.Mask")
+  )
+  ;; Shield/GND pins (4 mounting pins around center)
+  (pad "2" thru_hole circle
+    (at -3.5 -3.5)
+    (size 2.0 2.0)
+    (drill 1.0)
+    (layers "*.Cu" "*.Mask")
+  )
+  (pad "2" thru_hole circle
+    (at 3.5 -3.5)
+    (size 2.0 2.0)
+    (drill 1.0)
+    (layers "*.Cu" "*.Mask")
+  )
+  (pad "2" thru_hole circle
+    (at -3.5 3.5)
+    (size 2.0 2.0)
+    (drill 1.0)
+    (layers "*.Cu" "*.Mask")
+  )
+  (pad "2" thru_hole circle
+    (at 3.5 3.5)
+    (size 2.0 2.0)
+    (drill 1.0)
+    (layers "*.Cu" "*.Mask")
+  )
+  ;; Courtyard
+  (fp_rect
+    (start -6 -6)
+    (end 6 6)
+    (stroke (width 0.05) (type default))
+    (fill none)
+    (layer "F.CrtYd")
+  )
+  ;; Fab outline
+  (fp_circle
+    (center 0 0)
+    (end 5 0)
+    (stroke (width 0.1) (type default))
+    (fill none)
+    (layer "F.Fab")
+  )
+  ;; Silk screen
+  (fp_circle
+    (center 0 0)
+    (end 5.5 0)
+    (stroke (width 0.12) (type default))
+    (fill none)
+    (layer "F.SilkS")
+  )
+)

@@ -1,0 +1,745 @@
+(kicad_sch
+  (version 20231120)
+  (generator "devin")
+  (generator_version "1.0")
+  (uuid "b6f5a5f1-69e3-40a8-bc87-b07af1282a62")
+  (paper "A3")
+  (title_block
+    (title "Nebula Q-Shield — Analog Acquisition")
+    (date "2026-05-27")
+    (rev "1.0")
+    (company "Cafelium SRL / Nebula Ecosystem")
+    (comment 1 "Sheet 2 of 5: 6 Analog Channels + Galvanic Isolation (On-Board)")
+    (comment 2 "Channels: pH(A0), ORP(A1), CO2(A2), DO(A3), Temp(A4), Hum(A5)")
+  )
+
+
+  ;; ====== Channel A0 — pH (Essential+) ======
+  ;; Signal chain: J1(BNC_Isolated) → D3(TVS) → R3/C11(RC filter) → buffer → ADC
+  (text "pH Channel (A0) — Tier: Essential+\nBNC hembra — sonda pH"
+    (at 25.4 43.18 0)
+    (effects (font (size 1.524 1.524)))
+    (uuid "217a895d-b226-469d-8529-f86ee17f5701")
+  )
+
+  ;; J1 — Connector
+  (symbol
+    (lib_id "nebula_symbols:BNC_Isolated")
+    (at 25.4 50.8 0)
+    (unit 1)
+    (exclude_from_sim no) (in_bom yes) (on_board yes)
+    (uuid "7b3724dc-ab1b-416d-844e-b2d18d177205")
+    (property "Reference" "J1" (at 25.4 45.72 0) (effects (font (size 1.27 1.27))))
+    (property "Value" "BNC_Isolated" (at 25.4 46.989999999999995 0) (effects (font (size 1.27 1.27))))
+    (property "Footprint" "nebula_footprints:BNC_Panel_Mount_Isolated"
+      (at 25.4 50.8 0) (effects (font (size 1.27 1.27)) hide))
+    (property "DNP" "NO" (at 25.4 50.8 0) (effects (font (size 1.27 1.27)) hide))
+    (pin "1" (uuid "4fde4026-d856-4dca-97a0-e1ed44fa3531"))
+    (pin "2" (uuid "dc089960-9d7c-45b6-80df-8120fb73381b"))
+  )
+
+  ;; D3 — TVS ESD protection
+  (symbol
+    (lib_id "Diode:PESD5V0S1BSF")
+    (at 43.18 50.8 0)
+    (unit 1)
+    (exclude_from_sim no) (in_bom yes) (on_board yes)
+    (uuid "eacfdf77-2bed-4d51-86ce-02b6a548637b")
+    (property "Reference" "D3" (at 43.18 46.989999999999995 0) (effects (font (size 1.27 1.27))))
+    (property "Value" "PESD5V0S1BSF" (at 43.18 48.26 0) (effects (font (size 1.27 1.27))))
+    (property "Footprint" "Diode_SMD:D_SOD-323F" (at 43.18 50.8 0) (effects (font (size 1.27 1.27)) hide))
+    (property "MPN" "PESD5V0S1BSF" (at 43.18 50.8 0) (effects (font (size 1.27 1.27)) hide))
+    (property "Digi-Key_PN" "568-13204-1-ND"
+      (at 43.18 50.8 0) (effects (font (size 1.27 1.27)) hide))
+    (pin "1" (uuid "b254fe8d-61dd-4877-a519-87e2c22c582e")) (pin "2" (uuid "c43b984c-c470-4744-9e49-fd8600a6e861"))
+  )
+
+  ;; R3 — RC filter resistor 1k
+  (symbol
+    (lib_id "Device:R")
+    (at 58.42 50.8 90)
+    (unit 1)
+    (exclude_from_sim no) (in_bom yes) (on_board yes)
+    (uuid "a7768b7b-b36b-42d2-85fe-b0a795e6b395")
+    (property "Reference" "R3" (at 58.42 48.26 0) (effects (font (size 1.27 1.27))))
+    (property "Value" "1k 1%" (at 58.42 53.339999999999996 0) (effects (font (size 1.27 1.27))))
+    (property "Footprint" "Resistor_SMD:R_0402_1005Metric" (at 58.42 50.8 0) (effects (font (size 1.27 1.27)) hide))
+    (property "MPN" "CRCW04021K00FKED" (at 58.42 50.8 0) (effects (font (size 1.27 1.27)) hide))
+    (pin "1" (uuid "175ab903-4f43-40f2-8341-5aa876efe8b4")) (pin "2" (uuid "81121188-2c4f-4490-8429-026ceab10170"))
+  )
+
+  ;; C11 — RC filter cap 100nF
+  (symbol
+    (lib_id "Device:C")
+    (at 68.58 55.879999999999995 0)
+    (unit 1)
+    (exclude_from_sim no) (in_bom yes) (on_board yes)
+    (uuid "5640b822-3c54-4f4c-923c-1aa065dea633")
+    (property "Reference" "C11" (at 71.12 55.879999999999995 0) (effects (font (size 1.27 1.27)) (justify left)))
+    (property "Value" "100nF" (at 71.12 57.15 0) (effects (font (size 1.27 1.27)) (justify left)))
+    (property "Footprint" "Capacitor_SMD:C_0402_1005Metric" (at 68.58 55.879999999999995 0) (effects (font (size 1.27 1.27)) hide))
+    (pin "1" (uuid "0554d63b-46dd-4b43-8bcd-25793919c6bf")) (pin "2" (uuid "1d681189-6fd1-4fd4-be46-0db82d94a714"))
+  )
+
+  ;; Pull-down 10M (anti-float when sensor disconnected)
+  (symbol
+    (lib_id "Device:R")
+    (at 76.19999999999999 58.419999999999995 0)
+    (unit 1)
+    (exclude_from_sim no) (in_bom yes) (on_board yes)
+    (uuid "3f232b71-142a-469f-83bc-ac73423bc8f8")
+    (property "Reference" "R_PD1" (at 78.74000000000001 58.419999999999995 0) (effects (font (size 1.27 1.27)) (justify left)))
+    (property "Value" "10M" (at 78.74000000000001 59.69 0) (effects (font (size 1.27 1.27)) (justify left)))
+    (property "Footprint" "Resistor_SMD:R_0402_1005Metric" (at 76.19999999999999 58.419999999999995 0) (effects (font (size 1.27 1.27)) hide))
+    (pin "1" (uuid "3ab65c4d-f632-4ad7-94db-6aaf0db92720")) (pin "2" (uuid "e5e57474-4778-499f-bc31-31d18d7da150"))
+  )
+
+  ;; U3A — MCP6002 op-amp buffer (unity gain)
+  (symbol
+    (lib_id "Amplifier_Operational:MCP6002-xSN")
+    (at 88.9 50.8 0)
+    (unit 1)
+    (exclude_from_sim no) (in_bom yes) (on_board yes)
+    (uuid "44f3c4d3-2d5c-4d63-85ec-be623edcde97")
+    (property "Reference" "U3" (at 88.9 45.72 0) (effects (font (size 1.27 1.27))))
+    (property "Value" "MCP6002" (at 88.9 46.989999999999995 0) (effects (font (size 1.27 1.27))))
+    (property "Footprint" "Package_SO:SOIC-8_3.9x4.9mm_P1.27mm" (at 88.9 50.8 0) (effects (font (size 1.27 1.27)) hide))
+    (property "MPN" "MCP6002-I/SN" (at 88.9 50.8 0) (effects (font (size 1.27 1.27)) hide))
+    (property "Digi-Key_PN" "MCP6002-I/SN-ND" (at 88.9 50.8 0) (effects (font (size 1.27 1.27)) hide))
+    (pin "1" (uuid "93c8658a-fd4a-4571-9c1c-249926df03f5")) (pin "2" (uuid "f4886641-245a-4b7b-9132-88055157ee64")) (pin "3" (uuid "a187a96e-94a6-4047-92a0-c56c3a12df7c"))
+  )
+
+  ;; Galvanic isolation for pH channel (on-board, Option A)
+  ;; SN6501 transformer driver + ADuM1250 I2C isolator
+  (symbol
+    (lib_id "nebula_symbols:SN6501DBVR")
+    (at 109.22 63.5 0)
+    (unit 1)
+    (exclude_from_sim no) (in_bom yes) (on_board yes)
+    (uuid "9c67506c-5086-4084-b7e4-081706929c24")
+    (property "Reference" "U_ISO_pH" (at 109.22 58.42 0) (effects (font (size 1.27 1.27))))
+    (property "Value" "SN6501" (at 109.22 59.69 0) (effects (font (size 1.27 1.27))))
+    (property "Footprint" "Package_TO_SOT_SMD:SOT-23-5" (at 109.22 63.5 0) (effects (font (size 1.27 1.27)) hide))
+    (pin "1" (uuid "9745f5b2-d568-4788-9c6f-3e5cbbbf3248")) (pin "2" (uuid "8e575a8c-4640-4c9d-b678-bf12efec3964")) (pin "3" (uuid "b720ecad-58c0-4cca-bcd5-cdbb37887a66"))
+    (pin "4" (uuid "94346ed1-8124-48d6-b4c0-43a429a615be")) (pin "5" (uuid "c55736fc-df65-4763-813e-8fdbd4c8a346"))
+  )
+  (symbol
+    (lib_id "nebula_symbols:ADuM1250ARZ")
+    (at 134.62 63.5 0)
+    (unit 1)
+    (exclude_from_sim no) (in_bom yes) (on_board yes)
+    (uuid "07e9ace6-de97-4259-a7a9-0172be23ba60")
+    (property "Reference" "U_ADuM_pH" (at 134.62 58.42 0) (effects (font (size 1.27 1.27))))
+    (property "Value" "ADuM1250" (at 134.62 59.69 0) (effects (font (size 1.27 1.27))))
+    (property "Footprint" "Package_SO:SOIC-8_3.9x4.9mm_P1.27mm" (at 134.62 63.5 0) (effects (font (size 1.27 1.27)) hide))
+    (property "MPN" "ADuM1250ARZ" (at 134.62 63.5 0) (effects (font (size 1.27 1.27)) hide))
+    (pin "1" (uuid "ac6d370c-af21-4502-a774-549f46045dd1")) (pin "2" (uuid "75c3ec92-172f-4e0d-832b-c272e4ed888b")) (pin "3" (uuid "34dd6cf1-6b8f-4df8-9deb-dc7e61a97c74"))
+    (pin "4" (uuid "7a0487fb-971d-41a0-b31c-d43646e2e6ec")) (pin "5" (uuid "82cc8548-2844-4b94-87f5-f03cc32f168e")) (pin "6" (uuid "d91c4824-c40b-45cf-a566-d2fda4660190"))
+    (pin "7" (uuid "a98cc8f1-cff7-4793-9788-4cef89150dc8")) (pin "8" (uuid "f7b40bc6-b542-4e43-8a60-13e0d3886675"))
+  )
+  ;; Isolation barrier decoupling caps (100nF each side)
+  (symbol
+    (lib_id "Device:C")
+    (at 121.91999999999999 71.12 0)
+    (unit 1)
+    (exclude_from_sim no) (in_bom yes) (on_board yes)
+    (uuid "fcf3cd10-1752-4db0-9a08-9d5d0abd115d")
+    (property "Reference" "C_ISO_pH_1" (at 124.46000000000001 71.12 0) (effects (font (size 1.27 1.27)) (justify left)))
+    (property "Value" "100nF" (at 124.46000000000001 72.39 0) (effects (font (size 1.27 1.27)) (justify left)))
+    (property "Footprint" "Capacitor_SMD:C_0402_1005Metric" (at 121.91999999999999 71.12 0) (effects (font (size 1.27 1.27)) hide))
+    (pin "1" (uuid "7625b2d1-5803-43e2-aa17-33b46d4ab5e4")) (pin "2" (uuid "9abbd2c3-97c3-4e87-abf6-0c4a96687f61"))
+  )
+  (symbol
+    (lib_id "Device:C")
+    (at 147.32 71.12 0)
+    (unit 1)
+    (exclude_from_sim no) (in_bom yes) (on_board yes)
+    (uuid "27b7755c-e155-4fdb-a6a7-11d42fea4e93")
+    (property "Reference" "C_ISO_pH_2" (at 149.85999999999999 71.12 0) (effects (font (size 1.27 1.27)) (justify left)))
+    (property "Value" "100nF" (at 149.85999999999999 72.39 0) (effects (font (size 1.27 1.27)) (justify left)))
+    (property "Footprint" "Capacitor_SMD:C_0402_1005Metric" (at 147.32 71.12 0) (effects (font (size 1.27 1.27)) hide))
+    (pin "1" (uuid "ecf8b456-070b-4740-ab2e-c77cd5d9cd07")) (pin "2" (uuid "fd90b25b-350b-4cdb-bd4b-d2b974d40890"))
+  )
+
+  ;; ====== Channel A1 — ORP (Essential+) ======
+  ;; Signal chain: J2(BNC_Isolated) → D4(TVS) → R_ORP/C_ORP(RC filter) → buffer → ADC
+  (text "ORP Channel (A1) — Tier: Essential+\nBNC hembra — sonda ORP"
+    (at 25.4 81.28 0)
+    (effects (font (size 1.524 1.524)))
+    (uuid "19e87e74-cccb-4691-bb9a-29fd694b0503")
+  )
+
+  ;; J2 — Connector
+  (symbol
+    (lib_id "nebula_symbols:BNC_Isolated")
+    (at 25.4 88.9 0)
+    (unit 1)
+    (exclude_from_sim no) (in_bom yes) (on_board yes)
+    (uuid "516ddaf7-88f3-4fa6-a13e-41bc4320219e")
+    (property "Reference" "J2" (at 25.4 83.82000000000001 0) (effects (font (size 1.27 1.27))))
+    (property "Value" "BNC_Isolated" (at 25.4 85.09 0) (effects (font (size 1.27 1.27))))
+    (property "Footprint" "nebula_footprints:BNC_Panel_Mount_Isolated"
+      (at 25.4 88.9 0) (effects (font (size 1.27 1.27)) hide))
+    (property "DNP" "NO" (at 25.4 88.9 0) (effects (font (size 1.27 1.27)) hide))
+    (pin "1" (uuid "cc5f4e9f-4dcc-4a99-b588-dad2661e017d"))
+    (pin "2" (uuid "03f9edcd-c9cd-4f2e-b918-0313c314f9bb"))
+  )
+
+  ;; D4 — TVS ESD protection
+  (symbol
+    (lib_id "Diode:PESD5V0S1BSF")
+    (at 43.18 88.9 0)
+    (unit 1)
+    (exclude_from_sim no) (in_bom yes) (on_board yes)
+    (uuid "6d2890d0-9bd2-45a1-a870-f3ea4fec9259")
+    (property "Reference" "D4" (at 43.18 85.09 0) (effects (font (size 1.27 1.27))))
+    (property "Value" "PESD5V0S1BSF" (at 43.18 86.36 0) (effects (font (size 1.27 1.27))))
+    (property "Footprint" "Diode_SMD:D_SOD-323F" (at 43.18 88.9 0) (effects (font (size 1.27 1.27)) hide))
+    (property "MPN" "PESD5V0S1BSF" (at 43.18 88.9 0) (effects (font (size 1.27 1.27)) hide))
+    (property "Digi-Key_PN" "568-13204-1-ND"
+      (at 43.18 88.9 0) (effects (font (size 1.27 1.27)) hide))
+    (pin "1" (uuid "fe8ad3e0-81f8-4e49-b72c-928b4b3b61e3")) (pin "2" (uuid "119afabf-010f-425e-92b5-9de38777d96e"))
+  )
+
+  ;; R_ORP — RC filter resistor 1k
+  (symbol
+    (lib_id "Device:R")
+    (at 58.42 88.9 90)
+    (unit 1)
+    (exclude_from_sim no) (in_bom yes) (on_board yes)
+    (uuid "5a3335a3-18d5-4335-917d-3fff643f0a7e")
+    (property "Reference" "R_ORP" (at 58.42 86.36 0) (effects (font (size 1.27 1.27))))
+    (property "Value" "1k 1%" (at 58.42 91.44000000000001 0) (effects (font (size 1.27 1.27))))
+    (property "Footprint" "Resistor_SMD:R_0402_1005Metric" (at 58.42 88.9 0) (effects (font (size 1.27 1.27)) hide))
+    (property "MPN" "CRCW04021K00FKED" (at 58.42 88.9 0) (effects (font (size 1.27 1.27)) hide))
+    (pin "1" (uuid "9ee3146f-9b2e-4965-96c2-1680dca30709")) (pin "2" (uuid "8507c030-1758-4682-9f8b-3648231fd766"))
+  )
+
+  ;; C_ORP — RC filter cap 100nF
+  (symbol
+    (lib_id "Device:C")
+    (at 68.58 93.98 0)
+    (unit 1)
+    (exclude_from_sim no) (in_bom yes) (on_board yes)
+    (uuid "211f30d1-7bd0-483e-86b8-6a14d978f9a2")
+    (property "Reference" "C_ORP" (at 71.12 93.98 0) (effects (font (size 1.27 1.27)) (justify left)))
+    (property "Value" "100nF" (at 71.12 95.25 0) (effects (font (size 1.27 1.27)) (justify left)))
+    (property "Footprint" "Capacitor_SMD:C_0402_1005Metric" (at 68.58 93.98 0) (effects (font (size 1.27 1.27)) hide))
+    (pin "1" (uuid "678eb579-b182-452e-a1a6-540d1711075b")) (pin "2" (uuid "0ae39699-2d58-40c4-bbea-4b37446c8bc3"))
+  )
+
+  ;; Pull-down 10M (anti-float when sensor disconnected)
+  (symbol
+    (lib_id "Device:R")
+    (at 76.19999999999999 96.52000000000001 0)
+    (unit 1)
+    (exclude_from_sim no) (in_bom yes) (on_board yes)
+    (uuid "db783399-81d2-48ef-b1c7-3a9c6d64f237")
+    (property "Reference" "R_PD2" (at 78.74000000000001 96.52000000000001 0) (effects (font (size 1.27 1.27)) (justify left)))
+    (property "Value" "10M" (at 78.74000000000001 97.79 0) (effects (font (size 1.27 1.27)) (justify left)))
+    (property "Footprint" "Resistor_SMD:R_0402_1005Metric" (at 76.19999999999999 96.52000000000001 0) (effects (font (size 1.27 1.27)) hide))
+    (pin "1" (uuid "5ff9f8ef-aac0-47b6-aede-918f62e02395")) (pin "2" (uuid "02d1d2a6-8ed6-41f7-873b-ff6fcbec05cc"))
+  )
+
+  ;; U3A_2 — MCP6002 op-amp buffer (unity gain)
+  (symbol
+    (lib_id "Amplifier_Operational:MCP6002-xSN")
+    (at 88.9 88.9 0)
+    (unit 1)
+    (exclude_from_sim no) (in_bom yes) (on_board yes)
+    (uuid "116a4dda-3e19-4957-b787-951a8205c47c")
+    (property "Reference" "U3" (at 88.9 83.82000000000001 0) (effects (font (size 1.27 1.27))))
+    (property "Value" "MCP6002" (at 88.9 85.09 0) (effects (font (size 1.27 1.27))))
+    (property "Footprint" "Package_SO:SOIC-8_3.9x4.9mm_P1.27mm" (at 88.9 88.9 0) (effects (font (size 1.27 1.27)) hide))
+    (property "MPN" "MCP6002-I/SN" (at 88.9 88.9 0) (effects (font (size 1.27 1.27)) hide))
+    (property "Digi-Key_PN" "MCP6002-I/SN-ND" (at 88.9 88.9 0) (effects (font (size 1.27 1.27)) hide))
+    (pin "1" (uuid "b260a56d-0c62-4ce1-a02d-cd94cc19f59e")) (pin "2" (uuid "9979f5e0-80c3-407a-9ac9-adddbf5cf0d3")) (pin "3" (uuid "f1f89878-030e-425d-b06b-0bccdc0936ae"))
+  )
+
+  ;; Galvanic isolation for ORP channel (on-board, Option A)
+  ;; SN6501 transformer driver + ADuM1250 I2C isolator
+  (symbol
+    (lib_id "nebula_symbols:SN6501DBVR")
+    (at 109.22 101.60000000000001 0)
+    (unit 1)
+    (exclude_from_sim no) (in_bom yes) (on_board yes)
+    (uuid "3bf36df4-88b8-4e32-952a-3c0b82a8965b")
+    (property "Reference" "U_ISO_ORP" (at 109.22 96.52000000000001 0) (effects (font (size 1.27 1.27))))
+    (property "Value" "SN6501" (at 109.22 97.79 0) (effects (font (size 1.27 1.27))))
+    (property "Footprint" "Package_TO_SOT_SMD:SOT-23-5" (at 109.22 101.60000000000001 0) (effects (font (size 1.27 1.27)) hide))
+    (pin "1" (uuid "8f38dc29-087b-40db-9266-607fa2d7d3d8")) (pin "2" (uuid "004bb58d-1472-48f8-ac52-9dfba575cfec")) (pin "3" (uuid "47228312-96c0-49c2-9898-c3821c8a097d"))
+    (pin "4" (uuid "e889be9f-1d87-4ea4-8d1b-9fb1428b2dc7")) (pin "5" (uuid "9b97e93d-1cd0-4ca9-bd3b-fdbfee3b0a49"))
+  )
+  (symbol
+    (lib_id "nebula_symbols:ADuM1250ARZ")
+    (at 134.62 101.60000000000001 0)
+    (unit 1)
+    (exclude_from_sim no) (in_bom yes) (on_board yes)
+    (uuid "8588383e-cda2-4ac9-811f-a9e639dc144e")
+    (property "Reference" "U_ADuM_ORP" (at 134.62 96.52000000000001 0) (effects (font (size 1.27 1.27))))
+    (property "Value" "ADuM1250" (at 134.62 97.79 0) (effects (font (size 1.27 1.27))))
+    (property "Footprint" "Package_SO:SOIC-8_3.9x4.9mm_P1.27mm" (at 134.62 101.60000000000001 0) (effects (font (size 1.27 1.27)) hide))
+    (property "MPN" "ADuM1250ARZ" (at 134.62 101.60000000000001 0) (effects (font (size 1.27 1.27)) hide))
+    (pin "1" (uuid "04f37832-f265-4b7d-925a-640bb054256c")) (pin "2" (uuid "32cf288e-4686-4ae3-8cc7-9d2f1da39cd4")) (pin "3" (uuid "d1f9ef5f-c894-48dc-8c9b-300ea4bc28fb"))
+    (pin "4" (uuid "67753ee8-f0f3-40be-9319-1c94fbef149e")) (pin "5" (uuid "9cfd0bcf-445c-48e1-9c7c-6a8df0da3450")) (pin "6" (uuid "3fdae6a2-07da-4e84-8f5b-e4b2c06b6563"))
+    (pin "7" (uuid "85c6b3e4-08fc-4654-9970-26b9fb2d7fc8")) (pin "8" (uuid "473a12e3-f3d2-43e1-b76e-4c3e324ffe2d"))
+  )
+  ;; Isolation barrier decoupling caps (100nF each side)
+  (symbol
+    (lib_id "Device:C")
+    (at 121.91999999999999 109.22000000000001 0)
+    (unit 1)
+    (exclude_from_sim no) (in_bom yes) (on_board yes)
+    (uuid "539bc601-c412-4d62-8880-dd24a0ad25cc")
+    (property "Reference" "C_ISO_ORP_1" (at 124.46000000000001 109.22000000000001 0) (effects (font (size 1.27 1.27)) (justify left)))
+    (property "Value" "100nF" (at 124.46000000000001 110.49000000000001 0) (effects (font (size 1.27 1.27)) (justify left)))
+    (property "Footprint" "Capacitor_SMD:C_0402_1005Metric" (at 121.91999999999999 109.22000000000001 0) (effects (font (size 1.27 1.27)) hide))
+    (pin "1" (uuid "fca6d90b-8eaf-4858-8695-10fbada271b8")) (pin "2" (uuid "2285218e-c174-4f88-8102-3bbd91650b9e"))
+  )
+  (symbol
+    (lib_id "Device:C")
+    (at 147.32 109.22000000000001 0)
+    (unit 1)
+    (exclude_from_sim no) (in_bom yes) (on_board yes)
+    (uuid "9c7b932f-ae13-42ac-a7e4-ada543331aea")
+    (property "Reference" "C_ISO_ORP_2" (at 149.85999999999999 109.22000000000001 0) (effects (font (size 1.27 1.27)) (justify left)))
+    (property "Value" "100nF" (at 149.85999999999999 110.49000000000001 0) (effects (font (size 1.27 1.27)) (justify left)))
+    (property "Footprint" "Capacitor_SMD:C_0402_1005Metric" (at 147.32 109.22000000000001 0) (effects (font (size 1.27 1.27)) hide))
+    (pin "1" (uuid "89805341-0b61-4d20-9f02-1248718e906e")) (pin "2" (uuid "7ba1f726-660c-43d6-8785-45e9ea5c8eb3"))
+  )
+
+  ;; ====== Channel A2 — CO2 (Insight+) ======
+  ;; Signal chain: J3(JST-XH 3-pin) → D6_CO2(TVS) → R5/C12(RC filter) → buffer → ADC
+  (text "CO2 Channel (A2) — Tier: Insight+\nJST-XH — transductor presión CO₂"
+    (at 25.4 119.38 0)
+    (effects (font (size 1.524 1.524)))
+    (uuid "e7a4a6e9-6254-4f45-80bd-826d54c6371e")
+  )
+
+  ;; J3 — Connector
+  (symbol
+    (lib_id "Connector_Generic:Conn_01x03")
+    (at 25.4 127.0 0)
+    (unit 1)
+    (exclude_from_sim no) (in_bom yes) (on_board yes)
+    (uuid "99c4fd2a-43b6-4505-a3cb-624876252e29")
+    (property "Reference" "J3" (at 25.4 121.92 0) (effects (font (size 1.27 1.27))))
+    (property "Value" "JST-XH 3-pin" (at 25.4 123.19 0) (effects (font (size 1.27 1.27))))
+    (property "Footprint" "Connector_JST:JST_XH_B3B-XH-A_1x03_P2.50mm_Vertical"
+      (at 25.4 127.0 0) (effects (font (size 1.27 1.27)) hide))
+    (property "DNP" "Insight+" (at 25.4 127.0 0) (effects (font (size 1.27 1.27)) hide))
+    (pin "1" (uuid "441b9f4e-1ed7-42b4-975f-babb3d2dcc18"))
+    (pin "2" (uuid "4e27aa14-4645-40dc-a690-a7194e228e69"))
+  )
+
+  ;; D6_CO2 — TVS ESD protection
+  (symbol
+    (lib_id "Diode:PESD5V0S1BSF")
+    (at 43.18 127.0 0)
+    (unit 1)
+    (exclude_from_sim no) (in_bom yes) (on_board yes)
+    (uuid "b70f32ac-df9c-4900-81e0-33b112c38b25")
+    (property "Reference" "D6_CO2" (at 43.18 123.19 0) (effects (font (size 1.27 1.27))))
+    (property "Value" "PESD5V0S1BSF" (at 43.18 124.46 0) (effects (font (size 1.27 1.27))))
+    (property "Footprint" "Diode_SMD:D_SOD-323F" (at 43.18 127.0 0) (effects (font (size 1.27 1.27)) hide))
+    (property "MPN" "PESD5V0S1BSF" (at 43.18 127.0 0) (effects (font (size 1.27 1.27)) hide))
+    (property "Digi-Key_PN" "568-13204-1-ND"
+      (at 43.18 127.0 0) (effects (font (size 1.27 1.27)) hide))
+    (pin "1" (uuid "fb02930e-a48b-4f0b-a5e2-733f094fe64e")) (pin "2" (uuid "bae82b39-6bdd-417b-9bdb-0dd00c8b7562"))
+  )
+
+  ;; R5 — RC filter resistor 1k
+  (symbol
+    (lib_id "Device:R")
+    (at 58.42 127.0 90)
+    (unit 1)
+    (exclude_from_sim no) (in_bom yes) (on_board yes)
+    (uuid "77fcc1bc-8ff8-4e80-ad1b-74ec568a27eb")
+    (property "Reference" "R5" (at 58.42 124.46 0) (effects (font (size 1.27 1.27))))
+    (property "Value" "1k 1%" (at 58.42 129.54 0) (effects (font (size 1.27 1.27))))
+    (property "Footprint" "Resistor_SMD:R_0402_1005Metric" (at 58.42 127.0 0) (effects (font (size 1.27 1.27)) hide))
+    (property "MPN" "CRCW04021K00FKED" (at 58.42 127.0 0) (effects (font (size 1.27 1.27)) hide))
+    (pin "1" (uuid "e398bc0e-fb58-49b7-acb9-6567cbaedda3")) (pin "2" (uuid "bbae92d5-2cc4-4014-88aa-2b213a1892bc"))
+  )
+
+  ;; C12 — RC filter cap 100nF
+  (symbol
+    (lib_id "Device:C")
+    (at 68.58 132.08 0)
+    (unit 1)
+    (exclude_from_sim no) (in_bom yes) (on_board yes)
+    (uuid "0d19ab82-c00a-4729-8aff-3c7b21d7400e")
+    (property "Reference" "C12" (at 71.12 132.08 0) (effects (font (size 1.27 1.27)) (justify left)))
+    (property "Value" "100nF" (at 71.12 133.35 0) (effects (font (size 1.27 1.27)) (justify left)))
+    (property "Footprint" "Capacitor_SMD:C_0402_1005Metric" (at 68.58 132.08 0) (effects (font (size 1.27 1.27)) hide))
+    (pin "1" (uuid "91a29a1b-9149-48b3-8efa-e9fe1b21fc5b")) (pin "2" (uuid "788ffb68-8c0a-41c1-96a2-d0f24e05b721"))
+  )
+
+  ;; Pull-down 10M (anti-float when sensor disconnected)
+  (symbol
+    (lib_id "Device:R")
+    (at 76.19999999999999 134.62 0)
+    (unit 1)
+    (exclude_from_sim no) (in_bom yes) (on_board yes)
+    (uuid "f72d4509-aada-4958-a675-bb3819ebe16d")
+    (property "Reference" "R_PD3" (at 78.74000000000001 134.62 0) (effects (font (size 1.27 1.27)) (justify left)))
+    (property "Value" "10M" (at 78.74000000000001 135.89 0) (effects (font (size 1.27 1.27)) (justify left)))
+    (property "Footprint" "Resistor_SMD:R_0402_1005Metric" (at 76.19999999999999 134.62 0) (effects (font (size 1.27 1.27)) hide))
+    (pin "1" (uuid "4a61c649-58c7-4e8f-b66c-b923f49ebb9d")) (pin "2" (uuid "760efbfb-c501-4898-863e-8ffc72735ce1"))
+  )
+
+  ;; U3B — MCP6002 op-amp buffer (unity gain)
+  (symbol
+    (lib_id "Amplifier_Operational:MCP6002-xSN")
+    (at 88.9 127.0 0)
+    (unit 2)
+    (exclude_from_sim no) (in_bom yes) (on_board yes)
+    (uuid "6f561c0b-f211-40be-8d4e-338b31e909e7")
+    (property "Reference" "U3_2" (at 88.9 121.92 0) (effects (font (size 1.27 1.27))))
+    (property "Value" "MCP6002" (at 88.9 123.19 0) (effects (font (size 1.27 1.27))))
+    (property "Footprint" "Package_SO:SOIC-8_3.9x4.9mm_P1.27mm" (at 88.9 127.0 0) (effects (font (size 1.27 1.27)) hide))
+    (property "MPN" "MCP6002-I/SN" (at 88.9 127.0 0) (effects (font (size 1.27 1.27)) hide))
+    (property "Digi-Key_PN" "MCP6002-I/SN-ND" (at 88.9 127.0 0) (effects (font (size 1.27 1.27)) hide))
+    (pin "1" (uuid "32aac009-5128-46c6-b910-000a9b2b174b")) (pin "2" (uuid "47c82ea2-d10e-4287-8e8d-4d4dfa5e47a0")) (pin "3" (uuid "106875fd-06dd-41b8-a88e-8b4938f6c613"))
+  )
+
+  ;; ====== Channel A3 — DO (Insight+) ======
+  ;; Signal chain: J4(BNC_Isolated) → D_DO(TVS) → R_DO/C_DO(RC filter) → buffer → ADC
+  (text "DO Channel (A3) — Tier: Insight+\nBNC hembra — sonda DO"
+    (at 25.4 157.48000000000002 0)
+    (effects (font (size 1.524 1.524)))
+    (uuid "8ee77e47-0b26-4eab-adc6-5d8bd76d9b51")
+  )
+
+  ;; J4 — Connector
+  (symbol
+    (lib_id "nebula_symbols:BNC_Isolated")
+    (at 25.4 165.10000000000002 0)
+    (unit 1)
+    (exclude_from_sim no) (in_bom yes) (on_board yes)
+    (uuid "ea77e46e-025b-4e5b-8ade-6eb1ea7754bb")
+    (property "Reference" "J4" (at 25.4 160.02 0) (effects (font (size 1.27 1.27))))
+    (property "Value" "BNC_Isolated" (at 25.4 161.29000000000002 0) (effects (font (size 1.27 1.27))))
+    (property "Footprint" "nebula_footprints:BNC_Panel_Mount_Isolated"
+      (at 25.4 165.10000000000002 0) (effects (font (size 1.27 1.27)) hide))
+    (property "DNP" "Insight+" (at 25.4 165.10000000000002 0) (effects (font (size 1.27 1.27)) hide))
+    (pin "1" (uuid "f29a50d1-7b3e-4a7f-bb75-16b001210774"))
+    (pin "2" (uuid "1ccd732c-9895-42a6-84fd-588d73f57851"))
+  )
+
+  ;; D_DO — TVS ESD protection
+  (symbol
+    (lib_id "Diode:PESD5V0S1BSF")
+    (at 43.18 165.10000000000002 0)
+    (unit 1)
+    (exclude_from_sim no) (in_bom yes) (on_board yes)
+    (uuid "12120aa8-9ac7-436a-8435-3e1109143605")
+    (property "Reference" "D_DO" (at 43.18 161.29000000000002 0) (effects (font (size 1.27 1.27))))
+    (property "Value" "PESD5V0S1BSF" (at 43.18 162.56000000000003 0) (effects (font (size 1.27 1.27))))
+    (property "Footprint" "Diode_SMD:D_SOD-323F" (at 43.18 165.10000000000002 0) (effects (font (size 1.27 1.27)) hide))
+    (property "MPN" "PESD5V0S1BSF" (at 43.18 165.10000000000002 0) (effects (font (size 1.27 1.27)) hide))
+    (property "Digi-Key_PN" "568-13204-1-ND"
+      (at 43.18 165.10000000000002 0) (effects (font (size 1.27 1.27)) hide))
+    (pin "1" (uuid "f08de8a2-eb0e-4aef-b688-d7aaad97d3fb")) (pin "2" (uuid "99461ac9-7fcf-4a20-8797-d2ec13feb8a5"))
+  )
+
+  ;; R_DO — RC filter resistor 1k
+  (symbol
+    (lib_id "Device:R")
+    (at 58.42 165.10000000000002 90)
+    (unit 1)
+    (exclude_from_sim no) (in_bom yes) (on_board yes)
+    (uuid "c5c075a8-932f-43b3-b3e6-f0d68e3ac509")
+    (property "Reference" "R_DO" (at 58.42 162.56000000000003 0) (effects (font (size 1.27 1.27))))
+    (property "Value" "1k 1%" (at 58.42 167.64000000000001 0) (effects (font (size 1.27 1.27))))
+    (property "Footprint" "Resistor_SMD:R_0402_1005Metric" (at 58.42 165.10000000000002 0) (effects (font (size 1.27 1.27)) hide))
+    (property "MPN" "CRCW04021K00FKED" (at 58.42 165.10000000000002 0) (effects (font (size 1.27 1.27)) hide))
+    (pin "1" (uuid "8ad7cd4c-3241-416b-90e6-454435909e05")) (pin "2" (uuid "94b001fa-623f-4e92-9516-775dd4cc0e01"))
+  )
+
+  ;; C_DO — RC filter cap 100nF
+  (symbol
+    (lib_id "Device:C")
+    (at 68.58 170.18000000000004 0)
+    (unit 1)
+    (exclude_from_sim no) (in_bom yes) (on_board yes)
+    (uuid "1969339b-cc93-4ce0-a9c7-a2edb9c65a70")
+    (property "Reference" "C_DO" (at 71.12 170.18000000000004 0) (effects (font (size 1.27 1.27)) (justify left)))
+    (property "Value" "100nF" (at 71.12 171.45000000000002 0) (effects (font (size 1.27 1.27)) (justify left)))
+    (property "Footprint" "Capacitor_SMD:C_0402_1005Metric" (at 68.58 170.18000000000004 0) (effects (font (size 1.27 1.27)) hide))
+    (pin "1" (uuid "eb0cf7e5-0728-4464-be42-699957848fcd")) (pin "2" (uuid "f4e9e8f0-3735-4c6a-9acf-f4051f93bda5"))
+  )
+
+  ;; Pull-down 10M (anti-float when sensor disconnected)
+  (symbol
+    (lib_id "Device:R")
+    (at 76.19999999999999 172.72000000000003 0)
+    (unit 1)
+    (exclude_from_sim no) (in_bom yes) (on_board yes)
+    (uuid "83588df2-7586-4134-b4e9-f24620f3ce2f")
+    (property "Reference" "R_PD4" (at 78.74000000000001 172.72000000000003 0) (effects (font (size 1.27 1.27)) (justify left)))
+    (property "Value" "10M" (at 78.74000000000001 173.99 0) (effects (font (size 1.27 1.27)) (justify left)))
+    (property "Footprint" "Resistor_SMD:R_0402_1005Metric" (at 76.19999999999999 172.72000000000003 0) (effects (font (size 1.27 1.27)) hide))
+    (pin "1" (uuid "5e28342d-5ac4-47cf-b19c-fadafb905843")) (pin "2" (uuid "b18a7500-db54-43a2-ac9b-dc018a55d434"))
+  )
+
+  ;; U3B_2 — MCP6002 op-amp buffer (unity gain)
+  (symbol
+    (lib_id "Amplifier_Operational:MCP6002-xSN")
+    (at 88.9 165.10000000000002 0)
+    (unit 2)
+    (exclude_from_sim no) (in_bom yes) (on_board yes)
+    (uuid "5eb4a21a-710c-49c1-ae76-c22f296b9234")
+    (property "Reference" "U3_2" (at 88.9 160.02 0) (effects (font (size 1.27 1.27))))
+    (property "Value" "MCP6002" (at 88.9 161.29000000000002 0) (effects (font (size 1.27 1.27))))
+    (property "Footprint" "Package_SO:SOIC-8_3.9x4.9mm_P1.27mm" (at 88.9 165.10000000000002 0) (effects (font (size 1.27 1.27)) hide))
+    (property "MPN" "MCP6002-I/SN" (at 88.9 165.10000000000002 0) (effects (font (size 1.27 1.27)) hide))
+    (property "Digi-Key_PN" "MCP6002-I/SN-ND" (at 88.9 165.10000000000002 0) (effects (font (size 1.27 1.27)) hide))
+    (pin "1" (uuid "39927476-1b6e-4ca4-99cc-b8c2b7e0e113")) (pin "2" (uuid "196b791b-0ebd-40ec-a2e0-6be0eedd2de2")) (pin "3" (uuid "2bce51ea-2d5a-4da9-832d-ecb3a6c0f331"))
+  )
+
+  ;; Galvanic isolation for DO channel (on-board, Option A)
+  ;; SN6501 transformer driver + ADuM1250 I2C isolator
+  (symbol
+    (lib_id "nebula_symbols:SN6501DBVR")
+    (at 109.22 177.8 0)
+    (unit 1)
+    (exclude_from_sim no) (in_bom yes) (on_board yes)
+    (uuid "59f0f423-c937-41d3-b0de-f738dad24ea7")
+    (property "Reference" "U_ISO_DO" (at 109.22 172.72 0) (effects (font (size 1.27 1.27))))
+    (property "Value" "SN6501" (at 109.22 173.99 0) (effects (font (size 1.27 1.27))))
+    (property "Footprint" "Package_TO_SOT_SMD:SOT-23-5" (at 109.22 177.8 0) (effects (font (size 1.27 1.27)) hide))
+    (pin "1" (uuid "69fc3807-7120-43f1-92d5-2e193b868553")) (pin "2" (uuid "57f19500-cad6-468e-b9dc-4724c41f6da8")) (pin "3" (uuid "1b5eccb9-a569-4dd1-b91f-3655705e0408"))
+    (pin "4" (uuid "c1292c89-2be2-4239-a74f-aa1cb5141873")) (pin "5" (uuid "a1d708f1-64ce-49f6-842b-7ec1c8c99a7d"))
+  )
+  (symbol
+    (lib_id "nebula_symbols:ADuM1250ARZ")
+    (at 134.62 177.8 0)
+    (unit 1)
+    (exclude_from_sim no) (in_bom yes) (on_board yes)
+    (uuid "4eb6ac07-a870-46ba-9f95-eb6e8d41181b")
+    (property "Reference" "U_ADuM_DO" (at 134.62 172.72 0) (effects (font (size 1.27 1.27))))
+    (property "Value" "ADuM1250" (at 134.62 173.99 0) (effects (font (size 1.27 1.27))))
+    (property "Footprint" "Package_SO:SOIC-8_3.9x4.9mm_P1.27mm" (at 134.62 177.8 0) (effects (font (size 1.27 1.27)) hide))
+    (property "MPN" "ADuM1250ARZ" (at 134.62 177.8 0) (effects (font (size 1.27 1.27)) hide))
+    (pin "1" (uuid "954400fa-f1ce-47bb-b1e7-cacd171f23ff")) (pin "2" (uuid "4d188c39-1130-4cf3-a068-2a442b822eea")) (pin "3" (uuid "55f2dafb-6faf-457a-9867-f3b3aef6a41b"))
+    (pin "4" (uuid "4b959ab7-fcd8-40f7-a395-fcfeac640d48")) (pin "5" (uuid "bc6e9272-14a1-43e7-a2d7-d1f009af6777")) (pin "6" (uuid "cd13e579-cb54-45cc-af06-9d3929fdef1a"))
+    (pin "7" (uuid "6c578d77-81c7-40b9-860b-97caa4c449b9")) (pin "8" (uuid "c6dedf03-9e57-4766-8d1b-7e45e920d438"))
+  )
+  ;; Isolation barrier decoupling caps (100nF each side)
+  (symbol
+    (lib_id "Device:C")
+    (at 121.91999999999999 185.42000000000002 0)
+    (unit 1)
+    (exclude_from_sim no) (in_bom yes) (on_board yes)
+    (uuid "7a0b94e8-87da-4463-aa72-29672d555d92")
+    (property "Reference" "C_ISO_DO_1" (at 124.46000000000001 185.42000000000002 0) (effects (font (size 1.27 1.27)) (justify left)))
+    (property "Value" "100nF" (at 124.46000000000001 186.69 0) (effects (font (size 1.27 1.27)) (justify left)))
+    (property "Footprint" "Capacitor_SMD:C_0402_1005Metric" (at 121.91999999999999 185.42000000000002 0) (effects (font (size 1.27 1.27)) hide))
+    (pin "1" (uuid "f50eba5f-6093-47ca-95a9-c932806dd2b0")) (pin "2" (uuid "2702e6fa-f984-405c-985f-59e8380cf0da"))
+  )
+  (symbol
+    (lib_id "Device:C")
+    (at 147.32 185.42000000000002 0)
+    (unit 1)
+    (exclude_from_sim no) (in_bom yes) (on_board yes)
+    (uuid "5f423ba2-e4cd-4068-9721-7bfb2543e9ee")
+    (property "Reference" "C_ISO_DO_2" (at 149.85999999999999 185.42000000000002 0) (effects (font (size 1.27 1.27)) (justify left)))
+    (property "Value" "100nF" (at 149.85999999999999 186.69 0) (effects (font (size 1.27 1.27)) (justify left)))
+    (property "Footprint" "Capacitor_SMD:C_0402_1005Metric" (at 147.32 185.42000000000002 0) (effects (font (size 1.27 1.27)) hide))
+    (pin "1" (uuid "219c1dad-72f6-4306-883c-8de95edc26c3")) (pin "2" (uuid "ae8cf508-eaea-4ca4-88d4-61d36cb3e4c0"))
+  )
+
+  ;; ====== Channel A4 — TEMP (Essential+) ======
+  ;; Signal chain: J5(JST-XH 2-pin) → D5(TVS) → R8/C13(RC filter) → buffer → ADC
+  (text "TEMP Channel (A4) — Tier: Essential+\nJST-XH — NTC thermistor"
+    (at 25.4 195.57999999999998 0)
+    (effects (font (size 1.524 1.524)))
+    (uuid "8f351b6c-29eb-464c-93c3-cd2d5137926a")
+  )
+
+  ;; J5 — Connector
+  (symbol
+    (lib_id "Connector_Generic:Conn_01x02")
+    (at 25.4 203.2 0)
+    (unit 1)
+    (exclude_from_sim no) (in_bom yes) (on_board yes)
+    (uuid "7cd5d5e5-e9c2-4000-8fe9-951d00302a44")
+    (property "Reference" "J5" (at 25.4 198.11999999999998 0) (effects (font (size 1.27 1.27))))
+    (property "Value" "JST-XH 2-pin" (at 25.4 199.39 0) (effects (font (size 1.27 1.27))))
+    (property "Footprint" "Connector_JST:JST_XH_B2B-XH-A_1x02_P2.50mm_Vertical"
+      (at 25.4 203.2 0) (effects (font (size 1.27 1.27)) hide))
+    (property "DNP" "NO" (at 25.4 203.2 0) (effects (font (size 1.27 1.27)) hide))
+    (pin "1" (uuid "8f7bc990-47ca-4a45-a0c7-42622502e4d9"))
+    (pin "2" (uuid "2f8fa22e-a513-49a8-a46c-c49f744feaa0"))
+  )
+
+  ;; D5 — TVS ESD protection
+  (symbol
+    (lib_id "Diode:PESD5V0S1BSF")
+    (at 43.18 203.2 0)
+    (unit 1)
+    (exclude_from_sim no) (in_bom yes) (on_board yes)
+    (uuid "3191d900-cda8-4e4c-8d0e-398e4f28b094")
+    (property "Reference" "D5" (at 43.18 199.39 0) (effects (font (size 1.27 1.27))))
+    (property "Value" "PESD3V3S1BSF" (at 43.18 200.66 0) (effects (font (size 1.27 1.27))))
+    (property "Footprint" "Diode_SMD:D_SOD-323F" (at 43.18 203.2 0) (effects (font (size 1.27 1.27)) hide))
+    (property "MPN" "PESD3V3S1BSF" (at 43.18 203.2 0) (effects (font (size 1.27 1.27)) hide))
+    (property "Digi-Key_PN" "568-13206-1-ND"
+      (at 43.18 203.2 0) (effects (font (size 1.27 1.27)) hide))
+    (pin "1" (uuid "b0c88e2c-50f8-4bb7-ac19-5232e197a845")) (pin "2" (uuid "4e960bac-a17e-4f7b-aa6d-f2a2ca932701"))
+  )
+
+  ;; R8 — RC filter resistor 1k
+  (symbol
+    (lib_id "Device:R")
+    (at 58.42 203.2 90)
+    (unit 1)
+    (exclude_from_sim no) (in_bom yes) (on_board yes)
+    (uuid "29e8f3d0-ea09-44ef-ad0e-7ea857a31845")
+    (property "Reference" "R8" (at 58.42 200.66 0) (effects (font (size 1.27 1.27))))
+    (property "Value" "1k 1%" (at 58.42 205.73999999999998 0) (effects (font (size 1.27 1.27))))
+    (property "Footprint" "Resistor_SMD:R_0402_1005Metric" (at 58.42 203.2 0) (effects (font (size 1.27 1.27)) hide))
+    (property "MPN" "CRCW04021K00FKED" (at 58.42 203.2 0) (effects (font (size 1.27 1.27)) hide))
+    (pin "1" (uuid "c9b5ece4-8ece-4639-869b-07f731a94c45")) (pin "2" (uuid "16d167a2-5c84-45bc-9d53-f676965d9f7c"))
+  )
+
+  ;; C13 — RC filter cap 100nF
+  (symbol
+    (lib_id "Device:C")
+    (at 68.58 208.28 0)
+    (unit 1)
+    (exclude_from_sim no) (in_bom yes) (on_board yes)
+    (uuid "f9aadc19-71e0-42f7-b0c9-111e4d572da4")
+    (property "Reference" "C13" (at 71.12 208.28 0) (effects (font (size 1.27 1.27)) (justify left)))
+    (property "Value" "100nF" (at 71.12 209.54999999999998 0) (effects (font (size 1.27 1.27)) (justify left)))
+    (property "Footprint" "Capacitor_SMD:C_0402_1005Metric" (at 68.58 208.28 0) (effects (font (size 1.27 1.27)) hide))
+    (pin "1" (uuid "b2c85c71-a2f4-4247-8959-676bdba7cdb5")) (pin "2" (uuid "e0fd84e8-b698-4275-9033-3aa21624490d"))
+  )
+
+  ;; Pull-down 10M (anti-float when sensor disconnected)
+  (symbol
+    (lib_id "Device:R")
+    (at 76.19999999999999 210.82 0)
+    (unit 1)
+    (exclude_from_sim no) (in_bom yes) (on_board yes)
+    (uuid "5f5c85a9-1946-441c-a5e7-dae759e3444a")
+    (property "Reference" "R_PD5" (at 78.74000000000001 210.82 0) (effects (font (size 1.27 1.27)) (justify left)))
+    (property "Value" "10M" (at 78.74000000000001 212.08999999999997 0) (effects (font (size 1.27 1.27)) (justify left)))
+    (property "Footprint" "Resistor_SMD:R_0402_1005Metric" (at 76.19999999999999 210.82 0) (effects (font (size 1.27 1.27)) hide))
+    (pin "1" (uuid "b03397eb-975c-4b3a-94ea-bc44ff85448d")) (pin "2" (uuid "7ba35ee2-1a98-407e-95ff-c9caada9de23"))
+  )
+
+  ;; ====== Channel A5 — HUM (Signature) ======
+  ;; Signal chain: J6(JST-XH 3-pin) → D6(TVS) → R9/C14(RC filter) → buffer → ADC
+  (text "HUM Channel (A5) — Tier: Signature\nJST-XH — sensor humedad"
+    (at 25.4 233.68 0)
+    (effects (font (size 1.524 1.524)))
+    (uuid "c7e8c5eb-6cfd-47ad-a5aa-284ee20ce7ab")
+  )
+
+  ;; J6 — Connector
+  (symbol
+    (lib_id "Connector_Generic:Conn_01x03")
+    (at 25.4 241.3 0)
+    (unit 1)
+    (exclude_from_sim no) (in_bom yes) (on_board yes)
+    (uuid "e9202376-c0ff-4f31-a2f8-348242bb7c75")
+    (property "Reference" "J6" (at 25.4 236.22 0) (effects (font (size 1.27 1.27))))
+    (property "Value" "JST-XH 3-pin" (at 25.4 237.49 0) (effects (font (size 1.27 1.27))))
+    (property "Footprint" "Connector_JST:JST_XH_B3B-XH-A_1x03_P2.50mm_Vertical"
+      (at 25.4 241.3 0) (effects (font (size 1.27 1.27)) hide))
+    (property "DNP" "Signature" (at 25.4 241.3 0) (effects (font (size 1.27 1.27)) hide))
+    (pin "1" (uuid "8b5fbdbb-d28b-465f-bb31-606d792a0b88"))
+    (pin "2" (uuid "c27cbdd7-8b61-4b5b-92b7-153e36a7d0cc"))
+  )
+
+  ;; D6 — TVS ESD protection
+  (symbol
+    (lib_id "Diode:PESD5V0S1BSF")
+    (at 43.18 241.3 0)
+    (unit 1)
+    (exclude_from_sim no) (in_bom yes) (on_board yes)
+    (uuid "f3bfc319-c1ce-4590-805f-ce95ce70d4b0")
+    (property "Reference" "D6" (at 43.18 237.49 0) (effects (font (size 1.27 1.27))))
+    (property "Value" "PESD5V0S1BSF" (at 43.18 238.76000000000002 0) (effects (font (size 1.27 1.27))))
+    (property "Footprint" "Diode_SMD:D_SOD-323F" (at 43.18 241.3 0) (effects (font (size 1.27 1.27)) hide))
+    (property "MPN" "PESD5V0S1BSF" (at 43.18 241.3 0) (effects (font (size 1.27 1.27)) hide))
+    (property "Digi-Key_PN" "568-13204-1-ND"
+      (at 43.18 241.3 0) (effects (font (size 1.27 1.27)) hide))
+    (pin "1" (uuid "da8a3635-0b03-4d64-bdb6-644ab5900e1a")) (pin "2" (uuid "8b2f4570-9bdf-4354-8088-523e53296b86"))
+  )
+
+  ;; R9 — RC filter resistor 1k
+  (symbol
+    (lib_id "Device:R")
+    (at 58.42 241.3 90)
+    (unit 1)
+    (exclude_from_sim no) (in_bom yes) (on_board yes)
+    (uuid "1f4e5936-f3f9-4907-99c9-5bde8229eb2a")
+    (property "Reference" "R9" (at 58.42 238.76000000000002 0) (effects (font (size 1.27 1.27))))
+    (property "Value" "1k 1%" (at 58.42 243.84 0) (effects (font (size 1.27 1.27))))
+    (property "Footprint" "Resistor_SMD:R_0402_1005Metric" (at 58.42 241.3 0) (effects (font (size 1.27 1.27)) hide))
+    (property "MPN" "CRCW04021K00FKED" (at 58.42 241.3 0) (effects (font (size 1.27 1.27)) hide))
+    (pin "1" (uuid "c6449dbf-07e5-45f8-8c6c-c01f2dc8f2a0")) (pin "2" (uuid "03c03802-68d0-4edd-b4ec-d74a52a9220f"))
+  )
+
+  ;; C14 — RC filter cap 100nF
+  (symbol
+    (lib_id "Device:C")
+    (at 68.58 246.38000000000002 0)
+    (unit 1)
+    (exclude_from_sim no) (in_bom yes) (on_board yes)
+    (uuid "5e3a351d-0a06-4384-aa03-0101f67cbfbc")
+    (property "Reference" "C14" (at 71.12 246.38000000000002 0) (effects (font (size 1.27 1.27)) (justify left)))
+    (property "Value" "100nF" (at 71.12 247.65 0) (effects (font (size 1.27 1.27)) (justify left)))
+    (property "Footprint" "Capacitor_SMD:C_0402_1005Metric" (at 68.58 246.38000000000002 0) (effects (font (size 1.27 1.27)) hide))
+    (pin "1" (uuid "8bdf1b6d-0335-4a32-ad9f-d94996367c1b")) (pin "2" (uuid "71f0064f-b725-4591-991b-f93f9cb96bbd"))
+  )
+
+  ;; Pull-down 10M (anti-float when sensor disconnected)
+  (symbol
+    (lib_id "Device:R")
+    (at 76.19999999999999 248.92000000000002 0)
+    (unit 1)
+    (exclude_from_sim no) (in_bom yes) (on_board yes)
+    (uuid "7c076a2d-4939-41af-808e-3043e98bfa89")
+    (property "Reference" "R_PD6" (at 78.74000000000001 248.92000000000002 0) (effects (font (size 1.27 1.27)) (justify left)))
+    (property "Value" "10M" (at 78.74000000000001 250.19 0) (effects (font (size 1.27 1.27)) (justify left)))
+    (property "Footprint" "Resistor_SMD:R_0402_1005Metric" (at 76.19999999999999 248.92000000000002 0) (effects (font (size 1.27 1.27)) hide))
+    (pin "1" (uuid "30ef5e5c-eaf3-4a0b-afae-0146abf56715")) (pin "2" (uuid "4909e306-e5d4-4edf-a19f-24841cfccf18"))
+  )
+
+  ;; =====================================================
+  ;; Hierarchical Labels
+  ;; =====================================================
+  (hierarchical_label "PH_ADC"   (shape output) (at 162.56 50.8 0)  (effects (font (size 1.27 1.27))) (uuid "9bf33ad2-6b31-4ab3-a057-658aaa65ea08"))
+  (hierarchical_label "ORP_ADC"  (shape output) (at 162.56 88.9 0)  (effects (font (size 1.27 1.27))) (uuid "9f5505a9-293a-40c4-a078-7d21cb7b75ae"))
+  (hierarchical_label "CO2_ADC"  (shape output) (at 162.56 127.0 0) (effects (font (size 1.27 1.27))) (uuid "bd046f48-8cdd-4e4c-8f3f-e85ec1df6fea"))
+  (hierarchical_label "DO_ADC"   (shape output) (at 162.56 165.1 0) (effects (font (size 1.27 1.27))) (uuid "b0fb0af3-26df-46f4-a8d7-0c7e2b49404b"))
+  (hierarchical_label "TEMP_ADC" (shape output) (at 162.56 203.2 0) (effects (font (size 1.27 1.27))) (uuid "d00a1907-eb7c-4c69-86ac-24e1d3621898"))
+  (hierarchical_label "HUM_ADC"  (shape output) (at 162.56 241.3 0) (effects (font (size 1.27 1.27))) (uuid "6f29c09d-c0a6-489d-a71c-df205c772271"))
+  (hierarchical_label "3V3_RAIL" (shape input)  (at 10.16 25.4 0)   (effects (font (size 1.27 1.27))) (uuid "aa79edb4-cb90-4882-95fa-580ee43fc51f"))
+  (hierarchical_label "5V_RAIL"  (shape input)  (at 10.16 30.48 0)  (effects (font (size 1.27 1.27))) (uuid "acbb2f44-0000-4ac8-9590-318af1f53d51"))
+  (hierarchical_label "GND"      (shape bidirectional) (at 10.16 35.56 0) (effects (font (size 1.27 1.27))) (uuid "9f737406-462e-491a-9cbc-315f8bff35dd"))
+  (hierarchical_label "AGND"     (shape bidirectional) (at 10.16 40.64 0) (effects (font (size 1.27 1.27))) (uuid "be2e2f8c-94b1-49a5-a5bb-a64fc672ef7d"))
+
+  ;; Op-amp decoupling
+  (symbol
+    (lib_id "Device:C")
+    (at 200.66 50.8 0) (unit 1)
+    (exclude_from_sim no) (in_bom yes) (on_board yes)
+    (uuid "21aa2a8f-7e87-4d23-a42b-7aa91be2e1cc")
+    (property "Reference" "C23" (at 203.2 50.8 0) (effects (font (size 1.27 1.27)) (justify left)))
+    (property "Value" "100nF" (at 203.2 52.07 0) (effects (font (size 1.27 1.27)) (justify left)))
+    (property "Footprint" "Capacitor_SMD:C_0402_1005Metric" (at 200.66 50.8 0) (effects (font (size 1.27 1.27)) hide))
+    (pin "1" (uuid "da58e65b-9294-4d04-ac45-d13428fd5ee4")) (pin "2" (uuid "c27db154-d68a-4ee1-bac4-105c602a734b"))
+  )
+
+  (text "ANALOG ACQUISITION — 6 channels with on-board galvanic isolation\nEach wet sensor (pH, ORP, DO) has dedicated SN6501+ADuM1250 isolation barrier\nAll channels: Connector → TVS ESD → RC filter → Op-amp buffer → ADC\nPull-downs 10M prevent floating reads when sensor disconnected"
+    (at 25.4 15.24 0)
+    (effects (font (size 2.54 2.54)))
+    (uuid "dfca88cc-b719-46f4-bfa5-84cb805e9550")
+  )
+
+)
