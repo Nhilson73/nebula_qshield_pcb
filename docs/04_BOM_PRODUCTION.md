@@ -105,8 +105,7 @@
 | J6 | 1 | JST-XH header, right angle | 3 | B3B-XH-A(LF)(SN) | 455-2248-ND | $0.15 |
 | J7–J13 | 7 | JST-SH header (Qwiic compat.) | 4 | SM04B-SRSS-TB(LF)(SN) | 455-1804-1-ND | $0.32 |
 | J14 | 1 | Terminal block, rising clamp | 4 | 1757242 (Phoenix Contact) | 277-1274-ND | $0.85 |
-| J15 | 1 | Micro-HDMI Type D receptacle | 19 | 10029449-111RLF | 609-10029449-111RLFCT-ND | $1.20 |
-| J16 | 1 | USB-A receptacle, vertical | 4 | SS-52100-001 | SAM15112-ND | $0.65 |
+| J_HMI | 1 | JST-XH header, HMI UART | 4 (5V/TX/RX/GND) | B4B-XH-A(LF)(SN) | 455-2249-ND | $0.15 |
 | J17 | 1 | DC barrel jack, 2.1×5.5mm | 3 | PJ-002AH | CP-002AH-ND | $0.75 |
 | J18–J20 | 3 | Terminal block, 2-pin | 2 | 1757229 (Phoenix Contact) | 277-1273-ND | $0.52 |
 | J21 | 1 | Pin header, 2×20 stackable | 40 | — (Arduino shield header set) | — | $1.50 |
@@ -144,13 +143,11 @@
 
 ---
 
-## 9. BOM Completa — ESD Protection (Display)
+## 9. BOM Completa — ESD Protection (HMI UART)
 
 | Ref | Qty | Descripción | Valor | Encapsulado | MPN | Digi-Key PN | Precio (100+) |
 |-----|-----|------------|-------|-------------|-----|-------------|---------------|
-| D14 | 1 | ESD protection, HDMI | 5V quad, 0.3pF | SOT-665 | PRTR5V0U2X | 568-4052-1-ND | $0.18 |
-| D15 | 1 | ESD protection, HDMI | 5V quad | SOT-665 | PRTR5V0U2X | 568-4052-1-ND | $0.18 |
-| D16 | 1 | ESD protection, USB | 5V quad | SOT-665 | PRTR5V0U2X | 568-4052-1-ND | $0.18 |
+| D_HMI | 1 | ESD protection, HMI UART dual-line | 3.3V dual, 0.4pF | SOT-23-3 | PESD3V3S2USF | 568-13207-1-ND | $0.22 |
 
 ---
 
