@@ -340,32 +340,34 @@ Los sensores pH, ORP y DO comparten el mismo líquido (mosto de fermentación). 
 
 ---
 
-### 2.6 Bloque de Display
+### 2.6 Bloque de HMI (Human-Machine Interface)
 
-#### 2.6.1 Conexión HDMI
+#### 2.6.1 Conexión HMI UART
 
 ```
-    QRB2210 MPU HDMI ──►[Micro-HDMI Conector J15]──►[Cable HDMI 30cm]──► Pantalla 5"
+    MCU (D0/D1 UART) ──►[Q-Shield J_HMI JST-XH 4P]──►[Cable JST-XH]──► Nextion/Stone 5"
 ```
 
 | Componente | Ref | Función |
 |------------|-----|---------|
-| J15 | Micro-HDMI Type D receptacle | Salida video al display |
-| J16 | USB-A receptacle | Entrada touch capacitivo |
-| D14, D15 | PRTR5V0U2X | ESD protection HDMI | Protección descargas en cable |
-| D16 | PRTR5V0U2X | ESD protection USB | Protección USB touch |
+| J_HMI | JST-XH 4-pin (B4B-XH-A) | Conector HMI: 5V/TX/RX/GND |
+| D_HMI | PESD3V3S2USF | ESD protection UART dual-line |
 
-#### 2.6.2 Pantalla Waveshare 5" HDMI
+> **Nota de diseño:** El Arduino UNO Q no tiene salida HDMI (solo DisplayPort Alt-Mode vía USB-C).
+> El HMI UART simplifica el diseño: elimina 5 componentes (~$2.45), routing de alta velocidad,
+> y utiliza un protocolo serial ASCII simple.
+
+#### 2.6.2 Pantalla HMI Nextion/Stone 5"
 
 | Especificación | Valor |
 |---------------|-------|
 | Resolución | 800 × 480 px |
 | Touch | Capacitivo, 5 puntos |
-| Interfaz video | HDMI |
-| Interfaz touch | USB |
-| Alimentación | 5V vía HDMI o USB |
-| Cristal | Vidrio templado 6H |
-| Ángulo de visión | 170° |
+| Interfaz | UART TTL (115200 baud) |
+| Protocolo | ASCII serial (Nextion) / JSON (Stone) |
+| Alimentación | 5V vía JST-XH pin 1 |
+| Conector | JST-XH 4-pin: VCC / TX / RX / GND |
+| Procesador | Integrado (renderiza UI localmente) |
 
 ---
 
@@ -403,8 +405,8 @@ Los sensores pH, ORP y DO comparten el mismo líquido (mosto de fermentación). 
 | J12 | JST-SH 4-pin | VCC/GND/SDA/SCL | Atlas EZO-DO | Opcional |
 | J13 | JST-SH 4-pin | VCC/GND/SDA/SCL | Atlas EZO-RTD | Opcional |
 | J14 | Terminal block 4-pin | E+/E-/S+/S- | Celda de carga | Essential+ |
-| J15 | Micro-HDMI Type D | 19 | Video a pantalla 5" | Todos |
-| J16 | USB-A | 4 | Touch capacitivo pantalla | Todos |
+| J_HMI | JST-XH 4-pin | 4 (5V/TX/RX/GND) | HMI UART (Nextion/Stone) | Todos |
+| J_RS485 | Terminal block 4-pin | 4 | RS485 (Hamilton Incyte) | Signature |
 | J17 | Terminal block 2-pin | +/- | Entrada 12V DC | Todos |
 | J18 | Terminal block 2-pin | +/- | Motor bomba 12V | Insight+ |
 | J19 | Terminal block 2-pin | +/- | Solenoide CO₂ 12V | Insight+ |
@@ -533,7 +535,7 @@ El Q-Shield usa una **PCB única** para los tres tiers. Los componentes no pobla
 | Load cell (HX711) | ✓ | ✓ | ✓ |
 | GPS (I2C) | ✓ | ✓ | ✓ |
 | RTC (I2C) | ✓ | ✓ | ✓ |
-| Display (HDMI+USB) | ✓ | ✓ | ✓ |
+| HMI UART (Nextion) | ✓ | ✓ | ✓ |
 | CO₂ presión (A2) | DNP | ✓ | ✓ |
 | DO (A3 + buffer) | DNP | ✓ | ✓ |
 | Bomba (driver) | DNP | ✓ | ✓ |

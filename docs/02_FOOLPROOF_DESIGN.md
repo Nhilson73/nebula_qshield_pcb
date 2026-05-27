@@ -51,8 +51,7 @@ Cada conector del Q-Shield® es **mecánicamente keyed** — es físicamente imp
 | Sensores analógicos | JST-XH (2.54 mm) | Polarizado con tab | Inversión de pines imposible |
 | I2C (GPS, RTC, Cell) | JST-SH 4-pin (Qwiic) | 1.0 mm polarizado | Estándar Qwiic — universal |
 | Celda de carga | Terminal block con tornillo | 4-pin etiquetado | Color-coded: E+/E-/S+/S- |
-| Display HDMI | Micro-HDMI Type D | Trapezoidal | Solo una orientación |
-| Display Touch | USB-A | Rectangular keyed | Solo una orientación |
+| HMI UART | JST-XH 4-pin (2.54 mm) | Polarizado con tab | Inversión de pines imposible |
 | Alimentación 12V | DC barrel jack | 2.1×5.5mm, center-positive | Diámetro impide jacks incorrectos |
 
 ### 2.2 Etiquetado y Serigrafía
@@ -155,8 +154,7 @@ Los relays K1 y K2 tienen diodos flyback (1N4148W) que absorben la energía indu
 | Canal ADC (A4–A5) | PESD3V3S1BSF | 7.5V @ 1A | 0.4 pF | IEC 61000-4-2 Level 4 |
 | I2C SDA/SCL | PESD3V3S2USF | 7.5V dual | 0.4 pF | IEC 61000-4-2 Level 4 |
 | GPIO digitales | PESD5V0S1BSF | 9.8V | 0.3 pF | IEC 61000-4-2 Level 4 |
-| HDMI data | PRTR5V0U2X | 5.5V quad | 0.3 pF | IEC 61000-4-2 Level 4 |
-| USB data | PRTR5V0U2X | 5.5V quad | 0.3 pF | IEC 61000-4-2 Level 4 |
+| HMI UART TX/RX | PESD3V3S2USF | 7.5V dual | 0.4 pF | IEC 61000-4-2 Level 4 |
 
 ### 4.3 Diseño de PCB para ESD
 
@@ -370,7 +368,7 @@ El firmware lee periódicamente los voltajes de los rails de potencia:
 | 4 | Toca conector con descarga estática | 3 | TVS < 0.4 pF | Sin daño, sin error de lectura |
 | 5 | Conecta sensor en puerto incorrecto | 1 | Conectores keyed JST | Físicamente imposible |
 | 6 | Alimenta 12V sin sensor conectado | 4 | Pull-down 10MΩ en cada canal | Lee 0V (sin flotante) |
-| 7 | Desconecta pantalla en caliente | 3 | ESD protection HDMI/USB | Sin daño |
+| 7 | Desconecta HMI en caliente | 3 | ESD protection UART (PESD3V3S2USF) | Sin daño |
 | 8 | Sumerge cable sensor en agua | 6 | Aislamiento galvánico | Sin ground loop |
 | 9 | Cortocircuita motor bomba | 4 | PTC + driver overcurrent | Auto-shutdown, auto-reset |
 | 10 | Olvida desconectar CO₂ | 7 | Presión max 180 kPa → cierre automático | Seguro (latching) |
@@ -406,7 +404,7 @@ El firmware lee periódicamente los voltajes de los rails de potencia:
 | D3–D6 | PESD5V0S1BSF / PESD3V3S1BSF | 6 | ESD por canal analógico |
 | D7–D8 | PESD3V3S2USF | 1 | ESD bus I2C (dual) |
 | D9–D13 | SS34 | 5 | Flyback actuadores |
-| D14–D16 | PRTR5V0U2X | 3 | ESD HDMI + USB |
+| D_HMI | PESD3V3S2USF | 1 | ESD HMI UART dual-line |
 | F1 | MF-MSMF110 (PTC) | 1 | Fusible recuperable principal |
 | F2–F4 | PTC 0805 | 3 | Fusibles por actuador |
 | U8–U11 | PC817 | 4 | Optoacoplamiento actuadores |

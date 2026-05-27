@@ -90,7 +90,7 @@
 | Componente | Estado activo | Estado standby | Notas |
 |-----------|--------------|----------------|-------|
 | Arduino UNO Q (MCU + MPU) | 1,500 mA | 800 mA | Docker + MQTT + display driver |
-| Pantalla Waveshare 5" HDMI | 400 mA | 200 mA | Backlight + touch controller |
+| HMI Nextion/Stone 5" UART | 400 mA | 200 mA | Backlight + procesador integrado (alimentado vía J_HMI 5V) |
 | GPS SAM-M8Q | 50 mA | 25 mA | Acquisition vs tracking |
 | HX711 ADC | 1.5 mA | 0.001 mA | Power down < 1 μA |
 | Relays coil driver (vía Q3/Q4) | 5 mA | 0 mA | Gate drive only |

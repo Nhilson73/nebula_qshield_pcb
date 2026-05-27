@@ -1,6 +1,6 @@
 # Nebula Q-Shield® PCB
 
-**Precision Fermentation Monitor** — PCB shield industrial para el Arduino UNO Q, con 12 componentes de adquisición de datos, control de actuadores, pantalla HDMI 5", y cumplimiento normativo europeo completo.
+**Precision Fermentation Monitor** — PCB shield industrial para el Arduino UNO Q, con 12 componentes de adquisición de datos, control de actuadores, HMI UART 5" (Nextion/Stone), y cumplimiento normativo europeo completo.
 
 Built by [Cafelium SRL](https://github.com/Nhilson73) · 🇩🇴 Dominican Republic
 
@@ -23,7 +23,7 @@ El Q-Shield® es un **PCB shield de 4 capas** que se monta sobre el Arduino UNO 
 │  │              │  │              │  │                      │   │
 │  │ Buck 12→5V   │  │ 6× ADC      │  │ I2C bus (7 devices)  │   │
 │  │ LDO 5→3.3V   │  │ Op-amp buf. │  │ HX711 24-bit ADC     │   │
-│  │ TVS + PTC    │  │ RC filters  │  │ HDMI + USB (display) │   │
+│  │ TVS + PTC    │  │ RC filters  │  │ HMI UART (Nextion)   │   │
 │  │ Schottky     │  │ ESD protect │  │ ESD protection       │   │
 │  └──────────────┘  └──────────────┘  └──────────────────────┘   │
 │                                                                   │
@@ -55,7 +55,7 @@ El Q-Shield® es un **PCB shield de 4 capas** que se monta sobre el Arduino UNO 
 | 9 | Sensor densidad celular (turbidez) | I2C 0x30 | Signature |
 | 10 | RTC DS3231 (reloj tiempo real) | I2C 0x68 | Todos |
 | 11 | Módulo relay 4 canales (actuadores) | GPIO D4–D7, D9 | Insight+ |
-| 12 | Pantalla HDMI 5" + USB touch | HDMI + USB | Todos |
+| 12 | HMI UART 5" (Nextion/Stone) | UART TX/RX (JST-XH 4P) | Todos |
 
 ---
 
@@ -103,7 +103,8 @@ Una sola PCB para los 3 tiers — los componentes no poblados (DNP) se seleccion
 - **PTC recuperable** — Auto-reset después de cortocircuito
 - **Thermal shutdown** — Reguladores se apagan a 85°C y se recuperan
 - **Opto-aislamiento** — MCU aislado de actuadores de potencia
-- **Watchdog 8s** — Reset automático + store-forward de datos
+- **Watchdog dual** — TPS3823 externo (1.6s) + IWDG interno (8s), poblado en TODOS los tiers
+- **Aislamiento galvánico on-board** — SN6501 + ADuM1250 por sensor húmedo (pH, ORP, DO)
 
 ---
 
@@ -138,17 +139,21 @@ nebula_qshield_pcb/
 │
 ├── kicad/                             # Proyecto KiCad 8.x
 │   ├── nebula_qshield.kicad_pro       # Proyecto principal
-│   ├── nebula_qshield.kicad_sch       # Esquemático (jerárquico)
-│   ├── nebula_qshield.kicad_pcb       # Layout PCB
-│   ├── symbols/                       # Símbolos esquemáticos custom
-│   ├── footprints.pretty/             # Footprints custom
+│   ├── nebula_qshield.kicad_sch       # Esquemático raíz (jerárquico)
+│   ├── power_management.kicad_sch     # Sub-hoja: reguladores y protección
+│   ├── analog_acquisition.kicad_sch   # Sub-hoja: 6 canales analógicos
+│   ├── digital_i2c.kicad_sch         # Sub-hoja: bus I2C y HX711
+│   ├── actuator_drivers.kicad_sch    # Sub-hoja: drivers de actuadores
+│   ├── hmi_connectors.kicad_sch      # Sub-hoja: HMI UART y conectores
+│   ├── nebula_qshield.kicad_dru       # Reglas de diseño (IPC-2221B)
+│   ├── nebula_qshield.kicad_pcb       # Layout PCB (pendiente)
+│   ├── lib/
+│   │   ├── nebula_symbols.kicad_sym   # 8 símbolos custom
+│   │   └── nebula_footprints.pretty/  # Footprints custom (BNC, shield)
 │   ├── 3d_models/                     # Modelos 3D (STEP/WRL)
-│   └── gerber/                        # Archivos de fabricación
-│
-├── production/                        # Archivos de producción
-│   ├── bom/                           # BOM exportado (CSV)
-│   ├── assembly/                      # CPL, instrucciones de ensamblaje
-│   └── stencil/                       # Archivos de stencil
+│   ├── gerber/                        # Archivos de fabricación
+│   └── production/
+│       └── bom/                       # BOM exportado (CSV con Digi-Key PNs)
 │
 ├── hardware/                          # Diseño mecánico
 │   ├── enclosure/                     # Carcasa/enclosure IP54
@@ -159,6 +164,17 @@ nebula_qshield_pcb/
 │   └── validation/                    # Reportes de validación
 │
 └── tools/                             # Scripts y utilidades
+```
+
+### Esquemáticos Jerárquicos Completados
+
+```
+nebula_qshield.kicad_sch (raíz)
+├── power_management.kicad_sch     → 12V protección, Buck 5V, LDO 3.3V, TPS3823 watchdog
+├── analog_acquisition.kicad_sch   → 6 canales: pH/ORP/CO₂/DO/Temp/Hum + aislamiento galvánico
+├── digital_i2c.kicad_sch          → I2C bus, 7× Qwiic, HX711, RS485 (DNP), LED estado
+├── actuator_drivers.kicad_sch     → Motor IR2104, 2× relays opto-aislados, PWM CO₂
+└── hmi_connectors.kicad_sch       → HMI UART (JST-XH 4P), shield header J21, sensor clamps
 ```
 
 ---

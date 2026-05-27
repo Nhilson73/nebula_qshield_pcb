@@ -13,25 +13,25 @@
 ### 1.1 Estructura de Archivos
 
 ```
-kicad_project/
+kicad/
 ├── nebula_qshield.kicad_pro          # Proyecto KiCad
-├── nebula_qshield.kicad_sch          # Esquemático principal (jerárquico)
+├── nebula_qshield.kicad_sch          # Esquemático raíz (jerárquico)
 │   ├── power_management.kicad_sch    # Sub-hoja: reguladores y protección
-│   ├── analog_acquisition.kicad_sch  # Sub-hoja: sensores analógicos
-│   ├── digital_i2c.kicad_sch        # Sub-hoja: bus I2C y HX711
+│   ├── analog_acquisition.kicad_sch  # Sub-hoja: 6 canales analógicos + aislamiento
+│   ├── digital_i2c.kicad_sch        # Sub-hoja: bus I2C, HX711, RS485
 │   ├── actuator_drivers.kicad_sch   # Sub-hoja: drivers de actuadores
-│   └── display_connectors.kicad_sch # Sub-hoja: HDMI/USB/conectores
-├── nebula_qshield.kicad_pcb          # Layout PCB
-├── nebula_qshield.kicad_dru          # Design rules
+│   └── hmi_connectors.kicad_sch     # Sub-hoja: HMI UART, shield header, conectores
+├── nebula_qshield.kicad_pcb          # Layout PCB (pendiente)
+├── nebula_qshield.kicad_dru          # Design rules (IPC-2221B Clase 2)
 ├── lib/
-│   ├── nebula_symbols.kicad_sym      # Símbolos esquemáticos custom
+│   ├── nebula_symbols.kicad_sym      # 8 símbolos custom
 │   └── nebula_footprints.pretty/     # Footprints custom
-│       ├── BNC_Panel_Mount.kicad_mod
-│       ├── Arduino_UNO_Shield.kicad_mod
-│       └── ...
+│       ├── BNC_Panel_Mount_Isolated.kicad_mod
+│       └── Arduino_UNO_Shield_2x20.kicad_mod
 ├── gerber/                           # Archivos de fabricación
-├── bom/                              # BOM exportado
-└── docs/                             # Documentación generada
+└── production/
+    └── bom/
+        └── nebula_qshield_bom.csv    # BOM completo con Digi-Key PNs
 ```
 
 ---
@@ -115,9 +115,9 @@ kicad_project/
 
 | Net Name | From (Ref:Pin) | To (Ref:Pin) | Notes |
 |----------|---------------|-------------|-------|
-| HDMI_* | J15:1-19 | — (pass-through to MPU) | Señales HDMI |
-| USB_D+ | J16:D+ | — (pass-through to MPU) | USB data + |
-| USB_D- | J16:D- | — (pass-through to MPU) | USB data - |
+| HMI_TX | J21:D1 (TX) | J_HMI:TX | UART TX al HMI (Nextion/Stone) |
+| HMI_RX | J21:D0 (RX) | J_HMI:RX | UART RX del HMI (touch events) |
+| HMI_5V | 5V_RAIL | J_HMI:VCC | Alimentación 5V al HMI |
 | LED_STATUS | J21:D13 | R_LED:1 | LED de estado |
 
 ---
@@ -270,12 +270,10 @@ kicad_project/
     │   ├── CO₂ PWM regulator (R21, C22, U3C, Q5, D13)
     │   └── PTC fuses (F2-F4)
     │
-    └── Sheet 5: display_connectors
-        ├── HDMI connector (J15, D14, D15)
-        ├── USB connector (J16, D16)
-        ├── DC input jack (J17)
-        ├── Actuator terminals (J18-J20)
-        └── Shield header (J21)
+    └── Sheet 5: hmi_connectors
+        ├── HMI UART connector (J_HMI, D_HMI)
+        ├── Arduino shield header (J21)
+        └── Sensor clamp diodes (D_CL1–D_CL3 BAT54S)
 ```
 
 ---
