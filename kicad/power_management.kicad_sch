@@ -632,12 +632,12 @@
   (hierarchical_label "MCU_WDI"    (shape input)    (at 279.4 73.66 180) (effects (font (size 1.27 1.27))) (uuid "hl-wdi"))
   (hierarchical_label "MCU_NRST"   (shape output)   (at 320.04 73.66 0) (effects (font (size 1.27 1.27))) (uuid "hl-nrst"))
 
-  (net_label "VIN_12V"   (at 30.48 50.8 0)    (effects (font (size 1.27 1.27))) (uuid "nl-vin"))
-  (net_label "12V_FUSED" (at 63.5 50.8 0)     (effects (font (size 1.27 1.27))) (uuid "nl-12f"))
-  (net_label "12V_RAIL"  (at 78.74 50.8 0)    (effects (font (size 1.27 1.27))) (uuid "nl-12r"))
-  (net_label "5V_RAIL"   (at 170.18 76.2 0)   (effects (font (size 1.27 1.27))) (uuid "nl-5v"))
-  (net_label "3V3_RAIL"  (at 233.68 76.2 0)   (effects (font (size 1.27 1.27))) (uuid "nl-3v3"))
-  (net_label "WDT_RESET" (at 310.64 73.66 0)  (effects (font (size 1.27 1.27))) (uuid "nl-wdt"))
+  (label "VIN_12V"   (at 30.48 50.8 0)    (effects (font (size 1.27 1.27))) (uuid "nl-vin"))
+  (label "12V_FUSED" (at 63.5 50.8 0)     (effects (font (size 1.27 1.27))) (uuid "nl-12f"))
+  (label "12V_RAIL"  (at 78.74 50.8 0)    (effects (font (size 1.27 1.27))) (uuid "nl-12r"))
+  (label "5V_RAIL"   (at 170.18 76.2 0)   (effects (font (size 1.27 1.27))) (uuid "nl-5v"))
+  (label "3V3_RAIL"  (at 233.68 76.2 0)   (effects (font (size 1.27 1.27))) (uuid "nl-3v3"))
+  (label "WDT_RESET" (at 310.64 73.66 0)  (effects (font (size 1.27 1.27))) (uuid "nl-wdt"))
 
   (text "POWER MANAGEMENT BLOCK\n12V → 5V (Buck TPS54302) → 3.3V (LDO AMS1117)\nProtection: TVS + PTC + Schottky\nWatchdog: TPS3823 on all tiers"
     (at 25.4 25.4 0)
