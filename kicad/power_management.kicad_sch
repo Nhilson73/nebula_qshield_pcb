@@ -22,7 +22,7 @@
     (on_board no)
     (uuid "pf-12v-001")
     (property "Reference" "#FLG01"
-      (at 25.4 28.575 0)
+      (at 25.4 27.94 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "PWR_FLAG"
@@ -304,7 +304,7 @@
       (at 160.02 73.66 0)
       (effects (font (size 1.27 1.27)))
     )
-    (property "Footprint" "Inductor_SMD:L_4.0x4.0mm_H2.0mm"
+    (property "Footprint" "Inductor_SMD:L_Taiyo-Yuden_NR-40xx"
       (at 160.02 71.12 0)
       (effects (font (size 1.27 1.27)) hide)
     )
@@ -472,30 +472,30 @@
 
   (symbol
     (lib_id "nebula_symbols:TPS3823-33DBVR")
-    (at 300.48 76.2 0)
+    (at 300.99 76.2 0)
     (unit 1)
     (exclude_from_sim no)
     (in_bom yes)
     (on_board yes)
     (uuid "u12-001")
     (property "Reference" "U12"
-      (at 300.48 66.04 0)
+      (at 300.99 66.04 0)
       (effects (font (size 1.27 1.27)))
     )
     (property "Value" "TPS3823-33DBVR"
-      (at 300.48 68.58 0)
+      (at 300.99 68.58 0)
       (effects (font (size 1.27 1.27)))
     )
     (property "Footprint" "Package_TO_SOT_SMD:SOT-23-5"
-      (at 300.48 76.2 0)
+      (at 300.99 76.2 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Digi-Key_PN" "296-34371-1-ND"
-      (at 300.48 76.2 0)
+      (at 300.99 76.2 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "DNP" "NO"
-      (at 300.48 76.2 0)
+      (at 300.99 76.2 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (pin "1"  (uuid "u12-p1"))
@@ -637,7 +637,7 @@
   (label "12V_RAIL"  (at 78.74 50.8 0)    (effects (font (size 1.27 1.27))) (uuid "nl-12r"))
   (label "5V_RAIL"   (at 170.18 76.2 0)   (effects (font (size 1.27 1.27))) (uuid "nl-5v"))
   (label "3V3_RAIL"  (at 233.68 76.2 0)   (effects (font (size 1.27 1.27))) (uuid "nl-3v3"))
-  (label "WDT_RESET" (at 310.64 73.66 0)  (effects (font (size 1.27 1.27))) (uuid "nl-wdt"))
+  (label "WDT_RESET" (at 311.15 73.66 0)  (effects (font (size 1.27 1.27))) (uuid "nl-wdt"))
 
   (text "POWER MANAGEMENT BLOCK\n12V → 5V (Buck TPS54302) → 3.3V (LDO AMS1117)\nProtection: TVS + PTC + Schottky\nWatchdog: TPS3823 on all tiers"
     (at 25.4 25.4 0)
