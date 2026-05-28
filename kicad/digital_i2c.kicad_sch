@@ -13,16 +13,12 @@
     (comment 2 "I2C devices: GPS(0x42), RTC(0x68), Cell Density(0x30), EZO optional")
   )
 
-  ;; =====================================================
-  ;; I2C Bus Pull-ups and ESD Protection
-  ;; =====================================================
   (text "I2C BUS — 400 kHz Fast Mode\nPull-ups 4.7k to 3.3V, ESD protection PESD3V3S2USF"
     (at 25.4 25.4 0)
     (effects (font (size 2.54 2.54)))
     (uuid "24470fd0-1fcf-4367-b1a0-64806d20a591")
   )
 
-  ;; R10 — I2C SDA pull-up 4.7k
   (symbol
     (lib_id "Device:R")
     (at 50.8 43.18 0) (unit 1)
@@ -36,7 +32,6 @@
     (pin "1" (uuid "97e44477-1f1f-4a0e-a507-cfa734f187fb")) (pin "2" (uuid "368c8658-b841-4552-987d-40e84a3d763c"))
   )
 
-  ;; R11 — I2C SCL pull-up 4.7k
   (symbol
     (lib_id "Device:R")
     (at 63.5 43.18 0) (unit 1)
@@ -49,7 +44,6 @@
     (pin "1" (uuid "1c176355-6926-4dd4-a65b-12955a0a392e")) (pin "2" (uuid "cc78f0a4-0acd-4958-8b16-b320215eb151"))
   )
 
-  ;; D7/D8 — Dual TVS ESD on I2C lines
   (symbol
     (lib_id "Diode:PESD3V3S2USF")
     (at 50.8 58.42 0) (unit 1)
@@ -63,11 +57,7 @@
     (pin "1" (uuid "d8a5c83f-f5b9-44ec-a559-61a44369894e")) (pin "2" (uuid "d53dc90f-0a3d-414c-847d-2b819dbda371")) (pin "3" (uuid "30c2db66-e73b-4479-8fc5-eff0746576d3"))
   )
 
-  ;; =====================================================
-  ;; I2C Qwiic Connectors (J7-J13)
-  ;; =====================================================
 
-  ;; J7 — GPS SAM-M8Q (0x42) [Essential+]
   (symbol
     (lib_id "Connector_Generic:Conn_01x04")
     (at 88.9 76.2 0) (unit 1)
@@ -89,7 +79,6 @@
     (pin "4" (uuid "6d172d2d-ddb0-4fe4-a480-9eed6fb9e173"))
   )
 
-  ;; J8 — RTC DS3231 (0x68) [All tiers]
   (symbol
     (lib_id "Connector_Generic:Conn_01x04")
     (at 88.9 93.98 0) (unit 1)
@@ -111,7 +100,6 @@
     (pin "4" (uuid "bbb3298a-0d11-4750-ad5b-c49d3eec7564"))
   )
 
-  ;; J9 — Cell Density (0x30) [Signature]
   (symbol
     (lib_id "Connector_Generic:Conn_01x04")
     (at 88.9 111.76 0) (unit 1)
@@ -133,7 +121,6 @@
     (pin "4" (uuid "5dd3ca68-4031-4d5b-8d2a-ef20e8f34842"))
   )
 
-  ;; J10 — EZO-pH (0x63) [Optional]
   (symbol
     (lib_id "Connector_Generic:Conn_01x04")
     (at 88.9 129.54000000000002 0) (unit 1)
@@ -155,7 +142,6 @@
     (pin "4" (uuid "4e5d8ffa-baed-4d8a-a00c-3a4642846ceb"))
   )
 
-  ;; J11 — EZO-ORP (0x62) [Optional]
   (symbol
     (lib_id "Connector_Generic:Conn_01x04")
     (at 88.9 147.32 0) (unit 1)
@@ -177,7 +163,6 @@
     (pin "4" (uuid "ab1240fa-4853-41b6-9461-e88267a2f86b"))
   )
 
-  ;; J12 — EZO-DO (0x61) [Optional]
   (symbol
     (lib_id "Connector_Generic:Conn_01x04")
     (at 88.9 165.10000000000002 0) (unit 1)
@@ -199,7 +184,6 @@
     (pin "4" (uuid "77962d46-35f3-4991-b591-b6f53d4a2ff2"))
   )
 
-  ;; J13 — EZO-RTD (0x66) [Optional]
   (symbol
     (lib_id "Connector_Generic:Conn_01x04")
     (at 88.9 182.88 0) (unit 1)
@@ -221,9 +205,6 @@
     (pin "4" (uuid "6f9b6543-c978-4dc1-ade6-2138d374e4db"))
   )
 
-  ;; =====================================================
-  ;; HX711 24-Bit ADC for Load Cell
-  ;; =====================================================
   (text "HX711 LOAD CELL ADC\n24-bit, Gain 128, 80 SPS\nD2=DOUT, D3=SCK"
     (at 170.18 25.4 0)
     (effects (font (size 2.54 2.54)))
@@ -246,7 +227,6 @@
     (pin "16" (uuid "731b614b-b405-40de-bcb2-96225aa42f15"))
   )
 
-  ;; J14 — Terminal block for load cell (E+/E-/S+/S-)
   (symbol
     (lib_id "Connector_Generic:Conn_01x04")
     (at 233.68 55.88 0) (unit 1)
@@ -262,7 +242,6 @@
     (pin "3" (uuid "3080cffc-0314-4b11-b9c8-d2d8c44b2b29")) (pin "4" (uuid "63b42628-3d27-481c-a11c-d023a9c16b25"))
   )
 
-  ;; R12 — Pull-up on HX711 DOUT
   (symbol
     (lib_id "Device:R")
     (at 213.36 43.18 0) (unit 1)
@@ -274,7 +253,6 @@
     (pin "1" (uuid "63d938ab-23f2-474a-9dda-78ee18361019")) (pin "2" (uuid "36784f72-5ada-4b3e-9ddd-966f44fc9e85"))
   )
 
-  ;; C19/C20 — HX711 decoupling
   (symbol
     (lib_id "Device:C")
     (at 182.88 68.58 0) (unit 1)
@@ -296,9 +274,6 @@
     (pin "1" (uuid "4ce8f46a-cb9e-42ab-974f-a2768df180ef")) (pin "2" (uuid "40bc46df-c9f9-4683-aadc-4a26be702e33"))
   )
 
-  ;; =====================================================
-  ;; RS485 Transceiver (DNP — for Hamilton Cell Density)
-  ;; =====================================================
   (text "RS485 MODBUS — DNP option for Hamilton Incyte/Dencytee\nPopulate for Signature tier with Hamilton sensors"
     (at 25.4 220.98 0)
     (effects (font (size 1.524 1.524)))
@@ -319,7 +294,6 @@
     (pin "7" (uuid "adcd522b-358d-4083-b814-522886a934c7")) (pin "8" (uuid "62421991-dbc9-47b5-a707-06d79fcafa89"))
   )
 
-  ;; J_RS485 — Terminal block for RS485 (A+/B-/VCC/GND)
   (symbol
     (lib_id "Connector_Generic:Conn_01x04")
     (at 111.76 241.3 0) (unit 1)
@@ -334,7 +308,6 @@
     (pin "3" (uuid "0fb253c2-ee91-402d-ad4a-93aec72ab458")) (pin "4" (uuid "f3bf9b95-5e2c-4aca-af14-bbcc854b4abe"))
   )
 
-  ;; R_RS485 — 120 Ohm termination resistor (DNP by default)
   (symbol
     (lib_id "Device:R")
     (at 99.06 236.22 90) (unit 1)
@@ -347,9 +320,6 @@
     (pin "1" (uuid "45c21f75-a654-42de-a45c-5329cd99ad50")) (pin "2" (uuid "bc991764-6618-43e1-bee3-a5d3f4a4e91f"))
   )
 
-  ;; =====================================================
-  ;; Status LED (bicolor)
-  ;; =====================================================
   (symbol
     (lib_id "Device:LED")
     (at 170.18 220.98 270) (unit 1)
@@ -371,9 +341,6 @@
     (pin "1" (uuid "aa168288-fdc5-48eb-a8a3-b8f59331234e")) (pin "2" (uuid "542b0245-862f-42f8-8595-c41d0b849a14"))
   )
 
-  ;; =====================================================
-  ;; Hierarchical Labels
-  ;; =====================================================
   (hierarchical_label "I2C_SDA"     (shape bidirectional) (at 25.4 50.8 0)   (effects (font (size 1.27 1.27))) (uuid "e211b6eb-ff02-4e00-9368-ccd018841ded"))
   (hierarchical_label "I2C_SCL"     (shape bidirectional) (at 25.4 55.88 0)  (effects (font (size 1.27 1.27))) (uuid "64c43baf-6bbd-4871-8ba4-bbf9f5a99187"))
   (hierarchical_label "HX711_DOUT"  (shape output) (at 208.28 53.34 0)       (effects (font (size 1.27 1.27))) (uuid "aa7ec5e8-b22a-49d1-a2a0-9462960b37dc"))

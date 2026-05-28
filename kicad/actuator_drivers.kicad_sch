@@ -19,12 +19,7 @@
     (uuid "cc398550-9270-4b08-bee2-9001c725c8e7")
   )
 
-  ;; =====================================================
-  ;; Motor Driver (Half-Bridge): IR2104 + IRLZ44N x2
-  ;; Opto-isolated via PC817X2NIP (U8, U9)
-  ;; =====================================================
 
-  ;; U8 — Dual optocoupler for motor signals (DIR + PWM)
   (symbol
     (lib_id "Isolator:PC817X2")
     (at 63.5 50.8 0) (unit 1)
@@ -40,7 +35,6 @@
     (pin "7" (uuid "f05ee73c-bbd9-4765-a582-abeaccb6b21a")) (pin "8" (uuid "85b7319c-d82c-42ca-a07e-bdcbfed0a19f"))
   )
 
-  ;; U7 — IR2104 half-bridge gate driver
   (symbol
     (lib_id "Driver_FET:IR2104")
     (at 104.14 50.8 0) (unit 1)
@@ -57,7 +51,6 @@
     (pin "7" (uuid "528ccba0-546a-496f-85f9-0c79c24d2a86")) (pin "8" (uuid "6fe590e2-754b-4b90-ab18-750a8e6be5ce"))
   )
 
-  ;; Q1 — High-side MOSFET
   (symbol
     (lib_id "Transistor_FET:IRLZ44N")
     (at 134.62 43.18 0) (unit 1)
@@ -72,7 +65,6 @@
     (pin "1" (uuid "3eceebed-1ea2-47e7-907a-064778e7e89a")) (pin "2" (uuid "fdaedfdd-6879-48f6-b6d3-cd481979902e")) (pin "3" (uuid "77edeb3b-7cc4-4c7e-8bb9-544d705e513c"))
   )
 
-  ;; Q2 — Low-side MOSFET
   (symbol
     (lib_id "Transistor_FET:IRLZ44N")
     (at 134.62 60.96 0) (unit 1)
@@ -85,7 +77,6 @@
     (pin "1" (uuid "4e490bfc-48a4-46d0-bb9d-dd7e3c8919fe")) (pin "2" (uuid "e12737b8-0935-43f4-871c-930e53e3c0a9")) (pin "3" (uuid "18f3e28a-8894-445a-a8bc-bf9053f1b692"))
   )
 
-  ;; D9, D10 — Flyback Schottky diodes
   (symbol
     (lib_id "Diode:SS34")
     (at 149.86 43.18 0) (unit 1)
@@ -107,7 +98,6 @@
     (pin "1" (uuid "c5e19e97-2db8-4798-ae05-acb9654534ce")) (pin "2" (uuid "6f2ba586-ca86-4534-890f-8e9fa214f3a4"))
   )
 
-  ;; Motor PTC fuse
   (symbol
     (lib_id "Device:Polyfuse")
     (at 157.48 50.8 0) (unit 1)
@@ -120,7 +110,6 @@
     (pin "1" (uuid "7b705c42-6622-4648-83c8-5f3cf0ed5481")) (pin "2" (uuid "308852a5-2f79-4cf4-aa9a-9de875f6fc86"))
   )
 
-  ;; J18 — Motor terminal block
   (symbol
     (lib_id "Connector_Generic:Conn_01x02")
     (at 172.72 50.8 0) (unit 1)
@@ -135,7 +124,6 @@
     (pin "1" (uuid "06f7b2e0-20e4-45c7-a7fa-10f6e34fa8ee")) (pin "2" (uuid "99b7af3e-e290-4faf-b8f8-c83e2d8f2cb3"))
   )
 
-  ;; Current limit resistors for optocoupler LEDs
   (symbol (lib_id "Device:R") (at 40.64 48.26 0) (unit 1) (exclude_from_sim no) (in_bom yes) (on_board yes)
     (uuid "36705324-af9f-46dc-84bf-5d96061fa659")
     (property "Reference" "R13" (at 43.18 48.26 0) (effects (font (size 1.27 1.27)) (justify left)))
@@ -151,9 +139,6 @@
     (pin "1" (uuid "15f30e77-ca26-4108-a924-fc1b96ffc2ae")) (pin "2" (uuid "dcbcd475-62e2-453c-ae01-3ab0cc77d5c3"))
   )
 
-  ;; =====================================================
-  ;; CO₂ Solenoid Relay (Insight+)
-  ;; =====================================================
   (text "CO2 SOLENOID RELAY — Insight+\nMCU D7 → R16 → PC817 → 2N7002 → Relay K2"
     (at 25.4 88.9 0)
     (effects (font (size 1.524 1.524)))
@@ -208,7 +193,6 @@
     (pin "3" (uuid "505c5131-0516-496a-9650-263ef9452b30")) (pin "4" (uuid "8eeed9f8-6c29-4e11-9aea-38c94ded0677"))
   )
 
-  ;; D12 — Flyback diode for K2
   (symbol (lib_id "Diode:1N4148W") (at 99.06 93.98 0) (unit 1) (exclude_from_sim no) (in_bom yes) (on_board yes)
     (uuid "907783f2-4dfa-4813-80e4-4a22ac17bd8b")
     (property "Reference" "D12" (at 99.06 90.17 0) (effects (font (size 1.27 1.27))))
@@ -217,7 +201,6 @@
     (pin "1" (uuid "d7e15b1c-3af8-4ee8-a7e5-bec2a8426992")) (pin "2" (uuid "a91e911b-6b8e-4328-b10e-131855fa8f92"))
   )
 
-  ;; J19 — CO₂ solenoid terminal
   (symbol (lib_id "Connector_Generic:Conn_01x02") (at 127 101.6 0) (unit 1) (exclude_from_sim no) (in_bom yes) (on_board yes)
     (uuid "81fdc031-e1ad-44eb-b031-73d959814a3a")
     (property "Reference" "J19" (at 127 93.98 0) (effects (font (size 1.27 1.27))))
@@ -228,7 +211,6 @@
     (pin "1" (uuid "1119a126-1a5b-4cd7-ad39-ce4d574a1ffd")) (pin "2" (uuid "4bc97a4d-6d20-4ed5-a08c-6ea3611401fe"))
   )
 
-  ;; F3 — PTC for CO₂ solenoid
   (symbol (lib_id "Device:Polyfuse") (at 119.38 101.6 0) (unit 1) (exclude_from_sim no) (in_bom yes) (on_board yes)
     (uuid "367886bb-76d2-4218-b670-81f58e7446d5")
     (property "Reference" "F3" (at 119.38 97.79 0) (effects (font (size 1.27 1.27))))
@@ -238,9 +220,6 @@
     (pin "1" (uuid "2166063b-fd56-45f7-aaaa-cd8d3df1769f")) (pin "2" (uuid "5ac93136-1b60-46f9-bc5b-cd8c8dd02b09"))
   )
 
-  ;; =====================================================
-  ;; Chiller Relay (Signature only)
-  ;; =====================================================
   (text "CHILLER RELAY — Signature only\nMCU D6 → R15 → PC817 → 2N7002 → Relay K1"
     (at 25.4 127.0 0)
     (effects (font (size 1.524 1.524)))
@@ -316,10 +295,6 @@
     (pin "1" (uuid "772c490b-ee71-4cab-ab63-02b96dac3539")) (pin "2" (uuid "0ef23079-20bf-4d4a-91b0-afcb31b3d067"))
   )
 
-  ;; =====================================================
-  ;; CO₂ PWM Regulator (Insight+)
-  ;; MCU D9 → RC filter → Op-amp → MOSFET → Valve
-  ;; =====================================================
   (text "CO2 PWM FLOW REGULATOR — Insight+\nMCU D9 PWM → RC filter (10k/100nF) → MCP6002 Gain 3.6x → IRLZ44N → Valve"
     (at 25.4 165.1 0)
     (effects (font (size 1.524 1.524)))
@@ -363,9 +338,6 @@
     (pin "1" (uuid "8d33a2b5-a04f-4157-bf5a-e56b450ce8b5")) (pin "2" (uuid "76be1c77-5ade-4a6e-8b7d-fe498dec1f43"))
   )
 
-  ;; =====================================================
-  ;; Hierarchical Labels
-  ;; =====================================================
   (hierarchical_label "PUMP_DIR"    (shape input)  (at 25.4 48.26 0)  (effects (font (size 1.27 1.27))) (uuid "aa7ccfa4-9c57-48c9-87c5-4ff13573702b"))
   (hierarchical_label "PUMP_PWM"    (shape input)  (at 25.4 53.34 0)  (effects (font (size 1.27 1.27))) (uuid "b1864d79-ad40-4559-9d32-1f366e9d86e0"))
   (hierarchical_label "CO2_SOL_CTL" (shape input)  (at 25.4 101.6 0)  (effects (font (size 1.27 1.27))) (uuid "50478cbc-65a3-463a-ba62-2ac6304e663a"))

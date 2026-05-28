@@ -19,10 +19,6 @@
     (uuid "e9934e5b-d6eb-4828-b500-1e0f7d6e247a")
   )
 
-  ;; =====================================================
-  ;; HMI UART Connector (replaces HDMI + USB)
-  ;; JST-XH 4-pin: VCC(5V) / TX / RX / GND
-  ;; =====================================================
   (text "HMI DISPLAY — UART Interface\nJST-XH 4-pin: 5V / MCU_TX(D1) / MCU_RX(D0) / GND\nCompatible: Nextion, Stone, DWIN HMI panels\nProtection: TVS ESD on TX/RX lines"
     (at 25.4 30.48 0)
     (effects (font (size 1.524 1.524)))
@@ -46,7 +42,6 @@
     (pin "4" (uuid "340e501b-7263-408c-ab54-b8765b97beb4"))
   )
 
-  ;; D_HMI — TVS ESD protection on UART lines
   (symbol
     (lib_id "Diode:PESD3V3S2USF")
     (at 86.36 50.8 0) (unit 1)
@@ -59,9 +54,6 @@
     (pin "1" (uuid "99f7c46f-1288-44b8-81c8-69ee3e74aadd")) (pin "2" (uuid "d82dacf6-08ad-4e71-9599-737cd8516ec5")) (pin "3" (uuid "6b6ccf8a-7ea2-4a15-b3d6-ad3a432a5cde"))
   )
 
-  ;; =====================================================
-  ;; Arduino UNO Q Shield Header (J21)
-  ;; =====================================================
   (text "ARDUINO UNO Q SHIELD HEADER — J21\n2x20 stackable pin header, 2.54mm pitch\nAll signals routed through this connector"
     (at 25.4 73.66 0)
     (effects (font (size 1.524 1.524)))
@@ -90,9 +82,6 @@
     (pin "40" (uuid "7a6565d4-fb6f-4d62-94c1-5468b4f26c38"))
   )
 
-  ;; =====================================================
-  ;; Sensor Clamp Diodes
-  ;; =====================================================
   (symbol (lib_id "Diode:BAT54S") (at 170.18 50.8 0) (unit 1) (exclude_from_sim no) (in_bom yes) (on_board yes)
     (uuid "374c5e77-ec22-4a98-8692-3218e487511e")
     (property "Reference" "D_CL1" (at 170.18 45.72 0) (effects (font (size 1.27 1.27))))
@@ -115,9 +104,6 @@
     (pin "1" (uuid "2561e163-799c-4b4d-980a-b70a358da8aa")) (pin "2" (uuid "43c65366-a7dd-4880-ab78-d29c21204a2e")) (pin "3" (uuid "1f202e79-c214-405d-9fb1-27b74d58a99f"))
   )
 
-  ;; =====================================================
-  ;; Hierarchical Labels
-  ;; =====================================================
   (hierarchical_label "PH_ADC"      (shape input) (at 55.88 95.25 180)  (effects (font (size 1.27 1.27))) (uuid "8964c9e1-1d03-4385-9371-a6b45e40933b"))
   (hierarchical_label "ORP_ADC"     (shape input) (at 55.88 97.79 180)  (effects (font (size 1.27 1.27))) (uuid "b31f8904-c60b-416c-a42a-e2aa646dbbd5"))
   (hierarchical_label "CO2_ADC"     (shape input) (at 55.88 100.33 180) (effects (font (size 1.27 1.27))) (uuid "cb8ede89-7768-4717-9790-705c0f18d409"))

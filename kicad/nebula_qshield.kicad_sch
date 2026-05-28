@@ -17,9 +17,6 @@
 
   (lib_symbols)
 
-  ;; =====================================================
-  ;; Hierarchical Sheet 1: Power Management
-  ;; =====================================================
   (sheet
     (at 25.4 50.8)
     (size 50.8 30.48)
@@ -43,9 +40,6 @@
     (pin "MCU_NRST"  output      (at 76.2 76.2 0)   (effects (font (size 1.27 1.27))) (uuid "ecd10e12-c247-43aa-b183-4943b5e55e3b"))
   )
 
-  ;; =====================================================
-  ;; Hierarchical Sheet 2: Analog Acquisition
-  ;; =====================================================
   (sheet
     (at 25.4 101.6)
     (size 50.8 30.48)
@@ -73,9 +67,6 @@
     (pin "AGND"      bidirectional (at 25.4 116.84 180)(effects (font (size 1.27 1.27))) (uuid "55583825-890f-4eb7-919c-2475abc140a3"))
   )
 
-  ;; =====================================================
-  ;; Hierarchical Sheet 3: Digital & I2C
-  ;; =====================================================
   (sheet
     (at 25.4 152.4)
     (size 50.8 30.48)
@@ -103,9 +94,6 @@
     (pin "GND"        bidirectional (at 25.4 167.64 180)(effects (font (size 1.27 1.27))) (uuid "75d3ba90-3cd8-46c9-bf25-cb5ea4642a18"))
   )
 
-  ;; =====================================================
-  ;; Hierarchical Sheet 4: Actuator Drivers
-  ;; =====================================================
   (sheet
     (at 25.4 203.2)
     (size 50.8 30.48)
@@ -132,9 +120,6 @@
     (pin "PGND"        bidirectional (at 25.4 231.14 180)(effects (font (size 1.27 1.27))) (uuid "6914abca-b4bf-4fa7-bc46-d22afb0f9475"))
   )
 
-  ;; =====================================================
-  ;; Hierarchical Sheet 5: HMI & Connectors
-  ;; =====================================================
   (sheet
     (at 119.38 50.8)
     (size 50.8 55.88)
@@ -176,9 +161,6 @@
     (pin "GND"         bidirectional (at 119.38 88.9 180) (effects (font (size 1.27 1.27))) (uuid "e0c44d03-347d-4682-876e-050ba045a22a"))
   )
 
-  ;; =====================================================
-  ;; Title block and notes
-  ;; =====================================================
   (text "NEBULA Q-SHIELD® — Hierarchical Root Schematic\n\nIndustrial fermentation monitor shield for Arduino UNO Q (4GB)\n12 sensors, 3 actuators, 3 tiers (Essential/Insight/Signature)\nSingle PCB with DNP component selection per tier\n\nDesign decisions:\n- Galvanic isolation: ON-BOARD (Option A) for all wet sensors\n- Display: HMI UART (Nextion/Stone) — NOT HDMI\n- Watchdog: TPS3823 populated ALL tiers\n- RS485: DNP option for Hamilton Incyte/Dencytee\n- Connectors: All polarized/keyed, plug-and-play"
     (at 25.4 25.4 0)
     (effects (font (size 2.54 2.54)))
