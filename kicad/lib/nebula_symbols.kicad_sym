@@ -2,11 +2,6 @@
   (version 20231120)
   (generator "devin")
   (generator_version "1.0")
-
-  ;; ============================================================
-  ;; Arduino UNO Q Shield Header (J21)
-  ;; 2x20 pin stackable header — maps MCU pins to shield
-  ;; ============================================================
   (symbol "Arduino_UNO_Q_Shield_Header"
     (pin_names (offset 1.016))
     (exclude_from_sim no)
@@ -39,7 +34,6 @@
       )
     )
     (symbol "Arduino_UNO_Q_Shield_Header_1_1"
-      ;; Left side — analog + power
       (pin bidirectional line (at -15.24 24.13 0) (length 2.54)
         (name "A0" (effects (font (size 1.27 1.27))))
         (number "1" (effects (font (size 1.27 1.27))))
@@ -100,7 +94,6 @@
         (name "SCL" (effects (font (size 1.27 1.27))))
         (number "15" (effects (font (size 1.27 1.27))))
       )
-      ;; Right side — digital
       (pin bidirectional line (at 15.24 24.13 180) (length 2.54)
         (name "D0/RX" (effects (font (size 1.27 1.27))))
         (number "25" (effects (font (size 1.27 1.27))))
@@ -167,10 +160,6 @@
       )
     )
   )
-
-  ;; ============================================================
-  ;; TPS3823-33DBVR — Voltage Supervisor + Watchdog
-  ;; ============================================================
   (symbol "TPS3823-33DBVR"
     (pin_names (offset 1.016))
     (exclude_from_sim no)
@@ -233,10 +222,6 @@
       )
     )
   )
-
-  ;; ============================================================
-  ;; MAX485 — RS485 Transceiver (DNP option for Hamilton sensors)
-  ;; ============================================================
   (symbol "MAX485ESA"
     (pin_names (offset 1.016))
     (exclude_from_sim no)
@@ -307,10 +292,6 @@
       )
     )
   )
-
-  ;; ============================================================
-  ;; ADuM1250 — Hot-Swappable I2C Isolator (galvanic isolation)
-  ;; ============================================================
   (symbol "ADuM1250ARZ"
     (pin_names (offset 1.016))
     (exclude_from_sim no)
@@ -345,7 +326,6 @@
         (stroke (width 0.254) (type default))
         (fill (type background))
       )
-      ;; Isolation barrier
       (polyline
         (pts (xy 0 7.62) (xy 0 -7.62))
         (stroke (width 0.254) (type dash))
@@ -387,10 +367,6 @@
       )
     )
   )
-
-  ;; ============================================================
-  ;; AMC1301 — Precision Isolated Amplifier (analog isolation)
-  ;; ============================================================
   (symbol "AMC1301DWVR"
     (pin_names (offset 1.016))
     (exclude_from_sim no)
@@ -466,10 +442,6 @@
       )
     )
   )
-
-  ;; ============================================================
-  ;; SN6501 — Transformer Driver for Isolated DC-DC
-  ;; ============================================================
   (symbol "SN6501DBVR"
     (pin_names (offset 1.016))
     (exclude_from_sim no)
@@ -528,10 +500,6 @@
       )
     )
   )
-
-  ;; ============================================================
-  ;; BNC_Isolated — Panel-mount BNC with floating shield
-  ;; ============================================================
   (symbol "BNC_Isolated"
     (pin_names (offset 1.016))
     (exclude_from_sim no)
@@ -582,10 +550,6 @@
       )
     )
   )
-
-  ;; ============================================================
-  ;; HX711 — 24-Bit ADC for Load Cells
-  ;; ============================================================
   (symbol "HX711"
     (pin_names (offset 1.016))
     (exclude_from_sim no)
@@ -684,5 +648,4 @@
       )
     )
   )
-
 )
