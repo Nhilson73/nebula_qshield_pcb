@@ -1,5 +1,5 @@
 (kicad_sch
-  (version 20231120)
+  (version 20250114)
   (generator "devin")
   (generator_version "1.0")
   (uuid "c6da75fc-541f-4933-b134-f5eb8982a11b")
@@ -15,7 +15,8 @@
     (comment 4 "HMI via UART (Nextion) | Galvanic isolation on-board | TPS3823 watchdog all tiers")
   )
 
-  (lib_symbols)
+  (lib_symbols
+  )
 
   (sheet
     (at 25.4 50.8)
@@ -163,7 +164,7 @@
 
   (text "NEBULA Q-SHIELD® — Hierarchical Root Schematic\n\nIndustrial fermentation monitor shield for Arduino UNO Q (4GB)\n12 sensors, 3 actuators, 3 tiers (Essential/Insight/Signature)\nSingle PCB with DNP component selection per tier\n\nDesign decisions:\n- Galvanic isolation: ON-BOARD (Option A) for all wet sensors\n- Display: HMI UART (Nextion/Stone) — NOT HDMI\n- Watchdog: TPS3823 populated ALL tiers\n- RS485: DNP option for Hamilton Incyte/Dencytee\n- Connectors: All polarized/keyed, plug-and-play"
     (at 25.4 25.4 0)
-    (effects (font (size 2.54 2.54)))
+    (effects (font (size 2.54 2.54)) (justify left))
     (uuid "87d128fd-8841-4680-899c-07eea2118cbc")
   )
 
