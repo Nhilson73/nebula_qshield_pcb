@@ -2356,6 +2356,14 @@
     (pin "1"
       (uuid "pf-12v-pin")
     )
+  
+    (instances
+      (project "nebula_qshield"
+        (path "/c6da75fc-541f-4933-b134-f5eb8982a11b/f1fcd624-5e99-46e0-8ec7-0072ddfd5246"
+          (reference "#FLG01") (unit 1)
+        )
+      )
+    )
   )
 
 
@@ -2367,7 +2375,7 @@
     (in_bom yes)
     (on_board yes)
     (uuid "j17-001")
-    (property "Reference" "J17"
+    (property "Reference" "J1"
       (at 25.4 43.18 0)
       (effects (font (size 1.27 1.27)))
     )
@@ -2390,6 +2398,14 @@
     (pin "1"  (uuid "j17-p1"))
     (pin "2"  (uuid "j17-p2"))
     (pin "3"  (uuid "j17-p3"))
+  
+    (instances
+      (project "nebula_qshield"
+        (path "/c6da75fc-541f-4933-b134-f5eb8982a11b/f1fcd624-5e99-46e0-8ec7-0072ddfd5246"
+          (reference "J1") (unit 1)
+        )
+      )
+    )
   )
 
   (symbol
@@ -2422,6 +2438,14 @@
     )
     (pin "1"  (uuid "d1-p1"))
     (pin "2"  (uuid "d1-p2"))
+  
+    (instances
+      (project "nebula_qshield"
+        (path "/c6da75fc-541f-4933-b134-f5eb8982a11b/f1fcd624-5e99-46e0-8ec7-0072ddfd5246"
+          (reference "D1") (unit 1)
+        )
+      )
+    )
   )
 
   (symbol
@@ -2454,6 +2478,14 @@
     )
     (pin "1"  (uuid "f1-p1"))
     (pin "2"  (uuid "f1-p2"))
+  
+    (instances
+      (project "nebula_qshield"
+        (path "/c6da75fc-541f-4933-b134-f5eb8982a11b/f1fcd624-5e99-46e0-8ec7-0072ddfd5246"
+          (reference "F1") (unit 1)
+        )
+      )
+    )
   )
 
   (symbol
@@ -2486,6 +2518,14 @@
     )
     (pin "1"  (uuid "d2-p1"))
     (pin "2"  (uuid "d2-p2"))
+  
+    (instances
+      (project "nebula_qshield"
+        (path "/c6da75fc-541f-4933-b134-f5eb8982a11b/f1fcd624-5e99-46e0-8ec7-0072ddfd5246"
+          (reference "D2") (unit 1)
+        )
+      )
+    )
   )
 
   (symbol
@@ -2514,6 +2554,14 @@
     )
     (pin "1"  (uuid "c1-p1"))
     (pin "2"  (uuid "c1-p2"))
+  
+    (instances
+      (project "nebula_qshield"
+        (path "/c6da75fc-541f-4933-b134-f5eb8982a11b/f1fcd624-5e99-46e0-8ec7-0072ddfd5246"
+          (reference "C1") (unit 1)
+        )
+      )
+    )
   )
 
   (symbol
@@ -2542,6 +2590,14 @@
     )
     (pin "1"  (uuid "c2-p1"))
     (pin "2"  (uuid "c2-p2"))
+  
+    (instances
+      (project "nebula_qshield"
+        (path "/c6da75fc-541f-4933-b134-f5eb8982a11b/f1fcd624-5e99-46e0-8ec7-0072ddfd5246"
+          (reference "C2") (unit 1)
+        )
+      )
+    )
   )
 
   (symbol
@@ -2574,6 +2630,14 @@
     )
     (pin "1"  (uuid "fb1-p1"))
     (pin "2"  (uuid "fb1-p2"))
+  
+    (instances
+      (project "nebula_qshield"
+        (path "/c6da75fc-541f-4933-b134-f5eb8982a11b/f1fcd624-5e99-46e0-8ec7-0072ddfd5246"
+          (reference "FB1") (unit 1)
+        )
+      )
+    )
   )
 
   (symbol
@@ -2610,6 +2674,14 @@
     (pin "4"  (uuid "u1-p4"))
     (pin "5"  (uuid "u1-p5"))
     (pin "6"  (uuid "u1-p6"))
+  
+    (instances
+      (project "nebula_qshield"
+        (path "/c6da75fc-541f-4933-b134-f5eb8982a11b/f1fcd624-5e99-46e0-8ec7-0072ddfd5246"
+          (reference "U1") (unit 1)
+        )
+      )
+    )
   )
 
   (symbol
@@ -2642,6 +2714,14 @@
     )
     (pin "1"  (uuid "l1-p1"))
     (pin "2"  (uuid "l1-p2"))
+  
+    (instances
+      (project "nebula_qshield"
+        (path "/c6da75fc-541f-4933-b134-f5eb8982a11b/f1fcd624-5e99-46e0-8ec7-0072ddfd5246"
+          (reference "L1") (unit 1)
+        )
+      )
+    )
   )
 
   (symbol
@@ -2655,6 +2735,14 @@
     (property "Footprint" "Capacitor_SMD:C_0805_2012Metric" (at 121.92 81.28 0) (effects (font (size 1.27 1.27)) hide))
     (property "MPN" "GRM21BR61E226ME44L" (at 121.92 81.28 0) (effects (font (size 1.27 1.27)) hide))
     (pin "1" (uuid "c3-p1")) (pin "2" (uuid "c3-p2"))
+  
+    (instances
+      (project "nebula_qshield"
+        (path "/c6da75fc-541f-4933-b134-f5eb8982a11b/f1fcd624-5e99-46e0-8ec7-0072ddfd5246"
+          (reference "C3") (unit 1)
+        )
+      )
+    )
   )
   (symbol
     (lib_id "Device:C")
@@ -2667,6 +2755,14 @@
     (property "Footprint" "Capacitor_SMD:C_0805_2012Metric" (at 127 81.28 0) (effects (font (size 1.27 1.27)) hide))
     (property "MPN" "GRM21BR61E226ME44L" (at 127 81.28 0) (effects (font (size 1.27 1.27)) hide))
     (pin "1" (uuid "c4-p1")) (pin "2" (uuid "c4-p2"))
+  
+    (instances
+      (project "nebula_qshield"
+        (path "/c6da75fc-541f-4933-b134-f5eb8982a11b/f1fcd624-5e99-46e0-8ec7-0072ddfd5246"
+          (reference "C4") (unit 1)
+        )
+      )
+    )
   )
   (symbol
     (lib_id "Device:C")
@@ -2679,6 +2775,14 @@
     (property "Footprint" "Capacitor_SMD:C_0805_2012Metric" (at 170.18 81.28 0) (effects (font (size 1.27 1.27)) hide))
     (property "MPN" "GRM21BR61A476ME15L" (at 170.18 81.28 0) (effects (font (size 1.27 1.27)) hide))
     (pin "1" (uuid "c5-p1")) (pin "2" (uuid "c5-p2"))
+  
+    (instances
+      (project "nebula_qshield"
+        (path "/c6da75fc-541f-4933-b134-f5eb8982a11b/f1fcd624-5e99-46e0-8ec7-0072ddfd5246"
+          (reference "C5") (unit 1)
+        )
+      )
+    )
   )
   (symbol
     (lib_id "Device:C")
@@ -2691,6 +2795,14 @@
     (property "Footprint" "Capacitor_SMD:C_0805_2012Metric" (at 175.26 81.28 0) (effects (font (size 1.27 1.27)) hide))
     (property "MPN" "GRM21BR61A476ME15L" (at 175.26 81.28 0) (effects (font (size 1.27 1.27)) hide))
     (pin "1" (uuid "c6-p1")) (pin "2" (uuid "c6-p2"))
+  
+    (instances
+      (project "nebula_qshield"
+        (path "/c6da75fc-541f-4933-b134-f5eb8982a11b/f1fcd624-5e99-46e0-8ec7-0072ddfd5246"
+          (reference "C6") (unit 1)
+        )
+      )
+    )
   )
   (symbol
     (lib_id "Device:C")
@@ -2702,6 +2814,14 @@
     (property "Value" "100nF" (at 152.4 72.39 0) (effects (font (size 1.27 1.27)) (justify left)))
     (property "Footprint" "Capacitor_SMD:C_0402_1005Metric" (at 149.86 71.12 0) (effects (font (size 1.27 1.27)) hide))
     (pin "1" (uuid "c7-p1")) (pin "2" (uuid "c7-p2"))
+  
+    (instances
+      (project "nebula_qshield"
+        (path "/c6da75fc-541f-4933-b134-f5eb8982a11b/f1fcd624-5e99-46e0-8ec7-0072ddfd5246"
+          (reference "C7") (unit 1)
+        )
+      )
+    )
   )
   (symbol
     (lib_id "Device:R")
@@ -2714,6 +2834,14 @@
     (property "Footprint" "Resistor_SMD:R_0402_1005Metric" (at 180.34 81.28 0) (effects (font (size 1.27 1.27)) hide))
     (property "MPN" "CRCW0402100KFKED" (at 180.34 81.28 0) (effects (font (size 1.27 1.27)) hide))
     (pin "1" (uuid "r1-p1")) (pin "2" (uuid "r1-p2"))
+  
+    (instances
+      (project "nebula_qshield"
+        (path "/c6da75fc-541f-4933-b134-f5eb8982a11b/f1fcd624-5e99-46e0-8ec7-0072ddfd5246"
+          (reference "R1") (unit 1)
+        )
+      )
+    )
   )
   (symbol
     (lib_id "Device:R")
@@ -2726,6 +2854,14 @@
     (property "Footprint" "Resistor_SMD:R_0402_1005Metric" (at 180.34 88.9 0) (effects (font (size 1.27 1.27)) hide))
     (property "MPN" "CRCW040224K9FKED" (at 180.34 88.9 0) (effects (font (size 1.27 1.27)) hide))
     (pin "1" (uuid "r2-p1")) (pin "2" (uuid "r2-p2"))
+  
+    (instances
+      (project "nebula_qshield"
+        (path "/c6da75fc-541f-4933-b134-f5eb8982a11b/f1fcd624-5e99-46e0-8ec7-0072ddfd5246"
+          (reference "R2") (unit 1)
+        )
+      )
+    )
   )
 
   (symbol
@@ -2755,6 +2891,14 @@
     (pin "1"  (uuid "u2-p1"))
     (pin "2"  (uuid "u2-p2"))
     (pin "3"  (uuid "u2-p3"))
+  
+    (instances
+      (project "nebula_qshield"
+        (path "/c6da75fc-541f-4933-b134-f5eb8982a11b/f1fcd624-5e99-46e0-8ec7-0072ddfd5246"
+          (reference "U2") (unit 1)
+        )
+      )
+    )
   )
 
   (symbol
@@ -2768,6 +2912,14 @@
     (property "Footprint" "Capacitor_SMD:C_0805_2012Metric" (at 208.28 81.28 0) (effects (font (size 1.27 1.27)) hide))
     (property "MPN" "GRM21BR61A106KE19L" (at 208.28 81.28 0) (effects (font (size 1.27 1.27)) hide))
     (pin "1" (uuid "c8-p1")) (pin "2" (uuid "c8-p2"))
+  
+    (instances
+      (project "nebula_qshield"
+        (path "/c6da75fc-541f-4933-b134-f5eb8982a11b/f1fcd624-5e99-46e0-8ec7-0072ddfd5246"
+          (reference "C8") (unit 1)
+        )
+      )
+    )
   )
   (symbol
     (lib_id "Device:C")
@@ -2780,6 +2932,14 @@
     (property "Footprint" "Capacitor_SMD:C_0805_2012Metric" (at 233.68 81.28 0) (effects (font (size 1.27 1.27)) hide))
     (property "MPN" "GRM21BR61A226ME44L" (at 233.68 81.28 0) (effects (font (size 1.27 1.27)) hide))
     (pin "1" (uuid "c9-p1")) (pin "2" (uuid "c9-p2"))
+  
+    (instances
+      (project "nebula_qshield"
+        (path "/c6da75fc-541f-4933-b134-f5eb8982a11b/f1fcd624-5e99-46e0-8ec7-0072ddfd5246"
+          (reference "C9") (unit 1)
+        )
+      )
+    )
   )
   (symbol
     (lib_id "Device:C_Polarized")
@@ -2792,6 +2952,14 @@
     (property "Footprint" "Capacitor_SMD:C_1206_3216Metric" (at 241.3 81.28 0) (effects (font (size 1.27 1.27)) hide))
     (property "MPN" "T491A106M010AT" (at 241.3 81.28 0) (effects (font (size 1.27 1.27)) hide))
     (pin "1" (uuid "c10-p1")) (pin "2" (uuid "c10-p2"))
+  
+    (instances
+      (project "nebula_qshield"
+        (path "/c6da75fc-541f-4933-b134-f5eb8982a11b/f1fcd624-5e99-46e0-8ec7-0072ddfd5246"
+          (reference "C10") (unit 1)
+        )
+      )
+    )
   )
 
   (symbol
@@ -2802,7 +2970,7 @@
     (in_bom yes)
     (on_board yes)
     (uuid "u12-001")
-    (property "Reference" "U12"
+    (property "Reference" "U3"
       (at 300.99 66.04 0)
       (effects (font (size 1.27 1.27)))
     )
@@ -2827,6 +2995,14 @@
     (pin "3"  (uuid "u12-p3"))
     (pin "4"  (uuid "u12-p4"))
     (pin "5"  (uuid "u12-p5"))
+  
+    (instances
+      (project "nebula_qshield"
+        (path "/c6da75fc-541f-4933-b134-f5eb8982a11b/f1fcd624-5e99-46e0-8ec7-0072ddfd5246"
+          (reference "U3") (unit 1)
+        )
+      )
+    )
   )
 
   (symbol
@@ -2851,6 +3027,14 @@
     )
     (pin "1" (uuid "sw1-p1"))
     (pin "2" (uuid "sw1-p2"))
+  
+    (instances
+      (project "nebula_qshield"
+        (path "/c6da75fc-541f-4933-b134-f5eb8982a11b/f1fcd624-5e99-46e0-8ec7-0072ddfd5246"
+          (reference "SW1") (unit 1)
+        )
+      )
+    )
   )
 
   (symbol
@@ -2859,10 +3043,18 @@
     (unit 1)
     (exclude_from_sim no) (in_bom yes) (on_board yes)
     (uuid "rwdi-001")
-    (property "Reference" "R_WDI" (at 287.02 66.04 0) (effects (font (size 1.27 1.27))))
+    (property "Reference" "R3" (at 287.02 66.04 0) (effects (font (size 1.27 1.27))))
     (property "Value" "10k" (at 287.02 71.12 0) (effects (font (size 1.27 1.27))))
     (property "Footprint" "Resistor_SMD:R_0402_1005Metric" (at 287.02 68.58 0) (effects (font (size 1.27 1.27)) hide))
     (pin "1" (uuid "rwdi-p1")) (pin "2" (uuid "rwdi-p2"))
+  
+    (instances
+      (project "nebula_qshield"
+        (path "/c6da75fc-541f-4933-b134-f5eb8982a11b/f1fcd624-5e99-46e0-8ec7-0072ddfd5246"
+          (reference "R3") (unit 1)
+        )
+      )
+    )
   )
 
   (symbol
@@ -2871,10 +3063,18 @@
     (unit 1)
     (exclude_from_sim no) (in_bom yes) (on_board yes)
     (uuid "cwdt-001")
-    (property "Reference" "C30" (at 314.96 81.28 0) (effects (font (size 1.27 1.27)) (justify left)))
+    (property "Reference" "C11" (at 314.96 81.28 0) (effects (font (size 1.27 1.27)) (justify left)))
     (property "Value" "100nF" (at 314.96 82.55 0) (effects (font (size 1.27 1.27)) (justify left)))
     (property "Footprint" "Capacitor_SMD:C_0402_1005Metric" (at 312.42 81.28 0) (effects (font (size 1.27 1.27)) hide))
     (pin "1" (uuid "cwdt-p1")) (pin "2" (uuid "cwdt-p2"))
+  
+    (instances
+      (project "nebula_qshield"
+        (path "/c6da75fc-541f-4933-b134-f5eb8982a11b/f1fcd624-5e99-46e0-8ec7-0072ddfd5246"
+          (reference "C11") (unit 1)
+        )
+      )
+    )
   )
 
   (symbol
@@ -2888,6 +3088,14 @@
     (property "Footprint" "LED_SMD:LED_0603_1608Metric" (at 101.6 104.14 0) (effects (font (size 1.27 1.27)) hide))
     (property "MPN" "150060RS75000" (at 101.6 104.14 0) (effects (font (size 1.27 1.27)) hide))
     (pin "1" (uuid "led1-p1")) (pin "2" (uuid "led1-p2"))
+  
+    (instances
+      (project "nebula_qshield"
+        (path "/c6da75fc-541f-4933-b134-f5eb8982a11b/f1fcd624-5e99-46e0-8ec7-0072ddfd5246"
+          (reference "LED1") (unit 1)
+        )
+      )
+    )
   )
   (symbol
     (lib_id "Device:R")
@@ -2895,10 +3103,18 @@
     (unit 1)
     (exclude_from_sim no) (in_bom yes) (on_board yes)
     (uuid "rled1-001")
-    (property "Reference" "R_LED1" (at 104.14 96.52 0) (effects (font (size 1.27 1.27)) (justify left)))
+    (property "Reference" "R4" (at 104.14 96.52 0) (effects (font (size 1.27 1.27)) (justify left)))
     (property "Value" "4.7k" (at 104.14 97.79 0) (effects (font (size 1.27 1.27)) (justify left)))
     (property "Footprint" "Resistor_SMD:R_0402_1005Metric" (at 101.6 96.52 0) (effects (font (size 1.27 1.27)) hide))
     (pin "1" (uuid "rled1-p1")) (pin "2" (uuid "rled1-p2"))
+  
+    (instances
+      (project "nebula_qshield"
+        (path "/c6da75fc-541f-4933-b134-f5eb8982a11b/f1fcd624-5e99-46e0-8ec7-0072ddfd5246"
+          (reference "R4") (unit 1)
+        )
+      )
+    )
   )
 
   (symbol
@@ -2912,6 +3128,14 @@
     (property "Footprint" "LED_SMD:LED_0603_1608Metric" (at 114.3 104.14 0) (effects (font (size 1.27 1.27)) hide))
     (property "MPN" "150060GS75000" (at 114.3 104.14 0) (effects (font (size 1.27 1.27)) hide))
     (pin "1" (uuid "led2-p1")) (pin "2" (uuid "led2-p2"))
+  
+    (instances
+      (project "nebula_qshield"
+        (path "/c6da75fc-541f-4933-b134-f5eb8982a11b/f1fcd624-5e99-46e0-8ec7-0072ddfd5246"
+          (reference "LED2") (unit 1)
+        )
+      )
+    )
   )
   (symbol
     (lib_id "Device:R")
@@ -2919,10 +3143,18 @@
     (unit 1)
     (exclude_from_sim no) (in_bom yes) (on_board yes)
     (uuid "rled2-001")
-    (property "Reference" "R_LED2" (at 116.84 96.52 0) (effects (font (size 1.27 1.27)) (justify left)))
+    (property "Reference" "R5" (at 116.84 96.52 0) (effects (font (size 1.27 1.27)) (justify left)))
     (property "Value" "330R" (at 116.84 97.79 0) (effects (font (size 1.27 1.27)) (justify left)))
     (property "Footprint" "Resistor_SMD:R_0402_1005Metric" (at 114.3 96.52 0) (effects (font (size 1.27 1.27)) hide))
     (pin "1" (uuid "rled2-p1")) (pin "2" (uuid "rled2-p2"))
+  
+    (instances
+      (project "nebula_qshield"
+        (path "/c6da75fc-541f-4933-b134-f5eb8982a11b/f1fcd624-5e99-46e0-8ec7-0072ddfd5246"
+          (reference "R5") (unit 1)
+        )
+      )
+    )
   )
 
   (symbol
@@ -2936,6 +3168,14 @@
     (property "Footprint" "LED_SMD:LED_0603_1608Metric" (at 127 104.14 0) (effects (font (size 1.27 1.27)) hide))
     (property "MPN" "150060BS75000" (at 127 104.14 0) (effects (font (size 1.27 1.27)) hide))
     (pin "1" (uuid "led3-p1")) (pin "2" (uuid "led3-p2"))
+  
+    (instances
+      (project "nebula_qshield"
+        (path "/c6da75fc-541f-4933-b134-f5eb8982a11b/f1fcd624-5e99-46e0-8ec7-0072ddfd5246"
+          (reference "LED3") (unit 1)
+        )
+      )
+    )
   )
   (symbol
     (lib_id "Device:R")
@@ -2943,10 +3183,18 @@
     (unit 1)
     (exclude_from_sim no) (in_bom yes) (on_board yes)
     (uuid "rled3-001")
-    (property "Reference" "R_LED3" (at 129.54 96.52 0) (effects (font (size 1.27 1.27)) (justify left)))
+    (property "Reference" "R6" (at 129.54 96.52 0) (effects (font (size 1.27 1.27)) (justify left)))
     (property "Value" "100R" (at 129.54 97.79 0) (effects (font (size 1.27 1.27)) (justify left)))
     (property "Footprint" "Resistor_SMD:R_0402_1005Metric" (at 127 96.52 0) (effects (font (size 1.27 1.27)) hide))
     (pin "1" (uuid "rled3-p1")) (pin "2" (uuid "rled3-p2"))
+  
+    (instances
+      (project "nebula_qshield"
+        (path "/c6da75fc-541f-4933-b134-f5eb8982a11b/f1fcd624-5e99-46e0-8ec7-0072ddfd5246"
+          (reference "R6") (unit 1)
+        )
+      )
+    )
   )
 
   (hierarchical_label "12V_RAIL"   (shape output)   (at 88.9 50.8 0)   (effects (font (size 1.27 1.27))) (uuid "hl-12v"))
@@ -3298,7 +3546,7 @@
     (unit 1)
     (exclude_from_sim no) (in_bom no) (on_board no)
     (uuid "06572803-c77e-443d-9ea1-14a65242e8dd")
-    (property "Reference" "#PWR001"
+    (property "Reference" "#PWR01"
       (at 40.64 60.96 0)
       (effects (font (size 1.27 1.27)) hide)
     )
@@ -3307,6 +3555,14 @@
       (effects (font (size 1.27 1.27)) hide)
     )
     (pin "1" (uuid "5e567c01-19c2-4228-8343-2ebc9a288132"))
+  
+    (instances
+      (project "nebula_qshield"
+        (path "/c6da75fc-541f-4933-b134-f5eb8982a11b/f1fcd624-5e99-46e0-8ec7-0072ddfd5246"
+          (reference "#PWR01") (unit 1)
+        )
+      )
+    )
   )
   (symbol
     (lib_id "power:GND")
@@ -3314,7 +3570,7 @@
     (unit 1)
     (exclude_from_sim no) (in_bom no) (on_board no)
     (uuid "1ca43a72-e9d9-4e8b-8491-81faebed223b")
-    (property "Reference" "#PWR002"
+    (property "Reference" "#PWR02"
       (at 33.02 60.96 0)
       (effects (font (size 1.27 1.27)) hide)
     )
@@ -3323,6 +3579,14 @@
       (effects (font (size 1.27 1.27)) hide)
     )
     (pin "1" (uuid "b8c17f3c-93ed-4496-86ff-f60feb11668b"))
+  
+    (instances
+      (project "nebula_qshield"
+        (path "/c6da75fc-541f-4933-b134-f5eb8982a11b/f1fcd624-5e99-46e0-8ec7-0072ddfd5246"
+          (reference "#PWR02") (unit 1)
+        )
+      )
+    )
   )
   (symbol
     (lib_id "power:GND")
@@ -3330,7 +3594,7 @@
     (unit 1)
     (exclude_from_sim no) (in_bom no) (on_board no)
     (uuid "5c54b966-1a44-4afb-852e-d6161901ced3")
-    (property "Reference" "#PWR003"
+    (property "Reference" "#PWR03"
       (at 86.36 64.77 0)
       (effects (font (size 1.27 1.27)) hide)
     )
@@ -3339,6 +3603,14 @@
       (effects (font (size 1.27 1.27)) hide)
     )
     (pin "1" (uuid "a5ef0876-a020-481d-a9f8-4a8589a0ae4e"))
+  
+    (instances
+      (project "nebula_qshield"
+        (path "/c6da75fc-541f-4933-b134-f5eb8982a11b/f1fcd624-5e99-46e0-8ec7-0072ddfd5246"
+          (reference "#PWR03") (unit 1)
+        )
+      )
+    )
   )
   (symbol
     (lib_id "power:GND")
@@ -3346,7 +3618,7 @@
     (unit 1)
     (exclude_from_sim no) (in_bom no) (on_board no)
     (uuid "268187a7-166d-49f8-b2a1-964c7acb53ab")
-    (property "Reference" "#PWR004"
+    (property "Reference" "#PWR04"
       (at 93.98 64.77 0)
       (effects (font (size 1.27 1.27)) hide)
     )
@@ -3355,6 +3627,14 @@
       (effects (font (size 1.27 1.27)) hide)
     )
     (pin "1" (uuid "69ee6627-6934-42dd-a361-801bdbb4a0eb"))
+  
+    (instances
+      (project "nebula_qshield"
+        (path "/c6da75fc-541f-4933-b134-f5eb8982a11b/f1fcd624-5e99-46e0-8ec7-0072ddfd5246"
+          (reference "#PWR04") (unit 1)
+        )
+      )
+    )
   )
   (symbol
     (lib_id "power:GND")
@@ -3362,7 +3642,7 @@
     (unit 1)
     (exclude_from_sim no) (in_bom no) (on_board no)
     (uuid "708b308e-a2df-454c-96cf-4104f2a6fb10")
-    (property "Reference" "#PWR005"
+    (property "Reference" "#PWR05"
       (at 139.7 88.9 0)
       (effects (font (size 1.27 1.27)) hide)
     )
@@ -3371,6 +3651,14 @@
       (effects (font (size 1.27 1.27)) hide)
     )
     (pin "1" (uuid "031593a1-aecb-4934-884d-3ff3bfd125b4"))
+  
+    (instances
+      (project "nebula_qshield"
+        (path "/c6da75fc-541f-4933-b134-f5eb8982a11b/f1fcd624-5e99-46e0-8ec7-0072ddfd5246"
+          (reference "#PWR05") (unit 1)
+        )
+      )
+    )
   )
   (symbol
     (lib_id "power:GND")
@@ -3378,7 +3666,7 @@
     (unit 1)
     (exclude_from_sim no) (in_bom no) (on_board no)
     (uuid "cf1a55fd-5dd8-49e7-9ff9-22f0359e91ae")
-    (property "Reference" "#PWR006"
+    (property "Reference" "#PWR06"
       (at 121.92 90.17 0)
       (effects (font (size 1.27 1.27)) hide)
     )
@@ -3387,6 +3675,14 @@
       (effects (font (size 1.27 1.27)) hide)
     )
     (pin "1" (uuid "384c4937-33b1-4829-a96a-8e61b3145d24"))
+  
+    (instances
+      (project "nebula_qshield"
+        (path "/c6da75fc-541f-4933-b134-f5eb8982a11b/f1fcd624-5e99-46e0-8ec7-0072ddfd5246"
+          (reference "#PWR06") (unit 1)
+        )
+      )
+    )
   )
   (symbol
     (lib_id "power:GND")
@@ -3394,7 +3690,7 @@
     (unit 1)
     (exclude_from_sim no) (in_bom no) (on_board no)
     (uuid "19f1008b-d215-4b62-9f29-5e11b01f89fc")
-    (property "Reference" "#PWR007"
+    (property "Reference" "#PWR07"
       (at 127.0 90.17 0)
       (effects (font (size 1.27 1.27)) hide)
     )
@@ -3403,6 +3699,14 @@
       (effects (font (size 1.27 1.27)) hide)
     )
     (pin "1" (uuid "9642a2ea-d634-461e-91c2-305f8e88414f"))
+  
+    (instances
+      (project "nebula_qshield"
+        (path "/c6da75fc-541f-4933-b134-f5eb8982a11b/f1fcd624-5e99-46e0-8ec7-0072ddfd5246"
+          (reference "#PWR07") (unit 1)
+        )
+      )
+    )
   )
   (symbol
     (lib_id "power:GND")
@@ -3410,7 +3714,7 @@
     (unit 1)
     (exclude_from_sim no) (in_bom no) (on_board no)
     (uuid "16aa6086-3c07-4978-8832-48dbfe70f8fc")
-    (property "Reference" "#PWR008"
+    (property "Reference" "#PWR08"
       (at 170.18 90.17 0)
       (effects (font (size 1.27 1.27)) hide)
     )
@@ -3419,6 +3723,14 @@
       (effects (font (size 1.27 1.27)) hide)
     )
     (pin "1" (uuid "2948895e-443e-4211-b33d-a214cda0718b"))
+  
+    (instances
+      (project "nebula_qshield"
+        (path "/c6da75fc-541f-4933-b134-f5eb8982a11b/f1fcd624-5e99-46e0-8ec7-0072ddfd5246"
+          (reference "#PWR08") (unit 1)
+        )
+      )
+    )
   )
   (symbol
     (lib_id "power:GND")
@@ -3426,7 +3738,7 @@
     (unit 1)
     (exclude_from_sim no) (in_bom no) (on_board no)
     (uuid "92d3a2d8-cf81-41b7-b420-fff8dc90eccf")
-    (property "Reference" "#PWR009"
+    (property "Reference" "#PWR09"
       (at 175.26 90.17 0)
       (effects (font (size 1.27 1.27)) hide)
     )
@@ -3435,6 +3747,14 @@
       (effects (font (size 1.27 1.27)) hide)
     )
     (pin "1" (uuid "621c44c3-ef1b-4a5c-bd8c-05db989f9d3a"))
+  
+    (instances
+      (project "nebula_qshield"
+        (path "/c6da75fc-541f-4933-b134-f5eb8982a11b/f1fcd624-5e99-46e0-8ec7-0072ddfd5246"
+          (reference "#PWR09") (unit 1)
+        )
+      )
+    )
   )
   (symbol
     (lib_id "power:GND")
@@ -3442,7 +3762,7 @@
     (unit 1)
     (exclude_from_sim no) (in_bom no) (on_board no)
     (uuid "acc50238-0217-478b-92ae-e89394256480")
-    (property "Reference" "#PWR010"
+    (property "Reference" "#PWR10"
       (at 176.53 93.98 0)
       (effects (font (size 1.27 1.27)) hide)
     )
@@ -3451,6 +3771,14 @@
       (effects (font (size 1.27 1.27)) hide)
     )
     (pin "1" (uuid "8f562931-20de-4a54-ac99-3cf41931ce15"))
+  
+    (instances
+      (project "nebula_qshield"
+        (path "/c6da75fc-541f-4933-b134-f5eb8982a11b/f1fcd624-5e99-46e0-8ec7-0072ddfd5246"
+          (reference "#PWR10") (unit 1)
+        )
+      )
+    )
   )
   (symbol
     (lib_id "power:GND")
@@ -3458,7 +3786,7 @@
     (unit 1)
     (exclude_from_sim no) (in_bom no) (on_board no)
     (uuid "3e4e7f53-6ab9-4496-9f4b-7329c13d8f35")
-    (property "Reference" "#PWR011"
+    (property "Reference" "#PWR11"
       (at 220.98 88.9 0)
       (effects (font (size 1.27 1.27)) hide)
     )
@@ -3467,6 +3795,14 @@
       (effects (font (size 1.27 1.27)) hide)
     )
     (pin "1" (uuid "1f7fafdf-36cf-4f7d-b030-2861c54af7fc"))
+  
+    (instances
+      (project "nebula_qshield"
+        (path "/c6da75fc-541f-4933-b134-f5eb8982a11b/f1fcd624-5e99-46e0-8ec7-0072ddfd5246"
+          (reference "#PWR11") (unit 1)
+        )
+      )
+    )
   )
   (symbol
     (lib_id "power:GND")
@@ -3474,7 +3810,7 @@
     (unit 1)
     (exclude_from_sim no) (in_bom no) (on_board no)
     (uuid "84d48289-5941-4401-a672-a957f8e0532a")
-    (property "Reference" "#PWR012"
+    (property "Reference" "#PWR12"
       (at 208.28 90.17 0)
       (effects (font (size 1.27 1.27)) hide)
     )
@@ -3483,6 +3819,14 @@
       (effects (font (size 1.27 1.27)) hide)
     )
     (pin "1" (uuid "3b2d8d4a-6e4c-47dd-800c-c72b40751ae2"))
+  
+    (instances
+      (project "nebula_qshield"
+        (path "/c6da75fc-541f-4933-b134-f5eb8982a11b/f1fcd624-5e99-46e0-8ec7-0072ddfd5246"
+          (reference "#PWR12") (unit 1)
+        )
+      )
+    )
   )
   (symbol
     (lib_id "power:GND")
@@ -3490,7 +3834,7 @@
     (unit 1)
     (exclude_from_sim no) (in_bom no) (on_board no)
     (uuid "1738ef54-080d-4959-98de-499b0e632461")
-    (property "Reference" "#PWR013"
+    (property "Reference" "#PWR13"
       (at 233.68 90.17 0)
       (effects (font (size 1.27 1.27)) hide)
     )
@@ -3499,6 +3843,14 @@
       (effects (font (size 1.27 1.27)) hide)
     )
     (pin "1" (uuid "d4a4e9c3-6eba-49b6-a61e-b9a9a6b8e493"))
+  
+    (instances
+      (project "nebula_qshield"
+        (path "/c6da75fc-541f-4933-b134-f5eb8982a11b/f1fcd624-5e99-46e0-8ec7-0072ddfd5246"
+          (reference "#PWR13") (unit 1)
+        )
+      )
+    )
   )
   (symbol
     (lib_id "power:GND")
@@ -3506,7 +3858,7 @@
     (unit 1)
     (exclude_from_sim no) (in_bom no) (on_board no)
     (uuid "89b9e429-c944-4f54-bb52-756fe274026d")
-    (property "Reference" "#PWR014"
+    (property "Reference" "#PWR14"
       (at 241.3 90.17 0)
       (effects (font (size 1.27 1.27)) hide)
     )
@@ -3515,6 +3867,14 @@
       (effects (font (size 1.27 1.27)) hide)
     )
     (pin "1" (uuid "24f58e89-8f3a-45d1-9936-52606c8ed560"))
+  
+    (instances
+      (project "nebula_qshield"
+        (path "/c6da75fc-541f-4933-b134-f5eb8982a11b/f1fcd624-5e99-46e0-8ec7-0072ddfd5246"
+          (reference "#PWR14") (unit 1)
+        )
+      )
+    )
   )
   (symbol
     (lib_id "power:GND")
@@ -3522,7 +3882,7 @@
     (unit 1)
     (exclude_from_sim no) (in_bom no) (on_board no)
     (uuid "a3dabddf-da2a-485c-9cb3-d109b0a2e8a8")
-    (property "Reference" "#PWR015"
+    (property "Reference" "#PWR15"
       (at 276.86 86.36 0)
       (effects (font (size 1.27 1.27)) hide)
     )
@@ -3531,6 +3891,14 @@
       (effects (font (size 1.27 1.27)) hide)
     )
     (pin "1" (uuid "e4cc9e40-a82e-4333-8ad6-251a11b7aa0c"))
+  
+    (instances
+      (project "nebula_qshield"
+        (path "/c6da75fc-541f-4933-b134-f5eb8982a11b/f1fcd624-5e99-46e0-8ec7-0072ddfd5246"
+          (reference "#PWR15") (unit 1)
+        )
+      )
+    )
   )
   (symbol
     (lib_id "power:GND")
@@ -3538,7 +3906,7 @@
     (unit 1)
     (exclude_from_sim no) (in_bom no) (on_board no)
     (uuid "663554b0-f0ae-4f96-9064-1e221c57d7cf")
-    (property "Reference" "#PWR016"
+    (property "Reference" "#PWR16"
       (at 300.99 88.9 0)
       (effects (font (size 1.27 1.27)) hide)
     )
@@ -3547,6 +3915,14 @@
       (effects (font (size 1.27 1.27)) hide)
     )
     (pin "1" (uuid "730f83c1-3678-4f7f-958b-0e4cef092946"))
+  
+    (instances
+      (project "nebula_qshield"
+        (path "/c6da75fc-541f-4933-b134-f5eb8982a11b/f1fcd624-5e99-46e0-8ec7-0072ddfd5246"
+          (reference "#PWR16") (unit 1)
+        )
+      )
+    )
   )
   (symbol
     (lib_id "power:GND")
@@ -3554,7 +3930,7 @@
     (unit 1)
     (exclude_from_sim no) (in_bom no) (on_board no)
     (uuid "1f7ef8c4-2169-4616-9781-7318eaf2a559")
-    (property "Reference" "#PWR017"
+    (property "Reference" "#PWR17"
       (at 312.42 90.17 0)
       (effects (font (size 1.27 1.27)) hide)
     )
@@ -3563,6 +3939,14 @@
       (effects (font (size 1.27 1.27)) hide)
     )
     (pin "1" (uuid "de8770c4-3fdd-43da-a06c-a4104e355411"))
+  
+    (instances
+      (project "nebula_qshield"
+        (path "/c6da75fc-541f-4933-b134-f5eb8982a11b/f1fcd624-5e99-46e0-8ec7-0072ddfd5246"
+          (reference "#PWR17") (unit 1)
+        )
+      )
+    )
   )
   (symbol
     (lib_id "power:GND")
@@ -3570,7 +3954,7 @@
     (unit 1)
     (exclude_from_sim no) (in_bom no) (on_board no)
     (uuid "48fadcab-55e0-43c0-8847-0deeb963564a")
-    (property "Reference" "#PWR018"
+    (property "Reference" "#PWR18"
       (at 101.6 113.03 0)
       (effects (font (size 1.27 1.27)) hide)
     )
@@ -3579,6 +3963,14 @@
       (effects (font (size 1.27 1.27)) hide)
     )
     (pin "1" (uuid "3c10b371-6694-4bb0-9f40-35bc96f5179c"))
+  
+    (instances
+      (project "nebula_qshield"
+        (path "/c6da75fc-541f-4933-b134-f5eb8982a11b/f1fcd624-5e99-46e0-8ec7-0072ddfd5246"
+          (reference "#PWR18") (unit 1)
+        )
+      )
+    )
   )
   (symbol
     (lib_id "power:GND")
@@ -3586,7 +3978,7 @@
     (unit 1)
     (exclude_from_sim no) (in_bom no) (on_board no)
     (uuid "82586828-3022-48be-8a1f-675c70580c76")
-    (property "Reference" "#PWR019"
+    (property "Reference" "#PWR19"
       (at 114.3 113.03 0)
       (effects (font (size 1.27 1.27)) hide)
     )
@@ -3595,6 +3987,14 @@
       (effects (font (size 1.27 1.27)) hide)
     )
     (pin "1" (uuid "65e89f99-9975-4957-8d6d-110659469100"))
+  
+    (instances
+      (project "nebula_qshield"
+        (path "/c6da75fc-541f-4933-b134-f5eb8982a11b/f1fcd624-5e99-46e0-8ec7-0072ddfd5246"
+          (reference "#PWR19") (unit 1)
+        )
+      )
+    )
   )
   (symbol
     (lib_id "power:GND")
@@ -3602,7 +4002,7 @@
     (unit 1)
     (exclude_from_sim no) (in_bom no) (on_board no)
     (uuid "63619b38-f397-4ca7-837b-0edf0ebf534c")
-    (property "Reference" "#PWR020"
+    (property "Reference" "#PWR20"
       (at 127.0 113.03 0)
       (effects (font (size 1.27 1.27)) hide)
     )
@@ -3611,6 +4011,14 @@
       (effects (font (size 1.27 1.27)) hide)
     )
     (pin "1" (uuid "66854fe1-a814-4c35-a9cf-d0e6c5c4e948"))
+  
+    (instances
+      (project "nebula_qshield"
+        (path "/c6da75fc-541f-4933-b134-f5eb8982a11b/f1fcd624-5e99-46e0-8ec7-0072ddfd5246"
+          (reference "#PWR20") (unit 1)
+        )
+      )
+    )
   )
 
   (label "12V_RAIL" (at 121.92 73.66 0) (effects (font (size 1.27 1.27))) (uuid "30540051-669b-4094-9e0a-e46875c873d9"))
