@@ -64,7 +64,7 @@
     (exclude_from_sim no) (in_bom yes) (on_board yes)
     (uuid "8156a470-0743-449b-b09e-d98230af7045")
     (property "Reference" "J7" (at 88.9 68.58 0) (effects (font (size 1.27 1.27))))
-    (property "Value" "Qwiic GPS SAM-M8Q" (at 88.9 69.85000000000001 0) (effects (font (size 1.27 1.27))))
+    (property "Value" "Qwiic GPS SAM-M8Q" (at 88.9 69.85 0) (effects (font (size 1.27 1.27))))
     (property "Footprint" "Connector_JST:JST_SH_SM04B-SRSS-TB_1x04-1MP_P1.00mm_Horizontal"
       (at 88.9 76.2 0) (effects (font (size 1.27 1.27)) hide))
     (property "MPN" "SM04B-SRSS-TB(LF)(SN)" (at 88.9 76.2 0) (effects (font (size 1.27 1.27)) hide))
@@ -85,7 +85,7 @@
     (exclude_from_sim no) (in_bom yes) (on_board yes)
     (uuid "55e50f88-cf20-4b73-84fd-533add0feaab")
     (property "Reference" "J8" (at 88.9 86.36 0) (effects (font (size 1.27 1.27))))
-    (property "Value" "Qwiic RTC DS3231" (at 88.9 87.63000000000001 0) (effects (font (size 1.27 1.27))))
+    (property "Value" "Qwiic RTC DS3231" (at 88.9 87.63 0) (effects (font (size 1.27 1.27))))
     (property "Footprint" "Connector_JST:JST_SH_SM04B-SRSS-TB_1x04-1MP_P1.00mm_Horizontal"
       (at 88.9 93.98 0) (effects (font (size 1.27 1.27)) hide))
     (property "MPN" "SM04B-SRSS-TB(LF)(SN)" (at 88.9 93.98 0) (effects (font (size 1.27 1.27)) hide))
@@ -106,7 +106,7 @@
     (exclude_from_sim no) (in_bom yes) (on_board yes)
     (uuid "cc78cf50-0a5f-4e2c-92ff-37dafc9d4a7b")
     (property "Reference" "J9" (at 88.9 104.14 0) (effects (font (size 1.27 1.27))))
-    (property "Value" "Qwiic Cell Density" (at 88.9 105.41000000000001 0) (effects (font (size 1.27 1.27))))
+    (property "Value" "Qwiic Cell Density" (at 88.9 105.41 0) (effects (font (size 1.27 1.27))))
     (property "Footprint" "Connector_JST:JST_SH_SM04B-SRSS-TB_1x04-1MP_P1.00mm_Horizontal"
       (at 88.9 111.76 0) (effects (font (size 1.27 1.27)) hide))
     (property "MPN" "SM04B-SRSS-TB(LF)(SN)" (at 88.9 111.76 0) (effects (font (size 1.27 1.27)) hide))
@@ -123,19 +123,19 @@
 
   (symbol
     (lib_id "Connector_Generic:Conn_01x04")
-    (at 88.9 129.54000000000002 0) (unit 1)
+    (at 88.9 129.54 0) (unit 1)
     (exclude_from_sim no) (in_bom yes) (on_board yes)
     (uuid "ff19a23b-c759-48ff-a498-ee68da3d4c44")
-    (property "Reference" "J10" (at 88.9 121.92000000000002 0) (effects (font (size 1.27 1.27))))
-    (property "Value" "Qwiic EZO-pH" (at 88.9 123.19000000000003 0) (effects (font (size 1.27 1.27))))
+    (property "Reference" "J10" (at 88.9 121.92 0) (effects (font (size 1.27 1.27))))
+    (property "Value" "Qwiic EZO-pH" (at 88.9 123.19 0) (effects (font (size 1.27 1.27))))
     (property "Footprint" "Connector_JST:JST_SH_SM04B-SRSS-TB_1x04-1MP_P1.00mm_Horizontal"
-      (at 88.9 129.54000000000002 0) (effects (font (size 1.27 1.27)) hide))
-    (property "MPN" "SM04B-SRSS-TB(LF)(SN)" (at 88.9 129.54000000000002 0) (effects (font (size 1.27 1.27)) hide))
-    (property "Digi-Key_PN" "455-1804-1-ND" (at 88.9 129.54000000000002 0) (effects (font (size 1.27 1.27)) hide))
+      (at 88.9 129.54 0) (effects (font (size 1.27 1.27)) hide))
+    (property "MPN" "SM04B-SRSS-TB(LF)(SN)" (at 88.9 129.54 0) (effects (font (size 1.27 1.27)) hide))
+    (property "Digi-Key_PN" "455-1804-1-ND" (at 88.9 129.54 0) (effects (font (size 1.27 1.27)) hide))
     (property "Description" "JST-SH Qwiic: VCC/GND/SDA/SCL — EZO-pH I2C addr 0x63"
-      (at 88.9 129.54000000000002 0) (effects (font (size 1.27 1.27)) hide))
+      (at 88.9 129.54 0) (effects (font (size 1.27 1.27)) hide))
     (property "DNP" "Optional"
-      (at 88.9 129.54000000000002 0) (effects (font (size 1.27 1.27)) hide))
+      (at 88.9 129.54 0) (effects (font (size 1.27 1.27)) hide))
     (pin "1" (uuid "c7a1c5da-9d06-47b7-bcf7-6851876d0f1c"))
     (pin "2" (uuid "59c36238-ad02-402c-a6e9-238f4b24abdc"))
     (pin "3" (uuid "c42b9d97-3d73-4a41-b303-fd0557a99b8c"))
@@ -165,19 +165,19 @@
 
   (symbol
     (lib_id "Connector_Generic:Conn_01x04")
-    (at 88.9 165.10000000000002 0) (unit 1)
+    (at 88.9 165.1 0) (unit 1)
     (exclude_from_sim no) (in_bom yes) (on_board yes)
     (uuid "cc9d6c3b-338a-4a01-9ab8-ebf42ac59bc6")
-    (property "Reference" "J12" (at 88.9 157.48000000000002 0) (effects (font (size 1.27 1.27))))
-    (property "Value" "Qwiic EZO-DO" (at 88.9 158.75000000000003 0) (effects (font (size 1.27 1.27))))
+    (property "Reference" "J12" (at 88.9 157.48 0) (effects (font (size 1.27 1.27))))
+    (property "Value" "Qwiic EZO-DO" (at 88.9 158.75 0) (effects (font (size 1.27 1.27))))
     (property "Footprint" "Connector_JST:JST_SH_SM04B-SRSS-TB_1x04-1MP_P1.00mm_Horizontal"
-      (at 88.9 165.10000000000002 0) (effects (font (size 1.27 1.27)) hide))
-    (property "MPN" "SM04B-SRSS-TB(LF)(SN)" (at 88.9 165.10000000000002 0) (effects (font (size 1.27 1.27)) hide))
-    (property "Digi-Key_PN" "455-1804-1-ND" (at 88.9 165.10000000000002 0) (effects (font (size 1.27 1.27)) hide))
+      (at 88.9 165.1 0) (effects (font (size 1.27 1.27)) hide))
+    (property "MPN" "SM04B-SRSS-TB(LF)(SN)" (at 88.9 165.1 0) (effects (font (size 1.27 1.27)) hide))
+    (property "Digi-Key_PN" "455-1804-1-ND" (at 88.9 165.1 0) (effects (font (size 1.27 1.27)) hide))
     (property "Description" "JST-SH Qwiic: VCC/GND/SDA/SCL — EZO-DO I2C addr 0x61"
-      (at 88.9 165.10000000000002 0) (effects (font (size 1.27 1.27)) hide))
+      (at 88.9 165.1 0) (effects (font (size 1.27 1.27)) hide))
     (property "DNP" "Optional"
-      (at 88.9 165.10000000000002 0) (effects (font (size 1.27 1.27)) hide))
+      (at 88.9 165.1 0) (effects (font (size 1.27 1.27)) hide))
     (pin "1" (uuid "6d4b5011-c071-4603-a3fd-07a129accd9c"))
     (pin "2" (uuid "1d0a56a4-8b69-4855-97e8-802012417f08"))
     (pin "3" (uuid "91548fa1-5da6-4a9c-898a-3cc68d682872"))
