@@ -862,7 +862,7 @@
     (at 63.5 50.8 0) (unit 1)
     (exclude_from_sim no) (in_bom yes) (on_board yes)
     (uuid "bc59448e-ca54-45f6-9944-af362aabe4ec")
-    (property "Reference" "J_HMI" (at 63.5 40.64 0) (effects (font (size 1.27 1.27))))
+    (property "Reference" "J20" (at 63.5 40.64 0) (effects (font (size 1.27 1.27))))
     (property "Value" "HMI UART" (at 63.5 43.18 0) (effects (font (size 1.27 1.27))))
     (property "Footprint" "Connector_JST:JST_XH_B4B-XH-A_1x04_P2.50mm_Vertical"
       (at 63.5 50.8 0) (effects (font (size 1.27 1.27)) hide))
@@ -872,6 +872,14 @@
     (pin "2" (uuid "6ada2264-d95c-4cf0-aff3-b07e108a8e05"))
     (pin "3" (uuid "bae6e206-ab2c-4f2f-aa1b-d1ec9d5f8ce1"))
     (pin "4" (uuid "340e501b-7263-408c-ab54-b8765b97beb4"))
+  
+    (instances
+      (project "nebula_qshield"
+        (path "/c6da75fc-541f-4933-b134-f5eb8982a11b/f787f9da-3fea-4da5-bd0c-c3201676b3de"
+          (reference "J20") (unit 1)
+        )
+      )
+    )
   )
 
   (symbol
@@ -879,11 +887,19 @@
     (at 86.36 50.8 0) (unit 1)
     (exclude_from_sim no) (in_bom yes) (on_board yes)
     (uuid "a7052331-feb4-461d-807a-1b133998d9c8")
-    (property "Reference" "D_HMI" (at 86.36 45.72 0) (effects (font (size 1.27 1.27))))
+    (property "Reference" "D15" (at 86.36 45.72 0) (effects (font (size 1.27 1.27))))
     (property "Value" "PESD3V3S2USF" (at 86.36 48.26 0) (effects (font (size 1.27 1.27))))
     (property "Footprint" "Package_TO_SOT_SMD:SOT-23-3" (at 86.36 50.8 0) (effects (font (size 1.27 1.27)) hide))
     (property "MPN" "PESD3V3S2USF" (at 86.36 50.8 0) (effects (font (size 1.27 1.27)) hide))
     (pin "1" (uuid "99f7c46f-1288-44b8-81c8-69ee3e74aadd")) (pin "2" (uuid "d82dacf6-08ad-4e71-9599-737cd8516ec5")) (pin "3" (uuid "6b6ccf8a-7ea2-4a15-b3d6-ad3a432a5cde"))
+  
+    (instances
+      (project "nebula_qshield"
+        (path "/c6da75fc-541f-4933-b134-f5eb8982a11b/f787f9da-3fea-4da5-bd0c-c3201676b3de"
+          (reference "D15") (unit 1)
+        )
+      )
+    )
   )
 
   (text "ARDUINO UNO Q SHIELD HEADER — J21\n2x20 stackable pin header, 2.54mm pitch\nAll signals routed through this connector"
@@ -912,28 +928,60 @@
     (pin "34" (uuid "df66c1b6-1a2a-4089-a817-cf33015a9107")) (pin "35" (uuid "aac923c8-f054-4f2d-91a4-0ceabaf11a24")) (pin "36" (uuid "2007d456-d65a-4f0e-88ec-08b08a8ae562"))
     (pin "37" (uuid "6c389584-94c0-4418-a610-dad5dfe6a115")) (pin "38" (uuid "4b0fe08c-41cc-4c84-9ca0-289a73416d13")) (pin "39" (uuid "db5b1f2d-c289-436d-8322-818caa29b982"))
     (pin "40" (uuid "7a6565d4-fb6f-4d62-94c1-5468b4f26c38"))
+  
+    (instances
+      (project "nebula_qshield"
+        (path "/c6da75fc-541f-4933-b134-f5eb8982a11b/f787f9da-3fea-4da5-bd0c-c3201676b3de"
+          (reference "J21") (unit 1)
+        )
+      )
+    )
   )
 
   (symbol (lib_id "Diode:BAT54S") (at 170.18 50.8 0) (unit 1) (exclude_from_sim no) (in_bom yes) (on_board yes)
     (uuid "374c5e77-ec22-4a98-8692-3218e487511e")
-    (property "Reference" "D_CL1" (at 170.18 45.72 0) (effects (font (size 1.27 1.27))))
+    (property "Reference" "D16" (at 170.18 45.72 0) (effects (font (size 1.27 1.27))))
     (property "Value" "BAT54S" (at 170.18 48.26 0) (effects (font (size 1.27 1.27))))
     (property "Footprint" "Package_TO_SOT_SMD:SOT-23-3" (at 170.18 50.8 0) (effects (font (size 1.27 1.27)) hide))
     (pin "1" (uuid "735cbd5c-742a-4c23-8129-38b3ea8c74ff")) (pin "2" (uuid "4e877625-f79b-4d83-b834-57024e4e6298")) (pin "3" (uuid "ee61e6d1-e36d-4fe2-a4d7-aaa0979a57db"))
+  
+    (instances
+      (project "nebula_qshield"
+        (path "/c6da75fc-541f-4933-b134-f5eb8982a11b/f787f9da-3fea-4da5-bd0c-c3201676b3de"
+          (reference "D16") (unit 1)
+        )
+      )
+    )
   )
   (symbol (lib_id "Diode:BAT54S") (at 182.88 50.8 0) (unit 1) (exclude_from_sim no) (in_bom yes) (on_board yes)
     (uuid "b1449fdd-4a06-4190-b610-861659f259b2")
-    (property "Reference" "D_CL2" (at 182.88 45.72 0) (effects (font (size 1.27 1.27))))
+    (property "Reference" "D17" (at 182.88 45.72 0) (effects (font (size 1.27 1.27))))
     (property "Value" "BAT54S" (at 182.88 48.26 0) (effects (font (size 1.27 1.27))))
     (property "Footprint" "Package_TO_SOT_SMD:SOT-23-3" (at 182.88 50.8 0) (effects (font (size 1.27 1.27)) hide))
     (pin "1" (uuid "d9bc26af-8ad0-43ee-a7ce-1f773cbc2086")) (pin "2" (uuid "198fe20b-84d5-4034-8258-a6c8be5ed794")) (pin "3" (uuid "fb4923b4-1cf1-493f-8525-5ad2f9073659"))
+  
+    (instances
+      (project "nebula_qshield"
+        (path "/c6da75fc-541f-4933-b134-f5eb8982a11b/f787f9da-3fea-4da5-bd0c-c3201676b3de"
+          (reference "D17") (unit 1)
+        )
+      )
+    )
   )
   (symbol (lib_id "Diode:BAT54S") (at 195.58 50.8 0) (unit 1) (exclude_from_sim no) (in_bom yes) (on_board yes)
     (uuid "3c045671-2a1a-4783-9243-bb6aabb99a34")
-    (property "Reference" "D_CL3" (at 195.58 45.72 0) (effects (font (size 1.27 1.27))))
+    (property "Reference" "D18" (at 195.58 45.72 0) (effects (font (size 1.27 1.27))))
     (property "Value" "BAT54S" (at 195.58 48.26 0) (effects (font (size 1.27 1.27))))
     (property "Footprint" "Package_TO_SOT_SMD:SOT-23-3" (at 195.58 50.8 0) (effects (font (size 1.27 1.27)) hide))
     (pin "1" (uuid "2561e163-799c-4b4d-980a-b70a358da8aa")) (pin "2" (uuid "43c65366-a7dd-4880-ab78-d29c21204a2e")) (pin "3" (uuid "1f202e79-c214-405d-9fb1-27b74d58a99f"))
+  
+    (instances
+      (project "nebula_qshield"
+        (path "/c6da75fc-541f-4933-b134-f5eb8982a11b/f787f9da-3fea-4da5-bd0c-c3201676b3de"
+          (reference "D18") (unit 1)
+        )
+      )
+    )
   )
 
   (hierarchical_label "PH_ADC"      (shape input) (at 55.88 95.25 180)  (effects (font (size 1.27 1.27))) (uuid "8964c9e1-1d03-4385-9371-a6b45e40933b"))

@@ -1151,12 +1151,20 @@
     (at 50.8 43.18 0) (unit 1)
     (exclude_from_sim no) (in_bom yes) (on_board yes)
     (uuid "e834e6d0-2e26-4fde-a689-8ce31346d489")
-    (property "Reference" "R10" (at 53.34 43.18 0) (effects (font (size 1.27 1.27)) (justify left)))
+    (property "Reference" "R19" (at 53.34 43.18 0) (effects (font (size 1.27 1.27)) (justify left)))
     (property "Value" "4.7k 1%" (at 53.34 44.45 0) (effects (font (size 1.27 1.27)) (justify left)))
     (property "Footprint" "Resistor_SMD:R_0402_1005Metric" (at 50.8 43.18 0) (effects (font (size 1.27 1.27)) hide))
     (property "MPN" "CRCW04024K70FKED" (at 50.8 43.18 0) (effects (font (size 1.27 1.27)) hide))
     (property "Digi-Key_PN" "541-4.70KLCT-ND" (at 50.8 43.18 0) (effects (font (size 1.27 1.27)) hide))
     (pin "1" (uuid "97e44477-1f1f-4a0e-a507-cfa734f187fb")) (pin "2" (uuid "368c8658-b841-4552-987d-40e84a3d763c"))
+  
+    (instances
+      (project "nebula_qshield"
+        (path "/c6da75fc-541f-4933-b134-f5eb8982a11b/43ec48b6-2639-4f87-888d-e2ac5bc6a498"
+          (reference "R19") (unit 1)
+        )
+      )
+    )
   )
 
   (symbol
@@ -1164,11 +1172,19 @@
     (at 63.5 43.18 0) (unit 1)
     (exclude_from_sim no) (in_bom yes) (on_board yes)
     (uuid "b6f810e5-f968-4d39-b024-02db80186430")
-    (property "Reference" "R11" (at 66.04 43.18 0) (effects (font (size 1.27 1.27)) (justify left)))
+    (property "Reference" "R20" (at 66.04 43.18 0) (effects (font (size 1.27 1.27)) (justify left)))
     (property "Value" "4.7k 1%" (at 66.04 44.45 0) (effects (font (size 1.27 1.27)) (justify left)))
     (property "Footprint" "Resistor_SMD:R_0402_1005Metric" (at 63.5 43.18 0) (effects (font (size 1.27 1.27)) hide))
     (property "MPN" "CRCW04024K70FKED" (at 63.5 43.18 0) (effects (font (size 1.27 1.27)) hide))
     (pin "1" (uuid "1c176355-6926-4dd4-a65b-12955a0a392e")) (pin "2" (uuid "cc78f0a4-0acd-4958-8b16-b320215eb151"))
+  
+    (instances
+      (project "nebula_qshield"
+        (path "/c6da75fc-541f-4933-b134-f5eb8982a11b/43ec48b6-2639-4f87-888d-e2ac5bc6a498"
+          (reference "R20") (unit 1)
+        )
+      )
+    )
   )
 
   (symbol
@@ -1176,12 +1192,20 @@
     (at 50.8 58.42 0) (unit 1)
     (exclude_from_sim no) (in_bom yes) (on_board yes)
     (uuid "2cb5c0be-92ef-477f-a4b8-a440092555af")
-    (property "Reference" "D7_D8" (at 50.8 53.34 0) (effects (font (size 1.27 1.27))))
+    (property "Reference" "D9" (at 50.8 53.34 0) (effects (font (size 1.27 1.27))))
     (property "Value" "PESD3V3S2USF" (at 50.8 55.88 0) (effects (font (size 1.27 1.27))))
     (property "Footprint" "Package_TO_SOT_SMD:SOT-23-3" (at 50.8 58.42 0) (effects (font (size 1.27 1.27)) hide))
     (property "MPN" "PESD3V3S2USF" (at 50.8 58.42 0) (effects (font (size 1.27 1.27)) hide))
     (property "Digi-Key_PN" "568-13207-1-ND" (at 50.8 58.42 0) (effects (font (size 1.27 1.27)) hide))
     (pin "1" (uuid "d8a5c83f-f5b9-44ec-a559-61a44369894e")) (pin "2" (uuid "d53dc90f-0a3d-414c-847d-2b819dbda371")) (pin "3" (uuid "30c2db66-e73b-4479-8fc5-eff0746576d3"))
+  
+    (instances
+      (project "nebula_qshield"
+        (path "/c6da75fc-541f-4933-b134-f5eb8982a11b/43ec48b6-2639-4f87-888d-e2ac5bc6a498"
+          (reference "D9") (unit 1)
+        )
+      )
+    )
   )
 
 
@@ -1190,7 +1214,7 @@
     (at 88.9 76.2 0) (unit 1)
     (exclude_from_sim no) (in_bom yes) (on_board yes)
     (uuid "8156a470-0743-449b-b09e-d98230af7045")
-    (property "Reference" "J7" (at 88.9 68.58 0) (effects (font (size 1.27 1.27))))
+    (property "Reference" "J8" (at 88.9 68.58 0) (effects (font (size 1.27 1.27))))
     (property "Value" "Qwiic GPS SAM-M8Q" (at 88.9 69.85 0) (effects (font (size 1.27 1.27))))
     (property "Footprint" "Connector_JST:JST_SH_SM04B-SRSS-TB_1x04-1MP_P1.00mm_Horizontal"
       (at 88.9 76.2 0) (effects (font (size 1.27 1.27)) hide))
@@ -1204,6 +1228,14 @@
     (pin "2" (uuid "976a50b6-f520-455e-9e19-867fe527cc03"))
     (pin "3" (uuid "83243d42-8d1f-4bce-a28c-4a9986e075f5"))
     (pin "4" (uuid "6d172d2d-ddb0-4fe4-a480-9eed6fb9e173"))
+  
+    (instances
+      (project "nebula_qshield"
+        (path "/c6da75fc-541f-4933-b134-f5eb8982a11b/43ec48b6-2639-4f87-888d-e2ac5bc6a498"
+          (reference "J8") (unit 1)
+        )
+      )
+    )
   )
 
   (symbol
@@ -1211,7 +1243,7 @@
     (at 88.9 93.98 0) (unit 1)
     (exclude_from_sim no) (in_bom yes) (on_board yes)
     (uuid "55e50f88-cf20-4b73-84fd-533add0feaab")
-    (property "Reference" "J8" (at 88.9 86.36 0) (effects (font (size 1.27 1.27))))
+    (property "Reference" "J9" (at 88.9 86.36 0) (effects (font (size 1.27 1.27))))
     (property "Value" "Qwiic RTC DS3231" (at 88.9 87.63 0) (effects (font (size 1.27 1.27))))
     (property "Footprint" "Connector_JST:JST_SH_SM04B-SRSS-TB_1x04-1MP_P1.00mm_Horizontal"
       (at 88.9 93.98 0) (effects (font (size 1.27 1.27)) hide))
@@ -1225,6 +1257,14 @@
     (pin "2" (uuid "aefa31d8-575f-481f-b910-7bc380b41ec9"))
     (pin "3" (uuid "1b815dd4-0d5e-4e44-ad8a-5faf6ba5244c"))
     (pin "4" (uuid "bbb3298a-0d11-4750-ad5b-c49d3eec7564"))
+  
+    (instances
+      (project "nebula_qshield"
+        (path "/c6da75fc-541f-4933-b134-f5eb8982a11b/43ec48b6-2639-4f87-888d-e2ac5bc6a498"
+          (reference "J9") (unit 1)
+        )
+      )
+    )
   )
 
   (symbol
@@ -1232,7 +1272,7 @@
     (at 88.9 111.76 0) (unit 1)
     (exclude_from_sim no) (in_bom yes) (on_board yes)
     (uuid "cc78cf50-0a5f-4e2c-92ff-37dafc9d4a7b")
-    (property "Reference" "J9" (at 88.9 104.14 0) (effects (font (size 1.27 1.27))))
+    (property "Reference" "J10" (at 88.9 104.14 0) (effects (font (size 1.27 1.27))))
     (property "Value" "Qwiic Cell Density" (at 88.9 105.41 0) (effects (font (size 1.27 1.27))))
     (property "Footprint" "Connector_JST:JST_SH_SM04B-SRSS-TB_1x04-1MP_P1.00mm_Horizontal"
       (at 88.9 111.76 0) (effects (font (size 1.27 1.27)) hide))
@@ -1246,6 +1286,14 @@
     (pin "2" (uuid "54606b34-c46f-4b58-9a18-51c854d57a8d"))
     (pin "3" (uuid "e9c5f321-3194-4ae5-a329-350b69086854"))
     (pin "4" (uuid "5dd3ca68-4031-4d5b-8d2a-ef20e8f34842"))
+  
+    (instances
+      (project "nebula_qshield"
+        (path "/c6da75fc-541f-4933-b134-f5eb8982a11b/43ec48b6-2639-4f87-888d-e2ac5bc6a498"
+          (reference "J10") (unit 1)
+        )
+      )
+    )
   )
 
   (symbol
@@ -1253,7 +1301,7 @@
     (at 88.9 129.54 0) (unit 1)
     (exclude_from_sim no) (in_bom yes) (on_board yes)
     (uuid "ff19a23b-c759-48ff-a498-ee68da3d4c44")
-    (property "Reference" "J10" (at 88.9 121.92 0) (effects (font (size 1.27 1.27))))
+    (property "Reference" "J11" (at 88.9 121.92 0) (effects (font (size 1.27 1.27))))
     (property "Value" "Qwiic EZO-pH" (at 88.9 123.19 0) (effects (font (size 1.27 1.27))))
     (property "Footprint" "Connector_JST:JST_SH_SM04B-SRSS-TB_1x04-1MP_P1.00mm_Horizontal"
       (at 88.9 129.54 0) (effects (font (size 1.27 1.27)) hide))
@@ -1267,6 +1315,14 @@
     (pin "2" (uuid "59c36238-ad02-402c-a6e9-238f4b24abdc"))
     (pin "3" (uuid "c42b9d97-3d73-4a41-b303-fd0557a99b8c"))
     (pin "4" (uuid "4e5d8ffa-baed-4d8a-a00c-3a4642846ceb"))
+  
+    (instances
+      (project "nebula_qshield"
+        (path "/c6da75fc-541f-4933-b134-f5eb8982a11b/43ec48b6-2639-4f87-888d-e2ac5bc6a498"
+          (reference "J11") (unit 1)
+        )
+      )
+    )
   )
 
   (symbol
@@ -1274,7 +1330,7 @@
     (at 88.9 147.32 0) (unit 1)
     (exclude_from_sim no) (in_bom yes) (on_board yes)
     (uuid "48393d12-bfff-41c7-b5c2-0f983ba2071c")
-    (property "Reference" "J11" (at 88.9 139.7 0) (effects (font (size 1.27 1.27))))
+    (property "Reference" "J12" (at 88.9 139.7 0) (effects (font (size 1.27 1.27))))
     (property "Value" "Qwiic EZO-ORP" (at 88.9 140.97 0) (effects (font (size 1.27 1.27))))
     (property "Footprint" "Connector_JST:JST_SH_SM04B-SRSS-TB_1x04-1MP_P1.00mm_Horizontal"
       (at 88.9 147.32 0) (effects (font (size 1.27 1.27)) hide))
@@ -1288,6 +1344,14 @@
     (pin "2" (uuid "d628c99b-eabd-4856-b9ba-233d8a6761af"))
     (pin "3" (uuid "58b22391-b8b5-470b-a73d-913667a45ed5"))
     (pin "4" (uuid "ab1240fa-4853-41b6-9461-e88267a2f86b"))
+  
+    (instances
+      (project "nebula_qshield"
+        (path "/c6da75fc-541f-4933-b134-f5eb8982a11b/43ec48b6-2639-4f87-888d-e2ac5bc6a498"
+          (reference "J12") (unit 1)
+        )
+      )
+    )
   )
 
   (symbol
@@ -1295,7 +1359,7 @@
     (at 88.9 165.1 0) (unit 1)
     (exclude_from_sim no) (in_bom yes) (on_board yes)
     (uuid "cc9d6c3b-338a-4a01-9ab8-ebf42ac59bc6")
-    (property "Reference" "J12" (at 88.9 157.48 0) (effects (font (size 1.27 1.27))))
+    (property "Reference" "J13" (at 88.9 157.48 0) (effects (font (size 1.27 1.27))))
     (property "Value" "Qwiic EZO-DO" (at 88.9 158.75 0) (effects (font (size 1.27 1.27))))
     (property "Footprint" "Connector_JST:JST_SH_SM04B-SRSS-TB_1x04-1MP_P1.00mm_Horizontal"
       (at 88.9 165.1 0) (effects (font (size 1.27 1.27)) hide))
@@ -1309,6 +1373,14 @@
     (pin "2" (uuid "1d0a56a4-8b69-4855-97e8-802012417f08"))
     (pin "3" (uuid "91548fa1-5da6-4a9c-898a-3cc68d682872"))
     (pin "4" (uuid "77962d46-35f3-4991-b591-b6f53d4a2ff2"))
+  
+    (instances
+      (project "nebula_qshield"
+        (path "/c6da75fc-541f-4933-b134-f5eb8982a11b/43ec48b6-2639-4f87-888d-e2ac5bc6a498"
+          (reference "J13") (unit 1)
+        )
+      )
+    )
   )
 
   (symbol
@@ -1316,7 +1388,7 @@
     (at 88.9 182.88 0) (unit 1)
     (exclude_from_sim no) (in_bom yes) (on_board yes)
     (uuid "b78f02e4-cc32-4892-9bae-4c1c2e4fd812")
-    (property "Reference" "J13" (at 88.9 175.26 0) (effects (font (size 1.27 1.27))))
+    (property "Reference" "J14" (at 88.9 175.26 0) (effects (font (size 1.27 1.27))))
     (property "Value" "Qwiic EZO-RTD" (at 88.9 176.53 0) (effects (font (size 1.27 1.27))))
     (property "Footprint" "Connector_JST:JST_SH_SM04B-SRSS-TB_1x04-1MP_P1.00mm_Horizontal"
       (at 88.9 182.88 0) (effects (font (size 1.27 1.27)) hide))
@@ -1330,6 +1402,14 @@
     (pin "2" (uuid "6cd2bebd-2660-4526-8f82-bb9588b1cd6d"))
     (pin "3" (uuid "8b269b8a-ed2a-4905-86ae-be8d04c22b89"))
     (pin "4" (uuid "6f9b6543-c978-4dc1-ade6-2138d374e4db"))
+  
+    (instances
+      (project "nebula_qshield"
+        (path "/c6da75fc-541f-4933-b134-f5eb8982a11b/43ec48b6-2639-4f87-888d-e2ac5bc6a498"
+          (reference "J14") (unit 1)
+        )
+      )
+    )
   )
 
   (text "HX711 LOAD CELL ADC\n24-bit, Gain 128, 80 SPS\nD2=DOUT, D3=SCK"
@@ -1343,7 +1423,7 @@
     (at 195.58 55.88 0) (unit 1)
     (exclude_from_sim no) (in_bom yes) (on_board yes)
     (uuid "b9c40b90-e23c-4f6e-9a21-98a21e2a3c24")
-    (property "Reference" "U6" (at 195.58 40.64 0) (effects (font (size 1.27 1.27))))
+    (property "Reference" "U14" (at 195.58 40.64 0) (effects (font (size 1.27 1.27))))
     (property "Value" "HX711" (at 195.58 43.18 0) (effects (font (size 1.27 1.27))))
     (property "Footprint" "Package_SO:SOP-16_4.4x10.4mm_P1.27mm" (at 195.58 55.88 0) (effects (font (size 1.27 1.27)) hide))
     (pin "1" (uuid "87dfe200-7042-4707-b0fa-78b8b8d5dfbd")) (pin "2" (uuid "90360733-5781-4428-a5e8-05546b414a79")) (pin "3" (uuid "e288573a-310f-439a-bd07-d2227f27237f"))
@@ -1352,6 +1432,14 @@
     (pin "10" (uuid "b97ca2e4-31c5-4e6e-862e-6dcd74d69f01")) (pin "11" (uuid "02d463eb-9271-4831-b567-c571e0bcef22")) (pin "12" (uuid "45b6f6b4-a988-4f10-bc66-aaa314b10b02"))
     (pin "13" (uuid "210ceb32-a554-4d65-9964-890a54b746cf")) (pin "14" (uuid "a8370719-54d0-4414-ade0-ae024ba69a64")) (pin "15" (uuid "c259025f-b8a2-42b9-9db6-64bde5161cc0"))
     (pin "16" (uuid "731b614b-b405-40de-bcb2-96225aa42f15"))
+  
+    (instances
+      (project "nebula_qshield"
+        (path "/c6da75fc-541f-4933-b134-f5eb8982a11b/43ec48b6-2639-4f87-888d-e2ac5bc6a498"
+          (reference "U14") (unit 1)
+        )
+      )
+    )
   )
 
   (symbol
@@ -1359,7 +1447,7 @@
     (at 233.68 55.88 0) (unit 1)
     (exclude_from_sim no) (in_bom yes) (on_board yes)
     (uuid "fc1b0177-ddbd-455d-b15d-ca0decb1b1f4")
-    (property "Reference" "J14" (at 233.68 46.99 0) (effects (font (size 1.27 1.27))))
+    (property "Reference" "J15" (at 233.68 46.99 0) (effects (font (size 1.27 1.27))))
     (property "Value" "Load Cell" (at 233.68 48.26 0) (effects (font (size 1.27 1.27))))
     (property "Footprint" "TerminalBlock_Phoenix:TerminalBlock_Phoenix_PT-1,5-4-5.0-H_1x04_P5.00mm_Horizontal"
       (at 233.68 55.88 0) (effects (font (size 1.27 1.27)) hide))
@@ -1367,6 +1455,14 @@
     (property "Digi-Key_PN" "277-1274-ND" (at 233.68 55.88 0) (effects (font (size 1.27 1.27)) hide))
     (pin "1" (uuid "08eb3ab9-7303-46dd-835e-531f11d0d988")) (pin "2" (uuid "7bfb5004-2f9b-466a-8451-8a95243e3b15"))
     (pin "3" (uuid "3080cffc-0314-4b11-b9c8-d2d8c44b2b29")) (pin "4" (uuid "63b42628-3d27-481c-a11c-d023a9c16b25"))
+  
+    (instances
+      (project "nebula_qshield"
+        (path "/c6da75fc-541f-4933-b134-f5eb8982a11b/43ec48b6-2639-4f87-888d-e2ac5bc6a498"
+          (reference "J15") (unit 1)
+        )
+      )
+    )
   )
 
   (symbol
@@ -1374,10 +1470,18 @@
     (at 213.36 43.18 0) (unit 1)
     (exclude_from_sim no) (in_bom yes) (on_board yes)
     (uuid "18c91d0d-39a3-479d-b7dc-50f4c000466b")
-    (property "Reference" "R12" (at 215.9 43.18 0) (effects (font (size 1.27 1.27)) (justify left)))
+    (property "Reference" "R21" (at 215.9 43.18 0) (effects (font (size 1.27 1.27)) (justify left)))
     (property "Value" "10k" (at 215.9 44.45 0) (effects (font (size 1.27 1.27)) (justify left)))
     (property "Footprint" "Resistor_SMD:R_0402_1005Metric" (at 213.36 43.18 0) (effects (font (size 1.27 1.27)) hide))
     (pin "1" (uuid "63d938ab-23f2-474a-9dda-78ee18361019")) (pin "2" (uuid "36784f72-5ada-4b3e-9ddd-966f44fc9e85"))
+  
+    (instances
+      (project "nebula_qshield"
+        (path "/c6da75fc-541f-4933-b134-f5eb8982a11b/43ec48b6-2639-4f87-888d-e2ac5bc6a498"
+          (reference "R21") (unit 1)
+        )
+      )
+    )
   )
 
   (symbol
@@ -1385,20 +1489,36 @@
     (at 182.88 68.58 0) (unit 1)
     (exclude_from_sim no) (in_bom yes) (on_board yes)
     (uuid "3362cc64-4e39-493c-a8d1-ffa79dd213da")
-    (property "Reference" "C19" (at 185.42 68.58 0) (effects (font (size 1.27 1.27)) (justify left)))
+    (property "Reference" "C25" (at 185.42 68.58 0) (effects (font (size 1.27 1.27)) (justify left)))
     (property "Value" "100nF" (at 185.42 69.85 0) (effects (font (size 1.27 1.27)) (justify left)))
     (property "Footprint" "Capacitor_SMD:C_0402_1005Metric" (at 182.88 68.58 0) (effects (font (size 1.27 1.27)) hide))
     (pin "1" (uuid "56fcae17-5d8c-4398-842a-77d0418bfb27")) (pin "2" (uuid "4339520a-4dad-4979-86a0-1ceb47a0946b"))
+  
+    (instances
+      (project "nebula_qshield"
+        (path "/c6da75fc-541f-4933-b134-f5eb8982a11b/43ec48b6-2639-4f87-888d-e2ac5bc6a498"
+          (reference "C25") (unit 1)
+        )
+      )
+    )
   )
   (symbol
     (lib_id "Device:C_Polarized")
     (at 177.8 68.58 0) (unit 1)
     (exclude_from_sim no) (in_bom yes) (on_board yes)
     (uuid "15d1b6cf-e495-4a10-baf0-21e0a80c6535")
-    (property "Reference" "C20" (at 175.26 68.58 0) (effects (font (size 1.27 1.27)) (justify right)))
+    (property "Reference" "C26" (at 175.26 68.58 0) (effects (font (size 1.27 1.27)) (justify right)))
     (property "Value" "10uF" (at 175.26 69.85 0) (effects (font (size 1.27 1.27)) (justify right)))
     (property "Footprint" "Capacitor_SMD:C_0805_2012Metric" (at 177.8 68.58 0) (effects (font (size 1.27 1.27)) hide))
     (pin "1" (uuid "4ce8f46a-cb9e-42ab-974f-a2768df180ef")) (pin "2" (uuid "40bc46df-c9f9-4683-aadc-4a26be702e33"))
+  
+    (instances
+      (project "nebula_qshield"
+        (path "/c6da75fc-541f-4933-b134-f5eb8982a11b/43ec48b6-2639-4f87-888d-e2ac5bc6a498"
+          (reference "C26") (unit 1)
+        )
+      )
+    )
   )
 
   (text "RS485 MODBUS — DNP option for Hamilton Incyte/Dencytee\nPopulate for Signature tier with Hamilton sensors"
@@ -1412,13 +1532,21 @@
     (at 76.2 241.3 0) (unit 1)
     (exclude_from_sim no) (in_bom yes) (on_board yes)
     (uuid "6c5522f6-9050-4ba8-a26e-1b17d4f82944")
-    (property "Reference" "U13" (at 76.2 228.6 0) (effects (font (size 1.27 1.27))))
+    (property "Reference" "U15" (at 76.2 228.6 0) (effects (font (size 1.27 1.27))))
     (property "Value" "MAX485ESA" (at 76.2 231.14 0) (effects (font (size 1.27 1.27))))
     (property "Footprint" "Package_SO:SOIC-8_3.9x4.9mm_P1.27mm" (at 76.2 241.3 0) (effects (font (size 1.27 1.27)) hide))
     (property "DNP" "Essential,Insight" (at 76.2 241.3 0) (effects (font (size 1.27 1.27)) hide))
     (pin "1" (uuid "25fe0edd-bb2e-4468-997e-0d984b0478fe")) (pin "2" (uuid "78e85217-a9f8-485a-a7d1-7496a9c41e95")) (pin "3" (uuid "7a8e5e0f-9462-4620-9d16-119ae7a7b58f"))
     (pin "4" (uuid "8566eeb2-ae54-4592-bd8a-735b5978324b")) (pin "5" (uuid "ceec04c6-579d-4cb7-a93c-9f9cfeb9ae7d")) (pin "6" (uuid "22dfb5c5-2ddf-492e-b53f-0911b0308f99"))
     (pin "7" (uuid "adcd522b-358d-4083-b814-522886a934c7")) (pin "8" (uuid "62421991-dbc9-47b5-a707-06d79fcafa89"))
+  
+    (instances
+      (project "nebula_qshield"
+        (path "/c6da75fc-541f-4933-b134-f5eb8982a11b/43ec48b6-2639-4f87-888d-e2ac5bc6a498"
+          (reference "U15") (unit 1)
+        )
+      )
+    )
   )
 
   (symbol
@@ -1426,13 +1554,21 @@
     (at 111.76 241.3 0) (unit 1)
     (exclude_from_sim no) (in_bom yes) (on_board yes)
     (uuid "755e690d-a280-4a55-bf5a-d1a392f97126")
-    (property "Reference" "J_RS485" (at 111.76 233.68 0) (effects (font (size 1.27 1.27))))
+    (property "Reference" "J16" (at 111.76 233.68 0) (effects (font (size 1.27 1.27))))
     (property "Value" "RS485 Hamilton" (at 111.76 236.22 0) (effects (font (size 1.27 1.27))))
     (property "Footprint" "TerminalBlock_Phoenix:TerminalBlock_Phoenix_PT-1,5-4-5.0-H_1x04_P5.00mm_Horizontal"
       (at 111.76 241.3 0) (effects (font (size 1.27 1.27)) hide))
     (property "DNP" "Essential,Insight" (at 111.76 241.3 0) (effects (font (size 1.27 1.27)) hide))
     (pin "1" (uuid "0a33a1a1-9618-4550-a136-54f7ccf11512")) (pin "2" (uuid "21e68dcc-547e-4d0c-aff6-8ec1af735ead"))
     (pin "3" (uuid "0fb253c2-ee91-402d-ad4a-93aec72ab458")) (pin "4" (uuid "f3bf9b95-5e2c-4aca-af14-bbcc854b4abe"))
+  
+    (instances
+      (project "nebula_qshield"
+        (path "/c6da75fc-541f-4933-b134-f5eb8982a11b/43ec48b6-2639-4f87-888d-e2ac5bc6a498"
+          (reference "J16") (unit 1)
+        )
+      )
+    )
   )
 
   (symbol
@@ -1440,11 +1576,19 @@
     (at 99.06 236.22 90) (unit 1)
     (exclude_from_sim no) (in_bom yes) (on_board yes)
     (uuid "3e35de76-2013-4438-ae30-f7b68cb155d7")
-    (property "Reference" "R_TERM" (at 99.06 233.68 0) (effects (font (size 1.27 1.27))))
+    (property "Reference" "R22" (at 99.06 233.68 0) (effects (font (size 1.27 1.27))))
     (property "Value" "120R DNP" (at 99.06 238.76 0) (effects (font (size 1.27 1.27))))
     (property "Footprint" "Resistor_SMD:R_0402_1005Metric" (at 99.06 236.22 0) (effects (font (size 1.27 1.27)) hide))
     (property "DNP" "All" (at 99.06 236.22 0) (effects (font (size 1.27 1.27)) hide))
     (pin "1" (uuid "45c21f75-a654-42de-a45c-5329cd99ad50")) (pin "2" (uuid "bc991764-6618-43e1-bee3-a5d3f4a4e91f"))
+  
+    (instances
+      (project "nebula_qshield"
+        (path "/c6da75fc-541f-4933-b134-f5eb8982a11b/43ec48b6-2639-4f87-888d-e2ac5bc6a498"
+          (reference "R22") (unit 1)
+        )
+      )
+    )
   )
 
   (symbol
@@ -1452,20 +1596,36 @@
     (at 170.18 220.98 270) (unit 1)
     (exclude_from_sim no) (in_bom yes) (on_board yes)
     (uuid "30cf104f-db4b-4222-8c19-91ad7ce30bcb")
-    (property "Reference" "LED_STATUS" (at 170.18 213.36 0) (effects (font (size 1.27 1.27))))
+    (property "Reference" "LED4" (at 170.18 213.36 0) (effects (font (size 1.27 1.27))))
     (property "Value" "Red/Green" (at 170.18 215.9 0) (effects (font (size 1.27 1.27))))
     (property "Footprint" "LED_SMD:LED_0603_1608Metric" (at 170.18 220.98 0) (effects (font (size 1.27 1.27)) hide))
     (pin "1" (uuid "f5bbc267-57fa-4225-a417-99161ace39d4")) (pin "2" (uuid "2d4662c6-55fa-4cb1-bb23-b21b075093f4"))
+  
+    (instances
+      (project "nebula_qshield"
+        (path "/c6da75fc-541f-4933-b134-f5eb8982a11b/43ec48b6-2639-4f87-888d-e2ac5bc6a498"
+          (reference "LED4") (unit 1)
+        )
+      )
+    )
   )
   (symbol
     (lib_id "Device:R")
     (at 170.18 208.28 0) (unit 1)
     (exclude_from_sim no) (in_bom yes) (on_board yes)
     (uuid "390e70d8-4560-4282-9af1-642bac2eb704")
-    (property "Reference" "R_LED" (at 172.72 208.28 0) (effects (font (size 1.27 1.27)) (justify left)))
+    (property "Reference" "R23" (at 172.72 208.28 0) (effects (font (size 1.27 1.27)) (justify left)))
     (property "Value" "330R" (at 172.72 209.55 0) (effects (font (size 1.27 1.27)) (justify left)))
     (property "Footprint" "Resistor_SMD:R_0402_1005Metric" (at 170.18 208.28 0) (effects (font (size 1.27 1.27)) hide))
     (pin "1" (uuid "aa168288-fdc5-48eb-a8a3-b8f59331234e")) (pin "2" (uuid "542b0245-862f-42f8-8595-c41d0b849a14"))
+  
+    (instances
+      (project "nebula_qshield"
+        (path "/c6da75fc-541f-4933-b134-f5eb8982a11b/43ec48b6-2639-4f87-888d-e2ac5bc6a498"
+          (reference "R23") (unit 1)
+        )
+      )
+    )
   )
 
   (hierarchical_label "I2C_SDA"     (shape bidirectional) (at 25.4 50.8 0)   (effects (font (size 1.27 1.27))) (uuid "e211b6eb-ff02-4e00-9368-ccd018841ded"))
