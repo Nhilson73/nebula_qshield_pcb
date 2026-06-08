@@ -3209,7 +3209,6 @@
   (label "12V_RAIL"  (at 78.74 50.8 0)    (effects (font (size 1.27 1.27))) (uuid "nl-12r"))
   (label "5V_RAIL"   (at 170.18 76.2 0)   (effects (font (size 1.27 1.27))) (uuid "nl-5v"))
   (label "3V3_RAIL"  (at 233.68 76.2 0)   (effects (font (size 1.27 1.27))) (uuid "nl-3v3"))
-  (label "WDT_RESET" (at 311.15 73.66 0)  (effects (font (size 1.27 1.27))) (uuid "nl-wdt"))
 
   (text "POWER MANAGEMENT BLOCK\n12V → 5V (Buck TPS54302) → 3.3V (LDO AMS1117)\nProtection: TVS + PTC + Schottky\nWatchdog: TPS3823 on all tiers"
     (at 25.4 25.4 0)
