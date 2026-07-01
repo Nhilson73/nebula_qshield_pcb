@@ -3190,4 +3190,21 @@
   (hierarchical_label "GND"         (shape bidirectional) (at 10.16 35.56 0) (effects (font (size 1.27 1.27))) (uuid "cd91400b-a4c1-4f6d-8554-d36bc2a44f21"))
   (hierarchical_label "PGND"        (shape bidirectional) (at 10.16 40.64 0) (effects (font (size 1.27 1.27))) (uuid "bdf03c7b-11cf-469b-9100-fcdf0e789471"))
 
+
+  (symbol (lib_id "Connector_Generic:Conn_01x02_Pin") (at 139.7 177.8 0) (unit 1) (exclude_from_sim no) (in_bom yes) (on_board yes)
+    (property "Reference" "J22" (at 139.7 172.72 0) (effects (font (size 1.27 1.27))))
+    (property "Value" "CO2 Valve" (at 139.7 175.26 0) (effects (font (size 1.27 1.27))))
+    (property "Footprint" "Connector_Phoenix_MC:PhoenixContact_MC_1,5_2-G-3.81_1x02_P3.81mm_Horizontal" (at 139.7 177.8 0) (effects (font (size 1.27 1.27)) hide))
+    (property "Datasheet" "" (at 139.7 177.8 0) (effects (font (size 1.27 1.27)) hide))
+    (property "MPN" "1757229" (at 139.7 177.8 0) (effects (font (size 1.27 1.27)) hide))
+    (property "Distributor_PN" "277-1273-ND" (at 139.7 177.8 0) (effects (font (size 1.27 1.27)) hide))
+    (instances
+      (project "nebula_qshield"
+        (path "/c6da75fc-541f-4933-b134-f5eb8982a11b/20b0ceca-a23d-4442-9c81-682496868387"
+          (reference "J22") (unit 1)
+        )
+      )
+    )
+    (uuid "bacac67d-4954-4fc8-826b-3f83f1bd2806")
+  )
 )
