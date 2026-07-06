@@ -1,0 +1,73 @@
+name: KiCad ERC Validation
+
+on:
+  push:
+    branches: [main]
+    paths: ['kicad/**']
+  pull_request:
+    branches: [main]
+    paths: ['kicad/**']
+
+jobs:
+  erc:
+    name: Electrical Rules Check
+    runs-on: ubuntu-latest
+    container:
+      image: kicad/kicad:9.0
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Run ERC on root schematic
+        run: |
+          kicad-cli sch erc kicad/nebula_qshield.kicad_sch \
+            --output /tmp/erc_report.json \
+            --format json \
+            --severity-all \
+            --exit-code-violations || true
+
+      - name: Check violation threshold
+        run: |
+          python3 -c "
+          import json, sys
+          with open('/tmp/erc_report.json') as f:
+              data = json.load(f)
+          sheets = data.get('sheets', [])
+          total = sum(len(s.get('violations', [])) for s in sheets)
+          # Known acceptable violations (design-intent: DNP tiers, power sharing, RS485 internal)
+          THRESHOLD = 24
+          print(f'ERC violations: {total} (threshold: {THRESHOLD})')
+          if total > THRESHOLD:
+              print(f'FAIL: {total - THRESHOLD} new violations introduced!')
+              sys.exit(1)
+          else:
+              print('PASS: No new violations introduced.')
+          "
+
+      - name: Upload ERC report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: erc-report
+          path: /tmp/erc_report.json
+
+      - name: Summary
+        if: always()
+        run: |
+          echo "## ERC Results" >> $GITHUB_STEP_SUMMARY
+          if [ -f /tmp/erc_report.json ]; then
+            VIOLATIONS=$(python3 -c "
+          import json
+          with open('/tmp/erc_report.json') as f:
+              data = json.load(f)
+          sheets = data.get('sheets', [])
+          total = sum(len(s.get('violations', [])) for s in sheets)
+          print(total)
+          " 2>/dev/null || echo "?")
+            echo "**Violations found:** $VIOLATIONS" >> $GITHUB_STEP_SUMMARY
+            echo "" >> $GITHUB_STEP_SUMMARY
+            echo "See uploaded artifact for full report." >> $GITHUB_STEP_SUMMARY
+          else
+            echo "ERC report not generated." >> $GITHUB_STEP_SUMMARY
+          fi
