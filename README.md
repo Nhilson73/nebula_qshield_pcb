@@ -135,7 +135,8 @@ nebula_qshield_pcb/
 │   ├── 04_BOM_PRODUCTION.md           # BOM con part numbers Digi-Key/Mouser
 │   ├── 05_POWER_BUDGET.md             # Análisis de presupuesto de potencia
 │   ├── 06_PCB_LAYOUT_STACKUP.md       # Guías de layout y stackup 4 capas
-│   └── 07_KICAD_NETLIST.md            # Netlist KiCad y definiciones
+│   ├── 07_KICAD_NETLIST.md            # Netlist KiCad y definiciones
+│   └── 08_MECHANICAL_ANALYSIS.md      # Análisis mecánico y compactación 100×100mm
 │
 ├── kicad/                             # Proyecto KiCad 8.x
 │   ├── nebula_qshield.kicad_pro       # Proyecto principal
@@ -183,7 +184,7 @@ nebula_qshield.kicad_sch (raíz)
 
 | Parámetro | Valor |
 |-----------|-------|
-| **Dimensiones** | 68.6 × 53.3 mm (factor forma Arduino UNO) |
+| **Dimensiones** | 100 × 100 mm (factor de forma para acople con Arduino UNO Q) |
 | **Capas** | 4 (Signal–GND–Power–Signal) |
 | **Material** | FR-4 Tg 170°C |
 | **Acabado** | ENIG (RoHS) |
