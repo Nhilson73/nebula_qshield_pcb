@@ -4,7 +4,7 @@
 
 Built by [Cafelium SRL](https://github.com/Nhilson73) · 🇩🇴 Dominican Republic
 
-> **Parte del ecosistema [Nebula Agtech® Core](https://github.com/Nhilson73/Nebula_Agtech_Core)**
+> **Parte del ecosistema [Nebula Q-Shield — Arduino App Lab](https://github.com/Nhilson73/Nebula_ArduinoAPPLab_UNOQ)**
 >
 > **Awards:** I+D Lab INDOTEL 2025 · CREE Banreservas 2026 · Pitch4FUN 2026
 
@@ -237,9 +237,8 @@ cd nebula_qshield_pcb/kicad
 
 | Repositorio | Descripción |
 |------------|-------------|
-| [Nebula_Agtech_Core](https://github.com/Nhilson73/Nebula_Agtech_Core) | Firmware MCU (C++17) + Software MPU (Python) + Contratos L2 |
-| [gateway_nebula_fermentation](https://github.com/Nhilson73/gateway_nebula_fermentation) | Gateway ESP32-P4 WiFi + Touch 7" + Sensores |
-| **nebula_qshield_pcb** (este repo) | PCB shield para Arduino UNO Q |
+| [Nebula_ArduinoAPPLab_UNOQ](https://github.com/Nhilson73/Nebula_ArduinoAPPLab_UNOQ) | App principal: Firmware MCU + Software MPU + Servicios Docker + Contratos L2 |
+| **nebula_qshield_pcb** (este repo) | PCB shield para Arduino UNO Q (esquemáticos KiCad, BOM, compliance) |
 
 ---
 
