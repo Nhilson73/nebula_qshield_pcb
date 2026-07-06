@@ -14,7 +14,7 @@
 
 | Parámetro | Valor | Justificación |
 |-----------|-------|---------------|
-| **Dimensiones** | 68.6 × 53.3 mm (factor forma Arduino UNO) | Compatibilidad mecánica con UNO Q |
+| **Dimensiones** | 100 × 100 mm | Factor de forma para acople con Arduino UNO Q |
 | **Capas** | 4 (Signal–GND–Power–Signal) | EMC Clase B, aislamiento analógico/digital |
 | **Espesor total** | 1.6 mm ± 10% | Estándar IPC-2221B |
 | **Material base** | FR-4 Tg 170°C (IT-180A o equivalente) | Operación hasta +55°C ambiente |
@@ -488,32 +488,38 @@ Cada IC recibe un capacitor de desacoplo lo más cerca posible de sus pines VCC/
 ## 6. Zonas de Layout PCB
 
 ```
-    ┌────────────────────────────────────────────────────────┐
-    │                     Q-SHIELD TOP VIEW                  │
-    │                                                        │
-    │  ┌──────────────┐  ┌──────────────────────────────┐   │
-    │  │ ZONA POTENCIA│  │    ZONA ANALÓGICA            │   │
-    │  │              │  │    (guard ring GND)           │   │
-    │  │ Reguladores  │  │    pH, ORP, Temp,            │   │
-    │  │ Buck, LDO    │  │    CO₂, DO, Hum              │   │
-    │  │ Fusible, TVS │  │    Op-amps, filtros RC       │   │
-    │  │              │  │                              │   │
-    │  └──────────────┘  └──────────────────────────────┘   │
-    │                                                        │
-    │  ┌──────────────┐  ┌──────────────────────────────┐   │
-    │  │ ZONA DIGITAL │  │    ZONA ACTUADORES           │   │
-    │  │              │  │    (plano GND separado)       │   │
-    │  │ I2C bus      │  │    Relays, MOSFETs,          │   │
-    │  │ HX711        │  │    Optoacopladores,          │   │
-    │  │ Conectores   │  │    Terminales potencia       │   │
-    │  │ Display      │  │                              │   │
-    │  └──────────────┘  └──────────────────────────────┘   │
-    │                                                        │
-    │  ┌────────────────────────────────────────────────┐   │
-    │  │          CONECTOR ARDUINO UNO (2×20 header)    │   │
-    │  └────────────────────────────────────────────────┘   │
-    └────────────────────────────────────────────────────────┘
+    ┌──────────────────────────────────────────────────────────────────────────────────┐
+    │                        Q-SHIELD TOP VIEW (100 × 100 mm)                          │
+    │                                                                                  │
+    │  ┌──────────────────────┐  ┌────────────────────────────────────────────────┐   │
+    │  │ ZONA POTENCIA        │  │    ZONA ANALÓGICA (guard ring GND)             │   │
+    │  │ (20 × 30 mm)         │  │    (50 × 45 mm)                               │   │
+    │  │                      │  │                                                │   │
+    │  │ Reguladores          │  │    BNC: pH, ORP, DO                            │   │
+    │  │ Buck, LDO            │  │    JST: CO₂, Temp, Humedad                    │   │
+    │  │ Fusible, TVS         │  │    Op-amps (MCP6002), filtros RC               │   │
+    │  │ Watchdog TPS3823     │  │    SN6501 + AMC1301 (aislamiento galvánico)    │   │
+    │  │                      │  │    Transformadores T1-T3                        │   │
+    │  └──────────────────────┘  └────────────────────────────────────────────────┘   │
+    │                                                                                  │
+    │  ┌──────────────────────────────┐  ┌────────────────────────────────────┐       │
+    │  │ ZONA ACTUADORES              │  │    ZONA DIGITAL                    │       │
+    │  │ (40 × 40 mm)                 │  │    (40 × 30 mm)                    │       │
+    │  │ (plano GND separado)         │  │                                    │       │
+    │  │                              │  │    I2C bus + 7× Qwiic              │       │
+    │  │ Relays K1/K2, MOSFETs Q1-Q5 │  │    HX711 + load cell               │       │
+    │  │ Optoacopladores PC817        │  │    ISO1541 (aislador I2C)          │       │
+    │  │ Terminales potencia          │  │    RS485, HMI UART, LED status     │       │
+    │  │ CO₂ PWM (R28/C27/U20/Q5)    │  │                                    │       │
+    │  └──────────────────────────────┘  └────────────────────────────────────┘       │
+    │                                                                                  │
+    │  ┌──────────────────────────────────────────────────────────────────────────┐   │
+    │  │            J21 — ARDUINO UNO Q SHIELD HEADER (2×20, 98 mm)               │   │
+    │  └──────────────────────────────────────────────────────────────────────────┘   │
+    └──────────────────────────────────────────────────────────────────────────────────┘
 ```
+
+> **Nota:** Análisis detallado de compactación y restricciones mecánicas en `docs/08_MECHANICAL_ANALYSIS.md`.
 
 **Reglas de separación:**
 - Zona analógica aislada con guard ring de GND (vía fence cada 2 mm)
