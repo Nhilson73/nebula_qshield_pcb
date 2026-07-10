@@ -49,11 +49,15 @@ D8,1,PESD5V0S1BSF,"TVS ESD, 5V clamp, humidity channel",SOD-323F,PESD5V0S1BSF,56
 "U4,U7,U10,U11",4,MCP6002-I/SN,"Dual op-amp, rail-to-rail, 1MHz GBW (buffer per channel)",SOIC-8,MCP6002-I/SN,MCP6002-I/SN-ND,$0.52,YES*,YES,YES
 C24,1,"100nF","Op-amp VDD decoupling, 3V3_RAIL",0402,CL05B104KO5NNNC,1276-1001-1-ND,$0.01,YES,YES,YES
 "U5,U8,U12",3,SN6501DBVR,"Transformer driver, isolated power (pH/ORP/DO)",SOT-23-5,SN6501DBVR,296-SN6501DBVRCT-ND,$0.95,YES*,YES,YES
-"U6,U9,U13",3,AMC1301DWVR,"Analog isolation amplifier, 2.5kV (pH/ORP/DO)",SOIC-8,AMC1301DWVR,296-AMC1301DWVRCT-ND,$2.85,YES*,YES,YES
+"U6,U9,U13",3,AMC1301DWVR,"Analog isolation amplifier, ±250mV input, 2.5kV (pH/ORP/DO)",SOIC-8,AMC1301DWVR,296-AMC1301DWVRCT-ND,$2.85,YES*,YES,YES
 "T1,T2,T3",3,750315371,"Center-tapped transformer, SN6501-compatible",Transformer_SMD:Transformer_Wuerth_750315371,750315371,732-13596-1-ND,$1.50,YES*,YES,YES
 "D19,D20,D21,D22,D23,D24",6,BAT54,"Schottky rectifier, isolated supply (2 per channel)",SOD-323,BAT54,1727-BAT54115CT-ND,$0.06,YES*,YES,YES
 "C28,C29,C30",3,"10uF","Reservoir cap, isolated supply rail",0805,GRM21BR61C106KE15L,490-GRM21BR61C106KE15LCT-ND,$0.10,YES*,YES,YES
 "C13,C14,C16,C17,C20,C21",6,"100nF","Isolation barrier decoupling (2 per channel)",0402,CL05B104KO5NNNC,1276-1001-1-ND,$0.01,YES*,YES,YES
+"R30,R31",2,"511 0.1%","pH input divider ÷2 (post-buffer attenuator, matched pair)",0402,ERA-2AEB5110X,P511DBCT-ND,$0.08,YES*,YES,YES
+R32,1,"4.02k 0.1%","ORP input divider top ÷5 (post-buffer attenuator)",0402,ERA-2AEB4021X,P4.02KDBCT-ND,$0.08,YES*,YES,YES
+R33,1,"1.00k 0.1%","ORP input divider bottom ÷5 (post-buffer attenuator)",0402,ERA-2AEB1001X,P1.00KDBCT-ND,$0.08,YES*,YES,YES
+"TP1,TP2",2,TestPoint,"Buffer-output test/calibration pad (pH/ORP full-scale probe)",TestPoint_Pad_D1.5mm,N/A,N/A,$0.00,YES*,YES,YES
 ,,,,,,,,,,
 ,,,— DIGITAL I2C (digital_i2c.kicad_sch) —,,,,,,,
 "R19,R20",2,"4.7k 1%","I2C pull-up resistors to 3.3V",0402,CRCW04024K70FKED,541-4.70KLCT-ND,$0.02,YES,YES,YES

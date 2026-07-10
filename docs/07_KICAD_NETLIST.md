@@ -54,19 +54,38 @@ kicad/
 
 ### 2.2 Analog Acquisition Nets
 
-**Arquitectura B2: AMC1301 (aislamiento analógico) + SN6501 (supply aislado real con transformador)**
+**Arquitectura B2: AMC1301 (aislamiento analógico ±250mV) + divisor resistivo post-buffer (pH ÷2, ORP ÷5) + SN6501 (supply aislado real con transformador)**
+
+**Acondicionamiento de rango (pH/ORP):** el AMC1301 tiene entrada lineal ±250mV, pero las señales
+electroquímicas son bipolares y la exceden (pH ±414mV, ORP hasta ±1000mV). Se inserta un **divisor
+resistivo discreto entre la salida del buffer (bajo-Z) y la entrada del AMC**, no antes del buffer
+(la sonda es de altísima impedancia y se cargaría). El buffer MCP6002 se mantiene en **ganancia ×1**,
+por lo que ajustar la atenuación (cambiar el ratio del divisor) no requiere re-tunear el lazo del
+op-amp. La salida del buffer queda expuesta como **test point** (TP1/TP2) con la señal a escala
+completa, útil para calibración y para verificar el factor de atenuación in-situ.
+
+| Canal | Rango sonda | Ratio | R_top / R_bot | Entrada al AMC | Z salida | Margen ±250mV |
+|-------|-------------|-------|---------------|----------------|----------|---------------|
+| pH (U6) | ±414 mV | 0.50 | R30 511Ω / R31 511Ω | ±207 mV | 255 Ω | 20% |
+| ORP (U9) | ±1000 mV | 0.199 | R32 4.02k / R33 1.00k | ±199 mV | 802 Ω | 25% |
+| DO (U13) | 0–50 mV | 1.0 (sin divisor) | — | 0–50 mV | — | directo |
+
+El error de carga por la Zin del AMC1301 (~22 kΩ) es <3.6% y se absorbe en calibración vía el test point.
+El divisor mantiene la bipolaridad (referencia a GND_ISO por canal) y preserva el aislamiento galvánico.
 
 | Net Name | From (Ref:Pin) | To (Ref:Pin) | Notes |
 |----------|---------------|-------------|-------|
 | PH_RAW | J2:center | D3:A | Señal pH cruda del BNC |
 | PH_FILT | D3:K, R7:1 | R7:2, C12:1 | Post-ESD, pre-filtro RC |
-| PH_BUF | C12:1, R8:1, U4.1:IN+ | U4.1:OUT | Salida buffer pH (hot side) |
+| PH_BUF | U4.1:OUT | R30, TP1 | Salida buffer pH (×1) = test point full-scale |
+| PH_ATT | R30, R31 | U6:VINP | Nodo atenuado ÷2 (511/511) al AMC |
 | PH_ADC | U6:VOUTP | J21:A0 | Post-AMC1301, al ADC del MCU |
 | VDD_ISO_PH | T1:sec → D19,D20 rect → C28 | U4:VDD, U6:VDD1 | Supply aislado pH |
 | GND_ISO_PH | T1:sec center-tap | U4:VSS, U6:GND1 | Tierra aislada pH |
 | ORP_RAW | J3:center | D4:A | Señal ORP cruda del BNC |
 | ORP_FILT | D4:K, R9:1 | R9:2, C15:1 | Post-ESD, pre-filtro RC |
-| ORP_BUF | C15:1, R10:1, U7.1:IN+ | U7.1:OUT | Salida buffer ORP (hot side) |
+| ORP_BUF | U7.1:OUT | R32, TP2 | Salida buffer ORP (×1) = test point full-scale |
+| ORP_ATT | R32, R33 | U9:VINP | Nodo atenuado ÷5 (4.02k/1k) al AMC |
 | ORP_ADC | U9:VOUTP | J21:A1 | Post-AMC1301, al ADC del MCU |
 | VDD_ISO_ORP | T2:sec → D21,D22 rect → C29 | U7:VDD, U9:VDD1 | Supply aislado ORP |
 | GND_ISO_ORP | T2:sec center-tap | U7:VSS, U9:GND1 | Tierra aislada ORP |
