@@ -3294,11 +3294,6 @@
     (uuid "21f677f9-5fd2-47f3-b4e4-4e879acc4df7")
   )
   (wire
-    (pts (xy 74.93 50.8) (xy 88.9 50.8))
-    (stroke (width 0) (type default))
-    (uuid "7cf9121d-373d-4020-bfa7-69df06b4ff54")
-  )
-  (wire
     (pts (xy 25.4 58.42) (xy 33.02 58.42))
     (stroke (width 0) (type default))
     (uuid "76b7ae97-f37d-4242-8766-25feb9ac29db")

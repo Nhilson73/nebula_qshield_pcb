@@ -3480,10 +3480,6 @@
   (label "CO2_PWM_OUT" (at 73.66 180.34 180) (effects (font (size 1.27 1.27))) (uuid "7d6c3749-0b79-456b-ace9-ec54837ba34d"))
   (wire (pts (xy 91.44 177.80) (xy 93.98 177.80)) (stroke (width 0) (type default)) (uuid "6cb22935-095d-43c0-a58d-13aea0bc45db"))
   (label "CO2_PWM_OUT" (at 93.98 177.80 0) (effects (font (size 1.27 1.27))) (uuid "ea0752be-ea32-4a9d-8d98-367d956b9f12"))
-  (wire (pts (xy 81.28 170.18) (xy 81.28 167.64)) (stroke (width 0) (type default)) (uuid "963b99fb-3b19-4ffb-a000-a0b962f9b2b2"))
-  (label "5V_RAIL" (at 81.28 167.64 270) (effects (font (size 1.27 1.27))) (uuid "76564d63-547f-448f-b230-0c904d07b0ad"))
-  (wire (pts (xy 81.28 185.42) (xy 81.28 187.96)) (stroke (width 0) (type default)) (uuid "518a95fe-aa79-48ec-bcb2-84a91d65a9ab"))
-  (label "GND" (at 81.28 187.96 90) (effects (font (size 1.27 1.27))) (uuid "49168036-bb71-43a5-8c00-edbfeeb60d14"))
   (wire (pts (xy 104.14 177.80) (xy 101.60 177.80)) (stroke (width 0) (type default)) (uuid "ca5b4d98-12a7-48d4-a029-1f7aef2b2ac2"))
   (label "CO2_PWM_OUT" (at 101.60 177.80 180) (effects (font (size 1.27 1.27))) (uuid "12668cf7-d13a-4795-9a75-5027dc3371ce"))
   (wire (pts (xy 111.76 172.72) (xy 111.76 170.18)) (stroke (width 0) (type default)) (uuid "bfc1abd8-6798-4fd4-b068-f6a0add2a12c"))
@@ -3494,10 +3490,6 @@
   (label "12V_RAIL" (at 115.57 177.80 180) (effects (font (size 1.27 1.27))) (uuid "63226535-1e92-4df9-bb77-c4b978a04820"))
   (wire (pts (xy 125.73 177.80) (xy 128.27 177.80)) (stroke (width 0) (type default)) (uuid "eed57e85-ed49-4cbd-8f9d-66d2935f5985"))
   (label "CO2_VALVE" (at 128.27 177.80 0) (effects (font (size 1.27 1.27))) (uuid "195f6491-4166-43c9-9573-400a9140cb41"))
-  (wire (pts (xy 134.62 177.80) (xy 132.08 177.80)) (stroke (width 0) (type default)) (uuid "d1a9b873-ae9b-4c23-984b-689c7de7e230"))
-  (label "CO2_VALVE" (at 132.08 177.80 180) (effects (font (size 1.27 1.27))) (uuid "3b87c6a9-9e9a-470d-b025-e766a1b138e3"))
-  (wire (pts (xy 134.62 180.34) (xy 132.08 180.34)) (stroke (width 0) (type default)) (uuid "6b62a4ea-b9f1-4a54-bcfd-735b65227c8a"))
-  (label "12V_RAIL" (at 132.08 180.34 180) (effects (font (size 1.27 1.27))) (uuid "5fd998d9-1fe9-4e3f-95d9-518e782047d8"))
 
 
   (symbol
