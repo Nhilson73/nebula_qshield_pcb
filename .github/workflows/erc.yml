@@ -44,7 +44,7 @@ jobs:
           total = sum(len(s.get('violations', [])) for s in sheets)
           # Known acceptable violations (design-intent: dual-source rails, PWR_FLAG,
           # HX711 AVDD, incomplete regulator/MCU-routing pending designer input)
-          THRESHOLD = 19
+          THRESHOLD = 14
           print(f'ERC violations: {total} (threshold: {THRESHOLD})')
           if total > THRESHOLD:
               print(f'FAIL: {total - THRESHOLD} new violations introduced!')

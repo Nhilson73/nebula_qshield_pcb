@@ -2850,9 +2850,9 @@
     (exclude_from_sim no) (in_bom yes) (on_board yes)
     (uuid "r2-001")
     (property "Reference" "R2" (at 180.34 86.36 0) (effects (font (size 1.27 1.27))))
-    (property "Value" "24.9k 1%" (at 180.34 91.44 0) (effects (font (size 1.27 1.27))))
+    (property "Value" "13.7k 1%" (at 180.34 91.44 0) (effects (font (size 1.27 1.27))))
     (property "Footprint" "Resistor_SMD:R_0402_1005Metric" (at 180.34 88.9 0) (effects (font (size 1.27 1.27)) hide))
-    (property "MPN" "CRCW040224K9FKED" (at 180.34 88.9 0) (effects (font (size 1.27 1.27)) hide))
+    (property "MPN" "CRCW040213K7FKED" (at 180.34 88.9 0) (effects (font (size 1.27 1.27)) hide))
     (pin "1" (uuid "r2-p1")) (pin "2" (uuid "r2-p2"))
   
     (instances
@@ -3314,11 +3314,6 @@
     (uuid "a25aabd1-c14b-4a00-a930-494e0e1edfba")
   )
   (wire
-    (pts (xy 129.54 78.74) (xy 129.54 73.66))
-    (stroke (width 0) (type default))
-    (uuid "e15b517a-0201-4805-87d0-1484f13263f3")
-  )
-  (wire
     (pts (xy 149.86 76.2) (xy 149.86 67.31))
     (stroke (width 0) (type default))
     (uuid "552e880a-496c-4c5a-883e-a2c0b3d07a75")
@@ -3327,16 +3322,6 @@
     (pts (xy 149.86 73.66) (xy 149.86 74.93))
     (stroke (width 0) (type default))
     (uuid "8b74d3e2-2132-439e-b99e-efe74b3822de")
-  )
-  (wire
-    (pts (xy 149.86 73.66) (xy 160.02 73.66))
-    (stroke (width 0) (type default))
-    (uuid "9dfc1cba-624a-463b-bc3a-0de0ec9aa57f")
-  )
-  (wire
-    (pts (xy 160.02 73.66) (xy 160.02 67.31))
-    (stroke (width 0) (type default))
-    (uuid "257882c5-f004-45e9-bf6d-13575b900cd7")
   )
   (wire
     (pts (xy 160.02 74.93) (xy 160.02 76.2))
@@ -3352,16 +3337,6 @@
     (pts (xy 170.18 76.2) (xy 170.18 77.47))
     (stroke (width 0) (type default))
     (uuid "0c66d1e9-214f-42a2-b630-51632fffe7be")
-  )
-  (wire
-    (pts (xy 175.26 76.2) (xy 175.26 77.47))
-    (stroke (width 0) (type default))
-    (uuid "828d84ea-4f6a-42ab-9cf9-1b9eee430633")
-  )
-  (wire
-    (pts (xy 176.53 76.2) (xy 176.53 81.28))
-    (stroke (width 0) (type default))
-    (uuid "2dae3e1a-589b-43ef-9e3f-ca8cd004f096")
   )
   (wire
     (pts (xy 184.15 81.28) (xy 184.15 88.9))
@@ -3417,11 +3392,6 @@
     (pts (xy 233.68 76.2) (xy 233.68 77.47))
     (stroke (width 0) (type default))
     (uuid "7502842f-4df9-4209-abc1-967b8058f922")
-  )
-  (wire
-    (pts (xy 241.3 76.2) (xy 241.3 77.47))
-    (stroke (width 0) (type default))
-    (uuid "709f792c-fc5a-449a-8ed4-5e9eb9ba83a6")
   )
   (wire
     (pts (xy 220.98 83.82) (xy 220.98 86.36))
@@ -4015,7 +3985,7 @@
     )
   )
 
-  (label "12V_RAIL" (at 121.92 73.66 0) (effects (font (size 1.27 1.27))) (uuid "30540051-669b-4094-9e0a-e46875c873d9"))
+  (label "VIN" (at 121.92 73.66 0) (effects (font (size 1.27 1.27))) (uuid "30540051-669b-4094-9e0a-e46875c873d9"))
   (label "5V_RAIL" (at 208.28 76.2 0) (effects (font (size 1.27 1.27))) (uuid "425f8bce-3d05-463a-8597-e0b36ce5c9c4"))
   (label "3V3_RAIL" (at 290.83 68.58 0) (effects (font (size 1.27 1.27))) (uuid "d7ad3818-b47e-4bbc-af80-76e05612e2ad"))
   (label "FB" (at 149.86 78.74 180) (effects (font (size 1.27 1.27))) (uuid "96d3c14a-112f-4892-82c0-54c77a55d2f9"))
@@ -4039,4 +4009,97 @@
   (junction (at 241.3 76.2) (diameter 0) (color 0 0 0 0) (uuid "06991d53-69ec-4757-932f-75462502d1df"))
   (junction (at 283.21 73.66) (diameter 0) (color 0 0 0 0) (uuid "c68cb17c-7250-49d6-9866-974725f41010"))
   (junction (at 312.42 68.58) (diameter 0) (color 0 0 0 0) (uuid "a6d82a80-bb56-46fc-8c1a-264ff855c781"))
+
+  (wire (pts (xy 129.54 73.66) (xy 129.54 71.12)) (stroke (width 0) (type default)) (uuid "0cb5a4b1-56ca-4d46-b322-410c518a7bab"))
+  (label "VIN" (at 129.54 71.12 0) (effects (font (size 1.27 1.27)) (justify left bottom)) (uuid "fab4535e-2032-436a-bf5d-7211eb4dc038"))
+  (wire (pts (xy 105.41 50.8) (xy 113.03 50.8)) (stroke (width 0) (type default)) (uuid "f20d54fa-6b53-4974-b315-9c7217b084d4"))
+  (label "VIN" (at 109.22 50.8 0) (effects (font (size 1.27 1.27)) (justify left bottom)) (uuid "c1e943cf-72bc-4b94-a8e0-c641f0ca15da"))
+  (symbol
+    (lib_id "power:PWR_FLAG")
+    (at 113.03 50.8 0)
+    (unit 1)
+    (exclude_from_sim no) (in_bom no) (on_board no)
+    (uuid "f76fdda8-4439-46ee-b199-7e74f793abef")
+    (property "Reference" "#FLG02" (at 113.03 48.26 0) (effects (font (size 1.27 1.27)) hide))
+    (property "Value" "PWR_FLAG" (at 113.03 46.989999999999995 0) (effects (font (size 1.27 1.27))))
+    (pin "1" (uuid "f557a78f-2ee1-440c-adf1-0e826fade576"))
+    (instances
+      (project "nebula_qshield"
+        (path "/c6da75fc-541f-4933-b134-f5eb8982a11b/f1fcd624-5e99-46e0-8ec7-0072ddfd5246"
+          (reference "#FLG02") (unit 1)
+        )
+      )
+    )
+  )
+  (wire (pts (xy 129.54 78.74) (xy 129.54 82.55)) (stroke (width 0) (type default)) (uuid "2b5d9c97-87b6-4d88-bd21-87a7d8a8924b"))
+  (label "EN_UVLO" (at 129.54 82.55 0) (effects (font (size 1.27 1.27)) (justify left bottom)) (uuid "c9762cb5-8120-4d4e-89d4-97c4b5430e7a"))
+  (symbol
+    (lib_id "Device:R")
+    (at 109.22 88.9 0)
+    (unit 1)
+    (exclude_from_sim no) (in_bom yes) (on_board yes)
+    (uuid "a5b109c8-cdf8-4518-9ec9-87c5c9236e66")
+    (property "Reference" "R34" (at 111.76 87.63000000000001 0) (effects (font (size 1.27 1.27))))
+    (property "Value" "100k 1%" (at 111.76 90.17 0) (effects (font (size 1.27 1.27))))
+    (property "Footprint" "Resistor_SMD:R_0402_1005Metric" (at 109.22 88.9 0) (effects (font (size 1.27 1.27)) hide))
+    (property "MPN" "CRCW0402100KFKED" (at 109.22 88.9 0) (effects (font (size 1.27 1.27)) hide))
+    (pin "1" (uuid "acd1ed38-fcb2-4a4f-a488-f51f6903f620")) (pin "2" (uuid "c4e7bf18-ea05-431d-a276-001b71b37e01"))
+    (instances
+      (project "nebula_qshield"
+        (path "/c6da75fc-541f-4933-b134-f5eb8982a11b/f1fcd624-5e99-46e0-8ec7-0072ddfd5246"
+          (reference "R34") (unit 1)
+        )
+      )
+    )
+  )
+  (wire (pts (xy 109.22 85.09) (xy 109.22 83.82)) (stroke (width 0) (type default)) (uuid "a64bc9e4-1a17-4203-9b79-8a2523fc9b14"))
+  (label "VIN" (at 109.22 83.82 0) (effects (font (size 1.27 1.27)) (justify left bottom)) (uuid "b105aaad-66f2-4d38-bf6c-0f51e56862be"))
+  (wire (pts (xy 109.22 92.71) (xy 109.22 96.52)) (stroke (width 0) (type default)) (uuid "1c1b7f19-f888-4591-8ce1-94c31118eb9e"))
+  (label "EN_UVLO" (at 109.22 93.98 0) (effects (font (size 1.27 1.27)) (justify left bottom)) (uuid "1837a141-a289-4864-9d2e-c6502b2fbec9"))
+  (symbol
+    (lib_id "Device:R")
+    (at 109.22 100.33 0)
+    (unit 1)
+    (exclude_from_sim no) (in_bom yes) (on_board yes)
+    (uuid "cef9f2ad-3787-43a9-8297-f094def43de7")
+    (property "Reference" "R35" (at 111.76 99.06 0) (effects (font (size 1.27 1.27))))
+    (property "Value" "18.2k 1%" (at 111.76 101.6 0) (effects (font (size 1.27 1.27))))
+    (property "Footprint" "Resistor_SMD:R_0402_1005Metric" (at 109.22 100.33 0) (effects (font (size 1.27 1.27)) hide))
+    (property "MPN" "CRCW040218K2FKED" (at 109.22 100.33 0) (effects (font (size 1.27 1.27)) hide))
+    (pin "1" (uuid "fd9e14bf-2d40-41e7-a451-7cacd1b35953")) (pin "2" (uuid "edf14ac0-9db7-4c8a-99ea-01787290a9cc"))
+    (instances
+      (project "nebula_qshield"
+        (path "/c6da75fc-541f-4933-b134-f5eb8982a11b/f1fcd624-5e99-46e0-8ec7-0072ddfd5246"
+          (reference "R35") (unit 1)
+        )
+      )
+    )
+  )
+  (wire (pts (xy 109.22 104.14) (xy 109.22 105.41)) (stroke (width 0) (type default)) (uuid "5c3e264c-8c6c-44d1-a553-4ac1ed24f592"))
+  (symbol
+    (lib_id "power:GND")
+    (at 109.22 105.41 0)
+    (unit 1)
+    (exclude_from_sim no) (in_bom no) (on_board no)
+    (uuid "c6ac494d-8afc-4c30-b509-661cec1f931e")
+    (property "Reference" "#PWR21" (at 109.22 107.95 0) (effects (font (size 1.27 1.27)) hide))
+    (property "Value" "GND" (at 109.22 106.67999999999999 0) (effects (font (size 1.27 1.27)) hide))
+    (pin "1" (uuid "62b8d456-4d2f-462f-8619-422dd1c65310"))
+    (instances
+      (project "nebula_qshield"
+        (path "/c6da75fc-541f-4933-b134-f5eb8982a11b/f1fcd624-5e99-46e0-8ec7-0072ddfd5246"
+          (reference "#PWR21") (unit 1)
+        )
+      )
+    )
+  )
+  (label "SW" (at 149.86 67.31 0) (effects (font (size 1.27 1.27)) (justify left bottom)) (uuid "7ad257ac-9bdc-4961-8361-761274289161"))
+  (wire (pts (xy 160.02 67.31) (xy 163.83 67.31)) (stroke (width 0) (type default)) (uuid "ad9a66c3-8f28-4fe5-ba07-b8a538d0c34e"))
+  (label "SW" (at 163.83 67.31 0) (effects (font (size 1.27 1.27)) (justify left bottom)) (uuid "3d79b647-8f40-4072-9b2c-6ae407fa9a34"))
+  (wire (pts (xy 176.53 81.28) (xy 176.53 76.2)) (stroke (width 0) (type default)) (uuid "ed6f7d8e-823f-44da-979b-26714eb0224d"))
+  (label "5V_RAIL" (at 176.53 78.74 0) (effects (font (size 1.27 1.27)) (justify left bottom)) (uuid "2f8fe570-0f20-4027-ae69-a4ecc25f3e8d"))
+  (wire (pts (xy 175.26 77.47) (xy 175.26 76.2)) (stroke (width 0) (type default)) (uuid "eb3d56b7-d135-48e0-ad79-2f73282c5195"))
+  (label "5V_RAIL" (at 175.26 77.47 0) (effects (font (size 1.27 1.27)) (justify left bottom)) (uuid "40089f2e-d450-488d-8c22-fd648e8dd3c7"))
+  (wire (pts (xy 241.3 77.47) (xy 245.11 77.47)) (stroke (width 0) (type default)) (uuid "533b39bf-2204-4d81-b195-1765c1b139ce"))
+  (label "3V3_RAIL" (at 245.11 77.47 0) (effects (font (size 1.27 1.27)) (justify left bottom)) (uuid "85ab8d2c-d423-45c2-975e-d3ec57169e9e"))
 )
