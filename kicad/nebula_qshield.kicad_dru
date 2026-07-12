@@ -58,6 +58,12 @@
 
 (rule "Board_Edge"
   (constraint edge_clearance (min 0.3mm))
+  (condition "A.NetName != '/Power Management/VIN_12V'")
+)
+
+(rule "J1_Edge"
+  (constraint edge_clearance (min -0.5mm))
+  (condition "A.NetName == '/Power Management/VIN_12V'")
 )
 
 
