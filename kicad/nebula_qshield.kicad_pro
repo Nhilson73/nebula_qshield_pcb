@@ -103,7 +103,7 @@
       },
       {
         "bus_width": 12,
-        "clearance": 0.3,
+        "clearance": 0.25,
         "name": "Power",
         "track_width": 0.5,
         "via_diameter": 0.8,
@@ -111,7 +111,7 @@
       },
       {
         "bus_width": 12,
-        "clearance": 0.5,
+        "clearance": 0.3,
         "name": "HighCurrent",
         "track_width": 1.5,
         "via_diameter": 1.0,
