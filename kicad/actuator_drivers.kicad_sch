@@ -3328,6 +3328,34 @@
   (label "GND" (at 15.24 35.56 0) (effects (font (size 1.27 1.27))) (uuid "18b75f61-ff5d-4a13-aaff-ba3124a0e71d"))
   (wire (pts (xy 10.16 40.64) (xy 15.24 40.64)) (stroke (width 0) (type default)) (uuid "f958e48a-c961-479e-83a1-2a533ff66861"))
   (label "PGND" (at 15.24 40.64 0) (effects (font (size 1.27 1.27))) (uuid "4cebb60f-18d3-4b67-a1cf-89e02da0b5c2"))
+  (wire (pts (xy 15.24 40.64) (xy 20.32 40.64)) (stroke (width 0) (type default)) (uuid "9c5406e0-978d-4134-8142-23891adef1a0"))
+  (symbol
+    (lib_id "power:PWR_FLAG")
+    (at 20.32 40.64 0)
+    (unit 1)
+    (exclude_from_sim no)
+    (in_bom no)
+    (on_board no)
+    (uuid "b9803627-815f-4639-9e35-7720efccd9c9")
+    (property "Reference" "#FLG052"
+      (at 20.32 38.1 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (property "Value" "PWR_FLAG"
+      (at 20.32 36.83 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (pin "1"
+      (uuid "783936e5-391a-4126-8bb9-76d97d628e0c")
+    )
+    (instances
+      (project "nebula_qshield"
+        (path "/c6da75fc-541f-4933-b134-f5eb8982a11b/20b0ceca-a23d-4442-9c81-682496868387"
+          (reference "#FLG052") (unit 1)
+        )
+      )
+    )
+  )
   (wire (pts (xy 40.64 44.45) (xy 40.64 41.91)) (stroke (width 0) (type default)) (uuid "0618987f-761b-4daa-883b-bbc7bec83125"))
   (label "PUMP_DIR" (at 40.64 41.91 270) (effects (font (size 1.27 1.27))) (uuid "e08d4103-fad0-482d-ad23-ae4bc3529439"))
   (wire (pts (xy 40.64 52.07) (xy 40.64 54.61)) (stroke (width 0) (type default)) (uuid "19104c55-25b1-4a61-8714-4325b48b3217"))

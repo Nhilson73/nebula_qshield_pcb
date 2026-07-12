@@ -3201,7 +3201,7 @@
   (hierarchical_label "5V_RAIL"    (shape output)   (at 187.96 76.2 0)  (effects (font (size 1.27 1.27))) (uuid "hl-5v"))
   (hierarchical_label "3V3_RAIL"   (shape output)   (at 248.92 76.2 0)  (effects (font (size 1.27 1.27))) (uuid "hl-3v3"))
   (hierarchical_label "GND"        (shape bidirectional) (at 25.4 58.42 270)   (effects (font (size 1.27 1.27))) (uuid "hl-gnd"))
-  (hierarchical_label "MCU_WDI"    (shape input)    (at 279.4 73.66 180) (effects (font (size 1.27 1.27))) (uuid "hl-wdi"))
+  (hierarchical_label "MCU_WDI"    (shape input)    (at 293.37 73.66 180) (effects (font (size 1.27 1.27))) (uuid "hl-wdi"))
   (hierarchical_label "MCU_NRST"   (shape output)   (at 320.04 73.66 0) (effects (font (size 1.27 1.27))) (uuid "hl-nrst"))
 
   (label "VIN_12V"   (at 30.48 50.8 0)    (effects (font (size 1.27 1.27))) (uuid "nl-vin"))
@@ -3299,6 +3299,43 @@
     (uuid "76b7ae97-f37d-4242-8766-25feb9ac29db")
   )
   (wire
+    (pts (xy 33.02 58.42) (xy 35.56 58.42))
+    (stroke (width 0) (type default))
+    (uuid "2e8d2d3f-b766-4baa-a6e5-a184921aad8c")
+  )
+  (wire
+    (pts (xy 35.56 58.42) (xy 40.64 58.42))
+    (stroke (width 0) (type default))
+    (uuid "2ec60d80-1365-4be8-9f7b-d04c13b29c8e")
+  )
+  (symbol
+    (lib_id "power:PWR_FLAG")
+    (at 35.56 58.42 0)
+    (unit 1)
+    (exclude_from_sim no)
+    (in_bom no)
+    (on_board no)
+    (uuid "7d3553b9-9eaa-4a0b-95e1-70cabb05c5af")
+    (property "Reference" "#FLG04"
+      (at 35.56 55.88 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (property "Value" "PWR_FLAG"
+      (at 35.56 54.61 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (pin "1"
+      (uuid "cc71ca92-84ed-48b5-aa65-22af9325b448")
+    )
+    (instances
+      (project "nebula_qshield"
+        (path "/c6da75fc-541f-4933-b134-f5eb8982a11b/f1fcd624-5e99-46e0-8ec7-0072ddfd5246"
+          (reference "#FLG04") (unit 1)
+        )
+      )
+    )
+  )
+  (wire
     (pts (xy 121.92 73.66) (xy 129.54 73.66))
     (stroke (width 0) (type default))
     (uuid "c76897e0-e268-4108-bba0-7b2d93a90ed3")
@@ -3332,6 +3369,11 @@
     (pts (xy 160.02 76.2) (xy 187.96 76.2))
     (stroke (width 0) (type default))
     (uuid "91c40738-25e3-44f2-8678-0d627ca33db5")
+  )
+  (wire
+    (pts (xy 187.96 76.2) (xy 208.28 76.2))
+    (stroke (width 0) (type default))
+    (uuid "c5bb6c0c-4874-4d19-afa2-e2a23313c945")
   )
   (wire
     (pts (xy 170.18 76.2) (xy 170.18 77.47))
@@ -3383,11 +3425,44 @@
     (stroke (width 0) (type default))
     (uuid "694e6478-e353-4d10-807d-de89624c9a11")
   )
+  (symbol
+    (lib_id "power:PWR_FLAG")
+    (at 208.28 77.47 0)
+    (unit 1)
+    (exclude_from_sim no)
+    (in_bom no)
+    (on_board no)
+    (uuid "85138c80-8988-466d-8357-46be8d8e3eb9")
+    (property "Reference" "#FLG05"
+      (at 208.28 76.2 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (property "Value" "PWR_FLAG"
+      (at 208.28 75.94 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (pin "1"
+      (uuid "3c7911c3-78af-449b-8ea0-8fd3c87e15b1")
+    )
+    (instances
+      (project "nebula_qshield"
+        (path "/c6da75fc-541f-4933-b134-f5eb8982a11b/f1fcd624-5e99-46e0-8ec7-0072ddfd5246"
+          (reference "#FLG05") (unit 1)
+        )
+      )
+    )
+  )
   (wire
     (pts (xy 228.6 76.2) (xy 248.92 76.2))
     (stroke (width 0) (type default))
     (uuid "9ca6183a-c6bf-4054-987b-6541306d7fb6")
   )
+  (wire
+    (pts (xy 248.92 76.2) (xy 251.46 76.2))
+    (stroke (width 0) (type default))
+    (uuid "82aac1f6-50ab-40d4-a37f-41f19f276aa6")
+  )
+  (label "3V3_RAIL" (at 251.46 76.2 0) (effects (font (size 1.27 1.27))) (uuid "3df20f46-a9b3-40f7-8547-c47b5ddcbdde"))
   (wire
     (pts (xy 233.68 76.2) (xy 233.68 77.47))
     (stroke (width 0) (type default))
@@ -3429,9 +3504,14 @@
     (uuid "9174d409-190b-487d-9e70-9166dcf0a567")
   )
   (wire
-    (pts (xy 279.4 73.66) (xy 290.83 73.66))
+    (pts (xy 293.37 73.66) (xy 290.83 73.66))
     (stroke (width 0) (type default))
     (uuid "6871155c-ae36-4c2b-9224-9c0d0719cd4f")
+  )
+  (wire
+    (pts (xy 283.21 73.66) (xy 290.83 73.66))
+    (stroke (width 0) (type default))
+    (uuid "e9d5a0c0-761f-4e6e-b587-ba8ad44288ed")
   )
   (wire
     (pts (xy 283.21 68.58) (xy 283.21 73.66))
