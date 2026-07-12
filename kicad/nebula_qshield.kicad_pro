@@ -146,8 +146,99 @@
       "version": 3
     },
     "net_colors": null,
-    "netclass_assignments": null,
-    "netclass_patterns": []
+    "netclass_assignments": {
+      "/12V_RAIL": "HighCurrent",
+      "/3V3_RAIL": "Power",
+      "/5V_RAIL": "Power",
+      "/AGND": "Analog",
+      "/Actuator Drivers/CHILLER_ISO": "RelayHV",
+      "/Actuator Drivers/CHILLER_NO": "RelayHV",
+      "/Actuator Drivers/CHILLER_OUT": "RelayHV",
+      "/Actuator Drivers/CO2_SOL_ISO": "RelayHV",
+      "/Actuator Drivers/CO2_SOL_NO": "RelayHV",
+      "/Actuator Drivers/CO2_SOL_OUT": "RelayHV",
+      "/Actuator Drivers/K1_COIL_N": "HighCurrent",
+      "/Actuator Drivers/K2_COIL_N": "HighCurrent",
+      "/Analog Acquisition/CO2_FILT": "Analog",
+      "/Analog Acquisition/CO2_SIG": "Analog",
+      "/Analog Acquisition/DO_BUF": "Analog",
+      "/Analog Acquisition/DO_FILT": "Analog",
+      "/Analog Acquisition/DO_SEC_A": "Analog",
+      "/Analog Acquisition/DO_SEC_B": "Analog",
+      "/Analog Acquisition/DO_SIG": "Analog",
+      "/Analog Acquisition/GND_ISO_DO": "Analog",
+      "/Analog Acquisition/GND_ISO_ORP": "Analog",
+      "/Analog Acquisition/GND_ISO_PH": "Analog",
+      "/Analog Acquisition/HUM_SIG": "Analog",
+      "/Analog Acquisition/ORP_ATT": "Analog",
+      "/Analog Acquisition/ORP_BUF": "Analog",
+      "/Analog Acquisition/ORP_FILT": "Analog",
+      "/Analog Acquisition/ORP_SEC_A": "Analog",
+      "/Analog Acquisition/ORP_SEC_B": "Analog",
+      "/Analog Acquisition/ORP_SIG": "Analog",
+      "/Analog Acquisition/PH_ATT": "Analog",
+      "/Analog Acquisition/PH_BUF": "Analog",
+      "/Analog Acquisition/PH_FILT": "Analog",
+      "/Analog Acquisition/PH_SEC_A": "Analog",
+      "/Analog Acquisition/PH_SEC_B": "Analog",
+      "/Analog Acquisition/PH_SIG": "Analog",
+      "/Analog Acquisition/SN_D1_DO": "Power",
+      "/Analog Acquisition/SN_D1_ORP": "Power",
+      "/Analog Acquisition/SN_D1_PH": "Power",
+      "/Analog Acquisition/SN_D2_DO": "Power",
+      "/Analog Acquisition/SN_D2_ORP": "Power",
+      "/Analog Acquisition/SN_D2_PH": "Power",
+      "/Analog Acquisition/TEMP_SIG": "Analog",
+      "/Analog Acquisition/VDD_ISO_DO": "Analog",
+      "/Analog Acquisition/VDD_ISO_ORP": "Analog",
+      "/Analog Acquisition/VDD_ISO_PH": "Analog",
+      "/CO2_ADC": "Analog",
+      "/DO_ADC": "Analog",
+      "/Digital & I2C/3V3_ISO": "Power",
+      "/Digital & I2C/GND_ISO": "Power",
+      "/Digital & I2C/SCL_ISO": "I2C",
+      "/Digital & I2C/SDA_ISO": "I2C",
+      "/HUM_ADC": "Analog",
+      "/I2C_SCL": "I2C",
+      "/I2C_SDA": "I2C",
+      "/ORP_ADC": "Analog",
+      "/PGND": "HighCurrent",
+      "/PH_ADC": "Analog",
+      "/Power Management/12V_FUSED": "Power",
+      "/Power Management/SW": "HighCurrent",
+      "/Power Management/VIN": "Power",
+      "/TEMP_ADC": "Analog"
+    },
+    "netclass_patterns": [
+      {
+        "pattern": ".*/12V_RAIL|.*PGND|.*/Power Management/SW",
+        "netclass": "HighCurrent"
+      },
+      {
+        "pattern": ".*MOTOR_|.*K1_COIL_N|.*K2_COIL_N",
+        "netclass": "HighCurrent"
+      },
+      {
+        "pattern": ".*CHILLER_OUT|.*CO2_SOL_OUT|.*CHILLER_NO|.*CO2_SOL_NO|.*CHILLER_ISO|.*CO2_SOL_ISO",
+        "netclass": "RelayHV"
+      },
+      {
+        "pattern": ".*/Digital & I2C/(3V3_ISO|GND_ISO)|.*SN_D\\d_.*",
+        "netclass": "Power"
+      },
+      {
+        "pattern": ".*_RAIL|.*VIN|.*12V_FUSED",
+        "netclass": "Power"
+      },
+      {
+        "pattern": ".*I2C_.*|.*SCL.*|.*SDA.*",
+        "netclass": "I2C"
+      },
+      {
+        "pattern": ".*PH_.*|.*ORP_.*|.*DO_.*|.*CO2_SIG|.*CO2_FILT|.*TEMP_SIG|.*HUM_SIG|.*_ADC|.*VDD_ISO_.*|.*GND_ISO_.*|.*AGND",
+        "netclass": "Analog"
+      }
+    ]
   },
   "pcbnew": {
     "last_paths": {
