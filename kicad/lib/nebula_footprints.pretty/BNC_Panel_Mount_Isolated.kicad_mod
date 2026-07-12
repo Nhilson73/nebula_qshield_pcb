@@ -1,75 +1,119 @@
-(footprint "BNC_Panel_Mount_Isolated"
+(footprint
+  "BNC_Panel_Mount_Isolated"
   (version 20240108)
   (generator "devin")
   (generator_version "1.0")
   (layer "F.Cu")
   (descr "BNC panel-mount receptacle, isolated shell, for pH/ORP/DO probes")
   (tags "BNC connector panel mount isolated")
-  (property "Reference" "REF**"
+  (property
+    "Reference"
+    "REF**"
     (at 0 -8.5 0)
     (layer "F.SilkS")
-    (effects (font (size 1 1) (thickness 0.15)))
+    (effects
+      (font
+        (size 1 1)
+        (thickness 0.15)
+      )
+    )
+    (tstamp daec2908-3dae-476e-b852-fcb482ca8f30)
   )
-  (property "Value" "BNC_Panel_Mount_Isolated"
+  (property
+    "Value"
+    "BNC_Panel_Mount_Isolated"
     (at 0 8.5 0)
     (layer "F.Fab")
-    (effects (font (size 1 1) (thickness 0.15)))
+    (effects
+      (font
+        (size 1 1)
+        (thickness 0.15)
+      )
+    )
+    (tstamp 38b35597-82ea-4a92-a432-e2a2a10e1424)
   )
   (attr through_hole)
-  ;; Center signal pin
-  (pad "1" thru_hole circle
+  (pad
+    "1"
+    thru_hole
+    circle
     (at 0 0)
     (size 2.5 2.5)
     (drill 1.5)
     (layers "*.Cu" "*.Mask")
+    (tstamp e60808b8-7142-4797-9ae7-49699b7e4efc)
   )
-  ;; Shield/GND pins (4 mounting pins around center)
-  (pad "2" thru_hole circle
+  (pad
+    "2"
+    thru_hole
+    circle
     (at -3.5 -3.5)
     (size 2.0 2.0)
     (drill 1.0)
     (layers "*.Cu" "*.Mask")
+    (tstamp 6ef7dc3f-8692-404b-8370-482e20daef32)
   )
-  (pad "2" thru_hole circle
+  (pad
+    "2"
+    thru_hole
+    circle
     (at 3.5 -3.5)
     (size 2.0 2.0)
     (drill 1.0)
     (layers "*.Cu" "*.Mask")
+    (tstamp 68fd05db-26f8-4f71-848f-f7259a86ee61)
   )
-  (pad "2" thru_hole circle
+  (pad
+    "2"
+    thru_hole
+    circle
     (at -3.5 3.5)
     (size 2.0 2.0)
     (drill 1.0)
     (layers "*.Cu" "*.Mask")
+    (tstamp 3b1f8538-5529-40d0-965d-9716a8ca2905)
   )
-  (pad "2" thru_hole circle
+  (pad
+    "2"
+    thru_hole
+    circle
     (at 3.5 3.5)
     (size 2.0 2.0)
     (drill 1.0)
     (layers "*.Cu" "*.Mask")
+    (tstamp ca400866-89f4-49e1-8170-3e91cc8675dd)
   )
-  ;; Courtyard
   (fp_rect
     (start -6 -6)
     (end 6 6)
-    (stroke (width 0.05) (type default))
+    (stroke
+      (width 0.05)
+      (type default)
+    )
     (fill none)
     (layer "F.CrtYd")
+    (tstamp 3f77cf7a-8570-4120-b7b6-622e8e90e3e3)
   )
-  ;; Fab outline
   (fp_circle
     (center 0 0)
     (end 5 0)
-    (stroke (width 0.1) (type default))
+    (stroke
+      (width 0.1)
+      (type default)
+    )
     (fill none)
     (layer "F.Fab")
+    (tstamp 4a8df335-85cc-4bf2-bea8-5ae74204e20d)
   )
-  ;; Silk screen
   (fp_circle
     (center 0 0)
     (end 5.5 0)
-    (stroke (width 0.12) (type default))
+    (stroke
+      (width 0.12)
+      (type default)
+    )
     (fill none)
     (layer "F.SilkS")
+    (tstamp aeb2076a-d5b0-403f-b2fd-0167132142c8)
   )
 )
