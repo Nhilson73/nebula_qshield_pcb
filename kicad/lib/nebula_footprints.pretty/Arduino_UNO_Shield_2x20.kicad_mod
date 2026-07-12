@@ -1,92 +1,439 @@
-(footprint "Arduino_UNO_Shield_2x20"
+(footprint
+  "Arduino_UNO_Shield_2x20"
   (version 20240108)
   (generator "devin")
   (generator_version "1.0")
   (layer "F.Cu")
   (descr "Arduino UNO Q shield header, 2x20 stackable female, 2.54mm pitch")
   (tags "Arduino UNO shield header 2x20 stackable")
-  (property "Reference" "REF**"
+  (property
+    "Reference"
+    "REF**"
     (at 0 -5 0)
     (layer "F.SilkS")
-    (effects (font (size 1 1) (thickness 0.15)))
+    (effects
+      (font
+        (size 1 1)
+        (thickness 0.15)
+      )
+    )
+    (tstamp 0e4d2a5e-1361-4104-a981-5e7cc5895181)
   )
-  (property "Value" "Arduino_UNO_Shield_2x20"
+  (property
+    "Value"
+    "Arduino_UNO_Shield_2x20"
     (at 0 57 0)
     (layer "F.Fab")
-    (effects (font (size 1 1) (thickness 0.15)))
+    (effects
+      (font
+        (size 1 1)
+        (thickness 0.15)
+      )
+    )
+    (tstamp aefc0ce5-ec22-4bef-a940-18b542251458)
   )
   (attr through_hole)
-
-  ;; Left header: pins 1-15 (A0-A5, VIN, GND, GND, 5V, 3V3, RST, IOREF, SDA, SCL)
-  ;; 1x15 female header, 2.54mm pitch, starting at (0, 0)
-  (pad "1" thru_hole rect (at 0 0) (size 1.7 1.7) (drill 1.0) (layers "*.Cu" "*.Mask"))
-  (pad "2" thru_hole circle (at 0 2.54) (size 1.7 1.7) (drill 1.0) (layers "*.Cu" "*.Mask"))
-  (pad "3" thru_hole circle (at 0 5.08) (size 1.7 1.7) (drill 1.0) (layers "*.Cu" "*.Mask"))
-  (pad "4" thru_hole circle (at 0 7.62) (size 1.7 1.7) (drill 1.0) (layers "*.Cu" "*.Mask"))
-  (pad "5" thru_hole circle (at 0 10.16) (size 1.7 1.7) (drill 1.0) (layers "*.Cu" "*.Mask"))
-  (pad "6" thru_hole circle (at 0 12.7) (size 1.7 1.7) (drill 1.0) (layers "*.Cu" "*.Mask"))
-  (pad "7" thru_hole circle (at 0 16.51) (size 1.7 1.7) (drill 1.0) (layers "*.Cu" "*.Mask"))
-  (pad "8" thru_hole circle (at 0 19.05) (size 1.7 1.7) (drill 1.0) (layers "*.Cu" "*.Mask"))
-  (pad "9" thru_hole circle (at 0 21.59) (size 1.7 1.7) (drill 1.0) (layers "*.Cu" "*.Mask"))
-  (pad "10" thru_hole circle (at 0 24.13) (size 1.7 1.7) (drill 1.0) (layers "*.Cu" "*.Mask"))
-  (pad "11" thru_hole circle (at 0 26.67) (size 1.7 1.7) (drill 1.0) (layers "*.Cu" "*.Mask"))
-  (pad "12" thru_hole circle (at 0 29.21) (size 1.7 1.7) (drill 1.0) (layers "*.Cu" "*.Mask"))
-  (pad "13" thru_hole circle (at 0 31.75) (size 1.7 1.7) (drill 1.0) (layers "*.Cu" "*.Mask"))
-  (pad "14" thru_hole circle (at 0 34.29) (size 1.7 1.7) (drill 1.0) (layers "*.Cu" "*.Mask"))
-  (pad "15" thru_hole circle (at 0 36.83) (size 1.7 1.7) (drill 1.0) (layers "*.Cu" "*.Mask"))
-
-  ;; Right header: pins 25-40 (D0-D13, GND, AREF)
-  ;; 1x16 female header, 2.54mm pitch, at x=48.26 (UNO shield width)
-  (pad "25" thru_hole circle (at 48.26 0) (size 1.7 1.7) (drill 1.0) (layers "*.Cu" "*.Mask"))
-  (pad "26" thru_hole circle (at 48.26 2.54) (size 1.7 1.7) (drill 1.0) (layers "*.Cu" "*.Mask"))
-  (pad "27" thru_hole circle (at 48.26 5.08) (size 1.7 1.7) (drill 1.0) (layers "*.Cu" "*.Mask"))
-  (pad "28" thru_hole circle (at 48.26 7.62) (size 1.7 1.7) (drill 1.0) (layers "*.Cu" "*.Mask"))
-  (pad "29" thru_hole circle (at 48.26 10.16) (size 1.7 1.7) (drill 1.0) (layers "*.Cu" "*.Mask"))
-  (pad "30" thru_hole circle (at 48.26 12.7) (size 1.7 1.7) (drill 1.0) (layers "*.Cu" "*.Mask"))
-  (pad "31" thru_hole circle (at 48.26 15.24) (size 1.7 1.7) (drill 1.0) (layers "*.Cu" "*.Mask"))
-  (pad "32" thru_hole circle (at 48.26 17.78) (size 1.7 1.7) (drill 1.0) (layers "*.Cu" "*.Mask"))
-  (pad "33" thru_hole circle (at 48.26 20.32) (size 1.7 1.7) (drill 1.0) (layers "*.Cu" "*.Mask"))
-  (pad "34" thru_hole circle (at 48.26 22.86) (size 1.7 1.7) (drill 1.0) (layers "*.Cu" "*.Mask"))
-  (pad "35" thru_hole circle (at 48.26 25.4) (size 1.7 1.7) (drill 1.0) (layers "*.Cu" "*.Mask"))
-  (pad "36" thru_hole circle (at 48.26 27.94) (size 1.7 1.7) (drill 1.0) (layers "*.Cu" "*.Mask"))
-  (pad "37" thru_hole circle (at 48.26 30.48) (size 1.7 1.7) (drill 1.0) (layers "*.Cu" "*.Mask"))
-  (pad "38" thru_hole circle (at 48.26 33.02) (size 1.7 1.7) (drill 1.0) (layers "*.Cu" "*.Mask"))
-  (pad "39" thru_hole circle (at 48.26 35.56) (size 1.7 1.7) (drill 1.0) (layers "*.Cu" "*.Mask"))
-  (pad "40" thru_hole circle (at 48.26 38.1) (size 1.7 1.7) (drill 1.0) (layers "*.Cu" "*.Mask"))
-
-  ;; Mounting holes (M3, non-plated)
-  (pad "" np_thru_hole circle (at 14.0 2.54) (size 3.2 3.2) (drill 3.2) (layers "*.Cu" "*.Mask"))
-  (pad "" np_thru_hole circle (at 66.04 7.62) (size 3.2 3.2) (drill 3.2) (layers "*.Cu" "*.Mask"))
-  (pad "" np_thru_hole circle (at 66.04 35.56) (size 3.2 3.2) (drill 3.2) (layers "*.Cu" "*.Mask"))
-  (pad "" np_thru_hole circle (at 15.24 50.8) (size 3.2 3.2) (drill 3.2) (layers "*.Cu" "*.Mask"))
-
-  ;; Board outline on Fab layer
+  (pad
+    "1"
+    thru_hole
+    rect
+    (at 0 0)
+    (size 1.7 1.7)
+    (drill 1.0)
+    (layers "*.Cu" "*.Mask")
+    (tstamp 5e56142c-f18e-4f1f-a8a5-48984c98d081)
+  )
+  (pad
+    "2"
+    thru_hole
+    circle
+    (at 0 2.54)
+    (size 1.7 1.7)
+    (drill 1.0)
+    (layers "*.Cu" "*.Mask")
+    (tstamp 979d7862-f014-46d4-be93-b2197f959adc)
+  )
+  (pad
+    "3"
+    thru_hole
+    circle
+    (at 0 5.08)
+    (size 1.7 1.7)
+    (drill 1.0)
+    (layers "*.Cu" "*.Mask")
+    (tstamp 0718f5cc-688b-4906-b207-fd489d53af50)
+  )
+  (pad
+    "4"
+    thru_hole
+    circle
+    (at 0 7.62)
+    (size 1.7 1.7)
+    (drill 1.0)
+    (layers "*.Cu" "*.Mask")
+    (tstamp 73961f93-5eaa-4fb1-bdc5-daf4f6862398)
+  )
+  (pad
+    "5"
+    thru_hole
+    circle
+    (at 0 10.16)
+    (size 1.7 1.7)
+    (drill 1.0)
+    (layers "*.Cu" "*.Mask")
+    (tstamp ecb52a1c-41b5-4124-8e9a-a5a565a1117c)
+  )
+  (pad
+    "6"
+    thru_hole
+    circle
+    (at 0 12.7)
+    (size 1.7 1.7)
+    (drill 1.0)
+    (layers "*.Cu" "*.Mask")
+    (tstamp d742b79f-e09b-4c55-9d0c-93f84121a350)
+  )
+  (pad
+    "7"
+    thru_hole
+    circle
+    (at 0 16.51)
+    (size 1.7 1.7)
+    (drill 1.0)
+    (layers "*.Cu" "*.Mask")
+    (tstamp ebd7386b-6880-460d-b154-184fd7bfdb27)
+  )
+  (pad
+    "8"
+    thru_hole
+    circle
+    (at 0 19.05)
+    (size 1.7 1.7)
+    (drill 1.0)
+    (layers "*.Cu" "*.Mask")
+    (tstamp 45427229-fc87-4d33-aed5-3723d9b58828)
+  )
+  (pad
+    "9"
+    thru_hole
+    circle
+    (at 0 21.59)
+    (size 1.7 1.7)
+    (drill 1.0)
+    (layers "*.Cu" "*.Mask")
+    (tstamp 995b05fc-a4d8-4a38-897d-09b1e84a7a2e)
+  )
+  (pad
+    "10"
+    thru_hole
+    circle
+    (at 0 24.13)
+    (size 1.7 1.7)
+    (drill 1.0)
+    (layers "*.Cu" "*.Mask")
+    (tstamp da99612a-2c70-4e36-af13-87a1b159d8ec)
+  )
+  (pad
+    "11"
+    thru_hole
+    circle
+    (at 0 26.67)
+    (size 1.7 1.7)
+    (drill 1.0)
+    (layers "*.Cu" "*.Mask")
+    (tstamp 606d9107-6e3f-497c-a850-ffd46395c030)
+  )
+  (pad
+    "12"
+    thru_hole
+    circle
+    (at 0 29.21)
+    (size 1.7 1.7)
+    (drill 1.0)
+    (layers "*.Cu" "*.Mask")
+    (tstamp a43d9688-e967-43f4-aaf9-540336581df4)
+  )
+  (pad
+    "13"
+    thru_hole
+    circle
+    (at 0 31.75)
+    (size 1.7 1.7)
+    (drill 1.0)
+    (layers "*.Cu" "*.Mask")
+    (tstamp 1983446d-603c-4c4b-9d00-bb098ed56253)
+  )
+  (pad
+    "14"
+    thru_hole
+    circle
+    (at 0 34.29)
+    (size 1.7 1.7)
+    (drill 1.0)
+    (layers "*.Cu" "*.Mask")
+    (tstamp ea15aee1-a10e-4fc6-ac5a-88d52768cc3a)
+  )
+  (pad
+    "15"
+    thru_hole
+    circle
+    (at 0 36.83)
+    (size 1.7 1.7)
+    (drill 1.0)
+    (layers "*.Cu" "*.Mask")
+    (tstamp 6d3ae4dd-9978-46f6-8a80-d7f4cc2d1b0b)
+  )
+  (pad
+    "25"
+    thru_hole
+    circle
+    (at 48.26 0)
+    (size 1.7 1.7)
+    (drill 1.0)
+    (layers "*.Cu" "*.Mask")
+    (tstamp e0a7e334-006d-453f-b7d1-cf4c7073f4ac)
+  )
+  (pad
+    "26"
+    thru_hole
+    circle
+    (at 48.26 2.54)
+    (size 1.7 1.7)
+    (drill 1.0)
+    (layers "*.Cu" "*.Mask")
+    (tstamp a6b86252-0ea7-453b-8a07-b1251260db6b)
+  )
+  (pad
+    "27"
+    thru_hole
+    circle
+    (at 48.26 5.08)
+    (size 1.7 1.7)
+    (drill 1.0)
+    (layers "*.Cu" "*.Mask")
+    (tstamp 81a3596a-0ca0-43f9-8d12-bd3591fa9cf0)
+  )
+  (pad
+    "28"
+    thru_hole
+    circle
+    (at 48.26 7.62)
+    (size 1.7 1.7)
+    (drill 1.0)
+    (layers "*.Cu" "*.Mask")
+    (tstamp e4cea476-b0c4-4f37-bfcb-bd2335f649da)
+  )
+  (pad
+    "29"
+    thru_hole
+    circle
+    (at 48.26 10.16)
+    (size 1.7 1.7)
+    (drill 1.0)
+    (layers "*.Cu" "*.Mask")
+    (tstamp bf668407-c1a3-4343-afeb-5a75d7cd3acc)
+  )
+  (pad
+    "30"
+    thru_hole
+    circle
+    (at 48.26 12.7)
+    (size 1.7 1.7)
+    (drill 1.0)
+    (layers "*.Cu" "*.Mask")
+    (tstamp b6675d39-1597-43cd-8924-9ec128d73546)
+  )
+  (pad
+    "31"
+    thru_hole
+    circle
+    (at 48.26 15.24)
+    (size 1.7 1.7)
+    (drill 1.0)
+    (layers "*.Cu" "*.Mask")
+    (tstamp f95d2fd7-e69d-4f52-bb38-0fb319cc6505)
+  )
+  (pad
+    "32"
+    thru_hole
+    circle
+    (at 48.26 17.78)
+    (size 1.7 1.7)
+    (drill 1.0)
+    (layers "*.Cu" "*.Mask")
+    (tstamp 1d391b23-8270-47e0-9a54-5674c90a7a31)
+  )
+  (pad
+    "33"
+    thru_hole
+    circle
+    (at 48.26 20.32)
+    (size 1.7 1.7)
+    (drill 1.0)
+    (layers "*.Cu" "*.Mask")
+    (tstamp 6f9b7cec-aa85-4af6-8326-bf31a35953e2)
+  )
+  (pad
+    "34"
+    thru_hole
+    circle
+    (at 48.26 22.86)
+    (size 1.7 1.7)
+    (drill 1.0)
+    (layers "*.Cu" "*.Mask")
+    (tstamp 6a2611fd-ec9c-412a-8617-efb8fe069e60)
+  )
+  (pad
+    "35"
+    thru_hole
+    circle
+    (at 48.26 25.4)
+    (size 1.7 1.7)
+    (drill 1.0)
+    (layers "*.Cu" "*.Mask")
+    (tstamp 28afca43-c41a-421e-8163-f4e1c6ea5504)
+  )
+  (pad
+    "36"
+    thru_hole
+    circle
+    (at 48.26 27.94)
+    (size 1.7 1.7)
+    (drill 1.0)
+    (layers "*.Cu" "*.Mask")
+    (tstamp a14dfced-5083-481e-b2d1-fc51ce0fa075)
+  )
+  (pad
+    "37"
+    thru_hole
+    circle
+    (at 48.26 30.48)
+    (size 1.7 1.7)
+    (drill 1.0)
+    (layers "*.Cu" "*.Mask")
+    (tstamp 3409826b-e9d3-4341-b22b-ac8467bdf538)
+  )
+  (pad
+    "38"
+    thru_hole
+    circle
+    (at 48.26 33.02)
+    (size 1.7 1.7)
+    (drill 1.0)
+    (layers "*.Cu" "*.Mask")
+    (tstamp 7db77072-f97b-4f38-ad54-8e20aa35856d)
+  )
+  (pad
+    "39"
+    thru_hole
+    circle
+    (at 48.26 35.56)
+    (size 1.7 1.7)
+    (drill 1.0)
+    (layers "*.Cu" "*.Mask")
+    (tstamp b03f1508-4904-495f-b19f-277807e25440)
+  )
+  (pad
+    "40"
+    thru_hole
+    circle
+    (at 48.26 38.1)
+    (size 1.7 1.7)
+    (drill 1.0)
+    (layers "*.Cu" "*.Mask")
+    (tstamp 7f99bc0b-efc1-4f28-95dc-8b5c807bb91e)
+  )
+  (pad
+    ""
+    np_thru_hole
+    circle
+    (at 14.0 2.54)
+    (size 3.2 3.2)
+    (drill 3.2)
+    (layers "*.Cu" "*.Mask")
+    (tstamp e743355d-e631-488e-a9fe-6357ad9c61e9)
+  )
+  (pad
+    ""
+    np_thru_hole
+    circle
+    (at 66.04 7.62)
+    (size 3.2 3.2)
+    (drill 3.2)
+    (layers "*.Cu" "*.Mask")
+    (tstamp 479993d2-2ade-4fcb-b326-acb442a4f2d6)
+  )
+  (pad
+    ""
+    np_thru_hole
+    circle
+    (at 66.04 35.56)
+    (size 3.2 3.2)
+    (drill 3.2)
+    (layers "*.Cu" "*.Mask")
+    (tstamp 85efb39e-248e-4225-bf64-5a2a988429e0)
+  )
+  (pad
+    ""
+    np_thru_hole
+    circle
+    (at 15.24 50.8)
+    (size 3.2 3.2)
+    (drill 3.2)
+    (layers "*.Cu" "*.Mask")
+    (tstamp a8ea5f8b-60e2-4e7b-9ce9-d1ac8c736fa2)
+  )
+  (fp_rect
+    (start -1.35 -1.35)
+    (end 68.14 52.9)
+    (stroke
+      (width 0.05)
+      (type default)
+    )
+    (fill none)
+    (layer "F.CrtYd")
+    (tstamp 10f2abc6-d80a-4079-8742-94cd268ed51c)
+  )
   (fp_rect
     (start -2.54 -2.54)
     (end 70.58 55.34)
-    (stroke (width 0.1) (type default))
+    (stroke
+      (width 0.1)
+      (type default)
+    )
     (fill none)
-    (layer "F.Fab")
+    (layer "B.Fab")
+    (tstamp 10f2abc6-d80a-4079-8742-94cd268ed51b)
   )
-
-  ;; Courtyard
   (fp_rect
     (start -3.54 -3.54)
     (end 71.58 56.34)
-    (stroke (width 0.05) (type default))
+    (stroke
+      (width 0.05)
+      (type default)
+    )
     (fill none)
-    (layer "F.CrtYd")
-  )
-
-  ;; Silk screen pin 1 marker
-  (fp_line
-    (start -1.27 -1.27) (end 1.27 -1.27)
-    (stroke (width 0.12) (type default))
-    (layer "F.SilkS")
+    (layer "B.CrtYd")
+    (tstamp bc39c406-aa80-428f-808b-508c0a665e1c)
   )
   (fp_line
-    (start -1.27 1.27) (end -1.27 -1.27)
-    (stroke (width 0.12) (type default))
+    (start -1.27 -1.27)
+    (end 1.27 -1.27)
+    (stroke
+      (width 0.12)
+      (type default)
+    )
     (layer "F.SilkS")
+    (tstamp 7c72f755-801a-4054-9de6-aabc50a526f1)
+  )
+  (fp_line
+    (start -1.27 1.27)
+    (end -1.27 -1.27)
+    (stroke
+      (width 0.12)
+      (type default)
+    )
+    (layer "F.SilkS")
+    (tstamp 56a3c34a-19e0-45af-af35-490d846ec5fb)
   )
 )

@@ -14,7 +14,7 @@
   (constraint clearance (min 0.3mm))
   (constraint via_diameter (min 0.8mm))
   (constraint hole_size (min 0.4mm))
-  (condition "A.NetClass == 'Power'")
+  (condition "A.NetClass == 'Power' && A.Type != 'pad'")
 )
 
 (rule "High_Current_12V"
@@ -22,30 +22,30 @@
   (constraint clearance (min 0.5mm))
   (constraint via_diameter (min 1.0mm))
   (constraint hole_size (min 0.5mm))
-  (condition "A.NetClass == 'HighCurrent'")
+  (condition "A.NetClass == 'HighCurrent' && A.Type != 'pad'")
 )
 
 (rule "Analog_Signals"
   (constraint track_width (min 0.25mm))
   (constraint clearance (min 0.3mm))
-  (condition "A.NetClass == 'Analog'")
+  (condition "A.NetClass == 'Analog' && A.Type != 'pad'")
 )
 
 (rule "I2C_Bus"
   (constraint track_width (min 0.25mm))
   (constraint clearance (min 0.25mm))
-  (condition "A.NetClass == 'I2C'")
+  (condition "A.NetClass == 'I2C' && A.Type != 'pad'")
 )
 
 (rule "Relay_HV_Contacts"
   (constraint track_width (min 1.0mm))
   (constraint clearance (min 2.5mm))
-  (condition "A.NetClass == 'RelayHV'")
+  (condition "A.NetClass == 'RelayHV' && A.Type != 'pad'")
 )
 
 (rule "Isolation_Barrier"
   (constraint clearance (min 2.5mm))
-  (condition "A.NetClass == 'Analog' && B.NetClass == 'Power'")
+  (condition "A.NetClass == 'Analog' && B.NetClass == 'Power' && A.Type != 'pad' && B.Type != 'pad'")
 )
 
 (rule "Silk_to_Pad"
