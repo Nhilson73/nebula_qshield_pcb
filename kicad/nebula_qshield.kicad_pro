@@ -205,13 +205,13 @@
       "/PGND": "HighCurrent",
       "/PH_ADC": "Analog",
       "/Power Management/12V_FUSED": "Power",
-      "/Power Management/SW": "HighCurrent",
+      "/Power Management/SW": "Default",
       "/Power Management/VIN": "Power",
       "/TEMP_ADC": "Analog"
     },
     "netclass_patterns": [
       {
-        "pattern": ".*/12V_RAIL|.*PGND|.*/Power Management/SW",
+        "pattern": ".*/12V_RAIL|.*PGND",
         "netclass": "HighCurrent"
       },
       {
