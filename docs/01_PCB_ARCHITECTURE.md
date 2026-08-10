@@ -523,7 +523,7 @@ Cada IC recibe un capacitor de desacoplo lo más cerca posible de sus pines VCC/
 
 **Reglas de separación:**
 - Zona analógica aislada con guard ring de GND (vía fence cada 2 mm)
-- Zona de actuadores con plano GND separado, conectado al principal por un solo punto (star ground)
+- Zona de actuadores sobre el mismo plano GND continuo (tierra única — ver `06_PCB_LAYOUT_STACKUP.md` §4.5); la separación se logra por placement y vías locales, no cortando el plano
 - Mínimo 3 mm entre zona analógica y zona de actuadores
 - Pistas de potencia (12V, motor) en capa 3 (PWR) con vías térmicas
 

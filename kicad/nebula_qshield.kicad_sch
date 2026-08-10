@@ -65,7 +65,6 @@
     (pin "3V3_RAIL"  input       (at 25.4 106.68 180)(effects (font (size 1.27 1.27))) (uuid "6cb3010b-2d0a-4091-964f-36cf38ee51c9"))
     (pin "5V_RAIL"   input       (at 25.4 109.22 180)(effects (font (size 1.27 1.27))) (uuid "27d93650-ade1-44d6-b5f5-784da91f529a"))
     (pin "GND"       bidirectional (at 25.4 114.3 180)(effects (font (size 1.27 1.27))) (uuid "d6172e7f-3860-4b9e-a3dd-d7a8f94647ba"))
-    (pin "AGND"      bidirectional (at 25.4 116.84 180)(effects (font (size 1.27 1.27))) (uuid "55583825-890f-4eb7-919c-2475abc140a3"))
   )
 
   (sheet
@@ -116,7 +115,6 @@
     (pin "12V_RAIL"    input   (at 25.4 223.52 180)  (effects (font (size 1.27 1.27))) (uuid "65643e8b-25a0-4e5e-af59-731dae93df8d"))
     (pin "5V_RAIL"     input   (at 25.4 226.06 180)  (effects (font (size 1.27 1.27))) (uuid "fe442f21-b781-4607-8db8-534033c11e79"))
     (pin "GND"         bidirectional (at 25.4 228.6 180)(effects (font (size 1.27 1.27))) (uuid "767840d3-9438-445f-a493-48b90b47410f"))
-    (pin "PGND"        bidirectional (at 25.4 231.14 180)(effects (font (size 1.27 1.27))) (uuid "6914abca-b4bf-4fa7-bc46-d22afb0f9475"))
   )
 
   (sheet
@@ -150,8 +148,6 @@
     (pin "CO2_SOL_CTL" output      (at 170.18 68.58 0)    (effects (font (size 1.27 1.27))) (uuid "4977288d-1d3c-417e-af41-d3635708ce2b"))
     (pin "CO2_PWM"     output      (at 170.18 71.12 0)    (effects (font (size 1.27 1.27))) (uuid "979b430e-5c4f-44e1-bbb6-f45749a935d9"))
     (pin "LED_STATUS"  output      (at 170.18 73.66 0)    (effects (font (size 1.27 1.27))) (uuid "f9d4cfcd-5041-4e06-b023-4062bff52db9"))
-    (pin "HMI_TX"      output      (at 170.18 76.2 0)     (effects (font (size 1.27 1.27))) (uuid "c6a1a987-3723-46ca-afac-88e9a0b11c9a"))
-    (pin "HMI_RX"      input       (at 170.18 78.74 0)    (effects (font (size 1.27 1.27))) (uuid "59b285ed-daf5-447e-ae84-a0570115892f"))
     (pin "MCU_WDI"     output      (at 170.18 81.28 0)    (effects (font (size 1.27 1.27))) (uuid "a9d19ead-b78f-4b13-b5d3-a379ce223799"))
     (pin "MCU_NRST"    input       (at 119.38 76.2 180)   (effects (font (size 1.27 1.27))) (uuid "01c18e82-1a0b-49fc-be5f-c171fbd3bb41"))
     (pin "5V_RAIL"     bidirectional (at 119.38 81.28 180)(effects (font (size 1.27 1.27))) (uuid "78784bd8-9229-4749-ad22-ead8e6156838"))
@@ -201,10 +197,6 @@
   (label "GND" (at 20.32 228.60 180) (effects (font (size 1.27 1.27))) (uuid "55bd758d-5bb6-4b1c-9edd-a6586733d86d"))
   (wire (pts (xy 119.38 88.90) (xy 114.30 88.90)) (stroke (width 0) (type default)) (uuid "52c6d76c-ad9d-4645-9683-347c90b94a6c"))
   (label "GND" (at 114.30 88.90 180) (effects (font (size 1.27 1.27))) (uuid "7c8542e4-20da-4051-813a-91552b21f939"))
-  (wire (pts (xy 25.40 231.14) (xy 20.32 231.14)) (stroke (width 0) (type default)) (uuid "9db96475-212d-4021-a885-036658d0ab64"))
-  (label "PGND" (at 20.32 231.14 180) (effects (font (size 1.27 1.27))) (uuid "b4220f0d-ac21-4c77-b858-890b21d41486"))
-  (wire (pts (xy 25.40 116.84) (xy 20.32 116.84)) (stroke (width 0) (type default)) (uuid "d6c36982-b845-45ef-a478-141195bd050b"))
-  (label "AGND" (at 20.32 116.84 180) (effects (font (size 1.27 1.27))) (uuid "d65cb3bb-363d-42a8-ab65-5bae336459ab"))
   (wire (pts (xy 76.20 106.68) (xy 81.28 106.68)) (stroke (width 0) (type default)) (uuid "0befe70c-0df7-4ecb-b53a-c01e5b6a6e23"))
   (label "PH_ADC" (at 81.28 106.68 0) (effects (font (size 1.27 1.27))) (uuid "1786641b-ed67-4258-b353-008816774af5"))
   (wire (pts (xy 119.38 55.88) (xy 114.30 55.88)) (stroke (width 0) (type default)) (uuid "83123dc2-c27d-4381-8ec6-b9d4e2351497"))
@@ -277,9 +269,5 @@
   (label "MCU_NRST" (at 81.28 76.20 0) (effects (font (size 1.27 1.27))) (uuid "8dd8fd65-4657-4027-bc6e-983ad9f4a5a1"))
   (wire (pts (xy 119.38 76.20) (xy 114.30 76.20)) (stroke (width 0) (type default)) (uuid "d80b4335-0489-4204-afbd-93d7f7d9e106"))
   (label "MCU_NRST" (at 114.30 76.20 180) (effects (font (size 1.27 1.27))) (uuid "c911b39c-0828-4259-8daf-ed9e1d11c7ca"))
-  (wire (pts (xy 170.18 76.20) (xy 175.26 76.20)) (stroke (width 0) (type default)) (uuid "c3ebeb35-03cb-46c9-878b-7178455e4c37"))
-  (label "HMI_TX" (at 175.26 76.20 0) (effects (font (size 1.27 1.27))) (uuid "03c678c7-059c-4fed-94a3-096e6c58c094"))
-  (wire (pts (xy 170.18 78.74) (xy 175.26 78.74)) (stroke (width 0) (type default)) (uuid "87be3c6c-5d66-4b17-a2b3-731ceb8e5e2c"))
-  (label "HMI_RX" (at 175.26 78.74 0) (effects (font (size 1.27 1.27))) (uuid "37f34e9c-aecd-4354-adc9-238c85c86e7c"))
 
 )

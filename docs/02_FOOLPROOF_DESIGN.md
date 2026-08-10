@@ -273,40 +273,45 @@ El TPS54302 incluye protección térmica interna:
 | GPIO ↔ Relay chiller | PC817X1NIP | 5 kV pk | Aislamiento inductivo |
 | GPIO ↔ Relay CO₂ | PC817X1NIP | 5 kV pk | Aislamiento inductivo |
 
-### 7.3 Separación de Planos de Tierra
+### 7.3 Arquitectura de Tierra
 
 ```
     ┌──────────────────────────────────────────────────────┐
-    │                  PLANO GND (Capa 2)                  │
+    │           PLANO GND CONTINUO (Capa 2)                │
+    │           un único net: GND                          │
     │                                                      │
-    │  ┌────────────┐        ┌────────────┐               │
-    │  │ AGND       │        │ DGND       │               │
-    │  │ (analógico)│        │ (digital)  │               │
-    │  │            │        │            │               │
-    │  │ Sensores   │  SLOT  │ I2C, GPIO  │  SLOT         │
-    │  │ ADC        │◄─────►│ UART       │◄─────►        │
-    │  │ Op-amps    │ bridge │            │ bridge        │
-    │  └────────────┘  0Ω   └────────────┘  0Ω           │
-    │                   │                    │             │
-    │                   └──── STAR GND ──────┘             │
-    │                         (punto único)                │
-    │                                                      │
-    │                        ┌────────────┐               │
-    │                        │ PGND       │               │
-    │                        │ (potencia) │               │
-    │                        │            │               │
-    │                        │ MOSFETs    │               │
-    │                SLOT    │ Relays     │               │
-    │               ◄─────►│ 12V rail   │               │
-    │                bridge │            │               │
-    │                 0Ω    └────────────┘               │
-    │                  │                                   │
-    │                  └──── STAR GND ─────────────────    │
-    │                         (punto único)                │
-    └──────────────────────────────────────────────────────┘
+    │   Analógico        Digital          Potencia         │
+    │   Sensores ADC     I2C, GPIO        MOSFETs          │
+    │   Op-amps          UART             Relays           │
+    │      │                │                │             │
+    │      ▼                ▼                ▼             │
+    │   vías locales     vías locales     vías locales     │
+    │   (<2 mm del pad)  (<2 mm del pad)  (múltiples)      │
+    │      │                │                │             │
+    │      └────────────────┴────────────────┘             │
+    │                       │                              │
+    │              plano continuo sin cortes               │
+    └───────────────────────┬──────────────────────────────┘
+                            ▼
+              Conector de entrada de alimentación
+
+    ═══════ BARRERA GALVÁNICA (nets flotantes, NO unir a GND) ═══════
+
+    GND_ISO_PH   ← U6  AMC1301 + T1
+    GND_ISO_ORP  ← U9  AMC1301 + T2
+    GND_ISO_DO   ← U13 AMC1301 + T3
+    GND_ISO      ← U21 ISO1541 (I2C)
 ```
 
-**Star grounding:** Los tres planos (AGND, DGND, PGND) se conectan en un único punto cercano al conector de entrada de alimentación. Esto evita que corrientes de retorno de los actuadores contaminen las señales analógicas.
+**Tierra unificada:** no se parte el plano en AGND/DGND/PGND. El efecto que
+busca el star grounding se consigue a nivel de componente — cada bloque tiene
+su desacoplo local y sus vías al plano a menos de 2 mm del pad, así que ve un
+retorno de baja impedancia sin necesidad de cortar el cobre. Partir el plano
+introduce discontinuidades en el camino de retorno que empeoran la EMI.
+
+**El aislamiento real** lo dan los AMC1301 con sus fuentes flotantes
+(SN6501 + transformador), no una segunda tierra. Esos nets `GND_ISO_*` sí son
+genuinamente flotantes y nunca deben conectarse al plano principal.
 
 ---
 
