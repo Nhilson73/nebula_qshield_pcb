@@ -71,6 +71,7 @@ def generate_missing_footprints(missing_refs, components, ref_pin_net):
         'import pcbnew',
         'from pathlib import Path',
         f'KICAD_SYS_FP = Path({str(KICAD_SYS_FP)!r})',
+        f'KIPRJMOD = Path("/workspace/kicad")',
         'components = {',
     ]
     for i, ref in enumerate(missing_refs):
@@ -82,18 +83,24 @@ def generate_missing_footprints(missing_refs, components, ref_pin_net):
     script_lines.extend([
         '}',
         'def fp_path(lib):',
+        '    proj_dir = KIPRJMOD / "lib" / f"{lib}.pretty"',
+        '    if proj_dir.exists():',
+        '        return str(proj_dir)',
         '    return str(KICAD_SYS_FP / f"{lib}.pretty")',
         'b = pcbnew.BOARD()',
+        'failures = []',
         'for ref, (fp_spec, value, pos) in components.items():',
         '    lib, name = fp_spec.split(":", 1)',
         '    fp = pcbnew.FootprintLoad(fp_path(lib), name)',
         '    if not fp:',
-        '        print(f"failed {fp_spec}")',
+        '        failures.append(fp_spec)',
         '        continue',
         '    fp.SetReference(ref)',
         '    fp.SetValue(value)',
         '    fp.SetPosition(pcbnew.VECTOR2I(int(pos[0] * 1e6), int(pos[1] * 1e6)))',
         '    b.Add(fp)',
+        'if failures:',
+        '    raise RuntimeError(f"Could not load footprint(s): {failures}")',
         'b.Save("/workspace/kicad/missing_components.kicad_pcb")',
     ])
     gen_script_path = REPO / 'tools' / '_gen_missing_components.py'
@@ -136,6 +143,9 @@ def apply():
         placements = generate_missing_footprints(missing_refs, components, ref_pin_net)
         missing_text = MISSING_PCB.read_text()
         missing_fp_blocks = sexpr.find_footprint_blocks(missing_text)
+        not_inserted = [r for r in missing_refs if r not in missing_fp_blocks]
+        if not_inserted:
+            raise RuntimeError(f'Footprints could not be generated/loaded: {not_inserted}')
         for ref in missing_refs:
             start, end, block = missing_fp_blocks[ref]
             x, y = placements[ref]

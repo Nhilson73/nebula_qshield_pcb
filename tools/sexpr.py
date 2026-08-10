@@ -221,8 +221,9 @@ def set_pad_net(footprint_text: str, pin: str, new_net: str) -> str:
         # check if this pad block belongs to this footprint (not a nested fp_text etc)
         if not pad_block.startswith('(pad'):
             continue
-        # find net line
-        net_m = re.search(r'\(net\s+"([^"]*)"\)', pad_block)
+        # find net line (KiCad may write either (net "name") or (net <number> "name"));
+        # drop any numeric index when renaming so the pad always points to the net by name.
+        net_m = re.search(r'\(net\s+(?:(\d+)\s+)?"([^"]*)"\)', pad_block)
         if net_m:
             old = net_m.group(0)
             new = f'(net {quote_value(new_net)})'
