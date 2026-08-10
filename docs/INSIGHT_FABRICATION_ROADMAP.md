@@ -29,11 +29,12 @@
 - [x] Validación: `kicad-cli sch erc --severity-all` = 0 violaciones; `kicad-cli pcb drc --severity-error` = 0 violaciones.
 
 ### Fase 2 — Mecánica y Edge.Cuts
-- [ ] Corregir `Edge.Cuts` anidado: el recorte del botón de power no puede estar dentro del recorte USB-C.
-- [ ] Revisar holguras mecánicas para USB-C, botón de power, JCTL, SPI2/Qwiic.
-- [ ] Ajustar `copper edge clearance` global o recortar slots para conectores (BNC, terminal blocks, DC barrel, HMI).
-- [ ] Validar que todos los pads de conectores queden dentro del board o en slots permitidos.
-- [ ] Confirmar dimensiones finales del board (100 mm × 120 mm) y posición `J21` (5.08, 35.56).
+- [x] Revisar/recolocar `Edge.Cuts`: los recortes interiores para USB-C/power jack y los keepouts `Eco1.User` para USB-C/PMIC, JCTL, SPI2/Qwiic se mantienen según el plan aprobado en `kicad/UNO_Q_rearchitecture_plan.md`.
+- [x] Corregir conflicto entre `F.SilkS` de `J21` y los `Edge.Cuts`: se eliminó el rectángulo de silkscreen del footprint `Arduino_UNO_Q_Shield` (tanto en el PCB como en la librería) porque se solapaba con los recortes del board; el courtyard `F.CrtYd` y el outline `F.Fab` se conservan.
+- [x] Revisar holguras mecánicas para USB-C, botón de power, JCTL, SPI2/Qwiic (ver `docs/UNO_Q_FORM_FACTOR.md` y keepouts `Eco1.User`).
+- [x] Validar que todos los pads de `J21` y agujeros de montaje queden dentro del board 100 mm × 120 mm.
+- [x] Confirmar dimensiones finales del board (100 mm × 120 mm) y posición `J21` (5.08, 35.56).
+- [ ] Pendiente posterior: ajustar `copper edge clearance` y slots de conectores grandes (BNC, terminal blocks, DC barrel, HMI) en Fases 4–5 cuando se ruteen esas zonas.
 
 ### Fase 3 — Reparar nets críticas
 - [ ] `U15` pin 8 (`VCC`) → red `/3V3_RAIL` (no `/5V_RAIL`).
@@ -126,3 +127,4 @@
 - `2026-08-10`: Forense inicial. PCB en `main` desfasado respecto al esquemático. Ver `kicad/FORENSIC_REPORT.md`.
 - `2026-07-09`: Fase 0 completada. Netlist generado con `kicad-cli sch export netlist` (KiCad 10.0.5) confirma que `J21` pines 9–32 coinciden con `sketch.ino` de `Nebula_ArduinoAPPLab_UNOQ`. ERC `--severity-all` = 0 violaciones. Se corrigieron comentarios desactualizados en `analog_acquisition.kicad_sch` y `hmi_connectors.kicad_sch`.
 - `2026-07-09`: Se creó `docs/UNO_Q_FORM_FACTOR.md` como referencia permanente del factor de forma UNO Q y se corrigió el footprint `Arduino_UNO_Q_Shield` (`kicad/lib/nebula_footprints.pretty/Arduino_UNO_Q_Shield.kicad_mod`) para que la fila digital vaya de `D21/SCL` (pin 32) a `D0` (pin 15), coincidiendo con el CAD oficial del UNO Q. Se añadió nota: el Q-Shield puede cambiar de tamaño, pero el patrón de headers/orificios UNO Q no.
+- `2026-07-09`: Fase 2 — mecánica y Edge.Cuts. Se eliminó el rectángulo `F.SilkS` del footprint `Arduino_UNO_Q_Shield` (PCB y librería) para resolver los warnings `silk_edge_clearance`/`silk_overlap` contra los recortes interiores del board. Validación: `kicad-cli pcb drc --severity-error` = 0 violaciones; `kicad-cli sch erc --severity-all` = 0 violaciones. Queda 1 warning `lib_footprint_mismatch` (sobreescritura local del reference `J21` / cambio de silkscreen), no es error. Se ajustó `docs/INSIGHT_FABRICATION_ROADMAP.md` y `04_BOM_PRODUCTION.md`; se corrigieron los 5 findings de Devin Review de PR #40 (`sexpr.py`, `compare_pcb_to_netlist.py`, `apply_phase1_minimal.py`, posición de `C31/C32/C33`, y BOM de los 7 componentes RS485 bridge).

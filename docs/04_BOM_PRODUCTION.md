@@ -72,6 +72,12 @@
 | U6 | 1 | 24-bit ADC, load cell | 80 SPS, gain 128 | SOP-16 | HX711 | — (LCSC: C124335) | $0.65 |
 | R12 | 1 | Resistor, pull-up | 10 kΩ ±5% | 0402 | CRCW040210K0JNED | 541-10.0KJCT-ND | $0.01 |
 | C19, C20 | 2 | Capacitor, desacoplo HX711 | 100 nF + 10 μF | 0402 + 0805 | — | — | $0.03 |
+| U22 | 1 | I2C-to-UART bridge | SC16IS740, 64-byte FIFO | TSSOP-16 | SC16IS740IPW/Q900 | 568-13068-1-ND | $1.85 |
+| U23 | 1 | Single inverter | SN74LVC1G04 | SOT-353/SC-70-5 | SN74LVC1G04DCKR | 296-11602-1-ND | $0.35 |
+| Y1 | 1 | Crystal | 1.8432 MHz | HC-49-SD SMD | ABLS-1.8432MHZ-B4-T | 535-9930-1-ND | $0.45 |
+| C31, C32 | 2 | Capacitor, carga cristal | 22 pF C0G 50V | 0402 | CL05C220JB5NNNC | 1276-1013-1-ND | $0.01 |
+| C33 | 1 | Capacitor, desacoplo U22 | 100 nF X7R 50V | 0402 | CL05B104KO5NNNC | 1276-1000-1-ND | $0.01 |
+| R38 | 1 | Resistor, pull-up IRQ | 10 kΩ ±1% | 0402 | CRCW040210K0FKED | 541-10.0KLCT-ND | $0.02 |
 
 ---
 

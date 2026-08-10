@@ -322,4 +322,24 @@ Mover a BOT para reducir congestión TOP:
 
 ---
 
+## 9. Actualización Fase 2 — Edge.Cuts y Keepouts (2026-07-09)
+
+Con el board aprobado de **100 mm × 120 mm**, el footprint `Arduino_UNO_Q_Shield` se coloca en `(5.08, 35.56)` y el área ocupada por el UNO Q va de `(3.81, 34.29)` a `(74.93, 90.17)` mm. Los recortes y keepouts añadidos en `kicad/nebula_qshield.kicad_pcb` son:
+
+| Elemento | Tipo | Coordenadas (mm) | Propósito |
+|----------|------|-------------------|-----------|
+| USB-C / PMIC | `Edge.Cuts` slot | `(2.08,81.56)` .. `(22.5,94.56)` | Holgura para conector USB-C y partes altas del PMIC |
+| Power jack / JMEDIA | `Edge.Cuts` slot | `(60.08,88.56)` .. `(77.08,94.56)` | Holgura para jack de alimentación / conector multimedia |
+| USB-C / PMIC keepout | `Eco1.User` | `(2.08,65.56)` .. `(11.08,94.56)` | Área reservada, no colocar componentes |
+| JCTL keepout | `Eco1.User` | `(17.08,87.06)` .. `(40.08,94.56)` | Área reservada para header JCTL |
+| SPI2 / JSPI keepout | `Eco1.User` | `(67.08,68.56)` .. `(77.08,88.56)` | Área reservada para header SPI2 |
+| Qwiic keepout | `Eco1.User` | `(67.08,50.56)` .. `(77.08,65.56)` | Área reservada para conector Qwiic |
+
+El rectángulo `F.SilkS` del footprint `Arduino_UNO_Q_Shield` se eliminó del PCB y de la librería porque se solapaba con los `Edge.Cuts` interiores y generaba warnings `silk_edge_clearance`/`silk_overlap`. El courtyard (`F.CrtYd`) y el outline de fabricación (`F.Fab`) se conservan.
+
+Validación con `kicad-cli` 10.0.5:
+- `kicad-cli pcb drc --severity-error` = 0 violaciones.
+- `kicad-cli pcb drc --severity-warning` = 1 violación (`lib_footprint_mismatch` por la sobreescritura local del reference/silkscreen; no es error).
+- `kicad-cli sch erc --severity-all` = 0 violaciones.
+
 *Documento NQS-MECH-008 Rev 1.0 — Nebula Ecosystem® — Análisis Mecánico PCB*
