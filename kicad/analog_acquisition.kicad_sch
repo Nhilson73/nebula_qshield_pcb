@@ -10,7 +10,7 @@
     (rev "1.0")
     (company "Cafelium SRL / Nebula Ecosystem")
     (comment 1 "Sheet 2 of 5: 6 Analog Channels + Galvanic Isolation (On-Board)")
-    (comment 2 "Channels: pH(A0), ORP(A1), CO2(A2), DO(A3), Temp(A4), Hum(A5)")
+    (comment 2 "Channels: pH(A0), ORP(A1), Temp(A2), Hum(A3), CO2(A4), DO(A5)")
   )
 
   (lib_symbols

@@ -2627,7 +2627,7 @@
   )
   (
     text
-    "ARDUINO UNO Q SHIELD HEADER — J21\n2x20 stackable pin header, 2.54mm pitch\nAll signals routed through this connector"
+    "ARDUINO UNO Q SHIELD HEADER — J21\n32-pin UNO R3/Q shield header (1x8/1x6/1x10/1x8), 2.54mm pitch\nAll signals routed through this connector"
     (at 25.4 73.66 0)
     (
       effects
