@@ -4413,9 +4413,8 @@
     (uuid "a5bf8f4e-e407-4381-b311-0059b41a9a09")
   )
   (
-    hierarchical_label
+    label
     "HMI_RX"
-    (shape input)
     (at 121.92 95.25 0)
     (
       effects
@@ -4441,9 +4440,8 @@
     (uuid "1dbbd724-3d76-4a4a-999b-60d7e331b504")
   )
   (
-    hierarchical_label
+    label
     "HMI_TX"
-    (shape output)
     (at 121.92 97.79 0)
     (
       effects

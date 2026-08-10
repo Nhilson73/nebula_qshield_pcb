@@ -47,10 +47,13 @@ kicad/
 | 12V_RAIL | F1:2 | U1:VIN, K1:coil+, K2:coil+, J17:1, J18:1, J19:1 | Rail 12V protegido |
 | 5V_RAIL | U1:OUT | U2:VIN, J21:5V, U5:VCC, U8:VCC, U12:VCC | Rail 5V regulado |
 | 3V3_RAIL | U2:OUT | R19:1, R20:1, U4:VDD, U14:VCC, C24:1 | Rail 3.3V |
-| GND | J1:2 | Global ground | Tierra principal |
-| PGND | K1:coil-, K2:coil-, Q1:S, Q2:S | Star GND point | Tierra de potencia |
-| AGND | U4:VSS, R8:2, C12:2 | Star GND point | Tierra analógica |
-| DGND | U14:GND, U21:GND1, R19:2(vía pull-down) | Star GND point | Tierra digital |
+| GND | J1:2 | Global ground (analógico + digital + potencia) | Tierra única — plano continuo Capa 2 |
+
+> **Tierra unificada.** No existen nets `AGND`, `DGND` ni `PGND`: todos los
+> retornos comparten el net `GND`. Los únicos nets de tierra separados son los
+> del lado aislado — `GND_ISO_PH`, `GND_ISO_ORP`, `GND_ISO_DO` (barrera
+> AMC1301 + transformador) y `GND_ISO` (ISO1541) — y no deben unirse a `GND`.
+> Ver `06_PCB_LAYOUT_STACKUP.md` §4.5.
 
 ### 2.2 Analog Acquisition Nets
 

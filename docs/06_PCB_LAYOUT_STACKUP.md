@@ -216,7 +216,8 @@
     ✓ Rutear preferentemente en Capa 3 (PWR) como planos
     ✓ Cuando necesario en L1/L4: pistas anchas (ver tabla §2.2)
     ✓ Vías de potencia: múltiples en paralelo para reducir resistencia
-    ✓ Star grounding: AGND, DGND, PGND conectan en un punto
+    ✓ Tierra unificada: un único net GND sobre el plano continuo de Capa 2
+      (no existen nets AGND/DGND/PGND separados — ver §4.5)
     ✓ Bypass caps en pads de potencia de cada IC
     
     Vías de potencia — tabla de corriente:
@@ -240,6 +241,45 @@
     ✓ NO rutear junto a señales analógicas
 ```
 
+### 4.5 Arquitectura de Tierra — GND Unificado
+
+Decisión de diseño: **un único net `GND`** sobre el plano continuo de Capa 2.
+No existen nets `AGND`, `DGND` ni `PGND` separados en el esquemático.
+
+```
+    TODOS los retornos (analógico, digital, potencia)
+        ↓
+    Plano GND continuo en Capa 2
+        ↓
+    Retorno al conector de entrada de alimentación
+```
+
+Fundamento:
+
+- El "star grounding" se resuelve **a nivel de componente**, no partiendo el
+  plano: cada bloque tiene su cap de desacoplo local y sus vías al plano a
+  menos de 2 mm del pad, así que ve un retorno local de baja impedancia.
+- Partir el plano crea discontinuidades en el camino de retorno, que a 4 capas
+  empeoran la EMI en lugar de mejorarla.
+- Cumple IPC-A-610 Clase 3, que pide continuidad de plano >95 % en circuitos
+  analógicos.
+
+**Lo que sí permanece aislado.** El aislamiento galvánico NO se hace con planos
+de tierra separados, sino con la barrera de los AMC1301 y sus fuentes flotantes
+(SN6501 + transformador). Estos nets son genuinamente flotantes y **no deben
+unirse a `GND` bajo ninguna circunstancia**:
+
+| Net aislado | Barrera | Alcance |
+|-------------|---------|---------|
+| `GND_ISO_PH` | U6 (AMC1301) + T1 | Sonda pH |
+| `GND_ISO_ORP` | U9 (AMC1301) + T2 | Sonda ORP |
+| `GND_ISO_DO` | U13 (AMC1301) + T3 | Sonda DO |
+| `GND_ISO` | U21 (ISO1541) | Bus I2C aislado |
+
+En el layout, cada uno de estos nets requiere su propio pour local separado del
+plano principal por el clearance de la barrera de aislamiento — el plano
+continuo de Capa 2 se refiere únicamente al dominio `GND`.
+
 ---
 
 ## 5. Guard Ring y Via Fence
@@ -260,7 +300,7 @@
     └─────────────────────────────────────┘
     
     Especificación guard ring:
-    - Pista de cobre: 0.5 mm ancho, conectada a AGND
+    - Pista de cobre: 0.5 mm ancho, conectada a GND
     - Vías al plano GND (L2): cada 2 mm, drill 0.3 mm
     - Cierra completamente el perímetro de la zona analógica
 ```
@@ -355,9 +395,9 @@
 | TP1 | 12V_RAIL | Cerca de D2 salida | Pad 1.5 mm (BOT) |
 | TP2 | 5V_RAIL | Salida U1 | Pad 1.5 mm (BOT) |
 | TP3 | 3.3V_RAIL | Salida U2 | Pad 1.5 mm (BOT) |
-| TP4 | AGND | Centro zona analógica | Pad 1.5 mm (BOT) |
-| TP5 | DGND | Centro zona digital | Pad 1.5 mm (BOT) |
-| TP6 | PGND | Centro zona potencia | Pad 1.5 mm (BOT) |
+| TP4 | GND | Centro zona analógica | Pad 1.5 mm (BOT) |
+| TP5 | GND | Centro zona digital | Pad 1.5 mm (BOT) |
+| TP6 | GND | Centro zona potencia | Pad 1.5 mm (BOT) |
 | TP7 | pH_RAW | Salida buffer U3A | Pad 1.0 mm (BOT) |
 | TP8 | ORP_RAW | Salida buffer U3B | Pad 1.0 mm (BOT) |
 | TP9 | SDA | Bus I2C dato | Pad 1.0 mm (BOT) |
