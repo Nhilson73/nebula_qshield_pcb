@@ -38,9 +38,9 @@
 | Capa | Nombre | Función | Contenido |
 |------|--------|---------|-----------|
 | L1 (TOP) | Signal_Top | Señales y componentes | Pistas de señal, componentes SMD/THT, pads |
-| L2 | GND | Plano de tierra | **Continuo sin interrupciones** — retorno de corriente para todas las señales |
+| L2 | GND | Plano de tierra | **Continuo sin interrupciones** — retorno de corriente para todas las señales; polígono extendido al board 100 × 120 mm |
 | L3 | PWR | Planos de potencia | Islas: 12V, 5V, 3.3V separadas por clearance |
-| L4 (BOT) | Signal_Bot | Señales secundarias | Pistas secundarias, componentes SMD (cara inferior), test points |
+| L4 (BOT) | Signal_Bot | Señales secundarias | Pistas secundarias, componentes SMD (cara inferior), test points; también flood `GND` para retorno |
 
 ### 1.3 Distribución del Plano de Potencia (Capa 3)
 
@@ -65,6 +65,8 @@
     │         ↑ clearance 0.5 mm entre islas ↑              │
     └────────────────────────────────────────────────────────┘
 ```
+
+> **Nota de estado actual:** el board es 100 × 120 mm, pero la zona `/12V_RAIL` en `In2.Cu` conserva un polígono de 100 × 100 mm con prioridad 1 que solapa con las islas `/5V_RAIL` y `/3V3_RAIL`. Antes de rellenar las zonas de potencia se debe rediseñar `In2.Cu` como split-planes o islas con prioridades correctas. Ver `docs/INSIGHT_FABRICATION_ROADMAP.md` Fase 4.
 
 ---
 
