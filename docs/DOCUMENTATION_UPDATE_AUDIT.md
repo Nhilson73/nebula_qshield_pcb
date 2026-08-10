@@ -17,7 +17,7 @@ Esta auditoría lista los archivos `.md` del repo que contienen información des
 - `docs/UNO_Q_FORM_FACTOR.md` — creado. Contiene las dimensiones del UNO Q, posición de headers/mounting holes, keepouts/cutouts y la regla inmutable: el patrón UNO Q no puede cambiar aunque el tamaño del Q-Shield sí.
 
 ### 1. `README.md`
-- **Dimensiones:** dice `100 × 100 mm`; el board aprobado es `100 × 120 mm`.
+- [Resuelto] **Dimensiones:** actualizado a `100 × 120 mm`.
 - **Header J21:** dice `(2×20 shield header)`, 40 pines; el footprint aprobado es compatible UNO R3/Q de **32 pines** (1×8/1×6/1×10/1×8, sin SD/MISO/MOSI/SCK).
 - **Mapeo analógico en la tabla "12 Componentes":**
   - Temperatura está en `A4`, CO₂ en `A2`, DO en `A3`, humedad en `A5`.
@@ -31,12 +31,12 @@ Esta auditoría lista los archivos `.md` del repo que contienen información des
 - **Recomendación:** añadir un paso: "revisar y actualizar `docs/INSIGHT_FABRICATION_ROADMAP.md`, `README.md` y los documentos afectados (`01`, `04`, `06`, `07`, `08`) cuando un cambio toque pinout, esquemático o layout".
 
 ### 3. `docs/01_PCB_ARCHITECTURE.md`
-- **Dimensiones:** `100 × 100 mm`.
+- [Resuelto] **Dimensiones:** `100 × 120 mm`.
 - **Canal analógico A4/A5:** se asignan a temperatura y humedad; deben ser `A4=CO2_ADC`, `A5=DO_ADC`.
 - **Canal analógico A2/A3:** dice CO₂ y DO; deben ser `A2=TEMP_ADC`, `A3=HUM_ADC` (Signature).
 - **Bloque I2C:** figura `STM32U585 I2C1` en SDA/SCL sin ubicación de pines; actualizar a `I2C2` en `D20/D21` (pines 31/32 de J21), con pull-ups `R36/R37`.
 - **Tabla de pines J21 (4.3):** SDA/A4 y SCL/A5 están invertidos/duplicados; actualizar según `docs/INSIGHT_FABRICATION_ROADMAP.md`.
-- **Mapa de zonas (5):** `100 × 100 mm`, header `2×20`; actualizar a `100 × 120 mm` y nuevo header de 32 pines.
+- **Mapa de zonas (5):** `100 × 120 mm`; header `2×20` pendiente de actualizar a 32 pines.
 
 ### 4. `docs/04_BOM_PRODUCTION.md`
 - **J21:** descripción "Pin header, 2×20 stackable, 40" → actualizar a header Arduino UNO R3/Q de **32 pines** (1×8/1×6/1×10/1×8).
@@ -46,7 +46,7 @@ Esta auditoría lista los archivos `.md` del repo que contienen información des
 - **Tier actual:** el documento dice "Tier: Signature (fully populated)"; para la fabricación Insight se recomienda crear variante/variante BOM o una sección de DNP para componentes Signature.
 
 ### 5. `docs/06_PCB_LAYOUT_STACKUP.md`
-- **Dimensiones del board:** `100 × 100 mm` en el mapa ASCII y en el diagrama de zonas.
+- [Resuelto] **Dimensiones del board:** no se encontró referencia incorrecta en el archivo; verificar mapa ASCII/header.
 - **Header J21:** dice `(2×20, 98mm)`.
 - **Faltan keepouts/cutouts:** no documenta los recortes perimetrales para USB-C, botón de power, `JCTL`, `SPI2`/`Qwiic` aprobados en la re-arquitectura.
 - **Plano GND L2:** documenta "continuo sin interrupciones"; pero con islas `GND_ISO_*` y posibles net-ties `AGND`/`PGND` hay que aclarar dónde GND es continuo y dónde está aislado.
@@ -63,12 +63,12 @@ Esta auditoría lista los archivos `.md` del repo que contienen información des
 - **Generación de Gerber:** sección 7.1 refiere a `KiCad 9`; actualizar a comandos `kicad-cli` de KiCad 10 y salidas `production/`.
 
 ### 7. `docs/08_MECHANICAL_ANALYSIS.md`
-- **Dimensiones:** múltiples referencias a `100 × 100 mm` y área `10,000 mm²`; actualizar a `100 × 120 mm` y `12,000 mm²`.
+- [Resuelto] **Dimensiones:** actualizado a `100 × 120 mm` y `12,000 mm²`.
 - **Header J21:** `2×20`, 98 mm de ancho; actualizar a 32 pines, 53.34 mm de alto según patrón UNO Q, y ancho 2×(2.54 mm × filas) = ~50.8 mm entre columnas; revisar layout 100×120.
 - **Cuello #2:** basado en ancho 98 mm; en 100×120 mm ya no es cuello de ancho.
 - **Recortes y keepouts:** agregar sección con los slots Edge.Cuts y keepouts Eco1.User para USB-C, botón power, JCTL, SPI2/Qwiic.
-- **Veredicto compactación:** "CABE en 100×100" y "¿Se requiere PCB más grande? No" están obsoletos; actualizar a "100×120 aprobado".
-- **Mapa de zonas propuesto:** ASCII a 100×100; actualizar a 100×120 y posición J21 en `(5.08, 35.56)`.
+- [Resuelto] **Veredicto compactación:** actualizado a "100×120 aprobado".
+- [Resuelto] **Mapa de zonas propuesto:** ASCII actualizado a 100×120 y posición J21 `(5.08, 35.56)`.
 
 ### 8. `kicad/UNO_Q_rearchitecture_report.md`
 - **Estado:** dice "Schematic J21 symbol update still pending". Posterior al PR #34 ya está aplicado.

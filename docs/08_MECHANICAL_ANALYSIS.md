@@ -16,7 +16,7 @@
 
 | Parámetro | Valor | Notas |
 |-----------|-------|-------|
-| **Dimensiones PCB** | 100 × 120 mm (puede variar) | El factor de forma UNO Q es inmutable; el board puede ser 100×100, 100×120 u otro tamaño |
+| **Dimensiones PCB** | 100 × 120 mm (puede variar) | El factor de forma UNO Q es inmutable; el board actual es 100×120 mm y puede variar si se respeta el patrón UNO Q |
 | **Factor de forma UNO Q** | 68.58 × 53.34 mm | Patrón de headers y agujeros de montaje según `docs/UNO_Q_FORM_FACTOR.md` |
 | **Área total** | 12,000 mm² | |
 | **Espesor** | 1.6 mm ± 10% | Estándar IPC-2221B |
@@ -40,21 +40,21 @@
 
 | Zona | Componentes | Área footprints | Max altura | % del PCB |
 |------|-------------|-----------------|------------|-----------|
-| **A — Potencia** | 30 | 389 mm² | 12.5 mm (C2) | 3.9% |
-| **B — Analógica** | 71 | 949 mm² | 25.0 mm (BNC) | 9.5% |
-| **C — Digital** | 21 | 465 mm² | 8.5 mm (terminal) | 4.6% |
-| **D — Actuadores** | 30 | 1,186 mm² | 10.0 mm (TO-220) | 11.9% |
-| **E — HMI** | 6 | 553 mm² | 8.5 mm (J21) | 5.5% |
-| **TOTAL** | **158** | **3,541 mm²** | **25.0 mm** | **35.4%** |
+| **A — Potencia** | 30 | 389 mm² | 12.5 mm (C2) | 3.2% |
+| **B — Analógica** | 71 | 949 mm² | 25.0 mm (BNC) | 7.9% |
+| **C — Digital** | 21 | 465 mm² | 8.5 mm (terminal) | 3.9% |
+| **D — Actuadores** | 30 | 1,186 mm² | 10.0 mm (TO-220) | 9.9% |
+| **E — HMI** | 6 | 553 mm² | 8.5 mm (J21) | 4.6% |
+| **TOTAL** | **158** | **3,541 mm²** | **25.0 mm** | **29.5%** |
 
 ### 2.2 Densidad de Ocupación
 
 | Métrica | Valor | Evaluación |
 |---------|-------|------------|
-| Densidad TOP (footprints/área total) | 35.4% | Cómoda (< 50%) |
-| Densidad TOP+BOT (dual-side) | ~17.7% | Muy holgada |
+| Densidad TOP (footprints/área total) | 29.5% | Cómoda (< 50%) |
+| Densidad TOP+BOT (dual-side) | ~14.8% | Muy holgada |
 | Densidad zona media (sin J21 ni BNCs) | 31.0% | Cómoda |
-| Componentes por cm² | 1.58 | Baja densidad |
+| Componentes por cm² | 1.32 | Baja densidad |
 
 **Referencia industrial:**
 - < 50% = Densidad cómoda (routing fácil, producción estándar)
@@ -311,8 +311,8 @@ Mover a BOT para reducir congestión TOP:
 
 | Pregunta | Respuesta |
 |----------|-----------|
-| **¿Cabe todo en 100×100mm?** | **✅ Sí** — densidad de 35.4% es cómoda |
-| **¿Se requiere PCB más grande?** | **No** — 100×100mm tiene 35% de margen libre |
+| **¿Cabe todo en 100×120mm?** | **Sí** — densidad de 29.5% es cómoda |
+| **¿Se requiere PCB más grande?** | **No** — 100×120mm aprobado; el factor de forma UNO Q no cambia |
 | **Cuello de botella principal** | Zona de actuadores (74% ocupación local) |
 | **Componente más crítico (altura)** | BNC connectors (25mm) → define enclosure |
 | **Componente más crítico (área)** | J21 shield header (490 mm², 98% del ancho) |

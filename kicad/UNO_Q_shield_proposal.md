@@ -66,15 +66,15 @@ The new footprint follows the official UNO Q CAD drill data (`48DMVQAD1_SGB-2025
 
 ## 3. J21 placement proposal
 
-To keep the UNO Q board centered on the 100 x 100 mm Q-Shield:
+To keep the UNO Q board centered on the 100 × 120 mm Q-Shield:
 
 ```text
-J21 footprint origin  ->  (15.71 mm, 23.33 mm)
+J21 footprint origin  ->  (15.71 mm, 33.33 mm)
 UNO board on Q-Shield ->  x = 15.71 .. 84.29 mm
-                         y = 23.33 .. 76.67 mm
+                         y = 33.33 .. 86.67 mm
 ```
 
-This is a safe starting point. If it overlaps with already-placed components, move the origin in 2.54 mm steps (header pitch) so that the four mounting holes and the header rows stay on the existing 100 x 100 mm `Edge.Cuts`.
+This is a safe starting point. If it overlaps with already-placed components, move the origin in 2.54 mm steps (header pitch) so that the four mounting holes and the header rows stay on the 100 × 120 mm `Edge.Cuts`. The final approved origin used in the layout is `(5.08 mm, 35.56 mm)` (see `docs/INSIGHT_FABRICATION_ROADMAP.md`).
 
 ## 4. Keepout / cutout proposal
 
