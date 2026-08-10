@@ -10,10 +10,10 @@
 ## Checklist Maestra
 
 ### Fase 0 — Congelar pinout J21 (Insight)
-- [ ] Validar `J21` contra `sketch.ino` de `Nebula_ArduinoAPPLab_UNOQ`.
-- [ ] Decidir destino de `D4` (`MCU_WDI` vs libre para firmware).
-- [ ] Confirmar mapeo final A0-A5 y D0-D13 en `hmi_connectors.kicad_sch` y `nebula_qshield.kicad_pcb`.
-- [ ] Documentar pinout aprobado en esta bitácora.
+- [x] Validar `J21` contra `sketch.ino` de `Nebula_ArduinoAPPLab_UNOQ`.
+- [x] Decidir destino de `D4`: se asigna a `/MCU_WDI`; el firmware `Nebula_ArduinoAPPLab_UNOQ` no usa `D4`, por lo que el `loop()` debe togglear este pin para alimentar el watchdog TPS3823 (o usarse soft-WD).
+- [x] Confirmar mapeo final A0-A5 y D0-D13 en `hmi_connectors.kicad_sch` y `nebula_qshield.kicad_pcb`.
+- [x] Documentar pinout aprobado en esta bitácora.
 
 ### Fase 1 — KiCad 10 y sincronización esquemático ↔ PCB
 - [ ] Convertir `kicad/nebula_qshield.kicad_pcb` a formato KiCad 10 (`kicad-cli pcb upgrade --force` o abrir/guardar en 10.0.5).
@@ -103,7 +103,7 @@
 | 16 | `D1` | `/HMI_TX` |
 | 17 | `D2` | `/HX711_DOUT` |
 | 18 | `D3` | `/HX711_SCK` |
-| 19 | `D4` | `/MCU_WDI` (o libre; pendiente decisión firmware) |
+| 19 | `D4` | `/MCU_WDI` — el firmware debe togglear `D4` para alimentar WDI |
 | 20 | `D5` | `/PUMP_PWM` |
 | 21 | `D6` | `/PUMP_DIR` |
 | 22 | `D7` | `/CO2_SOL_CTL` |
@@ -123,4 +123,4 @@
 ## Anotaciones / Bitácora
 
 - `2026-08-10`: Forense inicial. PCB en `main` desfasado respecto al esquemático. Ver `kicad/FORENSIC_REPORT.md`.
-- Próxima anotación: resultado Fase 0/1.
+- `2026-07-09`: Fase 0 completada. Netlist generado con `kicad-cli sch export netlist` (KiCad 10.0.5) confirma que `J21` pines 9–32 coinciden con `sketch.ino` de `Nebula_ArduinoAPPLab_UNOQ`. ERC `--severity-all` = 0 violaciones. Se corrigieron comentarios desactualizados en `analog_acquisition.kicad_sch` y `hmi_connectors.kicad_sch`.
