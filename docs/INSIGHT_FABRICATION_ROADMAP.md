@@ -16,16 +16,17 @@
 - [x] Documentar pinout aprobado en esta bitácora.
 
 ### Fase 1 — KiCad 10 y sincronización esquemático ↔ PCB
-- [ ] Convertir `kicad/nebula_qshield.kicad_pcb` a formato KiCad 10 (`kicad-cli pcb upgrade --force` o abrir/guardar en 10.0.5).
-- [ ] Revisar `fp-lib-table` / `sym-lib-table` y resolver conflictos de librería (footprints `nebula_footprints` vs nombres cortos).
-- [ ] Ejecutar `Tools → Update PCB from Schematic` para traer los 7 footprints faltantes:
+- [x] Convertir `kicad/nebula_qshield.kicad_pcb` a formato KiCad 10 (ya estaba en 10.0.5).
+- [x] Sincronizar esquemático ↔ PCB con forward-annotation headless (`tools/apply_phase1_minimal.py` + `tools/sexpr.py`).
+- [x] Traer los 7 footprints faltantes:
   - `U22` SC16IS740
   - `U23` SN74LVC1G04
   - `Y1` 1.8432 MHz
   - `C31`, `C32` 22 pF
   - `C33` 100 nF
   - `R38` 10 kΩ
-- [ ] Verificar que DRC paridad ya no reporte `missing_footprint` ni conflictos de red masivos.
+- [x] Verificar paridad con `compare_pcb_to_netlist.py`: 0 missing footprints, 0 net mismatches.
+- [x] Validación: `kicad-cli sch erc --severity-all` = 0 violaciones; `kicad-cli pcb drc --severity-error` = 0 violaciones.
 
 ### Fase 2 — Mecánica y Edge.Cuts
 - [ ] Corregir `Edge.Cuts` anidado: el recorte del botón de power no puede estar dentro del recorte USB-C.
