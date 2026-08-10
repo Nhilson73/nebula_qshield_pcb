@@ -109,8 +109,8 @@ El divisor mantiene la bipolaridad (referencia a GND_ISO por canal) y preserva e
 
 | Net Name | From (Ref:Pin) | To (Ref:Pin) | Notes |
 |----------|---------------|-------------|-------|
-| I2C_SDA | J21:SDA | R19:2, D9:1, J8:SDA, J9:SDA, J10:SDA | Bus I2C data |
-| I2C_SCL | J21:SCL | R20:2, D9:2, J8:SCL, J9:SCL, J10:SCL | Bus I2C clock |
+| I2C_SDA | J21:SDA | R19:2, D9:1, J8:SDA, J9:SDA, J10:SDA, U22:SDA | Bus I2C data |
+| I2C_SCL | J21:SCL | R20:2, D9:2, J8:SCL, J9:SCL, J10:SCL, U22:SCL | Bus I2C clock |
 | SDA_ISO | U21:SDA2 | J11:SDA, J12:SDA, J13:SDA, J14:SDA | I2C aislado (Atlas EZO) |
 | SCL_ISO | U21:SCL2 | J11:SCL, J12:SCL, J13:SCL, J14:SCL | I2C aislado (Atlas EZO) |
 
@@ -130,13 +130,13 @@ El divisor mantiene la bipolaridad (referencia a GND_ISO por canal) y preserva e
 
 | Net Name | From (Ref:Pin) | To (Ref:Pin) | Notes |
 |----------|---------------|-------------|-------|
-| PUMP_DIR | J21:D4 | R24:1 | Dirección bomba |
+| PUMP_DIR | J21:D6 | R24:1 | Dirección bomba |
 | PUMP_DIR_ISO | U16:OUT_A | U17:IN_A | Post-optoacoplador (PC817X2) |
 | PUMP_PWM | J21:D5 | R25:1 | PWM bomba |
 | PUMP_PWM_ISO | U16:OUT_B | U17:IN_B | Post-optoacoplador (PC817X2) |
 | MOTOR+ | U17:OUT_A | J17:1 | Motor terminal + |
 | MOTOR- | U17:OUT_B | J17:2 | Motor terminal - |
-| CHILLER_CTL | J21:D6 | R26:1 | Control chiller |
+| CHILLER_CTL | J21:D8 | R26:1 | Control chiller |
 | CHILLER_ISO | U18:OUT | Q3:G | Post-optoacoplador (PC817X1) |
 | CHILLER_RELAY | Q3:D | K1:coil- | Activa relay chiller |
 | CO2_SOL_CTL | J21:D7 | R27:1 | Control solenoide CO₂ |
@@ -155,6 +155,40 @@ El divisor mantiene la bipolaridad (referencia a GND_ISO por canal) y preserva e
 | HMI_RX | J21:D0 (RX) | J20:RX | UART RX del HMI (touch events) |
 | HMI_5V | 5V_RAIL | J20:VCC | Alimentación 5V al HMI |
 | LED_STATUS | J21:D13 | R23:1 | LED de estado bicolor |
+
+### 2.7 RS485 Modbus Nets (puente I2C↔UART)
+
+El UNO Q no deja ningún par TX/RX de UART libre: USART1 (D0/D1) lo usa el HMI y
+los pares alternativos caen sobre pines analógicos ya ocupados. El Modbus RTU
+cuelga por eso de un puente I2C↔UART `SC16IS740`, de forma que HMI y Modbus
+conviven sin compartir puerto.
+
+| Net Name | From (Ref:Pin) | To (Ref:Pin) | Notes |
+|----------|---------------|-------------|-------|
+| RS485_DI | U22:TX | U15:DI | UART TX del puente al transceiver |
+| RS485_RO | U15:RO | U22:RX | UART RX del transceiver al puente |
+| RS485_RTS_N | U22:~RTS | U23:A | Control de dirección, activo en bajo |
+| RS485_DE | U23:Y | U15:DE, U15:~RE | Habilitación de driver, activa en alto |
+| RS485_IRQ | U22:~IRQ | R38:2, J21:D10 | Interrupción open-drain, pull-up R38 |
+| XTAL1 | U22:XTAL1 | Y1:1, C31:1 | Oscilador 1.8432 MHz |
+| XTAL2 | U22:XTAL2 | Y1:2, C32:1 | Oscilador 1.8432 MHz |
+| RS485_A | U15:A | J16:1, R22:2 | Par diferencial A |
+| RS485_B | U15:B | J16:2, R22:1 | Par diferencial B |
+
+**Por qué hay un inversor (U23).** Tras el POR el `SC16IS740` deja `~RTS` en
+nivel alto (datasheet Table 5, «Output signals after reset»). Conectado
+directo a `DE`, el driver arrancaría habilitado y el nodo se apoderaría del bus
+multidrop antes de que el firmware configurase el chip. El inversor da `DE=0`
+y `~RE=0` en reset — driver apagado, receptor escuchando — y en operación
+invierte el `~RTS` automático a la polaridad que `DE` necesita, sin depender
+del bit de inversión `EFCR[5]`.
+
+**Nivel lógico.** El puente no tolera 5 V (Vmax = VDD + 0.3 V), así que el
+transceiver pasa de `MAX485ESA` a `MAX3485CSA+` — mismo SOIC-8 y mismo pinout,
+pero alimentado de `3V3_RAIL`. Con eso la hoja `digital_i2c` ya no usa 5 V.
+
+**Dirección I2C.** `A0` y `A1` a `GND` → `0x9A` en 8 bits (`0x4D` en 7 bits).
+Se evita el rango `0x48`–`0x4B` de ADS1115/TMP102, habitual en el bus Qwiic.
 
 ---
 
@@ -299,7 +333,8 @@ El divisor mantiene la bipolaridad (referencia a GND_ISO por canal) y preserva e
     │   ├── I2C connectors (J8-J14)
     │   ├── I2C isolation — Atlas EZO (U21 ISO1541)
     │   ├── HX711 load cell ADC (U14, J15, R21, C25, C26)
-    │   ├── RS485 transceiver (U15, J16, R22)
+    │   ├── RS485 transceiver (U15 MAX3485, J16, R22)
+    │   ├── RS485 I2C↔UART bridge (U22 SC16IS740, U23 inverter, Y1, C31-C33, R38)
     │   └── Status LED (LED4, R23)
     │
     ├── Sheet 4: actuator_drivers

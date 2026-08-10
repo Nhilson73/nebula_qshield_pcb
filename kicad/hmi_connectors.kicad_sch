@@ -4524,7 +4524,7 @@
   )
   (
     hierarchical_label
-    "PUMP_DIR"
+    "MCU_WDI"
     (shape output)
     (at 121.92 105.41 0)
     (
@@ -4580,7 +4580,7 @@
   )
   (
     hierarchical_label
-    "CO2_PWM"
+    "PUMP_DIR"
     (shape output)
     (at 121.92 110.49 0)
     (
@@ -4636,7 +4636,7 @@
   )
   (
     hierarchical_label
-    "MCU_WDI"
+    "CHILLER_CTL"
     (shape output)
     (at 121.92 115.57 0)
     (
@@ -4664,7 +4664,7 @@
   )
   (
     hierarchical_label
-    "CHILLER_CTL"
+    "CO2_PWM"
     (shape output)
     (at 121.92 118.11 0)
     (
@@ -4675,11 +4675,6 @@
       )
     )
     (uuid "4475a7fc-ba07-45fc-a32d-39af2cead49e")
-  )
-  (
-    no_connect
-    (at 104.14 120.65)
-    (uuid "db572819-7788-4341-bfea-f14cde509f27")
   )
   (
     no_connect
@@ -5062,4 +5057,6 @@
     )
     (uuid "bfd8b48d-b969-4659-9b51-0098c968e369")
   )
+  (wire (pts (xy 104.14 120.65) (xy 121.92 120.65)) (stroke (width 0) (type default)) (uuid "7e5d6474-ef28-4d06-9320-8fa2970e1200"))
+  (hierarchical_label "RS485_IRQ" (shape input) (at 121.92 120.65 0) (effects (font (size 1.27 1.27))) (uuid "48349599-fbdd-4c6f-8274-235f424b0cb6"))
 )

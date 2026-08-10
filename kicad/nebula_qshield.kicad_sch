@@ -88,8 +88,8 @@
     (pin "HX711_SCK"  input       (at 76.2 165.1 0)     (effects (font (size 1.27 1.27))) (uuid "4661ec09-e5a7-4a0a-bcbd-6a89a570cf8e"))
     (pin "LED_STATUS" input       (at 25.4 157.48 180)  (effects (font (size 1.27 1.27))) (uuid "a92ba3bd-be5a-43c1-8142-a5c306392a19"))
     (pin "3V3_RAIL"   input       (at 25.4 160.02 180)  (effects (font (size 1.27 1.27))) (uuid "97408a00-54cf-4894-82a8-0cf0cf551000"))
-    (pin "5V_RAIL"    input       (at 25.4 162.56 180)  (effects (font (size 1.27 1.27))) (uuid "91d16945-357e-4a04-92b7-af7d1eca8b11"))
     (pin "GND"        bidirectional (at 25.4 167.64 180)(effects (font (size 1.27 1.27))) (uuid "75d3ba90-3cd8-46c9-bf25-cb5ea4642a18"))
+      (pin "RS485_IRQ" output (at 76.20 167.64 0) (effects (font (size 1.27 1.27)) (justify left)) (uuid "684161fe-1a3e-4b03-b3cf-143401f4a271"))
   )
 
   (sheet
@@ -154,6 +154,7 @@
     (pin "3V3_RAIL"    bidirectional (at 119.38 83.82 180)(effects (font (size 1.27 1.27))) (uuid "cc153077-2a8a-47be-91b5-bee1e4500ea9"))
     (pin "12V_RAIL"    input       (at 119.38 86.36 180)  (effects (font (size 1.27 1.27))) (uuid "feab76c8-0422-4632-9f17-22b4ec95ef44"))
     (pin "GND"         bidirectional (at 119.38 88.9 180) (effects (font (size 1.27 1.27))) (uuid "e0c44d03-347d-4682-876e-050ba045a22a"))
+      (pin "RS485_IRQ" input (at 170.18 76.20 0) (effects (font (size 1.27 1.27)) (justify left)) (uuid "c32cf3cb-d95e-4511-afad-c3dd69a7cc2a"))
   )
 
   (text "NEBULA Q-SHIELD® — Hierarchical Root Schematic\n\nIndustrial fermentation monitor shield for Arduino UNO Q (4GB)\n12 sensors, 3 actuators, 3 tiers (Essential/Insight/Signature)\nSingle PCB with DNP component selection per tier\n\nDesign decisions:\n- Galvanic isolation: ON-BOARD (Option A) for all wet sensors\n- Display: HMI UART (Nextion/Stone) — NOT HDMI\n- Watchdog: TPS3823 populated ALL tiers\n- RS485: DNP option for Hamilton Incyte/Dencytee\n- Connectors: All polarized/keyed, plug-and-play"
@@ -173,8 +174,6 @@
   (label "5V_RAIL" (at 81.28 60.96 0) (effects (font (size 1.27 1.27))) (uuid "647b9f84-c572-4398-846e-ccc44d6c53b5"))
   (wire (pts (xy 25.40 109.22) (xy 20.32 109.22)) (stroke (width 0) (type default)) (uuid "81b55426-f6d6-4286-82c3-c2736586da6c"))
   (label "5V_RAIL" (at 20.32 109.22 180) (effects (font (size 1.27 1.27))) (uuid "7036274d-a778-4fd3-9e3b-7e6fa28b095b"))
-  (wire (pts (xy 25.40 162.56) (xy 20.32 162.56)) (stroke (width 0) (type default)) (uuid "5d7271da-ae31-4390-9b68-5c6f3b65eda6"))
-  (label "5V_RAIL" (at 20.32 162.56 180) (effects (font (size 1.27 1.27))) (uuid "04b07eea-5e56-4faa-99ac-713cb8715826"))
   (wire (pts (xy 25.40 226.06) (xy 20.32 226.06)) (stroke (width 0) (type default)) (uuid "56a3c978-3c0d-4e0a-a54b-06c1b5e8a72d"))
   (label "5V_RAIL" (at 20.32 226.06 180) (effects (font (size 1.27 1.27))) (uuid "8787d676-c824-4481-a081-64801e6378ff"))
   (wire (pts (xy 119.38 81.28) (xy 114.30 81.28)) (stroke (width 0) (type default)) (uuid "d6541d25-478f-49c6-a8e1-538977f02f79"))
@@ -270,4 +269,8 @@
   (wire (pts (xy 119.38 76.20) (xy 114.30 76.20)) (stroke (width 0) (type default)) (uuid "d80b4335-0489-4204-afbd-93d7f7d9e106"))
   (label "MCU_NRST" (at 114.30 76.20 180) (effects (font (size 1.27 1.27))) (uuid "c911b39c-0828-4259-8daf-ed9e1d11c7ca"))
 
+  (wire (pts (xy 76.20 167.64) (xy 81.28 167.64)) (stroke (width 0) (type default)) (uuid "bee7d01a-aaa3-4d09-83e8-301d41a9f33a"))
+  (label "RS485_IRQ" (at 81.28 167.64 0) (effects (font (size 1.27 1.27))) (uuid "5d541516-b1c3-4444-ada6-3cf5175c2530"))
+  (wire (pts (xy 170.18 76.20) (xy 175.26 76.20)) (stroke (width 0) (type default)) (uuid "0c54abdf-6520-49ad-ae22-97693b7fb335"))
+  (label "RS485_IRQ" (at 175.26 76.20 0) (effects (font (size 1.27 1.27))) (uuid "10626470-f8c1-41db-b212-61b16fb4c7bb"))
 )
