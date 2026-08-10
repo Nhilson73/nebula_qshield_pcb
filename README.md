@@ -1,14 +1,16 @@
 # Nebula Q-Shield® PCB
 
-**Precision Fermentation Monitor** — PCB shield industrial para el Arduino UNO Q, con 12 componentes de adquisición de datos, control de actuadores, HMI UART 5" (Nextion/Stone), y cumplimiento normativo europeo completo.
+**Precision Fermentation Monitor** — PCB shield de 4 capas para el Arduino UNO Q, con sensores de fermentación, control de actuadores, HMI UART y trazabilidad integrada al ecosistema Nebula.
 
-Built by [Cafelium SRL](https://github.com/Nhilson73) · 🇩🇴 Dominican Republic
+Built by [Cafelium SRL](https://github.com/Nhilson73) · Dominican Republic
 
 > **Parte del ecosistema [Nebula Q-Shield — Arduino App Lab](https://github.com/Nhilson73/Nebula_ArduinoAPPLab_UNOQ)**
 >
 > **Awards:** I+D Lab INDOTEL 2025 · CREE Banreservas 2026 · Pitch4FUN 2026
 >
-> **Note — Re-architectura UNO Q en curso:** el diseño se está ajustando al header compatible con UNO R3/Q (32 pines), board `100 × 120 mm`, bus I2C en `D20/D21`, y `A4/A5` exclusivamente para `CO2_ADC`/`DO_ADC`. El plan vivo y el pinout definitivo están en `docs/INSIGHT_FABRICATION_ROADMAP.md`, el factor de forma UNO Q (inmutable) en `docs/UNO_Q_FORM_FACTOR.md`, y el listado de docs por actualizar en `docs/DOCUMENTATION_UPDATE_AUDIT.md`.
+> **Firmware source of truth:** [`Nhilson73/Nebula_ArduinoAPPLab_UNOQ`](https://github.com/Nhilson73/Nebula_ArduinoAPPLab_UNOQ). No usar `Nebula_UNOQ_ArduinoIDE_Core` para validaciones de pinout/hardware.
+>
+> **Estado actual:** esquemático completo validado (ERC 0 violaciones), PCB migrado a KiCad 10.0.5, factor de forma UNO Q aplicado, dimensiones 100 mm × 120 mm, Fase 4 de ruteo de potencia pendiente de revisión en KiCad GUI.
 
 ---
 
@@ -16,48 +18,32 @@ Built by [Cafelium SRL](https://github.com/Nhilson73) · 🇩🇴 Dominican Repu
 
 El Q-Shield® es un **PCB shield de 4 capas** que se monta sobre el Arduino UNO Q (STM32U585 MCU + Qualcomm QRB2210 MPU), convirtiendo la placa en un sistema completo de monitoreo y control de fermentación para café y cacao de especialidad.
 
+Se fabrica como **una sola PCB** para los tres tiers. La diferencia entre tiers se logra poblando o dejando en DNP ciertos componentes; el firmware selecciona el tier en tiempo de compilación.
+
 ```
 ┌──────────────────────────────────────────────────────────────────┐
 │                    NEBULA Q-SHIELD® PCB v1.0                     │
-│                                                                   │
+│                                                                  │
 │  ┌──────────────┐  ┌──────────────┐  ┌──────────────────────┐   │
-│  │ POTENCIA     │  │  ANALÓGICO   │  │     DIGITAL          │   │
+│  │ POTENCIA     │  │  ANALÓGICO    │  │     DIGITAL          │   │
 │  │              │  │              │  │                      │   │
-│  │ Buck 12→5V   │  │ 6× ADC      │  │ I2C bus (7 devices)  │   │
-│  │ LDO 5→3.3V   │  │ Op-amp buf. │  │ HX711 24-bit ADC     │   │
-│  │ TVS + PTC    │  │ RC filters  │  │ HMI UART (Nextion)   │   │
-│  │ Schottky     │  │ ESD protect │  │ ESD protection       │   │
+│  │ 12 V input   │  │ pH  (A0)     │  │ I2C bus (D20/D21)    │   │
+│  │ Buck 12→5 V  │  │ ORP (A1)     │  │ HX711 (D2/D3)        │   │
+│  │ LDO 5→3.3 V  │  │ Temp (A2)    │  │ GPS + RTC (I2C)      │   │
+│  │ TVS + PTC    │  │ CO2 (A4)     │  │ RS485 bridge (Sig.)  │   │
+│  │ Schottky     │  │ DO  (A5)     │  │ HMI UART             │   │
 │  └──────────────┘  └──────────────┘  └──────────────────────┘   │
-│                                                                   │
+│                                                                  │
 │  ┌──────────────────────────────────────────────────────────┐   │
-│  │  ACTUADORES (opto-aislados)                              │   │
-│  │  Motor driver (half-bridge) · Relay ×2 · PWM regulator   │   │
+│  │  ACTUADORES (opto-aislados) — Insight+                  │   │
+│  │  Recirculación · Solenoide gas · Chiller                 │   │
 │  └──────────────────────────────────────────────────────────┘   │
-│                                                                   │
+│                                                                  │
 │  ┌──────────────────────────────────────────────────────────┐   │
-│  │  CONECTOR ARDUINO UNO Q / R3 (32-pin shield header)    │   │
+│  │  CONECTOR ARDUINO UNO Q / R3 (32-pin shield header)      │   │
 │  └──────────────────────────────────────────────────────────┘   │
 └──────────────────────────────────────────────────────────────────┘
 ```
-
----
-
-## Los 12 Componentes
-
-| # | Componente | Interfaz | Tier |
-|---|-----------|----------|------|
-| 1 | Sensor pH (Nernst + comp. térmica) | Analógico A0 / I2C EZO | Essential+ |
-| 2 | Sensor ORP (potencial redox) | Analógico A1 / I2C EZO | Essential+ |
-| 3 | Sensor temperatura (NTC/PT-1000) | Analógico A4 / I2C EZO-RTD | Essential+ |
-| 4 | Celda de carga + HX711 (peso) | Digital D2/D3 | Essential+ |
-| 5 | Transductor presión CO₂ (30 PSI) | Analógico A2 | Insight+ |
-| 6 | Sensor oxígeno disuelto (DO) | Analógico A3 / I2C EZO | Insight+ |
-| 7 | Sensor humedad (SHT30) | Analógico A5 | Signature |
-| 8 | GPS u-blox SAM-M8Q | I2C 0x42 | Essential+ |
-| 9 | Sensor densidad celular (turbidez) | I2C 0x30 | Signature |
-| 10 | RTC DS3231 (reloj tiempo real) | I2C 0x68 | Todos |
-| 11 | Módulo relay 4 canales (actuadores) | GPIO D4–D7, D9 | Insight+ |
-| 12 | HMI UART 5" (Nextion/Stone) | UART TX/RX (JST-XH 4P) | Todos |
 
 ---
 
@@ -65,11 +51,35 @@ El Q-Shield® es un **PCB shield de 4 capas** que se monta sobre el Arduino UNO 
 
 Una sola PCB para los 3 tiers — los componentes no poblados (DNP) se seleccionan en fabricación:
 
-| Tier | Sensores | Actuadores | Costo PCB | Costo total estimado |
-|------|----------|-----------|-----------|---------------------|
-| **Essential®** | pH, ORP, Temp, Peso, GPS, RTC | — | ~$23 | ~$350–$440 |
-| **Insight®** | Essential + CO₂, DO | Bomba, CO₂ inyección | ~$27 | ~$750–$950 |
-| **Signature®** | Insight + Humedad, Cell density | + Chiller | ~$31 | ~$810–$1,010 |
+| Tier | Sensores / Funciones | Actuadores | Placements poblados |
+|------|----------------------|-----------|---------------------|
+| **Essential®** | GPS (altitud), RTC/timestamp, temperatura, pH, ORP, HMI | — | 88 / 163 |
+| **Insight®** | Essential + CO₂ (presión), DO, celdas de carga, I2C bus D20/D21 | Recirculación, solenoide gas, chiller | 137 / 163 |
+| **Signature®** | Insight + densidad celular total (TCD) + activa (ACD) Hamilton vía RS485 | Igual que Insight | 146 / 163 |
+
+- Convención DNP en el campo `DNP`: lista los tiers en los que el componente **no** se pobla.
+- Canal de humedad y válvula PWM de gas quedan eliminados/DNP en todos los tiers.
+- El pinout detallado de `J21` está en `docs/INSIGHT_FABRICATION_ROADMAP.md`.
+
+---
+
+## Componentes principales
+
+| # | Componente | Interfaz | Tier |
+|---|-----------|----------|------|
+| 1 | Sensor pH | Analógico A0 / I2C EZO | Essential+ |
+| 2 | Sensor ORP | Analógico A1 / I2C EZO | Essential+ |
+| 3 | Sensor temperatura | Analógico A2 | Essential+ |
+| 4 | GPS u-blox SAM-M8Q (altitud por GPS) | I2C 0x42 | Essential+ |
+| 5 | RTC DS3231 | I2C 0x68 | Essential+ |
+| 6 | HMI UART 5" (Nextion/Stone/DWIN) | UART TX/RX | Todos |
+| 7 | Celdas de carga + HX711 | Digital D2/D3 | Insight+ |
+| 8 | Transductor presión CO₂ | Analógico A4 | Insight+ |
+| 9 | Sensor oxígeno disuelto (DO) | Analógico A5 | Insight+ |
+| 10 | Driver recirculación (half-bridge) | PWM/DIR D5/D6 | Insight+ |
+| 11 | Solenoide gas CO₂/H₂ | GPIO D7 | Insight+ |
+| 12 | Chiller (relé opto-aislado) | GPIO D8 | Insight+ |
+| 13 | Sensores Hamilton TCD + ACD | RS485/Modbus | Signature |
 
 ---
 
@@ -106,7 +116,7 @@ Una sola PCB para los 3 tiers — los componentes no poblados (DNP) se seleccion
 - **Thermal shutdown** — Reguladores se apagan a 85°C y se recuperan
 - **Opto-aislamiento** — MCU aislado de actuadores de potencia
 - **Watchdog dual** — TPS3823 externo (1.6s) + IWDG interno (8s), poblado en TODOS los tiers
-- **Aislamiento galvánico on-board** — SN6501 + ADuM1250 por sensor húmedo (pH, ORP, DO)
+- **Aislamiento galvánico on-board** — SN6501 + AMC1301/ISO1541 por canal húmedo (pH, ORP, DO)
 
 ---
 
@@ -114,12 +124,12 @@ Una sola PCB para los 3 tiers — los componentes no poblados (DNP) se seleccion
 
 | Directiva | Norma | Estado |
 |-----------|-------|--------|
-| **EMC** (2014/30/EU) | EN 55032 Clase B, EN 61000-4-2/3/4/5/6 | ✓ Diseñado |
-| **RoHS 3** (2011/65/EU + 2015/863) | Soldadura SAC305, ENIG, sin Pb/Hg/Cd | ✓ Especificado |
-| **WEEE** (2012/19/EU) | Categoría 6, registro por país | ☐ Pendiente registro |
-| **RED** (2014/53/EU) | WiFi/BT via Arduino UNO Q cert. | ☐ Verificar con Arduino |
-| **REACH** ((EC) 1907/2006) | Verificación SVHC proveedores | ☐ Pendiente |
-| **Marcado CE** | Declaración de Conformidad | ☐ Post-ensayos |
+| **EMC** (2014/30/EU) | EN 55032 Clase B, EN 61000-4-2/3/4/5/6 | Diseñado |
+| **RoHS 3** (2011/65/EU + 2015/863) | Soldadura SAC305, ENIG, sin Pb/Hg/Cd | Especificado |
+| **WEEE** (2012/19/EU) | Categoría 6, registro por país | Pendiente registro |
+| **RED** (2014/53/EU) | WiFi/BT via Arduino UNO Q cert. | Verificar con Arduino |
+| **REACH** ((EC) 1907/2006) | Verificación SVHC proveedores | Pendiente |
+| **Marcado CE** | Declaración de Conformidad | Post-ensayos |
 
 ---
 
@@ -138,25 +148,24 @@ nebula_qshield_pcb/
 │   ├── 05_POWER_BUDGET.md             # Análisis de presupuesto de potencia
 │   ├── 06_PCB_LAYOUT_STACKUP.md       # Guías de layout y stackup 4 capas
 │   ├── 07_KICAD_NETLIST.md            # Netlist KiCad y definiciones
-│   └── 08_MECHANICAL_ANALYSIS.md      # Análisis mecánico y compactación 100×100mm
+│   ├── 08_MECHANICAL_ANALYSIS.md      # Análisis mecánico y compactación
+│   ├── INSIGHT_FABRICATION_ROADMAP.md # Hoja de ruta JLCPCB para Insight
+│   ├── UNO_Q_FORM_FACTOR.md           # Referencia inmutable del factor de forma UNO Q
+│   ├── KICAD10_SSH_SETUP.md           # Guía SSH para clonar desde KiCad 10
+│   └── DOCUMENTATION_UPDATE_AUDIT.md  # Auditoría de docs por actualizar
 │
-├── kicad/                             # Proyecto KiCad 8.x
+├── kicad/                             # Proyecto KiCad 10.0.5
 │   ├── nebula_qshield.kicad_pro       # Proyecto principal
 │   ├── nebula_qshield.kicad_sch       # Esquemático raíz (jerárquico)
+│   ├── nebula_qshield.kicad_pcb       # Layout PCB (en progreso)
 │   ├── power_management.kicad_sch     # Sub-hoja: reguladores y protección
-│   ├── analog_acquisition.kicad_sch   # Sub-hoja: 6 canales analógicos
-│   ├── digital_i2c.kicad_sch         # Sub-hoja: bus I2C y HX711
-│   ├── actuator_drivers.kicad_sch    # Sub-hoja: drivers de actuadores
-│   ├── hmi_connectors.kicad_sch      # Sub-hoja: HMI UART y conectores
-│   ├── nebula_qshield.kicad_dru       # Reglas de diseño (IPC-2221B)
-│   ├── nebula_qshield.kicad_pcb       # Layout PCB (pendiente)
-│   ├── lib/
-│   │   ├── nebula_symbols.kicad_sym   # 8 símbolos custom
-│   │   └── nebula_footprints.pretty/  # Footprints custom (BNC, shield)
-│   ├── 3d_models/                     # Modelos 3D (STEP/WRL)
-│   ├── gerber/                        # Archivos de fabricación
-│   └── production/
-│       └── bom/                       # BOM exportado (CSV con Digi-Key PNs)
+│   ├── analog_acquisition.kicad_sch   # Sub-hoja: canales analógicos
+│   ├── digital_i2c.kicad_sch          # Sub-hoja: bus I2C, HX711, RS485 bridge
+│   ├── actuator_drivers.kicad_sch     # Sub-hoja: drivers de actuadores
+│   ├── hmi_connectors.kicad_sch       # Sub-hoja: HMI UART y J21
+│   ├── lib/                           # Librerías de símbolos y footprints
+│   ├── production/                    # Salidas de fabricación
+│   └── UNO_Q_rearchitecture_report.md # Reporte de re-arquitectura UNO Q
 │
 ├── hardware/                          # Diseño mecánico
 │   ├── enclosure/                     # Carcasa/enclosure IP54
@@ -166,18 +175,22 @@ nebula_qshield_pcb/
 │   ├── hil/                           # Hardware-in-the-Loop tests
 │   └── validation/                    # Reportes de validación
 │
-└── tools/                             # Scripts y utilidades
+└── tools/                             # Scripts Python de automatización
+    ├── tier_counts.py                 # Conteos de componentes por tier
+    ├── apply_tier_dnp4.py            # Aplicar propiedades DNP por tier
+    ├── compare_pcb_to_netlist.py      # Verificar paridad PCB/netlist
+    └── update_tier_comments.py       # Actualizar comentarios de tier
 ```
 
-### Esquemáticos Jerárquicos Completados
+### Esquemáticos Jerárquicos
 
 ```
 nebula_qshield.kicad_sch (raíz)
 ├── power_management.kicad_sch     → 12V protección, Buck 5V, LDO 3.3V, TPS3823 watchdog
-├── analog_acquisition.kicad_sch   → 6 canales: pH/ORP/CO₂/DO/Temp/Hum + aislamiento galvánico
-├── digital_i2c.kicad_sch          → I2C bus, 7× Qwiic, HX711, RS485 Modbus vía puente I2C↔UART (DNP), LED estado
-├── actuator_drivers.kicad_sch     → Motor IR2104, 2× relays opto-aislados, PWM CO₂
-└── hmi_connectors.kicad_sch       → HMI UART (JST-XH 4P), shield header J21, sensor clamps
+├── analog_acquisition.kicad_sch   → pH/ORP/Temp/CO₂/DO + aislamiento galvánico
+├── digital_i2c.kicad_sch          → I2C (D20/D21), HX711, RS485 Modbus bridge (Signature)
+├── actuator_drivers.kicad_sch     → Recirculación, solenoide gas, chiller
+└── hmi_connectors.kicad_sch       → HMI UART y shield header J21
 ```
 
 ---
@@ -186,14 +199,15 @@ nebula_qshield.kicad_sch (raíz)
 
 | Parámetro | Valor |
 |-----------|-------|
-| **Dimensiones** | 100 × 100 mm (factor de forma para acople con Arduino UNO Q) |
+| **Dimensiones** | 100 mm × 120 mm (factor de forma Arduino UNO Q inmutable; el tamaño exterior puede variar) |
 | **Capas** | 4 (Signal–GND–Power–Signal) |
 | **Material** | FR-4 Tg 170°C |
 | **Acabado** | ENIG (RoHS) |
 | **Cobre** | 1 oz (35 μm) todas las capas |
 | **Temperatura operativa** | -10°C a +55°C |
 | **Alimentación** | 12V DC (Essential: 2A, Insight: 3A, Signature: 8A) |
-| **Componentes totales** | 147 (Signature, fully populated) |
+| **Placements totales** | 163 (88 Essential / 137 Insight / 146 Signature) |
+| **KiCad** | 10.0.5 |
 | **IPC Class** | Clase 2 |
 
 ---
@@ -212,26 +226,99 @@ nebula_qshield.kicad_sch (raíz)
 
 ### Requisitos
 
-- [KiCad 8.x](https://www.kicad.org/download/) (EDA tool open source)
+- [KiCad 10.0.5](https://www.kicad.org/download/)
 - [Python 3.11+](https://www.python.org/) (para scripts de BOM/CPL)
+- Cuenta GitHub con acceso al repositorio
 
-### Abrir el Proyecto
+### Clonar el proyecto
+
+Opción A — terminal:
 
 ```bash
-git clone https://github.com/Nhilson73/nebula_qshield_pcb.git
+git clone git@github.com:Nhilson73/nebula_qshield_pcb.git
 cd nebula_qshield_pcb/kicad
-# Abrir nebula_qshield.kicad_pro con KiCad 8.x
+# Abrir nebula_qshield.kicad_pro con KiCad 10
 ```
 
-### Generar Archivos de Fabricación
+Opción B — desde KiCad 10:
+
+Ver `docs/KICAD10_SSH_SETUP.md` para configurar SSH y clonar directamente desde `File → Clone Project from Git Repository`.
+
+### Validación del diseño
 
 ```bash
-# Desde KiCad:
-# File → Plot → Gerber (configuración en docs/07_KICAD_NETLIST.md)
-# File → Fabrication Outputs → Drill Files
-# File → Fabrication Outputs → BOM
-# File → Fabrication Outputs → Footprint Position File
+# ERC
+docker run --rm -v "$PWD:/workspace" kicad/kicad:10.0.5 \
+  kicad-cli sch erc --severity-all \
+  /workspace/kicad/nebula_qshield.kicad_sch
+
+# DRC error-level
+docker run --rm -v "$PWD:/workspace" kicad/kicad:10.0.5 \
+  kicad-cli pcb drc --severity-error \
+  /workspace/kicad/nebula_qshield.kicad_pcb
+
+# Paridad PCB/netlist (exportar primero el netlist XML)
+docker run --rm -v "$PWD:/workspace" kicad/kicad:10.0.5 \
+  kicad-cli sch export netlist --format kicadxml \
+  -o /workspace/kicad/uno_q.xml /workspace/kicad/nebula_qshield.kicad_sch
+
+docker run --rm -v "$PWD:/workspace" kicad/kicad:10.0.5 \
+  python3 /workspace/tools/compare_pcb_to_netlist.py
 ```
+
+### Generar archivos de fabricación
+
+Desde KiCad 10:
+
+```
+File → Plot → Gerber
+File → Fabrication Outputs → Drill Files
+File → Fabrication Outputs → BOM
+File → Fabrication Outputs → Footprint Position File
+```
+
+Los parámetros de fabricación JLCPCB están en `docs/INSIGHT_FABRICATION_ROADMAP.md` y `docs/04_BOM_PRODUCTION.md`.
+
+---
+
+## Pinout J21 de referencia (Insight)
+
+| Pin | Función | Net |
+|-----|---------|-----|
+| 1 | BOOT | NC |
+| 2 | IOREF | NC |
+| 3 | ~RESET | `/MCU_NRST` |
+| 4 | +3V3 | `/3V3_RAIL` |
+| 5 | +5V | `/5V_RAIL` |
+| 6 | GND | `GND` |
+| 7 | GND2 | `GND` |
+| 8 | VIN | `/12V_RAIL` |
+| 9 | A0/D14 | `/PH_ADC` |
+| 10 | A1/D15 | `/ORP_ADC` |
+| 11 | A2/D16 | `/TEMP_ADC` |
+| 12 | A3/D17 | `/HUM_ADC` — DNP all tiers |
+| 13 | A4/D18 | `/CO2_ADC` |
+| 14 | A5/D19 | `/DO_ADC` |
+| 15 | D0 | `/HMI_RX` |
+| 16 | D1 | `/HMI_TX` |
+| 17 | D2 | `/HX711_DOUT` |
+| 18 | D3 | `/HX711_SCK` |
+| 19 | D4 | `/MCU_WDI` |
+| 20 | D5 | `/PUMP_PWM` |
+| 21 | D6 | `/PUMP_DIR` |
+| 22 | D7 | `/CO2_SOL_CTL` |
+| 23 | D8 | `/CHILLER_CTL` |
+| 24 | D9 | `/CO2_PWM` — DNP all tiers |
+| 25 | D10 | `/RS485_IRQ` |
+| 26 | D11 | NC |
+| 27 | D12 | NC |
+| 28 | D13 | `/LED_STATUS` |
+| 29 | GND | `GND` |
+| 30 | AREF | NC |
+| 31 | D20/SDA | `/I2C_SDA` |
+| 32 | D21/SCL | `/I2C_SCL` |
+
+El pinout completo, mapa de tiers y hoja de ruta de fabricación están en `docs/INSIGHT_FABRICATION_ROADMAP.md`.
 
 ---
 
@@ -239,7 +326,7 @@ cd nebula_qshield_pcb/kicad
 
 | Repositorio | Descripción |
 |------------|-------------|
-| [Nebula_ArduinoAPPLab_UNOQ](https://github.com/Nhilson73/Nebula_ArduinoAPPLab_UNOQ) | App principal: Firmware MCU + Software MPU + Servicios Docker + Contratos L2 |
+| [Nebula_ArduinoAPPLab_UNOQ](https://github.com/Nhilson73/Nebula_ArduinoAPPLab_UNOQ) | Firmware MCU + Software MPU + Servicios Docker + Contratos L2. **Source of truth** para el pinout y lógica del Q-Shield. |
 | **nebula_qshield_pcb** (este repo) | PCB shield para Arduino UNO Q (esquemáticos KiCad, BOM, compliance) |
 
 ---
