@@ -152,8 +152,7 @@ nebula_qshield_pcb/
 │   ├── INSIGHT_FABRICATION_ROADMAP.md # Hoja de ruta JLCPCB para Insight
 │   ├── UNO_Q_FORM_FACTOR.md           # Referencia inmutable del factor de forma UNO Q
 │   ├── KICAD10_SSH_SETUP.md           # Guía SSH para clonar desde KiCad 10
-│   ├── DOCUMENTATION_UPDATE_AUDIT.md  # Auditoría de docs por actualizar
-│   └── FASE4_KICAD_GUI_REVIEW.md      # Guía de revisión GUI para Fase 4
+│   └── DOCUMENTATION_UPDATE_AUDIT.md  # Auditoría de docs por actualizar
 │
 ├── kicad/                             # Proyecto KiCad 10.0.5
 │   ├── nebula_qshield.kicad_pro       # Proyecto principal
@@ -258,7 +257,11 @@ docker run --rm -v "$PWD:/workspace" kicad/kicad:10.0.5 \
   kicad-cli pcb drc --severity-error \
   /workspace/kicad/nebula_qshield.kicad_pcb
 
-# Paridad PCB/netlist
+# Paridad PCB/netlist (exportar primero el netlist XML)
+docker run --rm -v "$PWD:/workspace" kicad/kicad:10.0.5 \
+  kicad-cli sch export netlist --format kicadxml \
+  -o /workspace/kicad/uno_q.xml /workspace/kicad/nebula_qshield.kicad_sch
+
 docker run --rm -v "$PWD:/workspace" kicad/kicad:10.0.5 \
   python3 /workspace/tools/compare_pcb_to_netlist.py
 ```
