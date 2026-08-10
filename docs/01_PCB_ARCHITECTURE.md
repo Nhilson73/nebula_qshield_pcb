@@ -432,14 +432,27 @@ Los sensores pH, ORP y DO comparten el mismo líquido (mosto de fermentación). 
 
 | Pin Arduino | Pin STM32 | Función | Dirección | Tier |
 |-------------|-----------|---------|-----------|------|
-| D2 | PA10 | HX711 DOUT | INPUT | Essential+ |
-| D3 | PB3 | HX711 SCK | OUTPUT | Essential+ |
-| D4 | PB4 | Pump direction | OUTPUT | Insight+ |
-| D5 | PB5 | Pump PWM | OUTPUT (PWM) | Insight+ |
-| D6 | PB6 | Chiller relay | OUTPUT | Signature |
-| D7 | PB7 | CO₂ solenoid valve | OUTPUT | Insight+ |
-| D9 | PB9 | CO₂ flow PWM | OUTPUT (PWM) | Insight+ |
-| D13 | PA5 | Status LED | OUTPUT | Todos |
+| D2 | — | HX711 DOUT | INPUT | Essential+ |
+| D3 | — | HX711 SCK | OUTPUT | Essential+ |
+| D4 | — | Watchdog WDI (TPS3823) | OUTPUT | Todos |
+| D5 | PA11 | Pump PWM (TIM1_CH4) | OUTPUT (PWM) | Insight+ |
+| D6 | PB1 | Pump direction | OUTPUT | Insight+ |
+| D7 | — | CO₂ solenoid valve | OUTPUT | Insight+ |
+| D8 | PB4 | Chiller relay | OUTPUT | Signature |
+| D9 | PB8 | CO₂ flow PWM (TIM4_CH3) | OUTPUT (PWM) | Insight+ |
+| D10 | PB9 | RS485 bridge ~IRQ (SC16IS740) | INPUT | Signature |
+| D13 | — | Status LED | OUTPUT | Todos |
+
+> **PWM en timers independientes:** `PUMP_PWM` (D5, TIM1_CH4) y `CO2_PWM`
+> (D9, TIM4_CH3) están en temporizadores distintos, por lo que sus frecuencias
+> se ajustan por separado.
+>
+> **Watchdog:** D4 alimenta el `WDI` del TPS3823. El firmware debe hacer toggle
+> del pin con periodo < 1.6 s o el supervisor resetea el MCU.
+>
+> Las celdas con `—` son puertos del STM32U585 aún no verificados contra el
+> variant oficial del UNO Q. Lo que fija el diseño del shield es la columna
+> «Pin Arduino», que es la que consume el firmware.
 
 ### 4.3 Pines I2C
 

@@ -173,7 +173,7 @@ nebula_qshield_pcb/
 nebula_qshield.kicad_sch (raíz)
 ├── power_management.kicad_sch     → 12V protección, Buck 5V, LDO 3.3V, TPS3823 watchdog
 ├── analog_acquisition.kicad_sch   → 6 canales: pH/ORP/CO₂/DO/Temp/Hum + aislamiento galvánico
-├── digital_i2c.kicad_sch          → I2C bus, 7× Qwiic, HX711, RS485 (DNP), LED estado
+├── digital_i2c.kicad_sch          → I2C bus, 7× Qwiic, HX711, RS485 Modbus vía puente I2C↔UART (DNP), LED estado
 ├── actuator_drivers.kicad_sch     → Motor IR2104, 2× relays opto-aislados, PWM CO₂
 └── hmi_connectors.kicad_sch       → HMI UART (JST-XH 4P), shield header J21, sensor clamps
 ```
