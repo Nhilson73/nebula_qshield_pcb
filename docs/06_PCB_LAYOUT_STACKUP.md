@@ -66,7 +66,7 @@
     └────────────────────────────────────────────────────────┘
 ```
 
-> **Nota de estado actual:** el board es 100 × 120 mm, pero la zona `/12V_RAIL` en `In2.Cu` conserva un polígono de 100 × 100 mm con prioridad 1 que solapa con las islas `/5V_RAIL` y `/3V3_RAIL`. Antes de rellenar las zonas de potencia se debe rediseñar `In2.Cu` como split-planes o islas con prioridades correctas. Ver `docs/INSIGHT_FABRICATION_ROADMAP.md` Fase 4.
+> **Nota de estado actual:** el board es 100 × 120 mm. La zona `/12V_RAIL` en `In2.Cu` (prioridad 1) ya cubre todo el board; las islas `/5V_RAIL` y `/3V3_RAIL` (prioridades 2-9) se recortan automáticamente formando un split-plane por prioridades. `kicad-cli pcb drc --severity-error` pasa sin violaciones. Ver `docs/INSIGHT_FABRICATION_ROADMAP.md` Fase 4.
 
 ---
 
