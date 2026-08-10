@@ -5,6 +5,8 @@
 > **Clasificación:** Ingeniería — Diseño Mecánico PCB
 >
 > **Normativas de referencia:** IPC-2221B, IPC-7351C
+>
+> **Nota (2026-08-10):** el factor de forma y los recortes del Arduino UNO Q para el Q-Shield están documentados en `docs/UNO_Q_FORM_FACTOR.md`. Ese documento es la referencia inmutable; este archivo sigue siendo útil como análisis histórico pero contiene datos que requieren actualización (dimensiones, header J21, recortes).
 
 ---
 
@@ -14,20 +16,21 @@
 
 | Parámetro | Valor | Notas |
 |-----------|-------|-------|
-| **Dimensiones PCB** | 100 × 100 mm | Factor de forma para acople con Arduino UNO Q |
-| **Área total** | 10,000 mm² | |
+| **Dimensiones PCB** | 100 × 120 mm (puede variar) | El factor de forma UNO Q es inmutable; el board puede ser 100×100, 100×120 u otro tamaño |
+| **Factor de forma UNO Q** | 68.58 × 53.34 mm | Patrón de headers y agujeros de montaje según `docs/UNO_Q_FORM_FACTOR.md` |
+| **Área total** | 12,000 mm² | |
 | **Espesor** | 1.6 mm ± 10% | Estándar IPC-2221B |
 | **Capas** | 4 (Signal–GND–PWR–Signal) | |
 | **Bordes** | Rounded 1 mm radius | Previene microfisuras |
-| **Agujeros de montaje** | 4× M3 (3.2 mm drill) | Patrón compatible con enclosure |
+| **Agujeros de montaje** | 4× M3 (3.2 mm drill) | Patrón UNO R3/Q; ver `docs/UNO_Q_FORM_FACTOR.md` |
 
 ### 1.2 Restricciones Geométricas Clave
 
 | Restricción | Valor | Impacto |
 |------------|-------|---------|
-| J21 shield header 2×20 | 98 mm de ancho | Ocupa 98% del ancho del PCB en borde inferior |
-| Clearance lateral J21 | 1.0 mm por lado | No hay espacio para pistas junto al header |
-| Zona de ventilación | Debajo del Arduino UNO Q | No colocar componentes de potencia debajo |
+| J21 shield header UNO R3/Q | 32 pines (14+18), 50.8 mm entre filas | Patrón inmutable; el Q-Shield puede crecer pero este header no cambia |
+| Clearance lateral J21 | ≥ 0.5 mm por lado | Respetar `copper_edge_clearance` de JLCPCB |
+| Zona de ventilación / keepouts | USB-C, power button, JCTL, SPI2, Qwiic | Dejar recortes Eco1.User/Edge.Cuts según `docs/UNO_Q_FORM_FACTOR.md` |
 
 ---
 
@@ -60,7 +63,7 @@
 
 ### 2.3 Veredicto de Compactación
 
-**✅ CABE en 100 × 100 mm** — Densidad de 35.4% es cómoda para un PCB de 4 capas con componentes THT y SMD mixtos. Hay margen suficiente para routing, guard rings, via fences, y clearance de aislamiento galvánico.
+**El board aprobado actualmente es 100 × 120 mm.** El factor de forma UNO Q no cambia; las dimensiones del Q-Shield pueden ajustarse. La densidad sigue siendo cómoda para un PCB de 4 capas con componentes THT y SMD mixtos, con margen para routing, guard rings, via fences y clearance de aislamiento galvánico.
 
 ---
 
@@ -141,10 +144,10 @@
 
 | Aspecto | Detalle |
 |---------|---------|
-| **Componente** | J21 — Shield header 2×20, stackable |
-| **Dimensión** | 98.0 mm de ancho × 5.0 mm profundidad |
-| **Problema** | Ocupa 98% del ancho del PCB (deja 1.0 mm por lado) |
-| **Impacto** | No permite routing de pistas en L1/L4 junto al header |
+| **Componente** | J21 — Header Arduino UNO R3/Q, 32 pines (14+18) |
+| **Dimensión** | ~68.6 mm de ancho × 53.3 mm de profundidad (patrón UNO Q) |
+| **Problema** | El patrón es inmutable; el Q-Shield debe dejar holgura para USB-C, botón power, JCTL, SPI2/Qwiic |
+| **Impacto** | El routing del shield header debe usar vías a L2/L3 inmediatamente y respetar los keepouts de `docs/UNO_Q_FORM_FACTOR.md` |
 
 **Recomendación:** Es una restricción inherente al factor de forma. Routing de señales del shield header debe usar vías hacia L2/L3 inmediatamente después de los pads. Pistas de potencia del header deben usar la capa PWR (L3).
 
@@ -186,7 +189,7 @@
 
 ---
 
-## 5. Layout de Zonas Propuesto (100 × 100 mm)
+## 5. Layout de Zonas Propuesto (100 × 120 mm — dimensiones ajustables)
 
 ### 5.1 Mapa de Zonas Actualizado
 
