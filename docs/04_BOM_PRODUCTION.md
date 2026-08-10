@@ -16,12 +16,12 @@
 |-----------|-------------|--------------------------|---------------------------|
 | Protección y potencia | 22 | $4.85 | $3.90 |
 | Analógico (sensores) | 28 | $3.20 | $2.60 |
-| Digital (I2C, HX711) | 12 | $1.80 | $1.45 |
+| Digital (I2C, RS485 bridge, HX711) | 18 | $4.50 | $3.60 |
 | Actuadores (drivers) | 18 | $5.50 | $4.40 |
 | Conectores | 21 | $6.30 | $5.10 |
 | Pasivos (R, C) | 45 | $1.20 | $0.95 |
 | PCB fabricación (4 capas, ENIG) | 1 | $8.00 | $4.50 |
-| **TOTAL PCB Q-Shield®** | **147** | **$30.85** | **$22.90** |
+| **TOTAL PCB Q-Shield®** | **153** | **$33.55** | **$25.05** |
 
 > Los precios son estimados para componentes comprados en Digi-Key/Mouser con cantidades de 100 y 1000 unidades respectivamente. Los sensores y actuadores externos NO están incluidos (ver `HARDWARE_BUYING_GUIDE.md`).
 
@@ -76,7 +76,7 @@
 | U23 | 1 | Single inverter | SN74LVC1G04 | SOT-353/SC-70-5 | SN74LVC1G04DCKR | 296-11602-1-ND | $0.35 |
 | Y1 | 1 | Crystal | 1.8432 MHz | HC-49-SD SMD | ABLS-1.8432MHZ-B4-T | 535-9930-1-ND | $0.45 |
 | C31, C32 | 2 | Capacitor, carga cristal | 22 pF C0G 50V | 0402 | CL05C220JB5NNNC | 1276-1013-1-ND | $0.01 |
-| C33 | 1 | Capacitor, desacoplo U22 | 100 nF X7R 50V | 0402 | CL05B104KO5NNNC | 1276-1000-1-ND | $0.01 |
+| C33 | 1 | Capacitor, desacoplo U22 | 100 nF X7R 50V | 0402 | CL05B104KO5NNNC | 1276-1001-1-ND | $0.01 |
 | R38 | 1 | Resistor, pull-up IRQ | 10 kΩ ±1% | 0402 | CRCW040210K0FKED | 541-10.0KLCT-ND | $0.02 |
 
 ---
@@ -114,7 +114,7 @@
 | J_HMI | 1 | JST-XH header, HMI UART | 4 (5V/TX/RX/GND) | B4B-XH-A(LF)(SN) | 455-2249-ND | $0.15 |
 | J17 | 1 | DC barrel jack, 2.1×5.5mm | 3 | PJ-002AH | CP-002AH-ND | $0.75 |
 | J18–J20 | 3 | Terminal block, 2-pin | 2 | 1757229 (Phoenix Contact) | 277-1273-ND | $0.52 |
-| J21 | 1 | Pin header, 2×20 stackable | 40 | — (Arduino shield header set) | — | $1.50 |
+| J21 | 1 | Arduino UNO Q shield header | 32 | — (Arduino UNO R3/Q shield header set) | — | $1.50 |
 
 ---
 
@@ -167,15 +167,16 @@
 
 ## 11. Componentes por Tier (DNP en tiers inferiores)
 
-### Essential (Componentes a poblar: 98 de 147)
+### Essential (Componentes a poblar: 98 de 153)
 
-No poblar: CO₂ presión (A2), DO (A3), Humedad (A5), Motor driver (U7, Q1-Q2, U8-U9), CO₂ relay (K2, U10), CO₂ regulador (Q5), Chiller relay (K1, U11), Cell density connector (J9), y sus pasivos asociados.
+No poblar: CO₂ presión (A2), DO (A3), Humedad (A5), Motor driver (U7, Q1-Q2, U8-U9), CO₂ relay (K2, U10), CO₂ regulador (Q5), Chiller relay (K1, U11), RS485 bridge (U22, U23, Y1, C31-C33, R38), Cell density connector (J9), y sus pasivos asociados.
 
-### Insight (Componentes a poblar: 128 de 147)
+### Insight (Componentes a poblar: 134 de 153)
 
+Poblar adicionalmente el bloque RS485/I2C bridge: U22, U23, Y1, C31, C32, C33, R38.
 No poblar: Humedad (A5), Cell density connector (J9), Chiller relay (K1, U11, D6, R9, C14), y pasivos del canal de humedad.
 
-### Signature (Fully populated: 147 de 147)
+### Signature (Fully populated: 153 de 153)
 
 Todos los componentes poblados.
 

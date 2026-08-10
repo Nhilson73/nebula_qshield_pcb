@@ -1,3 +1,5 @@
+import sys
+
 import pcbnew
 import xml.etree.ElementTree as ET
 from pathlib import Path
@@ -88,4 +90,4 @@ def main():
 
 
 if __name__ == '__main__':
-    main()
+    sys.exit(main())
