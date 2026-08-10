@@ -47,8 +47,8 @@
 
 ### Fase 4 — Ruteo Fase A (Potencia)
 - [x] Definir/rellenar plano `GND` en L2 (`In1.Cu`) y cobertura `GND` en `B.Cu`: polígonos extendidos a toda el área del board (100 × 120 mm) y zonas rellenadas con `kicad-cli pcb drc --refill-zones`.
-- [ ] Definir/rellenar planos `3V3_RAIL`, `5V_RAIL`, `12V_RAIL` en `In2.Cu`/`B.Cu` según zonas de potencia. **Bloqueo identificado:** la zona `/12V_RAIL` actualmente tiene un polígono de 100 × 100 mm con prioridad 1 que solapa con las islas `/5V_RAIL` y `/3V3_RAIL` en `In2.Cu`; requiere rediseño como split-planes o islas con prioridades y net-ties antes de rellenar.
-- [ ] Rutear `VIN_12V`, `12V_FUSED`, `5V_RAIL`, `3V3_RAIL`, `EN_UVLO`, `FB` cumpliendo netclasses (`Power`, `HighCurrent`).
+- [x] Definir/rellenar planos `3V3_RAIL`, `5V_RAIL`, `12V_RAIL` en `In2.Cu`/`B.Cu`: el polígono de `/12V_RAIL` (prioridad 1) se extendió a 100 × 120 mm; las islas `/5V_RAIL` y `/3V3_RAIL` (prioridades 2-9) se recortan automáticamente. El split-plane funciona por prioridades y DRC pasa sin violaciones.
+- [ ] Verificar que los planos de potencia conecten todos los pads de `/12V_RAIL`, `/5V_RAIL` y `/3V3_RAIL`; rutear manualmente nets críticas (`VIN_12V`/`12V_FUSED` a través de `FB1`, pines de `U1`/`U2`/`U3`, `EN_UVLO`, `FB`) si el pour no las une, cumpliendo netclasses (`Power`, `HighCurrent`).
 - [ ] Verificar anchos mínimos: señales 0.2 mm, power 0.5 mm, `RelayHV` 1.0 mm / 2.5 mm clearance.
 
 ### Fase 5 — Ruteo Fase B (Señales Insight)
