@@ -49,7 +49,7 @@ Esta auditoría lista los archivos `.md` del repo que contienen información des
 - [Resuelto] **Dimensiones del board:** no se encontró referencia incorrecta en el archivo; verificar mapa ASCII/header.
 - **Header J21:** dice `(2×20, 98mm)`.
 - **Faltan keepouts/cutouts:** no documenta los recortes perimetrales para USB-C, botón de power, `JCTL`, `SPI2`/`Qwiic` aprobados en la re-arquitectura.
-- **Plano GND L2:** documenta "continuo sin interrupciones"; pero con islas `GND_ISO_*` y posibles net-ties `AGND`/`PGND` hay que aclarar dónde GND es continuo y dónde está aislado.
+- [Resuelto] **Plano GND L2:** actualizado para indicar polígono `GND` en `In1.Cu` y `B.Cu` extendido al board 100 × 120 mm; pendiente aclarar islas `GND_ISO_*` y el rediseño split-plane de `In2.Cu` (`/12V_RAIL`/`/5V_RAIL`/`/3V3_RAIL`).
 - **Reglas de diseño vs. JLCPCB:** añadir validación de JLCPCB (4/4 mil, 0.2 mm drill, 0.2 mm track, etc.).
 
 ### 6. `docs/07_KICAD_NETLIST.md`
