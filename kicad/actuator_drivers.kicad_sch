@@ -2725,7 +2725,7 @@
     	)
   )
 
-  (text "ACTUATOR DRIVERS — All opto-isolated from MCU\nMotor: IR2104 half-bridge + IRLZ44N MOSFETs (Insight+)\nRelays: PC817 + 2N7002 + HF46F (Insight+/Signature)\nCO2 PWM: RC filter + Op-amp + MOSFET (Insight+)"
+  (text "ACTUATOR DRIVERS — All opto-isolated from MCU\nMotor/recirculation: IR2104 + IRLZ44N (Insight+)\nGas solenoid (CO2/H2): PC817 + 2N7002 + HF46F (Insight+)\nChiller relay: PC817 + 2N7002 + HF46F (Insight+)\nCO2 PWM proportional valve: DNP all tiers (single gas via solenoid)"
     (at 25.4 15.24 0)
     (effects (font (size 2.54 2.54)) (justify left))
     (uuid "cc398550-9270-4b08-bee2-9001c725c8e7")
@@ -2827,6 +2827,7 @@
     (exclude_from_sim no) (in_bom yes) (on_board yes)
     (uuid "7f8b5360-7d9f-4c9e-a074-b2184b13d445")
     (property "Reference" "D10" (at 149.86 39.37 0) (effects (font (size 1.27 1.27))))
+    (property "DNP" "Essential" (at 0 0 0) (effects (font (size 1.27 1.27)) hide))
     (property "Value" "SS34" (at 149.86 40.64 0) (effects (font (size 1.27 1.27))))
     (property "Footprint" "Diode_SMD:D_SMA" (at 149.86 43.18 0) (effects (font (size 1.27 1.27)) hide))
     (pin "1" (uuid "a3b5d06b-1f3d-4b34-8aa3-e496fca6f71a")) (pin "2" (uuid "84259d06-52b3-4c05-84e1-cff140a1ecd9"))
@@ -2845,6 +2846,7 @@
     (exclude_from_sim no) (in_bom yes) (on_board yes)
     (uuid "add07826-afc5-4ce1-8887-dcceadc491f2")
     (property "Reference" "D11" (at 149.86 57.15 0) (effects (font (size 1.27 1.27))))
+    (property "DNP" "Essential" (at 0 0 0) (effects (font (size 1.27 1.27)) hide))
     (property "Value" "SS34" (at 149.86 58.42 0) (effects (font (size 1.27 1.27))))
     (property "Footprint" "Diode_SMD:D_SMA" (at 149.86 60.96 0) (effects (font (size 1.27 1.27)) hide))
     (pin "1" (uuid "c5e19e97-2db8-4798-ae05-acb9654534ce")) (pin "2" (uuid "6f2ba586-ca86-4534-890f-8e9fa214f3a4"))
@@ -2864,6 +2866,7 @@
     (exclude_from_sim no) (in_bom yes) (on_board yes)
     (uuid "b17c9143-80ff-4b6c-b751-304e00f38fb7")
     (property "Reference" "F2" (at 157.48 46.99 0) (effects (font (size 1.27 1.27))))
+    (property "DNP" "Essential" (at 0 0 0) (effects (font (size 1.27 1.27)) hide))
     (property "Value" "1A PTC" (at 157.48 48.26 0) (effects (font (size 1.27 1.27))))
     (property "Footprint" "Fuse:Fuse_0805_2012Metric" (at 157.48 50.8 0) (effects (font (size 1.27 1.27)) hide))
     (property "MPN" "MF-PSMF110X-2" (at 157.48 50.8 0) (effects (font (size 1.27 1.27)) hide))
@@ -2903,6 +2906,7 @@
   (symbol (lib_id "Device:R") (at 40.64 48.26 0) (unit 1) (exclude_from_sim no) (in_bom yes) (on_board yes)
     (uuid "36705324-af9f-46dc-84bf-5d96061fa659")
     (property "Reference" "R24" (at 43.18 48.26 0) (effects (font (size 1.27 1.27)) (justify left)))
+    (property "DNP" "Essential" (at 0 0 0) (effects (font (size 1.27 1.27)) hide))
     (property "Value" "1k" (at 43.18 49.53 0) (effects (font (size 1.27 1.27)) (justify left)))
     (property "Footprint" "Resistor_SMD:R_0402_1005Metric" (at 40.64 48.26 0) (effects (font (size 1.27 1.27)) hide))
     (pin "1" (uuid "10971a9d-13bb-44b0-8730-2f87339b759d")) (pin "2" (uuid "1a5e39b9-5c52-4dd3-8ab1-6799ca1e7d12"))
@@ -2918,6 +2922,7 @@
   (symbol (lib_id "Device:R") (at 40.64 53.34 0) (unit 1) (exclude_from_sim no) (in_bom yes) (on_board yes)
     (uuid "d624fe98-1aeb-4c3d-9007-3adc73e710b5")
     (property "Reference" "R25" (at 43.18 53.34 0) (effects (font (size 1.27 1.27)) (justify left)))
+    (property "DNP" "Essential" (at 0 0 0) (effects (font (size 1.27 1.27)) hide))
     (property "Value" "1k" (at 43.18 54.61 0) (effects (font (size 1.27 1.27)) (justify left)))
     (property "Footprint" "Resistor_SMD:R_0402_1005Metric" (at 40.64 53.34 0) (effects (font (size 1.27 1.27)) hide))
     (pin "1" (uuid "15f30e77-ca26-4108-a924-fc1b96ffc2ae")) (pin "2" (uuid "dcbcd475-62e2-453c-ae01-3ab0cc77d5c3"))
@@ -2931,7 +2936,7 @@
     )
   )
 
-  (text "CO2 SOLENOID RELAY — Insight+\nMCU D7 → R16 → PC817 → 2N7002 → Relay K2"
+  (text "GAS SOLENOID RELAY (CO2/H2) — Insight+\nMCU CO2_SOL_CTL → R26 → U18 → Q3 → Relay K1 → J18"
     (at 25.4 88.9 0)
     (effects (font (size 1.524 1.524)))
     (uuid "1730c8d7-4231-4e73-8989-0188f49e6314")
@@ -2940,6 +2945,7 @@
   (symbol (lib_id "Device:R") (at 40.64 101.6 0) (unit 1) (exclude_from_sim no) (in_bom yes) (on_board yes)
     (uuid "8aeee4d2-1244-41bd-9009-9118c61912a9")
     (property "Reference" "R26" (at 43.18 101.6 0) (effects (font (size 1.27 1.27)) (justify left)))
+    (property "DNP" "Essential" (at 0 0 0) (effects (font (size 1.27 1.27)) hide))
     (property "Value" "1k" (at 43.18 102.87 0) (effects (font (size 1.27 1.27)) (justify left)))
     (property "Footprint" "Resistor_SMD:R_0402_1005Metric" (at 40.64 101.6 0) (effects (font (size 1.27 1.27)) hide))
     (pin "1" (uuid "7cd59f1f-1654-48b9-a02d-928824873e1d")) (pin "2" (uuid "5f72106f-c11f-495c-90d9-42c026791846"))
@@ -3020,6 +3026,7 @@
   (symbol (lib_id "Diode:1N4148W") (at 99.06 93.98 0) (unit 1) (exclude_from_sim no) (in_bom yes) (on_board yes)
     (uuid "907783f2-4dfa-4813-80e4-4a22ac17bd8b")
     (property "Reference" "D12" (at 99.06 90.17 0) (effects (font (size 1.27 1.27))))
+    (property "DNP" "Essential" (at 0 0 0) (effects (font (size 1.27 1.27)) hide))
     (property "Value" "1N4148W" (at 99.06 91.44 0) (effects (font (size 1.27 1.27))))
     (property "Footprint" "Diode_SMD:D_SOD-323" (at 99.06 93.98 0) (effects (font (size 1.27 1.27)) hide))
     (pin "1" (uuid "d7e15b1c-3af8-4ee8-a7e5-bec2a8426992")) (pin "2" (uuid "a91e911b-6b8e-4328-b10e-131855fa8f92"))
@@ -3054,6 +3061,7 @@
   (symbol (lib_id "Device:Polyfuse") (at 119.38 101.6 0) (unit 1) (exclude_from_sim no) (in_bom yes) (on_board yes)
     (uuid "367886bb-76d2-4218-b670-81f58e7446d5")
     (property "Reference" "F3" (at 119.38 97.79 0) (effects (font (size 1.27 1.27))))
+    (property "DNP" "Essential" (at 0 0 0) (effects (font (size 1.27 1.27)) hide))
     (property "Value" "0.5A PTC" (at 119.38 99.06 0) (effects (font (size 1.27 1.27))))
     (property "Footprint" "Fuse:Fuse_0805_2012Metric" (at 119.38 101.6 0) (effects (font (size 1.27 1.27)) hide))
     (property "MPN" "MF-PSMF050X-2" (at 119.38 101.6 0) (effects (font (size 1.27 1.27)) hide))
@@ -3068,7 +3076,7 @@
     )
   )
 
-  (text "CHILLER RELAY — Signature only\nMCU D6 → R15 → PC817 → 2N7002 → Relay K1"
+  (text "CHILLER RELAY — Insight+\nMCU CHILLER_CTL → R27 → U19 → Q4 → Relay K2 → J19"
     (at 25.4 127.0 0)
     (effects (font (size 1.524 1.524)))
     (uuid "e496e8f6-bb59-4f6c-94c9-74d8ede02e4f")
@@ -3077,6 +3085,7 @@
   (symbol (lib_id "Device:R") (at 40.64 139.7 0) (unit 1) (exclude_from_sim no) (in_bom yes) (on_board yes)
     (uuid "29aba8fc-69e0-465d-8f4f-858440a6d4eb")
     (property "Reference" "R27" (at 43.18 139.7 0) (effects (font (size 1.27 1.27)) (justify left)))
+    (property "DNP" "Essential" (at 0 0 0) (effects (font (size 1.27 1.27)) hide))
     (property "Value" "1k" (at 43.18 140.97 0) (effects (font (size 1.27 1.27)) (justify left)))
     (property "Footprint" "Resistor_SMD:R_0402_1005Metric" (at 40.64 139.7 0) (effects (font (size 1.27 1.27)) hide))
     (pin "1" (uuid "f507eade-37ce-4257-8b59-27b4e0d8e3ff")) (pin "2" (uuid "5c45ca9e-a1db-4576-9f90-4065abeabc4f"))
@@ -3098,7 +3107,7 @@
     (property "Reference" "U19" (at 63.5 132.08 0) (effects (font (size 1.27 1.27))))
     (property "Value" "PC817X1NIP" (at 63.5 134.62 0) (effects (font (size 1.27 1.27))))
     (property "Footprint" "Package_DIP:DIP-4_W7.62mm" (at 63.5 139.7 0) (effects (font (size 1.27 1.27)) hide))
-    (property "DNP" "Essential,Insight" (at 63.5 139.7 0) (effects (font (size 1.27 1.27)) hide))
+    (property "DNP" "Essential" (at 63.5 139.7 0) (effects (font (size 1.27 1.27)) hide))
     (pin "1" (uuid "4e723073-91ba-4800-9b14-114f0806335a")) (pin "2" (uuid "2cc2814e-f3a0-438e-80bb-5f61f85063ec"))
     (pin "3" (uuid "95068756-b198-4b9e-b544-fb2fa1f1a719")) (pin "4" (uuid "c4d44fdb-38fa-41b4-8b3b-77d962aca216"))
   
@@ -3119,7 +3128,7 @@
     (property "Reference" "Q4" (at 91.44 139.7 0) (effects (font (size 1.27 1.27)) (justify left)))
     (property "Value" "2N7002" (at 91.44 140.97 0) (effects (font (size 1.27 1.27)) (justify left)))
     (property "Footprint" "Package_TO_SOT_SMD:SOT-23" (at 86.36 139.7 0) (effects (font (size 1.27 1.27)) hide))
-    (property "DNP" "Essential,Insight" (at 86.36 139.7 0) (effects (font (size 1.27 1.27)) hide))
+    (property "DNP" "Essential" (at 86.36 139.7 0) (effects (font (size 1.27 1.27)) hide))
     (pin "1" (uuid "c7fee23d-2243-46aa-9f6b-abf67d0bcd74")) (pin "2" (uuid "93249ca1-3434-4d0f-aff6-fc22eca3e5f3")) (pin "3" (uuid "75d2c0ee-78f4-442f-a468-8493debc53bb"))
   
     (instances
@@ -3136,7 +3145,7 @@
     (property "Reference" "K2" (at 104.14 129.54 0) (effects (font (size 1.27 1.27))))
     (property "Value" "HF46F-12-HS1" (at 104.14 132.08 0) (effects (font (size 1.27 1.27))))
     (property "Footprint" "Relay_THT:Relay_SPDT_Omron_G5V-1" (at 104.14 139.7 0) (effects (font (size 1.27 1.27)) hide))
-    (property "DNP" "Essential,Insight" (at 104.14 139.7 0) (effects (font (size 1.27 1.27)) hide))
+    (property "DNP" "Essential" (at 104.14 139.7 0) (effects (font (size 1.27 1.27)) hide))
     (pin "1" (uuid "49c17eea-ce1b-4d69-9c9d-e62d5f12579e")) (pin "2" (uuid "4a66fd3f-34e0-4ff9-946d-9dbe59c1a3af"))
     (pin "3" (uuid "b30c6533-05cb-4822-baa1-db6093fad559")) (pin "4" (uuid "b7c11476-7b66-4799-97e4-a3648a82aabc"))
   
@@ -3152,6 +3161,7 @@
   (symbol (lib_id "Diode:1N4148W") (at 99.06 132.08 0) (unit 1) (exclude_from_sim no) (in_bom yes) (on_board yes)
     (uuid "84b3606e-c5e6-4bfb-8116-9a3e3369e319")
     (property "Reference" "D13" (at 99.06 128.27 0) (effects (font (size 1.27 1.27))))
+    (property "DNP" "Essential" (at 0 0 0) (effects (font (size 1.27 1.27)) hide))
     (property "Value" "1N4148W" (at 99.06 129.54 0) (effects (font (size 1.27 1.27))))
     (property "Footprint" "Diode_SMD:D_SOD-323" (at 99.06 132.08 0) (effects (font (size 1.27 1.27)) hide))
     (pin "1" (uuid "2d108c55-8f52-4417-b52e-4aaae733eac9")) (pin "2" (uuid "1d085447-b76e-454b-b8f5-a2da00566685"))
@@ -3171,7 +3181,7 @@
     (property "Value" "Chiller" (at 127 134.62 0) (effects (font (size 1.27 1.27))))
     (property "Footprint" "TerminalBlock_Phoenix:TerminalBlock_Phoenix_PT-1,5-2-5.0-H_1x02_P5.00mm_Horizontal"
       (at 127 139.7 0) (effects (font (size 1.27 1.27)) hide))
-    (property "DNP" "Essential,Insight" (at 127 139.7 0) (effects (font (size 1.27 1.27)) hide))
+    (property "DNP" "Essential" (at 127 139.7 0) (effects (font (size 1.27 1.27)) hide))
     (pin "1" (uuid "dc9bfd27-2a14-4368-8578-858372d6c9eb")) (pin "2" (uuid "511b2812-49d6-4efd-b195-b65ec6c08e45"))
   
     (instances
@@ -3186,6 +3196,7 @@
   (symbol (lib_id "Device:Polyfuse") (at 119.38 139.7 0) (unit 1) (exclude_from_sim no) (in_bom yes) (on_board yes)
     (uuid "19d780a8-7f87-4288-982a-f8b2a52a8243")
     (property "Reference" "F4" (at 119.38 135.89 0) (effects (font (size 1.27 1.27))))
+    (property "DNP" "Essential" (at 0 0 0) (effects (font (size 1.27 1.27)) hide))
     (property "Value" "0.5A PTC" (at 119.38 137.16 0) (effects (font (size 1.27 1.27))))
     (property "Footprint" "Fuse:Fuse_0805_2012Metric" (at 119.38 139.7 0) (effects (font (size 1.27 1.27)) hide))
     (pin "1" (uuid "772c490b-ee71-4cab-ab63-02b96dac3539")) (pin "2" (uuid "0ef23079-20bf-4d4a-91b0-afcb31b3d067"))
@@ -3199,7 +3210,7 @@
     )
   )
 
-  (text "CO2 PWM FLOW REGULATOR — Insight+\nMCU D9 PWM → RC filter (10k/100nF) → MCP6002 Gain 3.6x → IRLZ44N → Valve"
+  (text "GAS PWM FLOW REGULATOR — DNP all tiers\nSingle gas output uses solenoid K1/J18; U20/Q5/D14/R28/C27/J22 not populated"
     (at 25.4 165.1 0)
     (effects (font (size 1.524 1.524)))
     (uuid "6532db57-a265-4ada-8289-5f0940929cd0")
@@ -3208,6 +3219,7 @@
   (symbol (lib_id "Device:R") (at 50.8 177.8 90) (unit 1) (exclude_from_sim no) (in_bom yes) (on_board yes)
     (uuid "270b7ce0-b762-444a-8545-4de4e267da8e")
     (property "Reference" "R28" (at 50.8 175.26 0) (effects (font (size 1.27 1.27))))
+    (property "DNP" "All" (at 0 0 0) (effects (font (size 1.27 1.27)) hide))
     (property "Value" "10k" (at 50.8 180.34 0) (effects (font (size 1.27 1.27))))
     (property "Footprint" "Resistor_SMD:R_0402_1005Metric" (at 50.8 177.8 0) (effects (font (size 1.27 1.27)) hide))
     (pin "1" (uuid "13647dd5-6aac-4a42-b679-738fa6d41ca2")) (pin "2" (uuid "c3499c93-3b8d-4900-b7c6-3ebbdae79979"))
@@ -3223,6 +3235,7 @@
   (symbol (lib_id "Device:C") (at 63.5 182.88 0) (unit 1) (exclude_from_sim no) (in_bom yes) (on_board yes)
     (uuid "e0662a1e-2719-4eb2-800c-93285264f35e")
     (property "Reference" "C27" (at 66.04 182.88 0) (effects (font (size 1.27 1.27)) (justify left)))
+    (property "DNP" "All" (at 0 0 0) (effects (font (size 1.27 1.27)) hide))
     (property "Value" "100nF" (at 66.04 184.15 0) (effects (font (size 1.27 1.27)) (justify left)))
     (property "Footprint" "Capacitor_SMD:C_0402_1005Metric" (at 63.5 182.88 0) (effects (font (size 1.27 1.27)) hide))
     (pin "1" (uuid "28bfde2d-dde2-48ed-9493-4ed59ef7e2ac")) (pin "2" (uuid "03056b44-43fb-45fc-a24c-dbee19922b2a"))
@@ -3238,6 +3251,7 @@
   (symbol (lib_id "Amplifier_Operational:MCP6002-xSN") (at 83.82 177.8 0) (unit 2) (exclude_from_sim no) (in_bom yes) (on_board yes)
     (uuid "599ee076-414f-459d-a0d4-2cfcbfccc268")
     (property "Reference" "U20" (at 83.82 170.18 0) (effects (font (size 1.27 1.27))))
+    (property "DNP" "All" (at 0 0 0) (effects (font (size 1.27 1.27)) hide))
     (property "Value" "MCP6002" (at 83.82 172.72 0) (effects (font (size 1.27 1.27))))
     (property "Footprint" "Package_SO:SOIC-8_3.9x4.9mm_P1.27mm" (at 83.82 177.8 0) (effects (font (size 1.27 1.27)) hide))
     (pin "1" (uuid "efa18a88-e021-4df9-b230-ce2e32b5e3a0")) (pin "2" (uuid "296c2b0f-f105-4c4b-8d56-4d044d1a1a53")) (pin "3" (uuid "4433364a-ed5e-4827-8f2e-a11f44c3fd8d"))
@@ -3255,7 +3269,7 @@
     (property "Reference" "Q5" (at 114.3 177.8 0) (effects (font (size 1.27 1.27)) (justify left)))
     (property "Value" "IRLZ44NPBF" (at 114.3 179.07 0) (effects (font (size 1.27 1.27)) (justify left)))
     (property "Footprint" "Package_TO_SOT_THT:TO-220-3_Vertical" (at 109.22 177.8 0) (effects (font (size 1.27 1.27)) hide))
-    (property "DNP" "Essential" (at 109.22 177.8 0) (effects (font (size 1.27 1.27)) hide))
+    (property "DNP" "All" (at 109.22 177.8 0) (effects (font (size 1.27 1.27)) hide))
     (pin "1" (uuid "b705c2a4-c63c-484b-9b03-7cd87f8f07a0")) (pin "2" (uuid "0c4e30d4-9011-4bac-81a1-297dd4d7ab6b")) (pin "3" (uuid "15d881c6-b16f-4ff2-99ff-977dd3b4b600"))
   
     (instances
@@ -3269,6 +3283,7 @@
   (symbol (lib_id "Diode:SS34") (at 121.92 177.8 0) (unit 1) (exclude_from_sim no) (in_bom yes) (on_board yes)
     (uuid "b7e83bcc-f14b-41b4-be67-330b1e05c6d6")
     (property "Reference" "D14" (at 121.92 173.99 0) (effects (font (size 1.27 1.27))))
+    (property "DNP" "All" (at 0 0 0) (effects (font (size 1.27 1.27)) hide))
     (property "Value" "SS34" (at 121.92 175.26 0) (effects (font (size 1.27 1.27))))
     (property "Footprint" "Diode_SMD:D_SMA" (at 121.92 177.8 0) (effects (font (size 1.27 1.27)) hide))
     (pin "1" (uuid "8d33a2b5-a04f-4157-bf5a-e56b450ce8b5")) (pin "2" (uuid "76be1c77-5ade-4a6e-8b7d-fe498dec1f43"))
@@ -3294,6 +3309,7 @@
 
   (symbol (lib_id "Connector_Generic:Conn_01x02_Pin") (at 139.7 177.8 0) (unit 1) (exclude_from_sim no) (in_bom yes) (on_board yes)
     (property "Reference" "J22" (at 139.7 172.72 0) (effects (font (size 1.27 1.27))))
+    (property "DNP" "All" (at 0 0 0) (effects (font (size 1.27 1.27)) hide))
     (property "Value" "CO2 Valve" (at 139.7 175.26 0) (effects (font (size 1.27 1.27))))
     (property "Footprint" "Connector_Phoenix_MC:PhoenixContact_MC_1,5_2-G-3.81_1x02_P3.81mm_Horizontal" (at 139.7 177.8 0) (effects (font (size 1.27 1.27)) hide))
     (property "Datasheet" "" (at 139.7 177.8 0) (effects (font (size 1.27 1.27)) hide))

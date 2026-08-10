@@ -157,7 +157,7 @@
       (pin "RS485_IRQ" input (at 170.18 76.20 0) (effects (font (size 1.27 1.27)) (justify left)) (uuid "c32cf3cb-d95e-4511-afad-c3dd69a7cc2a"))
   )
 
-  (text "NEBULA Q-SHIELD® — Hierarchical Root Schematic\n\nIndustrial fermentation monitor shield for Arduino UNO Q (4GB)\n12 sensors, 3 actuators, 3 tiers (Essential/Insight/Signature)\nSingle PCB with DNP component selection per tier\n\nDesign decisions:\n- Galvanic isolation: ON-BOARD (Option A) for all wet sensors\n- Display: HMI UART (Nextion/Stone) — NOT HDMI\n- Watchdog: TPS3823 populated ALL tiers\n- RS485: DNP option for Hamilton Incyte/Dencytee\n- Connectors: All polarized/keyed, plug-and-play"
+  (text "NEBULA Q-SHIELD® — Hierarchical Root Schematic\n\nIndustrial fermentation monitor shield for Arduino UNO Q\nTiers (Essential/Insight/Signature) via DNP component selection\n\nTier mapping:\n- Essential: GPS, RTC/timestamp, temp, pH, ORP\n- Insight: Essential + load cells, DO, CO2 pressure, chiller, recirculation, gas solenoid\n- Signature: Insight + Hamilton TCD + ACD via RS485\n\nDesign decisions:\n- Galvanic isolation: ON-BOARD for all wet sensors\n- Display: HMI UART (Nextion/Stone)\n- Watchdog: TPS3823 populated all tiers\n- I2C pull-ups on D20/D21; A4/A5 reserved for CO2_ADC/DO_ADC\n- Humidity channel removed; J7 and passives DNP all tiers\n- Single gas output: solenoid J18; PWM regulator J22/U20 DNP\n- Connectors: All polarized/keyed, plug-and-play"
     (at 25.4 25.4 0)
     (effects (font (size 2.54 2.54)) (justify left))
     (uuid "87d128fd-8841-4680-899c-07eea2118cbc")

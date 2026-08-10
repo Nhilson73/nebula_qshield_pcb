@@ -1,6 +1,6 @@
 # Hoja de Ruta — Fabricación JLCPCB Nebula Fermentation® Insight
 
-**Meta:** Liberar el PCB `Nebula Q-Shield` para fabricación en [JLCPCB](https://jlcpcb.com/) con el tier **Insight** (pH, ORP, temperatura, CO₂, DO, bomba, celda de carga, I2C/RS485). El tier **Signature** (humedad, chiller, cell density) se habilita después vía BOM/variante sin cambiar el PCB.
+**Meta:** Liberar el PCB `Nebula Q-Shield` para fabricación en [JLCPCB](https://jlcpcb.com/) con el tier **Insight** (GPS, RTC, pH, ORP, temperatura, CO₂, DO, bomba, celda de carga, chiller, gas solenoide). El tier **Signature** añade sensores de densidad celular Hamilton (TCD + ACD) vía RS485; el canal de humedad queda eliminado/DNP y la válvula PWM de gas queda DNP en todos los tiers.
 
 **Repo válido de firmware:** `Nhilson73/Nebula_ArduinoAPPLab_UNOQ` (`nebula_qshield/sketch/sketch.ino`).  
 **Repo en standby:** `Nhilson73/Nebula_UNOQ_ArduinoIDE_Core` (no usar para esta bitácora).
@@ -61,9 +61,10 @@
 ### Fase 6 — Ruteo Fase C (Actuadores, limpieza, DRC)
 - [ ] Rutear actuadores Insight:
   - `PUMP_PWM` (D5) y `PUMP_DIR` (D6)
-  - `CO2_SOL_CTL` (D7)
-  - `CO2_PWM` (D9)
-- [ ] Dejar `CHILLER_CTL` (D8) y `HUM_ADC` (A3) poblables para Signature sin romper Insight.
+  - `CO2_SOL_CTL` (D7) → solenoide único de gas (CO₂/H₂) en J18
+  - `CHILLER_CTL` (D8) → relé K2/J19
+  - `CO2_PWM` (D9) → DNP all tiers (válvula proporcional no poblada)
+- [ ] Canal `/HUM_ADC` (A3) eliminado; no rutear a conector.
 - [ ] Aplicar pase FreeRouting controlado o manual para nets restantes.
 - [ ] Limpieza de silkscreen, revisión de `silk_overlap` y `silk_edge_clearance`.
 - [ ] `kicad-cli sch erc --severity-all` = 0 violaciones.
@@ -99,7 +100,7 @@
 | 9 | `A0/D14` | `/PH_ADC` |
 | 10 | `A1/D15` | `/ORP_ADC` |
 | 11 | `A2/D16` | `/TEMP_ADC` |
-| 12 | `A3/D17` | `/HUM_ADC` (DNP Insight / Signature) |
+| 12 | `A3/D17` | `/HUM_ADC` — canal humedad eliminado; DNP all tiers |
 | 13 | `A4/D18` | `/CO2_ADC` |
 | 14 | `A5/D19` | `/DO_ADC` |
 | 15 | `D0` | `/HMI_RX` |
@@ -110,8 +111,8 @@
 | 20 | `D5` | `/PUMP_PWM` |
 | 21 | `D6` | `/PUMP_DIR` |
 | 22 | `D7` | `/CO2_SOL_CTL` |
-| 23 | `D8` | `/CHILLER_CTL` (DNP Insight / Signature) |
-| 24 | `D9` | `/CO2_PWM` |
+| 23 | `D8` | `/CHILLER_CTL` — Insight+ |
+| 24 | `D9` | `/CO2_PWM` — DNP all tiers (gas único por solenoide D7/K1/J18) |
 | 25 | `D10` | `/RS485_IRQ` |
 | 26 | `~D11` | NC |
 | 27 | `D12` | NC |
@@ -129,3 +130,4 @@
 - `2026-07-09`: Fase 0 completada. Netlist generado con `kicad-cli sch export netlist` (KiCad 10.0.5) confirma que `J21` pines 9–32 coinciden con `sketch.ino` de `Nebula_ArduinoAPPLab_UNOQ`. ERC `--severity-all` = 0 violaciones. Se corrigieron comentarios desactualizados en `analog_acquisition.kicad_sch` y `hmi_connectors.kicad_sch`.
 - `2026-07-09`: Se creó `docs/UNO_Q_FORM_FACTOR.md` como referencia permanente del factor de forma UNO Q y se corrigió el footprint `Arduino_UNO_Q_Shield` (`kicad/lib/nebula_footprints.pretty/Arduino_UNO_Q_Shield.kicad_mod`) para que la fila digital vaya de `D21/SCL` (pin 32) a `D0` (pin 15), coincidiendo con el CAD oficial del UNO Q. Se añadió nota: el Q-Shield puede cambiar de tamaño, pero el patrón de headers/orificios UNO Q no.
 - `2026-07-09`: Fase 2 — mecánica y Edge.Cuts. Se eliminó el rectángulo `F.SilkS` del footprint `Arduino_UNO_Q_Shield` (PCB y librería) para resolver los warnings de ese footprint contra los recortes interiores del board; se limpió un paréntesis de cierre huérfano en `Edge.Cuts`. Validación: `kicad-cli pcb drc --severity-error` = 0 violaciones; `kicad-cli sch erc --severity-all` = 0 violaciones. El DRC `--severity-warning` reporta **447 warnings** (199 `silk_overlap`, 199 `silk_over_copper`, 43 `silk_edge_clearance`, 5 `isolated_copper`, 1 `lib_footprint_mismatch`), producto del placement denso y de que el board aún no está ruteado; se abordarán en Fases 4–5. Se ajustó `docs/INSIGHT_FABRICATION_ROADMAP.md`, `docs/08_MECHANICAL_ANALYSIS.md` y `04_BOM_PRODUCTION.md`; se corrigieron los 5 findings de Devin Review de PR #40 (`sexpr.py`, `compare_pcb_to_netlist.py`, `apply_phase1_minimal.py`, posición de `C31/C32/C33`, y BOM de los 7 componentes RS485 bridge).
+- `2026-07-09`: Redefinición de tiers. Se fijó: **Essential** (GPS, RTC, temp, pH, ORP), **Insight** (Essential + CO₂, DO, HX711, chiller, recirculación, solenoide gas), **Signature** (Insight + TCD + ACD Hamilton por RS485). Humedad y válvula PWM quedan DNP en todos los tiers. Se actualizaron propiedades `DNP` en todos los esquemáticos (`analog_acquisition`, `digital_i2c`, `actuator_drivers`, `power_management`), comentarios de hoja y texto, `docs/04_BOM_PRODUCTION.md` (sección 11) y esta bitácora. Validación: `kicad-cli sch erc --severity-all` = 0 violaciones; `kicad-cli pcb drc --severity-error` = 0 violaciones (332 desconectados baseline).

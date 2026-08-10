@@ -4,7 +4,7 @@
 >
 > **Clasificación:** Producción — Lista de Materiales
 >
-> **PCB:** Q-Shield v1.0 · **Tier:** Signature (fully populated)
+> **PCB:** Q-Shield v1.0 · **Tier base:** Essential® / **Target producción:** Insight® / **Máximo:** Signature® · **Total placements:** 155 unique · **DNP field = tiers where NOT populated**
 >
 > **Todos los componentes son RoHS 3 conformes (2011/65/EU + 2015/863)**
 
@@ -167,18 +167,22 @@
 
 ## 11. Componentes por Tier (DNP en tiers inferiores)
 
-### Essential (Componentes a poblar: 98 de 153)
+**Convención DNP:** el campo `DNP` indica los tiers en los que el componente **NO** se pobla. `NO` = poblado en todos los tiers; `Essential` = DNP en Essential (poblado en Insight/Signature); `Essential,Insight` = DNP en Essential/Insight (poblado en Signature); `Essential,Insight,Signature`/`All` = DNP siempre; `Optional` = no incluido por defecto.
 
-No poblar: CO₂ presión (A2), DO (A3), Humedad (A5), Motor driver (U7, Q1-Q2, U8-U9), CO₂ relay (K2, U10), CO₂ regulador (Q5), Chiller relay (K1, U11), RS485 bridge (U22, U23, Y1, C31-C33, R38), Cell density connector (J9), y sus pasivos asociados.
+### Essential (Componentes a poblar: 80 de 155)
 
-### Insight (Componentes a poblar: 134 de 153)
+- Sí: GPS (J8), RTC/timestamp (J9), temperatura (J6), pH (J2 + front-end U4-U6/T1), ORP (J3 + U7-U9/T2), watchdog (U3/R35/C11), HMI (J20), conectores Qwiic/EZO, power management.
+- No poblar: CO₂ presión (J4, U10, D5/R11/C18/R12), DO (J5, U11-U13/T3 + D23/D24/C30), celdas de carga (HX711 U14, J15, R21/C25/C26), motor recirculación (U16-U17, Q1-Q2, J17), solenoide gas (U18, Q3, K1, J18), chiller (U19, Q4, K2, J19), RS485 Hamilton (U15, U22-U23, Y1, C31-C33, R38, J16), sensor humedad (J7, D8, R17/R18/C23), válvula PWM (U20, Q5, D14, R28, C27, J22) y J10 (cell density Qwiic).
 
-Poblar adicionalmente el bloque RS485/I2C bridge: U22, U23, Y1, C31, C32, C33, R38.
-No poblar: Humedad (A5), Cell density connector (J9), Chiller relay (K1, U11, D6, R9, C14), y pasivos del canal de humedad.
+### Insight (Componentes a poblar: 129 de 155)
 
-### Signature (Fully populated: 153 de 153)
+Poblar todo lo de Essential más: HX711 + J15, canal CO₂ (J4/U10 + pasivos), canal DO (J5/U11-U13/T3 + pasivos), driver motor recirculación (U16-U17/Q1-Q2/J17), relés solenoide gas (U18/Q3/K1/J18) y chiller (U19/Q4/K2/J19).
+No poblar: canal humedad (J7 y pasivos), válvula PWM (U20/Q5/J22), RS485 Hamilton y J10 (Signature).
 
-Todos los componentes poblados.
+### Signature (Componentes a poblar: 138 de 155)
+
+Poblar todo lo de Insight más el puente RS485 (U15, U22, U23, Y1, C31-C33, R38, J16) para sensores Hamilton TCD + ACD.
+No poblar: canal humedad (J7 y pasivos), válvula PWM (U20/Q5/J22), J10 y componentes marcados `All`/`Optional`.
 
 ---
 
