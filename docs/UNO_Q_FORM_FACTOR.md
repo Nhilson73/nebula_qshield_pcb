@@ -1,6 +1,6 @@
 # UNO Q Form-Factor Reference for Nebula Q-Shield
 
-> **Immutable design rule:** the Arduino UNO Q header/mounting pattern must be preserved inside the Nebula Q-Shield so the shield can be stacked on the UNO Q without mechanical or electrical conflicts. The outer dimensions of the Q-Shield (100 mm × 100 mm by default, or 100 mm × 120 mm if needed) can change, but the UNO Q pattern and keepouts cannot.
+> **Immutable design rule:** the Arduino UNO Q header/mounting pattern must be preserved inside the Nebula Q-Shield so the shield can be stacked on the UNO Q without mechanical or electrical conflicts. The outer dimensions of the Q-Shield (100 mm × 120 mm for the current design) can change, but the UNO Q pattern and keepouts cannot.
 
 ## 1. Source documents
 
@@ -124,7 +124,7 @@ This means the leftmost pin of the digital header is `D21/SCL` (pin 32) and the 
 
 ### 4.3 Q-Shield outline example
 
-If the Q-Shield is **100 mm × 100 mm** and `J21` is placed with the UNO Q lower-left at `(5.08, 35.56)` of the Q-Shield, the resulting absolute coordinates are the ones listed in the table above plus the offset. The shield must still leave clearance for the UNO Q connectors listed in section 2.
+If the Q-Shield is **100 mm × 120 mm** and `J21` is placed with the UNO Q lower-left at `(5.08, 35.56)` of the Q-Shield, the resulting absolute coordinates are the ones listed in the table above plus the offset. The shield must still leave clearance for the UNO Q connectors listed in section 2.
 
 ## 5. Design checklist for every Q-Shield revision
 

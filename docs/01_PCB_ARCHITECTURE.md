@@ -14,7 +14,7 @@
 
 | Parámetro | Valor | Justificación |
 |-----------|-------|---------------|
-| **Dimensiones** | 100 × 100 mm | Factor de forma para acople con Arduino UNO Q |
+| **Dimensiones** | 100 × 120 mm (puede variar) | Factor de forma para acople con Arduino UNO Q; el patrón UNO Q es inmutable |
 | **Capas** | 4 (Signal–GND–Power–Signal) | EMC Clase B, aislamiento analógico/digital |
 | **Espesor total** | 1.6 mm ± 10% | Estándar IPC-2221B |
 | **Material base** | FR-4 Tg 170°C (IT-180A o equivalente) | Operación hasta +55°C ambiente |
@@ -502,7 +502,7 @@ Cada IC recibe un capacitor de desacoplo lo más cerca posible de sus pines VCC/
 
 ```
     ┌──────────────────────────────────────────────────────────────────────────────────┐
-    │                        Q-SHIELD TOP VIEW (100 × 100 mm)                          │
+    │                        Q-SHIELD TOP VIEW (100 × 120 mm)                          │
     │                                                                                  │
     │  ┌──────────────────────┐  ┌────────────────────────────────────────────────┐   │
     │  │ ZONA POTENCIA        │  │    ZONA ANALÓGICA (guard ring GND)             │   │
