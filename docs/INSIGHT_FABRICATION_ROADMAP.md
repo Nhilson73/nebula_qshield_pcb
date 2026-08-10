@@ -37,12 +37,13 @@
 - [ ] Pendiente posterior: ajustar `copper edge clearance` y slots de conectores grandes (BNC, terminal blocks, DC barrel, HMI) en Fases 4–5 cuando se ruteen esas zonas.
 
 ### Fase 3 — Reparar nets críticas
-- [ ] `U15` pin 8 (`VCC`) → red `/3V3_RAIL` (no `/5V_RAIL`).
-- [ ] `U15` pines `RO`, `DI`, `DE`, `~RE` → conectar a nets `RS485_RO`, `RS485_DI`, `RS485_DE` hacia `U22`/`U23`.
-- [ ] `J21` pin 25 (`D10`) → `/RS485_IRQ`.
-- [ ] `J21` pines 19, 21, 23, 24 → corregir a `/MCU_WDI`, `/PUMP_DIR`, `/CHILLER_CTL`, `/CO2_PWM` según pinout aprobado.
-- [ ] Unificar `AGND` y `PGND` a `GND` en el PCB, o añadir `net ties` si se requiere separación local.
-- [ ] `R36`/`R37`: corregir asignación de pines en esquemático para evitar warnings de paridad.
+- [x] `U15` pin 8 (`VCC`) → red `/3V3_RAIL` (no `/5V_RAIL`).
+- [x] `U15` pines `RO`, `DI`, `DE`, `~RE` → conectar a nets `RS485_RO`, `RS485_DI`, `RS485_DE` hacia `U22`/`U23`.
+- [x] `J21` pin 25 (`D10`) → `/RS485_IRQ`.
+- [x] `J21` pines 19, 21, 23, 24 → corregir a `/MCU_WDI`, `/PUMP_DIR`, `/CHILLER_CTL`, `/CO2_PWM` según pinout aprobado.
+- [x] Unificar `AGND` y `PGND` a `GND` en el PCB (no quedan nets `AGND`/`PGND` en el layout).
+- [x] `R36`/`R37`: corregir asignación de pines en esquemático para evitar warnings de paridad.
+- [x] `T1`/`T2`/`T3`: el símbolo `Transformer_SP_2S` tiene 7 pines, pero el footprint Wuerth 750315371 tiene 6 pads. Se movió `*_SEC_B` del pin 7 al pin 6 (pad físico existente) y se no-conectó el pin 7 sobrante; `*_SEC_A` permanece en pin 4, `GND_ISO_*` en pin 5. Paridad esquemático/PCB corregida.
 
 ### Fase 4 — Ruteo Fase A (Potencia)
 - [ ] Definir/rellenar plano `GND` en L2 (`In1.Cu`).
