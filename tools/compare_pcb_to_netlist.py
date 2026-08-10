@@ -16,7 +16,12 @@ def parse_netlist(path):
     nets_node = root.find('nets')
     for net in nets_node.findall('net'):
         name = net.get('name')
+        if name.startswith('unconnected-'):
+            continue
         for node in net.findall('node'):
+            pintype = node.get('pintype') or ''
+            if 'no_connect' in pintype:
+                continue
             ref = node.get('ref')
             pin = node.get('pin')
             nets.setdefault(ref, {})[pin] = name
