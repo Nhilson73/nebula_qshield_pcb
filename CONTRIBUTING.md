@@ -7,6 +7,7 @@
 3. Ejecutar DRC/ERC en KiCad antes de commit
 4. Commit con mensaje descriptivo: `feat: add thermal vias under TPS54302`
 5. Push y crear Pull Request
+6. Si el cambio toca pinout, esquemático, layout o BOM, actualizar `docs/INSIGHT_FABRICATION_ROADMAP.md` y revisar `docs/DOCUMENTATION_UPDATE_AUDIT.md` para mantener los demás `.md` sincronizados.
 
 ## Convenciones
 
