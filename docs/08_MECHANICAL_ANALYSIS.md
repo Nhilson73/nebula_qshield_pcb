@@ -339,7 +339,7 @@ El rectángulo `F.SilkS` del footprint `Arduino_UNO_Q_Shield` se eliminó del PC
 
 Validación con `kicad-cli` 10.0.5:
 - `kicad-cli pcb drc --severity-error` = 0 violaciones.
-- `kicad-cli pcb drc --severity-warning` = 1 violación (`lib_footprint_mismatch` por la sobreescritura local del reference/silkscreen; no es error).
 - `kicad-cli sch erc --severity-all` = 0 violaciones.
+- `kicad-cli pcb drc --severity-warning` reporta **447 warnings**: 199 `silk_overlap`, 199 `silk_over_copper`, 43 `silk_edge_clearance`, 5 `isolated_copper` y 1 `lib_footprint_mismatch`. Estos warnings provienen del placement denso, silkscreen sobre pads/cobre y zonas sin rutear; se limpiarán en Fases 4–5 (routing y ajuste de silkscreen).
 
 *Documento NQS-MECH-008 Rev 1.0 — Nebula Ecosystem® — Análisis Mecánico PCB*
