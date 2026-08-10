@@ -1,14 +1,18 @@
 # Auditoría de Documentación — Archivos Markdown a Actualizar
 
-**Fecha:** 2026-07-09  
+**Fecha:** 2026-07-09 (actualizado 2026-08-10)  
 **Contexto:** Re-arquitectura UNO Q para fabricación JLCPCB del tier **Insight**.  
-**Documento de verdad:** `docs/INSIGHT_FABRICATION_ROADMAP.md`
+**Documento de verdad:** `docs/INSIGHT_FABRICATION_ROADMAP.md`  
+**Nueva referencia de factor de forma:** `docs/UNO_Q_FORM_FACTOR.md`
 
-Esta auditoría lista los archivos `.md` del repo que contienen información desactualizada respecto al diseño actual (`main`) y al plan aprobado, con indicaciones de qué cambiar.
+Esta auditoría lista los archivos `.md` del repo que contienen información desactualizada respecto al diseño actual (`main`) y al plan aprobado, con indicaciones de qué cambiar. El documento `docs/UNO_Q_FORM_FACTOR.md` ya captura las restricciones mecánicas inmutables del UNO Q y debe citarse en cualquier documento que hable de dimensiones, headers o recortes.
 
 ---
 
 ## Archivos con cambios obligatorios o altamente recomendados
+
+### Referencia de factor de forma (nuevo documento)
+- `docs/UNO_Q_FORM_FACTOR.md` — creado. Contiene las dimensiones del UNO Q, posición de headers/mounting holes, keepouts/cutouts y la regla inmutable: el patrón UNO Q no puede cambiar aunque el tamaño del Q-Shield sí.
 
 ### 1. `README.md`
 - **Dimensiones:** dice `100 × 100 mm`; el board aprobado es `100 × 120 mm`.

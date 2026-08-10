@@ -8,7 +8,7 @@ Built by [Cafelium SRL](https://github.com/Nhilson73) · 🇩🇴 Dominican Repu
 >
 > **Awards:** I+D Lab INDOTEL 2025 · CREE Banreservas 2026 · Pitch4FUN 2026
 >
-> **Note — Re-architectura UNO Q en curso:** el diseño se está ajustando al header compatible con UNO R3/Q (32 pines), board `100 × 120 mm`, bus I2C en `D20/D21`, y `A4/A5` exclusivamente para `CO2_ADC`/`DO_ADC`. El plan vivo y el pinout definitivo están en `docs/INSIGHT_FABRICATION_ROADMAP.md` y el listado de docs por actualizar en `docs/DOCUMENTATION_UPDATE_AUDIT.md`.
+> **Note — Re-architectura UNO Q en curso:** el diseño se está ajustando al header compatible con UNO R3/Q (32 pines), board `100 × 120 mm`, bus I2C en `D20/D21`, y `A4/A5` exclusivamente para `CO2_ADC`/`DO_ADC`. El plan vivo y el pinout definitivo están en `docs/INSIGHT_FABRICATION_ROADMAP.md`, el factor de forma UNO Q (inmutable) en `docs/UNO_Q_FORM_FACTOR.md`, y el listado de docs por actualizar en `docs/DOCUMENTATION_UPDATE_AUDIT.md`.
 
 ---
 
@@ -35,7 +35,7 @@ El Q-Shield® es un **PCB shield de 4 capas** que se monta sobre el Arduino UNO 
 │  └──────────────────────────────────────────────────────────┘   │
 │                                                                   │
 │  ┌──────────────────────────────────────────────────────────┐   │
-│  │  CONECTOR ARDUINO UNO Q (2×20 shield header)             │   │
+│  │  CONECTOR ARDUINO UNO Q / R3 (32-pin shield header)    │   │
 │  └──────────────────────────────────────────────────────────┘   │
 └──────────────────────────────────────────────────────────────────┘
 ```
