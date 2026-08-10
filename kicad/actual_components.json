@@ -1,0 +1,1370 @@
+[
+  {
+    "sheet": "actuator_drivers.kicad_sch",
+    "Reference": "U16",
+    "Value": "PC817X2NIP",
+    "Footprint": "Package_DIP:DIP-8_W7.62mm",
+    "Description": "",
+    "DNP": "Essential"
+  },
+  {
+    "sheet": "actuator_drivers.kicad_sch",
+    "Reference": "U17",
+    "Value": "IR2104SPBF",
+    "Footprint": "Package_SO:SOIC-8_3.9x4.9mm_P1.27mm",
+    "Description": "",
+    "DNP": "Essential"
+  },
+  {
+    "sheet": "actuator_drivers.kicad_sch",
+    "Reference": "Q1",
+    "Value": "IRLZ44NPBF",
+    "Footprint": "Package_TO_SOT_THT:TO-220-3_Vertical",
+    "Description": "",
+    "DNP": "Essential"
+  },
+  {
+    "sheet": "actuator_drivers.kicad_sch",
+    "Reference": "Q2",
+    "Value": "IRLZ44NPBF",
+    "Footprint": "Package_TO_SOT_THT:TO-220-3_Vertical",
+    "Description": "",
+    "DNP": "Essential"
+  },
+  {
+    "sheet": "actuator_drivers.kicad_sch",
+    "Reference": "D10",
+    "Value": "SS34",
+    "Footprint": "Diode_SMD:D_SMA",
+    "Description": "",
+    "DNP": "Essential"
+  },
+  {
+    "sheet": "actuator_drivers.kicad_sch",
+    "Reference": "D11",
+    "Value": "SS34",
+    "Footprint": "Diode_SMD:D_SMA",
+    "Description": "",
+    "DNP": "Essential"
+  },
+  {
+    "sheet": "actuator_drivers.kicad_sch",
+    "Reference": "F2",
+    "Value": "1A PTC",
+    "Footprint": "Fuse:Fuse_0805_2012Metric",
+    "Description": "",
+    "DNP": "Essential"
+  },
+  {
+    "sheet": "actuator_drivers.kicad_sch",
+    "Reference": "J17",
+    "Value": "Motor 12V",
+    "Footprint": "TerminalBlock_Phoenix:TerminalBlock_Phoenix_PT-1,5-2-5.0-H_1x02_P5.00mm_Horizontal",
+    "Description": "",
+    "DNP": "Essential"
+  },
+  {
+    "sheet": "actuator_drivers.kicad_sch",
+    "Reference": "R24",
+    "Value": "1k",
+    "Footprint": "Resistor_SMD:R_0402_1005Metric",
+    "Description": "",
+    "DNP": "Essential"
+  },
+  {
+    "sheet": "actuator_drivers.kicad_sch",
+    "Reference": "R25",
+    "Value": "1k",
+    "Footprint": "Resistor_SMD:R_0402_1005Metric",
+    "Description": "",
+    "DNP": "Essential"
+  },
+  {
+    "sheet": "actuator_drivers.kicad_sch",
+    "Reference": "R26",
+    "Value": "1k",
+    "Footprint": "Resistor_SMD:R_0402_1005Metric",
+    "Description": "",
+    "DNP": "Essential"
+  },
+  {
+    "sheet": "actuator_drivers.kicad_sch",
+    "Reference": "U18",
+    "Value": "PC817X1NIP",
+    "Footprint": "Package_DIP:DIP-4_W7.62mm",
+    "Description": "",
+    "DNP": "Essential"
+  },
+  {
+    "sheet": "actuator_drivers.kicad_sch",
+    "Reference": "Q3",
+    "Value": "2N7002",
+    "Footprint": "Package_TO_SOT_SMD:SOT-23",
+    "Description": "",
+    "DNP": "Essential"
+  },
+  {
+    "sheet": "actuator_drivers.kicad_sch",
+    "Reference": "K1",
+    "Value": "HF46F-12-HS1",
+    "Footprint": "Relay_THT:Relay_SPDT_Omron_G5V-1",
+    "Description": "",
+    "DNP": "Essential"
+  },
+  {
+    "sheet": "actuator_drivers.kicad_sch",
+    "Reference": "D12",
+    "Value": "1N4148W",
+    "Footprint": "Diode_SMD:D_SOD-323",
+    "Description": "",
+    "DNP": "Essential"
+  },
+  {
+    "sheet": "actuator_drivers.kicad_sch",
+    "Reference": "J18",
+    "Value": "CO2 Solenoid",
+    "Footprint": "TerminalBlock_Phoenix:TerminalBlock_Phoenix_PT-1,5-2-5.0-H_1x02_P5.00mm_Horizontal",
+    "Description": "",
+    "DNP": "Essential"
+  },
+  {
+    "sheet": "actuator_drivers.kicad_sch",
+    "Reference": "F3",
+    "Value": "0.5A PTC",
+    "Footprint": "Fuse:Fuse_0805_2012Metric",
+    "Description": "",
+    "DNP": "Essential"
+  },
+  {
+    "sheet": "actuator_drivers.kicad_sch",
+    "Reference": "R27",
+    "Value": "1k",
+    "Footprint": "Resistor_SMD:R_0402_1005Metric",
+    "Description": "",
+    "DNP": "Essential"
+  },
+  {
+    "sheet": "actuator_drivers.kicad_sch",
+    "Reference": "U19",
+    "Value": "PC817X1NIP",
+    "Footprint": "Package_DIP:DIP-4_W7.62mm",
+    "Description": "",
+    "DNP": "Essential"
+  },
+  {
+    "sheet": "actuator_drivers.kicad_sch",
+    "Reference": "Q4",
+    "Value": "2N7002",
+    "Footprint": "Package_TO_SOT_SMD:SOT-23",
+    "Description": "",
+    "DNP": "Essential"
+  },
+  {
+    "sheet": "actuator_drivers.kicad_sch",
+    "Reference": "K2",
+    "Value": "HF46F-12-HS1",
+    "Footprint": "Relay_THT:Relay_SPDT_Omron_G5V-1",
+    "Description": "",
+    "DNP": "Essential"
+  },
+  {
+    "sheet": "actuator_drivers.kicad_sch",
+    "Reference": "D13",
+    "Value": "1N4148W",
+    "Footprint": "Diode_SMD:D_SOD-323",
+    "Description": "",
+    "DNP": "Essential"
+  },
+  {
+    "sheet": "actuator_drivers.kicad_sch",
+    "Reference": "J19",
+    "Value": "Chiller",
+    "Footprint": "TerminalBlock_Phoenix:TerminalBlock_Phoenix_PT-1,5-2-5.0-H_1x02_P5.00mm_Horizontal",
+    "Description": "",
+    "DNP": "Essential"
+  },
+  {
+    "sheet": "actuator_drivers.kicad_sch",
+    "Reference": "F4",
+    "Value": "0.5A PTC",
+    "Footprint": "Fuse:Fuse_0805_2012Metric",
+    "Description": "",
+    "DNP": "Essential"
+  },
+  {
+    "sheet": "actuator_drivers.kicad_sch",
+    "Reference": "R28",
+    "Value": "10k",
+    "Footprint": "Resistor_SMD:R_0402_1005Metric",
+    "Description": "",
+    "DNP": "All"
+  },
+  {
+    "sheet": "actuator_drivers.kicad_sch",
+    "Reference": "C27",
+    "Value": "100nF",
+    "Footprint": "Capacitor_SMD:C_0402_1005Metric",
+    "Description": "",
+    "DNP": "All"
+  },
+  {
+    "sheet": "actuator_drivers.kicad_sch",
+    "Reference": "U20",
+    "Value": "MCP6002",
+    "Footprint": "Package_SO:SOIC-8_3.9x4.9mm_P1.27mm",
+    "Description": "",
+    "DNP": "All"
+  },
+  {
+    "sheet": "actuator_drivers.kicad_sch",
+    "Reference": "Q5",
+    "Value": "IRLZ44NPBF",
+    "Footprint": "Package_TO_SOT_THT:TO-220-3_Vertical",
+    "Description": "",
+    "DNP": "All"
+  },
+  {
+    "sheet": "actuator_drivers.kicad_sch",
+    "Reference": "D14",
+    "Value": "SS34",
+    "Footprint": "Diode_SMD:D_SMA",
+    "Description": "",
+    "DNP": "All"
+  },
+  {
+    "sheet": "actuator_drivers.kicad_sch",
+    "Reference": "J22",
+    "Value": "CO2 Valve",
+    "Footprint": "Connector_Phoenix_MC:PhoenixContact_MC_1,5_2-G-3.81_1x02_P3.81mm_Horizontal",
+    "Description": "",
+    "DNP": "All"
+  },
+  {
+    "sheet": "analog_acquisition.kicad_sch",
+    "Reference": "J2",
+    "Value": "BNC_Isolated",
+    "Footprint": "nebula_footprints:BNC_Panel_Mount_Isolated",
+    "Description": "",
+    "DNP": "NO"
+  },
+  {
+    "sheet": "analog_acquisition.kicad_sch",
+    "Reference": "D3",
+    "Value": "PESD5V0S1BSF",
+    "Footprint": "Diode_SMD:D_SOD-323F",
+    "Description": "",
+    "DNP": "NO"
+  },
+  {
+    "sheet": "analog_acquisition.kicad_sch",
+    "Reference": "R7",
+    "Value": "1k 1%",
+    "Footprint": "Resistor_SMD:R_0402_1005Metric",
+    "Description": "",
+    "DNP": "NO"
+  },
+  {
+    "sheet": "analog_acquisition.kicad_sch",
+    "Reference": "C12",
+    "Value": "100nF",
+    "Footprint": "Capacitor_SMD:C_0402_1005Metric",
+    "Description": "",
+    "DNP": "NO"
+  },
+  {
+    "sheet": "analog_acquisition.kicad_sch",
+    "Reference": "R8",
+    "Value": "10M",
+    "Footprint": "Resistor_SMD:R_0402_1005Metric",
+    "Description": "",
+    "DNP": "NO"
+  },
+  {
+    "sheet": "analog_acquisition.kicad_sch",
+    "Reference": "U4",
+    "Value": "MCP6002",
+    "Footprint": "Package_SO:SOIC-8_3.9x4.9mm_P1.27mm",
+    "Description": "",
+    "DNP": "NO"
+  },
+  {
+    "sheet": "analog_acquisition.kicad_sch",
+    "Reference": "U5",
+    "Value": "SN6501",
+    "Footprint": "Package_TO_SOT_SMD:SOT-23-5",
+    "Description": "",
+    "DNP": "NO"
+  },
+  {
+    "sheet": "analog_acquisition.kicad_sch",
+    "Reference": "U6",
+    "Value": "AMC1301",
+    "Footprint": "Package_SO:SOIC-8_3.9x4.9mm_P1.27mm",
+    "Description": "",
+    "DNP": "NO"
+  },
+  {
+    "sheet": "analog_acquisition.kicad_sch",
+    "Reference": "C13",
+    "Value": "100nF",
+    "Footprint": "Capacitor_SMD:C_0402_1005Metric",
+    "Description": "",
+    "DNP": "NO"
+  },
+  {
+    "sheet": "analog_acquisition.kicad_sch",
+    "Reference": "C14",
+    "Value": "100nF",
+    "Footprint": "Capacitor_SMD:C_0402_1005Metric",
+    "Description": "",
+    "DNP": "NO"
+  },
+  {
+    "sheet": "analog_acquisition.kicad_sch",
+    "Reference": "J3",
+    "Value": "BNC_Isolated",
+    "Footprint": "nebula_footprints:BNC_Panel_Mount_Isolated",
+    "Description": "",
+    "DNP": "NO"
+  },
+  {
+    "sheet": "analog_acquisition.kicad_sch",
+    "Reference": "D4",
+    "Value": "PESD5V0S1BSF",
+    "Footprint": "Diode_SMD:D_SOD-323F",
+    "Description": "",
+    "DNP": "NO"
+  },
+  {
+    "sheet": "analog_acquisition.kicad_sch",
+    "Reference": "R9",
+    "Value": "1k 1%",
+    "Footprint": "Resistor_SMD:R_0402_1005Metric",
+    "Description": "",
+    "DNP": "NO"
+  },
+  {
+    "sheet": "analog_acquisition.kicad_sch",
+    "Reference": "C15",
+    "Value": "100nF",
+    "Footprint": "Capacitor_SMD:C_0402_1005Metric",
+    "Description": "",
+    "DNP": "NO"
+  },
+  {
+    "sheet": "analog_acquisition.kicad_sch",
+    "Reference": "R10",
+    "Value": "10M",
+    "Footprint": "Resistor_SMD:R_0402_1005Metric",
+    "Description": "",
+    "DNP": "NO"
+  },
+  {
+    "sheet": "analog_acquisition.kicad_sch",
+    "Reference": "U7",
+    "Value": "MCP6002",
+    "Footprint": "Package_SO:SOIC-8_3.9x4.9mm_P1.27mm",
+    "Description": "",
+    "DNP": "NO"
+  },
+  {
+    "sheet": "analog_acquisition.kicad_sch",
+    "Reference": "U8",
+    "Value": "SN6501",
+    "Footprint": "Package_TO_SOT_SMD:SOT-23-5",
+    "Description": "",
+    "DNP": "NO"
+  },
+  {
+    "sheet": "analog_acquisition.kicad_sch",
+    "Reference": "U9",
+    "Value": "AMC1301",
+    "Footprint": "Package_SO:SOIC-8_3.9x4.9mm_P1.27mm",
+    "Description": "",
+    "DNP": "NO"
+  },
+  {
+    "sheet": "analog_acquisition.kicad_sch",
+    "Reference": "C16",
+    "Value": "100nF",
+    "Footprint": "Capacitor_SMD:C_0402_1005Metric",
+    "Description": "",
+    "DNP": "NO"
+  },
+  {
+    "sheet": "analog_acquisition.kicad_sch",
+    "Reference": "C17",
+    "Value": "100nF",
+    "Footprint": "Capacitor_SMD:C_0402_1005Metric",
+    "Description": "",
+    "DNP": "NO"
+  },
+  {
+    "sheet": "analog_acquisition.kicad_sch",
+    "Reference": "J4",
+    "Value": "JST-XH 3-pin",
+    "Footprint": "Connector_JST:JST_XH_B3B-XH-A_1x03_P2.50mm_Vertical",
+    "Description": "",
+    "DNP": "Essential"
+  },
+  {
+    "sheet": "analog_acquisition.kicad_sch",
+    "Reference": "D5",
+    "Value": "PESD5V0S1BSF",
+    "Footprint": "Diode_SMD:D_SOD-323F",
+    "Description": "",
+    "DNP": "Essential"
+  },
+  {
+    "sheet": "analog_acquisition.kicad_sch",
+    "Reference": "R11",
+    "Value": "1k 1%",
+    "Footprint": "Resistor_SMD:R_0402_1005Metric",
+    "Description": "",
+    "DNP": "Essential"
+  },
+  {
+    "sheet": "analog_acquisition.kicad_sch",
+    "Reference": "C18",
+    "Value": "100nF",
+    "Footprint": "Capacitor_SMD:C_0402_1005Metric",
+    "Description": "",
+    "DNP": "Essential"
+  },
+  {
+    "sheet": "analog_acquisition.kicad_sch",
+    "Reference": "R12",
+    "Value": "10M",
+    "Footprint": "Resistor_SMD:R_0402_1005Metric",
+    "Description": "",
+    "DNP": "Essential"
+  },
+  {
+    "sheet": "analog_acquisition.kicad_sch",
+    "Reference": "U10",
+    "Value": "MCP6002",
+    "Footprint": "Package_SO:SOIC-8_3.9x4.9mm_P1.27mm",
+    "Description": "",
+    "DNP": "Essential"
+  },
+  {
+    "sheet": "analog_acquisition.kicad_sch",
+    "Reference": "J5",
+    "Value": "BNC_Isolated",
+    "Footprint": "nebula_footprints:BNC_Panel_Mount_Isolated",
+    "Description": "",
+    "DNP": "Essential"
+  },
+  {
+    "sheet": "analog_acquisition.kicad_sch",
+    "Reference": "D6",
+    "Value": "PESD5V0S1BSF",
+    "Footprint": "Diode_SMD:D_SOD-323F",
+    "Description": "",
+    "DNP": "Essential"
+  },
+  {
+    "sheet": "analog_acquisition.kicad_sch",
+    "Reference": "R13",
+    "Value": "1k 1%",
+    "Footprint": "Resistor_SMD:R_0402_1005Metric",
+    "Description": "",
+    "DNP": "Essential"
+  },
+  {
+    "sheet": "analog_acquisition.kicad_sch",
+    "Reference": "C19",
+    "Value": "100nF",
+    "Footprint": "Capacitor_SMD:C_0402_1005Metric",
+    "Description": "",
+    "DNP": "Essential"
+  },
+  {
+    "sheet": "analog_acquisition.kicad_sch",
+    "Reference": "R14",
+    "Value": "10M",
+    "Footprint": "Resistor_SMD:R_0402_1005Metric",
+    "Description": "",
+    "DNP": "Essential"
+  },
+  {
+    "sheet": "analog_acquisition.kicad_sch",
+    "Reference": "U11",
+    "Value": "MCP6002",
+    "Footprint": "Package_SO:SOIC-8_3.9x4.9mm_P1.27mm",
+    "Description": "",
+    "DNP": "Essential"
+  },
+  {
+    "sheet": "analog_acquisition.kicad_sch",
+    "Reference": "U12",
+    "Value": "SN6501",
+    "Footprint": "Package_TO_SOT_SMD:SOT-23-5",
+    "Description": "",
+    "DNP": "Essential"
+  },
+  {
+    "sheet": "analog_acquisition.kicad_sch",
+    "Reference": "U13",
+    "Value": "AMC1301",
+    "Footprint": "Package_SO:SOIC-8_3.9x4.9mm_P1.27mm",
+    "Description": "",
+    "DNP": "Essential"
+  },
+  {
+    "sheet": "analog_acquisition.kicad_sch",
+    "Reference": "C20",
+    "Value": "100nF",
+    "Footprint": "Capacitor_SMD:C_0402_1005Metric",
+    "Description": "",
+    "DNP": "Essential"
+  },
+  {
+    "sheet": "analog_acquisition.kicad_sch",
+    "Reference": "C21",
+    "Value": "100nF",
+    "Footprint": "Capacitor_SMD:C_0402_1005Metric",
+    "Description": "",
+    "DNP": "Essential"
+  },
+  {
+    "sheet": "analog_acquisition.kicad_sch",
+    "Reference": "J6",
+    "Value": "JST-XH 2-pin",
+    "Footprint": "Connector_JST:JST_XH_B2B-XH-A_1x02_P2.50mm_Vertical",
+    "Description": "",
+    "DNP": "NO"
+  },
+  {
+    "sheet": "analog_acquisition.kicad_sch",
+    "Reference": "D7",
+    "Value": "PESD3V3S1BSF",
+    "Footprint": "Diode_SMD:D_SOD-323F",
+    "Description": "",
+    "DNP": "NO"
+  },
+  {
+    "sheet": "analog_acquisition.kicad_sch",
+    "Reference": "R15",
+    "Value": "1k 1%",
+    "Footprint": "Resistor_SMD:R_0402_1005Metric",
+    "Description": "",
+    "DNP": "NO"
+  },
+  {
+    "sheet": "analog_acquisition.kicad_sch",
+    "Reference": "C22",
+    "Value": "100nF",
+    "Footprint": "Capacitor_SMD:C_0402_1005Metric",
+    "Description": "",
+    "DNP": "NO"
+  },
+  {
+    "sheet": "analog_acquisition.kicad_sch",
+    "Reference": "R16",
+    "Value": "10M",
+    "Footprint": "Resistor_SMD:R_0402_1005Metric",
+    "Description": "",
+    "DNP": "NO"
+  },
+  {
+    "sheet": "analog_acquisition.kicad_sch",
+    "Reference": "J7",
+    "Value": "JST-XH 3-pin",
+    "Footprint": "Connector_JST:JST_XH_B3B-XH-A_1x03_P2.50mm_Vertical",
+    "Description": "",
+    "DNP": "Essential,Insight,Signature"
+  },
+  {
+    "sheet": "analog_acquisition.kicad_sch",
+    "Reference": "D8",
+    "Value": "PESD5V0S1BSF",
+    "Footprint": "Diode_SMD:D_SOD-323F",
+    "Description": "",
+    "DNP": "Essential,Insight,Signature"
+  },
+  {
+    "sheet": "analog_acquisition.kicad_sch",
+    "Reference": "R17",
+    "Value": "1k 1%",
+    "Footprint": "Resistor_SMD:R_0402_1005Metric",
+    "Description": "",
+    "DNP": "Essential,Insight,Signature"
+  },
+  {
+    "sheet": "analog_acquisition.kicad_sch",
+    "Reference": "C23",
+    "Value": "100nF",
+    "Footprint": "Capacitor_SMD:C_0402_1005Metric",
+    "Description": "",
+    "DNP": "Essential,Insight,Signature"
+  },
+  {
+    "sheet": "analog_acquisition.kicad_sch",
+    "Reference": "R18",
+    "Value": "10M",
+    "Footprint": "Resistor_SMD:R_0402_1005Metric",
+    "Description": "",
+    "DNP": "Essential,Insight,Signature"
+  },
+  {
+    "sheet": "analog_acquisition.kicad_sch",
+    "Reference": "C24",
+    "Value": "100nF",
+    "Footprint": "Capacitor_SMD:C_0402_1005Metric",
+    "Description": "",
+    "DNP": "NO"
+  },
+  {
+    "sheet": "analog_acquisition.kicad_sch",
+    "Reference": "U4",
+    "Value": "MCP6002",
+    "Footprint": "Package_SO:SOIC-8_3.9x4.9mm_P1.27mm",
+    "Description": "",
+    "DNP": "NO"
+  },
+  {
+    "sheet": "analog_acquisition.kicad_sch",
+    "Reference": "U4",
+    "Value": "MCP6002",
+    "Footprint": "Package_SO:SOIC-8_3.9x4.9mm_P1.27mm",
+    "Description": "",
+    "DNP": "NO"
+  },
+  {
+    "sheet": "analog_acquisition.kicad_sch",
+    "Reference": "T1",
+    "Value": "Transformer_SP_2S",
+    "Footprint": "Transformer_SMD:Transformer_Wuerth_750315371",
+    "Description": "",
+    "DNP": "NO"
+  },
+  {
+    "sheet": "analog_acquisition.kicad_sch",
+    "Reference": "D19",
+    "Value": "D_Schottky",
+    "Footprint": "Diode_SMD:D_SOD-123",
+    "Description": "",
+    "DNP": "NO"
+  },
+  {
+    "sheet": "analog_acquisition.kicad_sch",
+    "Reference": "D20",
+    "Value": "D_Schottky",
+    "Footprint": "Diode_SMD:D_SOD-123",
+    "Description": "",
+    "DNP": "NO"
+  },
+  {
+    "sheet": "analog_acquisition.kicad_sch",
+    "Reference": "C28",
+    "Value": "10u",
+    "Footprint": "Capacitor_SMD:C_0805_2012Metric",
+    "Description": "",
+    "DNP": "NO"
+  },
+  {
+    "sheet": "analog_acquisition.kicad_sch",
+    "Reference": "U7",
+    "Value": "MCP6002",
+    "Footprint": "Package_SO:SOIC-8_3.9x4.9mm_P1.27mm",
+    "Description": "",
+    "DNP": "NO"
+  },
+  {
+    "sheet": "analog_acquisition.kicad_sch",
+    "Reference": "U7",
+    "Value": "MCP6002",
+    "Footprint": "Package_SO:SOIC-8_3.9x4.9mm_P1.27mm",
+    "Description": "",
+    "DNP": "NO"
+  },
+  {
+    "sheet": "analog_acquisition.kicad_sch",
+    "Reference": "T2",
+    "Value": "Transformer_SP_2S",
+    "Footprint": "Transformer_SMD:Transformer_Wuerth_750315371",
+    "Description": "",
+    "DNP": "NO"
+  },
+  {
+    "sheet": "analog_acquisition.kicad_sch",
+    "Reference": "D21",
+    "Value": "D_Schottky",
+    "Footprint": "Diode_SMD:D_SOD-123",
+    "Description": "",
+    "DNP": "NO"
+  },
+  {
+    "sheet": "analog_acquisition.kicad_sch",
+    "Reference": "D22",
+    "Value": "D_Schottky",
+    "Footprint": "Diode_SMD:D_SOD-123",
+    "Description": "",
+    "DNP": "NO"
+  },
+  {
+    "sheet": "analog_acquisition.kicad_sch",
+    "Reference": "C29",
+    "Value": "10u",
+    "Footprint": "Capacitor_SMD:C_0805_2012Metric",
+    "Description": "",
+    "DNP": "NO"
+  },
+  {
+    "sheet": "analog_acquisition.kicad_sch",
+    "Reference": "U11",
+    "Value": "MCP6002",
+    "Footprint": "Package_SO:SOIC-8_3.9x4.9mm_P1.27mm",
+    "Description": "",
+    "DNP": "Essential"
+  },
+  {
+    "sheet": "analog_acquisition.kicad_sch",
+    "Reference": "U11",
+    "Value": "MCP6002",
+    "Footprint": "Package_SO:SOIC-8_3.9x4.9mm_P1.27mm",
+    "Description": "",
+    "DNP": "Essential"
+  },
+  {
+    "sheet": "analog_acquisition.kicad_sch",
+    "Reference": "T3",
+    "Value": "Transformer_SP_2S",
+    "Footprint": "Transformer_SMD:Transformer_Wuerth_750315371",
+    "Description": "",
+    "DNP": "Essential"
+  },
+  {
+    "sheet": "analog_acquisition.kicad_sch",
+    "Reference": "D23",
+    "Value": "D_Schottky",
+    "Footprint": "Diode_SMD:D_SOD-123",
+    "Description": "",
+    "DNP": "Essential"
+  },
+  {
+    "sheet": "analog_acquisition.kicad_sch",
+    "Reference": "D24",
+    "Value": "D_Schottky",
+    "Footprint": "Diode_SMD:D_SOD-123",
+    "Description": "",
+    "DNP": "Essential"
+  },
+  {
+    "sheet": "analog_acquisition.kicad_sch",
+    "Reference": "C30",
+    "Value": "10u",
+    "Footprint": "Capacitor_SMD:C_0805_2012Metric",
+    "Description": "",
+    "DNP": "Essential"
+  },
+  {
+    "sheet": "analog_acquisition.kicad_sch",
+    "Reference": "U10",
+    "Value": "MCP6002",
+    "Footprint": "Package_SO:SOIC-8_3.9x4.9mm_P1.27mm",
+    "Description": "",
+    "DNP": "Essential"
+  },
+  {
+    "sheet": "analog_acquisition.kicad_sch",
+    "Reference": "U10",
+    "Value": "MCP6002",
+    "Footprint": "Package_SO:SOIC-8_3.9x4.9mm_P1.27mm",
+    "Description": "",
+    "DNP": "Essential"
+  },
+  {
+    "sheet": "analog_acquisition.kicad_sch",
+    "Reference": "R30",
+    "Value": "511",
+    "Footprint": "Resistor_SMD:R_0402_1005Metric",
+    "Description": "pH input divider top (0.1%)",
+    "DNP": "NO"
+  },
+  {
+    "sheet": "analog_acquisition.kicad_sch",
+    "Reference": "R31",
+    "Value": "511",
+    "Footprint": "Resistor_SMD:R_0402_1005Metric",
+    "Description": "pH input divider bottom (0.1%)",
+    "DNP": "NO"
+  },
+  {
+    "sheet": "analog_acquisition.kicad_sch",
+    "Reference": "R32",
+    "Value": "4.02k",
+    "Footprint": "Resistor_SMD:R_0402_1005Metric",
+    "Description": "ORP input divider top (0.1%)",
+    "DNP": "NO"
+  },
+  {
+    "sheet": "analog_acquisition.kicad_sch",
+    "Reference": "R33",
+    "Value": "1.00k",
+    "Footprint": "Resistor_SMD:R_0402_1005Metric",
+    "Description": "ORP input divider bottom (0.1%)",
+    "DNP": "NO"
+  },
+  {
+    "sheet": "analog_acquisition.kicad_sch",
+    "Reference": "TP1",
+    "Value": "TestPoint",
+    "Footprint": "TestPoint:TestPoint_Pad_D1.5mm",
+    "Description": "",
+    "DNP": "NO"
+  },
+  {
+    "sheet": "analog_acquisition.kicad_sch",
+    "Reference": "TP2",
+    "Value": "TestPoint",
+    "Footprint": "TestPoint:TestPoint_Pad_D1.5mm",
+    "Description": "",
+    "DNP": "NO"
+  },
+  {
+    "sheet": "digital_i2c.kicad_sch",
+    "Reference": "R19",
+    "Value": "4.7k 1%",
+    "Footprint": "Resistor_SMD:R_0402_1005Metric",
+    "Description": "",
+    "DNP": "NO"
+  },
+  {
+    "sheet": "digital_i2c.kicad_sch",
+    "Reference": "R20",
+    "Value": "4.7k 1%",
+    "Footprint": "Resistor_SMD:R_0402_1005Metric",
+    "Description": "",
+    "DNP": "NO"
+  },
+  {
+    "sheet": "digital_i2c.kicad_sch",
+    "Reference": "D9",
+    "Value": "PESD3V3S2USF",
+    "Footprint": "Package_TO_SOT_SMD:SOT-23-3",
+    "Description": "",
+    "DNP": "NO"
+  },
+  {
+    "sheet": "digital_i2c.kicad_sch",
+    "Reference": "J8",
+    "Value": "Qwiic GPS SAM-M8Q",
+    "Footprint": "Connector_JST:JST_SH_SM04B-SRSS-TB_1x04-1MP_P1.00mm_Horizontal",
+    "Description": "JST-SH Qwiic: VCC/GND/SDA/SCL \u2014 GPS SAM-M8Q I2C addr 0x42",
+    "DNP": "NO"
+  },
+  {
+    "sheet": "digital_i2c.kicad_sch",
+    "Reference": "J9",
+    "Value": "Qwiic RTC DS3231",
+    "Footprint": "Connector_JST:JST_SH_SM04B-SRSS-TB_1x04-1MP_P1.00mm_Horizontal",
+    "Description": "JST-SH Qwiic: VCC/GND/SDA/SCL \u2014 RTC DS3231 I2C addr 0x68",
+    "DNP": "NO"
+  },
+  {
+    "sheet": "digital_i2c.kicad_sch",
+    "Reference": "J10",
+    "Value": "Qwiic Cell Density",
+    "Footprint": "Connector_JST:JST_SH_SM04B-SRSS-TB_1x04-1MP_P1.00mm_Horizontal",
+    "Description": "JST-SH Qwiic: VCC/GND/SDA/SCL \u2014 Cell Density I2C addr 0x30",
+    "DNP": "Essential,Insight,Signature"
+  },
+  {
+    "sheet": "digital_i2c.kicad_sch",
+    "Reference": "J11",
+    "Value": "Qwiic EZO-pH",
+    "Footprint": "Connector_JST:JST_SH_SM04B-SRSS-TB_1x04-1MP_P1.00mm_Horizontal",
+    "Description": "JST-SH Qwiic: VCC/GND/SDA/SCL \u2014 EZO-pH I2C addr 0x63",
+    "DNP": "Optional"
+  },
+  {
+    "sheet": "digital_i2c.kicad_sch",
+    "Reference": "J12",
+    "Value": "Qwiic EZO-ORP",
+    "Footprint": "Connector_JST:JST_SH_SM04B-SRSS-TB_1x04-1MP_P1.00mm_Horizontal",
+    "Description": "JST-SH Qwiic: VCC/GND/SDA/SCL \u2014 EZO-ORP I2C addr 0x62",
+    "DNP": "Optional"
+  },
+  {
+    "sheet": "digital_i2c.kicad_sch",
+    "Reference": "J13",
+    "Value": "Qwiic EZO-DO",
+    "Footprint": "Connector_JST:JST_SH_SM04B-SRSS-TB_1x04-1MP_P1.00mm_Horizontal",
+    "Description": "JST-SH Qwiic: VCC/GND/SDA/SCL \u2014 EZO-DO I2C addr 0x61",
+    "DNP": "Optional"
+  },
+  {
+    "sheet": "digital_i2c.kicad_sch",
+    "Reference": "J14",
+    "Value": "Qwiic EZO-RTD",
+    "Footprint": "Connector_JST:JST_SH_SM04B-SRSS-TB_1x04-1MP_P1.00mm_Horizontal",
+    "Description": "JST-SH Qwiic: VCC/GND/SDA/SCL \u2014 EZO-RTD I2C addr 0x66",
+    "DNP": "Optional"
+  },
+  {
+    "sheet": "digital_i2c.kicad_sch",
+    "Reference": "U14",
+    "Value": "HX711",
+    "Footprint": "Package_SO:SOP-16_4.4x10.4mm_P1.27mm",
+    "Description": "",
+    "DNP": "Essential"
+  },
+  {
+    "sheet": "digital_i2c.kicad_sch",
+    "Reference": "J15",
+    "Value": "Load Cell",
+    "Footprint": "TerminalBlock_Phoenix:TerminalBlock_Phoenix_PT-1,5-4-5.0-H_1x04_P5.00mm_Horizontal",
+    "Description": "",
+    "DNP": "Essential"
+  },
+  {
+    "sheet": "digital_i2c.kicad_sch",
+    "Reference": "R21",
+    "Value": "10k",
+    "Footprint": "Resistor_SMD:R_0402_1005Metric",
+    "Description": "",
+    "DNP": "Essential"
+  },
+  {
+    "sheet": "digital_i2c.kicad_sch",
+    "Reference": "C25",
+    "Value": "100nF",
+    "Footprint": "Capacitor_SMD:C_0402_1005Metric",
+    "Description": "",
+    "DNP": "Essential"
+  },
+  {
+    "sheet": "digital_i2c.kicad_sch",
+    "Reference": "C26",
+    "Value": "10uF",
+    "Footprint": "Capacitor_SMD:C_0805_2012Metric",
+    "Description": "",
+    "DNP": "Essential"
+  },
+  {
+    "sheet": "digital_i2c.kicad_sch",
+    "Reference": "U15",
+    "Value": "MAX3485CSA",
+    "Footprint": "Package_SO:SOIC-8_3.9x4.9mm_P1.27mm",
+    "Description": "",
+    "DNP": "Essential,Insight"
+  },
+  {
+    "sheet": "digital_i2c.kicad_sch",
+    "Reference": "J16",
+    "Value": "RS485 Hamilton",
+    "Footprint": "TerminalBlock_Phoenix:TerminalBlock_Phoenix_PT-1,5-4-5.0-H_1x04_P5.00mm_Horizontal",
+    "Description": "",
+    "DNP": "Essential,Insight"
+  },
+  {
+    "sheet": "digital_i2c.kicad_sch",
+    "Reference": "R22",
+    "Value": "120R DNP",
+    "Footprint": "Resistor_SMD:R_0402_1005Metric",
+    "Description": "",
+    "DNP": "All"
+  },
+  {
+    "sheet": "digital_i2c.kicad_sch",
+    "Reference": "LED4",
+    "Value": "Red/Green",
+    "Footprint": "LED_SMD:LED_0603_1608Metric",
+    "Description": "",
+    "DNP": "NO"
+  },
+  {
+    "sheet": "digital_i2c.kicad_sch",
+    "Reference": "R23",
+    "Value": "330R",
+    "Footprint": "Resistor_SMD:R_0402_1005Metric",
+    "Description": "",
+    "DNP": "NO"
+  },
+  {
+    "sheet": "digital_i2c.kicad_sch",
+    "Reference": "U21",
+    "Value": "ISO1541",
+    "Footprint": "Package_SO:SOIC-8_3.9x4.9mm_P1.27mm",
+    "Description": "",
+    "DNP": "NO"
+  },
+  {
+    "sheet": "digital_i2c.kicad_sch",
+    "Reference": "U22",
+    "Value": "SC16IS740",
+    "Footprint": "Package_SO:TSSOP-16_4.4x5mm_P0.65mm",
+    "Description": "I2C-to-UART bridge, single UART, 64-byte FIFO, TSSOP-16",
+    "DNP": "Essential,Insight"
+  },
+  {
+    "sheet": "digital_i2c.kicad_sch",
+    "Reference": "U23",
+    "Value": "SN74LVC1G04",
+    "Footprint": "Package_TO_SOT_SMD:SOT-353_SC-70-5",
+    "Description": "Single inverter, RS-485 direction control polarity",
+    "DNP": "Essential,Insight"
+  },
+  {
+    "sheet": "digital_i2c.kicad_sch",
+    "Reference": "Y1",
+    "Value": "1.8432MHz",
+    "Footprint": "Crystal:Crystal_SMD_HC49-SD",
+    "Description": "Crystal 1.8432 MHz, 18 pF, HC49-SD SMD",
+    "DNP": "Essential,Insight"
+  },
+  {
+    "sheet": "digital_i2c.kicad_sch",
+    "Reference": "C31",
+    "Value": "22pF C0G",
+    "Footprint": "Capacitor_SMD:C_0402_1005Metric",
+    "Description": "Crystal load capacitor",
+    "DNP": "Essential,Insight"
+  },
+  {
+    "sheet": "digital_i2c.kicad_sch",
+    "Reference": "C32",
+    "Value": "22pF C0G",
+    "Footprint": "Capacitor_SMD:C_0402_1005Metric",
+    "Description": "Crystal load capacitor",
+    "DNP": "Essential,Insight"
+  },
+  {
+    "sheet": "digital_i2c.kicad_sch",
+    "Reference": "C33",
+    "Value": "100nF X7R",
+    "Footprint": "Capacitor_SMD:C_0402_1005Metric",
+    "Description": "Decoupling capacitor, SC16IS740 VDD",
+    "DNP": "Essential,Insight"
+  },
+  {
+    "sheet": "digital_i2c.kicad_sch",
+    "Reference": "R38",
+    "Value": "10k 1%",
+    "Footprint": "Resistor_SMD:R_0402_1005Metric",
+    "Description": "Pull-up, SC16IS740 open-drain ~IRQ",
+    "DNP": "Essential,Insight"
+  },
+  {
+    "sheet": "hmi_connectors.kicad_sch",
+    "Reference": "J20",
+    "Value": "HMI UART",
+    "Footprint": "Connector_JST:JST_XH_B4B-XH-A_1x04_P2.50mm_Vertical",
+    "Description": "HMI display connector: 5V/TX/RX/GND \u2014 Nextion compatible",
+    "DNP": ""
+  },
+  {
+    "sheet": "hmi_connectors.kicad_sch",
+    "Reference": "D15",
+    "Value": "PESD3V3S2USF",
+    "Footprint": "Package_TO_SOT_SMD:SOT-23-3",
+    "Description": "",
+    "DNP": ""
+  },
+  {
+    "sheet": "hmi_connectors.kicad_sch",
+    "Reference": "J21",
+    "Value": "Arduino UNO Q Shield Header",
+    "Footprint": "nebula_footprints:Arduino_UNO_Q_Shield",
+    "Description": "",
+    "DNP": ""
+  },
+  {
+    "sheet": "hmi_connectors.kicad_sch",
+    "Reference": "D16",
+    "Value": "BAT54S",
+    "Footprint": "Package_TO_SOT_SMD:SOT-23-3",
+    "Description": "",
+    "DNP": ""
+  },
+  {
+    "sheet": "hmi_connectors.kicad_sch",
+    "Reference": "D17",
+    "Value": "BAT54S",
+    "Footprint": "Package_TO_SOT_SMD:SOT-23-3",
+    "Description": "",
+    "DNP": ""
+  },
+  {
+    "sheet": "hmi_connectors.kicad_sch",
+    "Reference": "D18",
+    "Value": "BAT54S",
+    "Footprint": "Package_TO_SOT_SMD:SOT-23-3",
+    "Description": "",
+    "DNP": ""
+  },
+  {
+    "sheet": "hmi_connectors.kicad_sch",
+    "Reference": "R36",
+    "Value": "4.7k",
+    "Footprint": "nebula_footprints:R_0603_1608Metric",
+    "Description": "",
+    "DNP": ""
+  },
+  {
+    "sheet": "hmi_connectors.kicad_sch",
+    "Reference": "R37",
+    "Value": "4.7k",
+    "Footprint": "nebula_footprints:R_0603_1608Metric",
+    "Description": "",
+    "DNP": ""
+  },
+  {
+    "sheet": "power_management.kicad_sch",
+    "Reference": "J1",
+    "Value": "PJ-002AH",
+    "Footprint": "Connector_BarrelJack:BarrelJack_Horizontal",
+    "Description": "",
+    "DNP": "NO"
+  },
+  {
+    "sheet": "power_management.kicad_sch",
+    "Reference": "D1",
+    "Value": "SMAJ15A",
+    "Footprint": "Diode_SMD:D_SMA",
+    "Description": "",
+    "DNP": "NO"
+  },
+  {
+    "sheet": "power_management.kicad_sch",
+    "Reference": "F1",
+    "Value": "1.1A PTC",
+    "Footprint": "Fuse:Fuse_1812_4532Metric",
+    "Description": "",
+    "DNP": "NO"
+  },
+  {
+    "sheet": "power_management.kicad_sch",
+    "Reference": "D2",
+    "Value": "SS34",
+    "Footprint": "Diode_SMD:D_SMA",
+    "Description": "",
+    "DNP": "NO"
+  },
+  {
+    "sheet": "power_management.kicad_sch",
+    "Reference": "C1",
+    "Value": "100uF/25V",
+    "Footprint": "Capacitor_SMD:C_1210_3225Metric",
+    "Description": "",
+    "DNP": "NO"
+  },
+  {
+    "sheet": "power_management.kicad_sch",
+    "Reference": "C2",
+    "Value": "470uF/25V",
+    "Footprint": "Capacitor_THT:CP_Radial_D10.0mm_P5.00mm",
+    "Description": "",
+    "DNP": "NO"
+  },
+  {
+    "sheet": "power_management.kicad_sch",
+    "Reference": "FB1",
+    "Value": "600R@100MHz",
+    "Footprint": "Inductor_SMD:L_1206_3216Metric",
+    "Description": "",
+    "DNP": "NO"
+  },
+  {
+    "sheet": "power_management.kicad_sch",
+    "Reference": "U1",
+    "Value": "TPS54302DDCR",
+    "Footprint": "Package_TO_SOT_SMD:SOT-23-6",
+    "Description": "",
+    "DNP": "NO"
+  },
+  {
+    "sheet": "power_management.kicad_sch",
+    "Reference": "L1",
+    "Value": "4.7uH/4A",
+    "Footprint": "Inductor_SMD:L_Taiyo-Yuden_NR-40xx",
+    "Description": "",
+    "DNP": "NO"
+  },
+  {
+    "sheet": "power_management.kicad_sch",
+    "Reference": "C3",
+    "Value": "22uF/25V",
+    "Footprint": "Capacitor_SMD:C_0805_2012Metric",
+    "Description": "",
+    "DNP": "NO"
+  },
+  {
+    "sheet": "power_management.kicad_sch",
+    "Reference": "C4",
+    "Value": "22uF/25V",
+    "Footprint": "Capacitor_SMD:C_0805_2012Metric",
+    "Description": "",
+    "DNP": "NO"
+  },
+  {
+    "sheet": "power_management.kicad_sch",
+    "Reference": "C5",
+    "Value": "47uF/10V",
+    "Footprint": "Capacitor_SMD:C_0805_2012Metric",
+    "Description": "",
+    "DNP": "NO"
+  },
+  {
+    "sheet": "power_management.kicad_sch",
+    "Reference": "C6",
+    "Value": "47uF/10V",
+    "Footprint": "Capacitor_SMD:C_0805_2012Metric",
+    "Description": "",
+    "DNP": "NO"
+  },
+  {
+    "sheet": "power_management.kicad_sch",
+    "Reference": "C7",
+    "Value": "100nF",
+    "Footprint": "Capacitor_SMD:C_0402_1005Metric",
+    "Description": "",
+    "DNP": "NO"
+  },
+  {
+    "sheet": "power_management.kicad_sch",
+    "Reference": "R1",
+    "Value": "100k 1%",
+    "Footprint": "Resistor_SMD:R_0402_1005Metric",
+    "Description": "",
+    "DNP": "NO"
+  },
+  {
+    "sheet": "power_management.kicad_sch",
+    "Reference": "R2",
+    "Value": "13.7k 1%",
+    "Footprint": "Resistor_SMD:R_0402_1005Metric",
+    "Description": "",
+    "DNP": "NO"
+  },
+  {
+    "sheet": "power_management.kicad_sch",
+    "Reference": "U2",
+    "Value": "AMS1117-3.3",
+    "Footprint": "Package_TO_SOT_SMD:SOT-223-3_TabPin2",
+    "Description": "",
+    "DNP": "NO"
+  },
+  {
+    "sheet": "power_management.kicad_sch",
+    "Reference": "C8",
+    "Value": "10uF/10V",
+    "Footprint": "Capacitor_SMD:C_0805_2012Metric",
+    "Description": "",
+    "DNP": "NO"
+  },
+  {
+    "sheet": "power_management.kicad_sch",
+    "Reference": "C9",
+    "Value": "22uF/10V",
+    "Footprint": "Capacitor_SMD:C_0805_2012Metric",
+    "Description": "",
+    "DNP": "NO"
+  },
+  {
+    "sheet": "power_management.kicad_sch",
+    "Reference": "C10",
+    "Value": "10uF/10V Tant",
+    "Footprint": "Capacitor_SMD:C_1206_3216Metric",
+    "Description": "",
+    "DNP": "NO"
+  },
+  {
+    "sheet": "power_management.kicad_sch",
+    "Reference": "U3",
+    "Value": "TPS3823-33DBVR",
+    "Footprint": "Package_TO_SOT_SMD:SOT-23-5",
+    "Description": "",
+    "DNP": "NO"
+  },
+  {
+    "sheet": "power_management.kicad_sch",
+    "Reference": "SW1",
+    "Value": "RESET",
+    "Footprint": "Button_Switch_SMD:SW_SPST_TL3342",
+    "Description": "",
+    "DNP": "NO"
+  },
+  {
+    "sheet": "power_management.kicad_sch",
+    "Reference": "R3",
+    "Value": "10k",
+    "Footprint": "Resistor_SMD:R_0402_1005Metric",
+    "Description": "",
+    "DNP": "NO"
+  },
+  {
+    "sheet": "power_management.kicad_sch",
+    "Reference": "C11",
+    "Value": "100nF",
+    "Footprint": "Capacitor_SMD:C_0402_1005Metric",
+    "Description": "",
+    "DNP": "NO"
+  },
+  {
+    "sheet": "power_management.kicad_sch",
+    "Reference": "LED1",
+    "Value": "Red 12V",
+    "Footprint": "LED_SMD:LED_0603_1608Metric",
+    "Description": "",
+    "DNP": "NO"
+  },
+  {
+    "sheet": "power_management.kicad_sch",
+    "Reference": "R4",
+    "Value": "4.7k",
+    "Footprint": "Resistor_SMD:R_0402_1005Metric",
+    "Description": "",
+    "DNP": "NO"
+  },
+  {
+    "sheet": "power_management.kicad_sch",
+    "Reference": "LED2",
+    "Value": "Green 5V",
+    "Footprint": "LED_SMD:LED_0603_1608Metric",
+    "Description": "",
+    "DNP": "NO"
+  },
+  {
+    "sheet": "power_management.kicad_sch",
+    "Reference": "R5",
+    "Value": "330R",
+    "Footprint": "Resistor_SMD:R_0402_1005Metric",
+    "Description": "",
+    "DNP": "NO"
+  },
+  {
+    "sheet": "power_management.kicad_sch",
+    "Reference": "LED3",
+    "Value": "Blue 3.3V",
+    "Footprint": "LED_SMD:LED_0603_1608Metric",
+    "Description": "",
+    "DNP": "NO"
+  },
+  {
+    "sheet": "power_management.kicad_sch",
+    "Reference": "R6",
+    "Value": "100R",
+    "Footprint": "Resistor_SMD:R_0402_1005Metric",
+    "Description": "",
+    "DNP": "NO"
+  },
+  {
+    "sheet": "power_management.kicad_sch",
+    "Reference": "R34",
+    "Value": "100k 1%",
+    "Footprint": "Resistor_SMD:R_0402_1005Metric",
+    "Description": "",
+    "DNP": "NO"
+  },
+  {
+    "sheet": "power_management.kicad_sch",
+    "Reference": "R35",
+    "Value": "18.2k 1%",
+    "Footprint": "Resistor_SMD:R_0402_1005Metric",
+    "Description": "",
+    "DNP": "NO"
+  }
+]

@@ -1,11 +1,13 @@
 # Auditoría de Documentación — Archivos Markdown a Actualizar
 
-**Fecha:** 2026-07-09 (actualizado 2026-08-10)  
+**Fecha:** 2026-07-09 (actualizado 2026-07-09)  
 **Contexto:** Re-arquitectura UNO Q para fabricación JLCPCB del tier **Insight**.  
 **Documento de verdad:** `docs/INSIGHT_FABRICATION_ROADMAP.md`  
 **Nueva referencia de factor de forma:** `docs/UNO_Q_FORM_FACTOR.md`
 
 Esta auditoría lista los archivos `.md` del repo que contienen información desactualizada respecto al diseño actual (`main`) y al plan aprobado, con indicaciones de qué cambiar. El documento `docs/UNO_Q_FORM_FACTOR.md` ya captura las restricciones mecánicas inmutables del UNO Q y debe citarse en cualquier documento que hable de dimensiones, headers o recortes.
+
+> **Actualización reciente:** `docs/04_BOM_PRODUCTION.md` sección 11 se actualizó con la convención DNP y los conteos finales Essential/Insight/Signature (88/137/146 de 163 placements). Se corrigió `tools/list_actual_components.py` y `tools/apply_tier_dnp4.py` para procesar también el formato s-expresión expandido de `kicad/hmi_connectors.kicad_sch`; ahora J20, J21, R36, R37 y D15-D18 tienen DNP. Todos los esquemáticos tienen las propiedades `DNP` y comentarios sincronizados con los tiers.
 
 ---
 
