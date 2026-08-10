@@ -75,14 +75,34 @@ KiCad utiliza `libgit2`. Recomendamos generar una llave **Ed25519** (más segura
 
 ---
 
-## 4. Clonar el repositorio desde KiCad
+## 4. Agregar la clave del host de GitHub
+
+La primera vez, KiCad/libgit2 necesita conocer la clave pública del host `github.com`. Si no está registrada, el test de conexión dará `invalid or unknown remote ssh hostkey`.
+
+1. Abrir **Git Bash** (Windows), **Terminal** (macOS) o una terminal (Linux).
+2. Ejecutar:
+   ```bash
+   ssh-keyscan github.com >> ~/.ssh/known_hosts
+   ```
+   O, si prefieres hacerlo manualmente:
+   ```bash
+   ssh -T git@github.com
+   ```
+   y escribir `yes` cuando pregunte si confías en el host.
+3. Verificar que el archivo `known_hosts` se creó en:
+   - Windows: `C:\Users\<tu usuario>\.ssh\known_hosts`
+   - macOS: `/Users/<tu usuario>/.ssh/known_hosts`
+   - Linux: `~/.ssh/known_hosts`
+
+## 5. Clonar el repositorio desde KiCad
 
 1. Abrir **KiCad** (Project Manager).
 2. Menú: **File → Clone Project from Git Repository...**.
-3. En el campo **Location**, escribir la URL SSH del repositorio:
+3. En el campo **Location**, escribir la URL SSH del repositorio **con el usuario `git@`**:
    ```
    git@github.com:Nhilson73/nebula_qshield_pcb.git
    ```
+   > Si escribes solo `github.com:Nhilson73/nebula_qshield_pcb.git` (sin `git@`), KiCad puede no reconocer el usuario SSH y fallar.
 4. En **Connection**, seleccionar **SSH** (si aparece el tipo de conexión). En algunas versiones KiCad detecta SSH automáticamente al ver `git@github.com`.
 5. En **SSH private key**, seleccionar (Browse) el archivo:
    ```
@@ -101,7 +121,7 @@ KiCad utiliza `libgit2`. Recomendamos generar una llave **Ed25519** (más segura
 
 ---
 
-## 5. Abrir el proyecto
+## 6. Abrir el proyecto
 
 1. Después de clonar, KiCad te pedirá dónde guardar la carpeta local.
 2. Elegir una carpeta, por ejemplo:
@@ -112,7 +132,7 @@ KiCad utiliza `libgit2`. Recomendamos generar una llave **Ed25519** (más segura
 
 ---
 
-## 6. Actualizar el proyecto (fetch / pull)
+## 7. Actualizar el proyecto (fetch / pull)
 
 KiCad 10 incluye menús básicos de control de versiones:
 
@@ -124,7 +144,7 @@ Si el menú de KiCad no hace pull correctamente (algunas versiones solo hacen fe
 
 ---
 
-## 7. Solución de problemas
+## 8. Solución de problemas
 
 ### KiCad no acepta la llave o da error de autenticación
 
@@ -169,7 +189,7 @@ Si el menú de KiCad no hace pull correctamente (algunas versiones solo hacen fe
 
 ---
 
-## 8. Enlaces útiles
+## 9. Enlaces útiles
 
 - Generar llaves SSH en GitHub: https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent
 - Foro de KiCad sobre Git: https://forum.kicad.info/t/tutorial-how-to-enable-git-in-kicad-8/49235
