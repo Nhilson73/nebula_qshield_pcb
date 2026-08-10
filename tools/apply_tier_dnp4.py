@@ -3,13 +3,23 @@ from pathlib import Path
 
 MAPPING = json.loads(Path('kicad/tier_dnp_mapping.json').read_text())
 
+_RE_PROP_VALUE = re.compile(
+    r'\(\s*property\s+"([^"]+)"\s+"([^"]*)"',
+    re.DOTALL
+)
+
+_RE_SYMBOL_START = re.compile(r'^\s*\(\s*symbol\b', re.DOTALL)
+_RE_LIB_ID = re.compile(r'\(\s*lib_id\b')
+_RE_IN_BOM_YES = re.compile(r'\(\s*in_bom\s+yes\s*\)')
+_RE_DNP_PROP = re.compile(r'\(\s*property\s+"DNP"', re.DOTALL)
+_RE_REF_PROP = re.compile(r'\(\s*property\s+"Reference"', re.DOTALL)
+
+
 def get_outer_kicad_sch(text):
     """Return (body_start, body_end, body_text) for the outer (kicad_sch ... ) body."""
-    # find first '('
     start = text.find('(')
     if start != 0:
         return None
-    # parse to matching ')' at top level
     depth = 0
     in_string = False
     escape = False
@@ -34,8 +44,8 @@ def get_outer_kicad_sch(text):
                 break
     if end is None:
         return None
-    # body is between outer ( and )
     return 1, end, text[1:end]
+
 
 def top_level_blocks(body):
     """Yield (start, end, block) for each top-level s-expression in body."""
@@ -47,7 +57,6 @@ def top_level_blocks(body):
         if i >= n:
             break
         if body[i] != '(':
-            # skip non-parenthesis token (e.g. kicad_sch)
             while i < n and not body[i].isspace() and body[i] not in '()':
                 i += 1
             continue
@@ -77,33 +86,24 @@ def top_level_blocks(body):
                         break
             i += 1
 
-def ref_of(block):
-    m = re.search(r'\(property\s+"Reference"\s+"([^"]+)"', block)
+
+def get_property(block, name):
+    """Return the string value of the named property, or None."""
+    pattern = re.compile(
+        r'\(\s*property\s+"' + re.escape(name) + r'"\s+"([^"]*)"',
+        re.DOTALL
+    )
+    m = pattern.search(block)
     return m.group(1) if m else None
 
-def is_instance(block):
-    return (
-        block.lstrip().startswith('(symbol') and
-        '(lib_id' in block and
-        '(in_bom yes)' in block
-    )
 
-def update_block(block, dnp):
-    # If DNP exists, replace value
-    if re.search(r'\(property\s+"DNP"', block):
-        return re.sub(r'(\(property\s+"DNP"\s+)"[^"]*"', rf'\1"{dnp}"', block)
-    # Find Reference property end
-    m = re.search(r'\(property\s+"Reference"', block)
-    if not m:
-        return block
-    # parse balanced from m.start()
-    pos = m.start()
+def find_balanced_end(text, start):
+    """Return index just after the matching close paren for an open paren at start."""
     depth = 0
     in_string = False
     escape = False
-    ref_end = None
-    for i in range(pos, len(block)):
-        c = block[i]
+    for i in range(start, len(text)):
+        c = text[i]
         if in_string:
             if escape:
                 escape = False
@@ -111,23 +111,53 @@ def update_block(block, dnp):
                 escape = True
             elif c == '"':
                 in_string = False
-        else:
-            if c == '"':
-                in_string = True
-            elif c == '(':
-                depth += 1
-            elif c == ')':
-                depth -= 1
-                if depth == 0:
-                    ref_end = i + 1
-                    break
+            continue
+        if c == '"':
+            in_string = True
+        elif c == '(':
+            depth += 1
+        elif c == ')':
+            depth -= 1
+            if depth == 0:
+                return i + 1
+    return None
+
+
+def ref_of(block):
+    return get_property(block, 'Reference')
+
+
+def is_instance(block):
+    if not _RE_SYMBOL_START.search(block):
+        return False
+    if not _RE_LIB_ID.search(block):
+        return False
+    if not _RE_IN_BOM_YES.search(block):
+        return False
+    return True
+
+
+def update_block(block, dnp):
+    # If DNP exists, replace value (preserve surrounding whitespace/format)
+    if _RE_DNP_PROP.search(block):
+        return re.sub(
+            r'(\(\s*property\s+"DNP"\s+)"[^"]*"',
+            rf'\1"{dnp}"',
+            block,
+            count=1
+        )
+    # Find Reference property and insert a compact DNP property right after it
+    m = _RE_REF_PROP.search(block)
+    if not m:
+        return block
+    ref_end = find_balanced_end(block, m.start())
     if ref_end is None:
         return block
-    # indentation from line start
     line_start = block.rfind('\n', 0, m.start()) + 1
     indent = block[line_start:m.start()]
     dnp_prop = f'\n{indent}(property "DNP" "{dnp}" (at 0 0 0) (effects (font (size 1.27 1.27)) hide))'
     return block[:ref_end] + dnp_prop + block[ref_end:]
+
 
 def process_file(path):
     text = path.read_text()
@@ -138,9 +168,9 @@ def process_file(path):
     children = list(top_level_blocks(body))
     if not children:
         return False
-    changed = False
     new_body = body
-    # process children from end to start to preserve positions
+    changed = False
+    # process from end to start to preserve positions
     for start, end, block in reversed(children):
         if not is_instance(block):
             continue
@@ -160,6 +190,7 @@ def process_file(path):
         path.write_text(new_text)
         return True
     return False
+
 
 if __name__ == '__main__':
     for path in sorted(Path('kicad').glob('*.kicad_sch')):
