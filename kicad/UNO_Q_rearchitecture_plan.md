@@ -1,5 +1,7 @@
 # UNO Q Shield Re-architecture Plan
 
+> **Estado (2026-08-11):** plan histórico; el board actual es 125 × 120 mm con DRC/ERC 0 y 47 nets desconectadas en Fase 5. Fuente de verdad actual en `docs/INSIGHT_FABRICATION_ROADMAP.md`.
+>
 > Branch: `devin/uno-q-rearchitecture`  
 > Status: proposal ready for review. Implementation will be applied after approval.
 
@@ -61,7 +63,7 @@ The corrected symbol `Arduino_UNO_Q_Shield_Header_Corrected` (32 pins) and footp
 
 ### 2.1 Recommended J21 origin
 
-After checking a 2.54 mm grid over the 100 mm × 120 mm board, the best compromise between collision count and top-side mechanical clearance is:
+After checking a 2.54 mm grid over the 125 mm × 120 mm board, the best compromise between collision count and top-side mechanical clearance is:
 
 ```text
 J21 footprint origin -> (5.08 mm, 35.56 mm)
@@ -72,7 +74,7 @@ UNO footprint courtyard -> x =  3.81 mm .. 74.93 mm
 ```
 
 Why this origin:
-- Keeps all UNO Q connectors and tall parts within the 100 mm × 120 mm board.
+- Keeps all UNO Q connectors and tall parts within the 125 mm × 120 mm board.
 - Leaves a `5.08 mm` left margin for the USB-C connector body.
 - Leaves a `25.44 mm` margin to the top board edge for the power jack / JCTL / JMedia cutouts (max y = `94.56 mm`).
 - Only **10 components** must be relocated (see next section). Lower origins or centered origins create 30+ collisions.

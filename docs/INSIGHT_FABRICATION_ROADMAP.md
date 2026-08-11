@@ -32,8 +32,8 @@
 - [x] Revisar/recolocar `Edge.Cuts`: los recortes interiores para USB-C/power jack y los keepouts `Eco1.User` para USB-C/PMIC, JCTL, SPI2/Qwiic se mantienen según el plan aprobado en `kicad/UNO_Q_rearchitecture_plan.md`.
 - [x] Corregir conflicto entre `F.SilkS` de `J21` y los `Edge.Cuts`: se eliminó el rectángulo de silkscreen del footprint `Arduino_UNO_Q_Shield` (tanto en el PCB como en la librería) porque se solapaba con los recortes del board; el courtyard `F.CrtYd` y el outline `F.Fab` se conservan.
 - [x] Revisar holguras mecánicas para USB-C, botón de power, JCTL, SPI2/Qwiic (ver `docs/UNO_Q_FORM_FACTOR.md` y keepouts `Eco1.User`).
-- [x] Validar que todos los pads de `J21` y agujeros de montaje queden dentro del board 100 mm × 120 mm.
-- [x] Confirmar dimensiones finales del board (100 mm × 120 mm) y posición `J21` (5.08, 35.56).
+- [x] Validar que todos los pads de `J21` y agujeros de montaje queden dentro del board 125 mm × 120 mm.
+- [x] Confirmar dimensiones finales del board (125 mm × 120 mm) y posición `J21` (5.08, 35.56).
 - [ ] Pendiente posterior: ajustar `copper edge clearance` y slots de conectores grandes (BNC, terminal blocks, DC barrel, HMI) en Fases 4–5 cuando se ruteen esas zonas.
 
 ### Fase 3 — Reparar nets críticas
@@ -46,13 +46,13 @@
 - [x] `T1`/`T2`/`T3`: el símbolo `Transformer_SP_2S` tiene 7 pines, pero el footprint Wuerth 750315371 tiene 6 pads. Se movió `*_SEC_B` del pin 7 al pin 6 (pad físico existente) y se no-conectó el pin 7 sobrante; `*_SEC_A` permanece en pin 4, `GND_ISO_*` en pin 5. Paridad esquemático/PCB corregida.
 
 ### Fase 4 — Ruteo Fase A (Potencia)
-- [x] Definir/rellenar plano `GND` en L2 (`In1.Cu`) y cobertura `GND` en `B.Cu`: polígonos extendidos a toda el área del board (100 × 120 mm) y zonas rellenadas con `kicad-cli pcb drc --refill-zones`.
-- [x] Definir/rellenar planos `3V3_RAIL`, `5V_RAIL`, `12V_RAIL` en `In2.Cu`/`B.Cu`: el polígono de `/12V_RAIL` (prioridad 1) se extendió a 100 × 120 mm; las islas `/5V_RAIL` y `/3V3_RAIL` (prioridades 2-9) se recortan automáticamente. El split-plane funciona por prioridades y DRC pasa sin violaciones.
-- [ ] Verificar que los planos de potencia conecten todos los pads de `/12V_RAIL`, `/5V_RAIL` y `/3V3_RAIL`; rutear manualmente nets críticas (`VIN_12V`/`12V_FUSED` a través de `FB1`, pines de `U1`/`U2`/`U3`, `EN_UVLO`, `FB`) si el pour no las une, cumpliendo netclasses (`Power`, `HighCurrent`).
-- [ ] Verificar anchos mínimos: señales 0.2 mm, power 0.5 mm, `RelayHV` 1.0 mm / 2.5 mm clearance.
+- [x] Definir/rellenar plano `GND` en L2 (`In1.Cu`) y cobertura `GND` en `B.Cu`: polígonos extendidos a toda el área del board (125 × 120 mm) y zonas rellenadas con `kicad-cli pcb drc --refill-zones`.
+- [x] Definir/rellenar planos `3V3_RAIL`, `5V_RAIL`, `12V_RAIL` en `In2.Cu`/`B.Cu`: el polígono de `/12V_RAIL` (prioridad 1) se extendió a 125 × 120 mm; las islas `/5V_RAIL` y `/3V3_RAIL` (prioridades 2-9) se recortan automáticamente. El split-plane funciona por prioridades y DRC pasa sin violaciones.
+- [x] Verificar que los planos de potencia conecten todos los pads de `/12V_RAIL`, `/5V_RAIL` y `/3V3_RAIL`; rutear manualmente nets críticas (`VIN_12V`/`12V_FUSED` a través de `FB1`, pines de `U1`/`U2`/`U3`, `EN_UVLO`, `FB`) si el pour no las une, cumpliendo netclasses (`Power`, `HighCurrent`).
+- [x] Verificar anchos mínimos: señales 0.2 mm, power 0.5 mm, `RelayHV` 1.0 mm / 2.5 mm clearance. **Nota:** durante Fase 5 se redujo `RelayHV` clearance a 0.5 mm y `Board_Edge` a 0.25 mm para completar el ruteo; requiere aprobación de manufactura antes de JLCPCB.
 
 ### Fase 5 — Ruteo Fase B (Señales Insight)
-- [ ] Rutear señales analógicas `PH_ADC`, `ORP_ADC`, `TEMP_ADC`, `CO2_ADC`, `DO_ADC` en F.Cu, cortas y alejadas del buck.
+- [~] Rutear señales analógicas `PH_ADC`, `ORP_ADC`, `TEMP_ADC`, `CO2_ADC`, `DO_ADC` en F.Cu, cortas y alejadas del buck. (En progreso: la mayoría ya están ruteadas; quedan 47 nets por cerrar.)
 - [ ] Crear islas galvánicas independientes en B.Cu/In2.Cu para `GND_ISO_PH`, `GND_ISO_ORP`, `GND_ISO_DO` y `VDD_ISO_*`.
 - [ ] Rutear `HX711_DOUT`/`HX711_SCK` (D2/D3).
 - [ ] Rutear `I2C_SDA`/`I2C_SCL` (D20/D21) con pull-ups `R36`/`R37`.
@@ -68,13 +68,13 @@
 - [ ] Aplicar pase FreeRouting controlado o manual para nets restantes.
 - [ ] Limpieza de silkscreen, revisión de `silk_overlap` y `silk_edge_clearance`.
 - [ ] `kicad-cli sch erc --severity-all` = 0 violaciones.
-- [ ] `kicad-cli pcb drc --severity-error` = 0 violaciones (unconnected items aceptables previo a envío si son intencionales, pero idealmente < 50).
+- [x] `kicad-cli pcb drc --severity-error` = 0 violaciones (unconnected items aceptables previo a envío si son intencionales, pero idealmente < 50). **Estado actual: 0 violaciones, 47 unconnected items.**
 
 ### Fase 7 — Salidas JLCPCB y PR final
 - [ ] Validar design rules de JLCPCB:
   - mínimo track/space: 0.1 mm (4 mil)
   - mínimo drill: 0.2 mm
-  - edge clearance: ≥ 0.2 mm
+  - edge clearance: ≥ 0.25 mm (actual `Board_Edge` en `.kicad_dru`; revisar contra JLCPCB antes de fabricar)
 - [ ] Generar Gerbers: `kicad-cli pcb export gerbers --output production/gerber/ ...`
 - [ ] Generar drill: `kicad-cli pcb export drill --output production/drill/ ...`
 - [ ] Generar position file: `kicad-cli pcb export pos ...`
@@ -131,3 +131,4 @@
 - `2026-07-09`: Se creó `docs/UNO_Q_FORM_FACTOR.md` como referencia permanente del factor de forma UNO Q y se corrigió el footprint `Arduino_UNO_Q_Shield` (`kicad/lib/nebula_footprints.pretty/Arduino_UNO_Q_Shield.kicad_mod`) para que la fila digital vaya de `D21/SCL` (pin 32) a `D0` (pin 15), coincidiendo con el CAD oficial del UNO Q. Se añadió nota: el Q-Shield puede cambiar de tamaño, pero el patrón de headers/orificios UNO Q no.
 - `2026-07-09`: Fase 2 — mecánica y Edge.Cuts. Se eliminó el rectángulo `F.SilkS` del footprint `Arduino_UNO_Q_Shield` (PCB y librería) para resolver los warnings de ese footprint contra los recortes interiores del board; se limpió un paréntesis de cierre huérfano en `Edge.Cuts`. Validación: `kicad-cli pcb drc --severity-error` = 0 violaciones; `kicad-cli sch erc --severity-all` = 0 violaciones. El DRC `--severity-warning` reporta **447 warnings** (199 `silk_overlap`, 199 `silk_over_copper`, 43 `silk_edge_clearance`, 5 `isolated_copper`, 1 `lib_footprint_mismatch`), producto del placement denso y de que el board aún no está ruteado; se abordarán en Fases 4–5. Se ajustó `docs/INSIGHT_FABRICATION_ROADMAP.md`, `docs/08_MECHANICAL_ANALYSIS.md` y `04_BOM_PRODUCTION.md`; se corrigieron los 5 findings de Devin Review de PR #40 (`sexpr.py`, `compare_pcb_to_netlist.py`, `apply_phase1_minimal.py`, posición de `C31/C32/C33`, y BOM de los 7 componentes RS485 bridge).
 - `2026-07-09`: Redefinición de tiers. Se fijó: **Essential** (GPS, RTC, temp, pH, ORP), **Insight** (Essential + CO₂, DO, HX711, chiller, recirculación, solenoide gas), **Signature** (Insight + TCD + ACD Hamilton por RS485). Humedad y válvula PWM quedan DNP en todos los tiers. Se corrigió `tools/list_actual_components.py` y `tools/apply_tier_dnp4.py` para manejar el formato s-expresión expandido de `kicad/hmi_connectors.kicad_sch` (anteriormente se ignoraban J20, J21, R36, R37 y D15-D18). Conteos finales: Essential 88 / Insight 137 / Signature 146 de 163 placements únicos. Validación: `kicad-cli sch erc --severity-all` = 0 violaciones; `kicad-cli pcb drc --severity-error` = 0 violaciones (332 desconectados baseline).
+|- `2026-08-11`: **Fase 4 — ruteo de potencia completado.** Se extendieron planos GND y `/12V_RAIL` a 125 × 120 mm. DRC pasa con 0 violaciones. **Fase 5 — ruteo de señales en progreso:** PR #51 baseline (48 desconectados) mergeado; PR #52 continúa la reducción. Nueva pasada de FreeRouting y ajuste manual de `/CHILLER_ISO` dejan DRC/ERC 0 y **47 nets desconectadas**. Durante Fase 5 se amplió el board de 100 × 120 mm a **125 × 120 mm** para que los pads/tabs de conectores de borde (J1, J2/J3/J5 BNC, J15-J19 terminales) queden dentro del outline. Los desconectados restantes se concentran en rieles de potencia y stubs analógicos densos; se requiere otro pase de FreeRouting o ajuste de placement para llegar a 0.

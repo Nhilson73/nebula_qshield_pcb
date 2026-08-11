@@ -6,7 +6,7 @@
 >
 > **Normativas de referencia:** IPC-2221B, IPC-7351C
 >
-> **Nota (2026-08-10):** el factor de forma y los recortes del Arduino UNO Q para el Q-Shield están documentados en `docs/UNO_Q_FORM_FACTOR.md`. Ese documento es la referencia inmutable; este archivo sigue siendo útil como análisis histórico pero contiene datos que requieren actualización (dimensiones, header J21, recortes).
+> **Nota (2026-08-11):** el factor de forma y los recortes del Arduino UNO Q para el Q-Shield están documentados en `docs/UNO_Q_FORM_FACTOR.md`. Ese documento es la referencia inmutable; este archivo se actualizó a 125 × 120 mm y porcentajes recalculados, pero sigue siendo aproximado. Estado del PCB: DRC/ERC 0, 47 nets desconectadas en Fase 5. Ver `docs/INSIGHT_FABRICATION_ROADMAP.md`.
 
 ---
 
@@ -16,9 +16,9 @@
 
 | Parámetro | Valor | Notas |
 |-----------|-------|-------|
-| **Dimensiones PCB** | 100 × 120 mm (puede variar) | El factor de forma UNO Q es inmutable; el board actual es 100×120 mm y puede variar si se respeta el patrón UNO Q |
+| **Dimensiones PCB** | 125 × 120 mm (puede variar) | El factor de forma UNO Q es inmutable; el board actual es 125×120 mm y puede variar si se respeta el patrón UNO Q |
 | **Factor de forma UNO Q** | 68.58 × 53.34 mm | Patrón de headers y agujeros de montaje según `docs/UNO_Q_FORM_FACTOR.md` |
-| **Área total** | 12,000 mm² | |
+| **Área total** | 15,000 mm² (125 × 120 mm; los porcentajes de ocupación debajo se recalcularon a esta área) | |
 | **Espesor** | 1.6 mm ± 10% | Estándar IPC-2221B |
 | **Capas** | 4 (Signal–GND–PWR–Signal) | |
 | **Bordes** | Rounded 1 mm radius | Previene microfisuras |
@@ -40,21 +40,21 @@
 
 | Zona | Componentes | Área footprints | Max altura | % del PCB |
 |------|-------------|-----------------|------------|-----------|
-| **A — Potencia** | 30 | 389 mm² | 12.5 mm (C2) | 3.2% |
-| **B — Analógica** | 71 | 949 mm² | 25.0 mm (BNC) | 7.9% |
-| **C — Digital** | 21 | 465 mm² | 8.5 mm (terminal) | 3.9% |
-| **D — Actuadores** | 30 | 1,186 mm² | 10.0 mm (TO-220) | 9.9% |
-| **E — HMI** | 6 | 553 mm² | 8.5 mm (J21) | 4.6% |
-| **TOTAL** | **158** | **3,541 mm²** | **25.0 mm** | **29.5%** |
+| **A — Potencia** | 30 | 389 mm² | 12.5 mm (C2) | 2.6% |
+| **B — Analógica** | 71 | 949 mm² | 25.0 mm (BNC) | 6.3% |
+| **C — Digital** | 21 | 465 mm² | 8.5 mm (terminal) | 3.1% |
+| **D — Actuadores** | 30 | 1,186 mm² | 10.0 mm (TO-220) | 7.9% |
+| **E — HMI** | 6 | 553 mm² | 8.5 mm (J21) | 3.7% |
+| **TOTAL** | **158** | **3,541 mm²** | **25.0 mm** | **23.6%** |
 
 ### 2.2 Densidad de Ocupación
 
 | Métrica | Valor | Evaluación |
 |---------|-------|------------|
-| Densidad TOP (footprints/área total) | 29.5% | Cómoda (< 50%) |
-| Densidad TOP+BOT (dual-side) | ~14.8% | Muy holgada |
+| Densidad TOP (footprints/área total) | 23.6% | Cómoda (< 50%) |
+| Densidad TOP+BOT (dual-side) | ~11.8% | Muy holgada |
 | Densidad zona media (sin J21 ni BNCs) | 31.0% | Cómoda |
-| Componentes por cm² | 1.32 | Baja densidad |
+| Componentes por cm² | 1.05 | Baja densidad |
 
 **Referencia industrial:**
 - < 50% = Densidad cómoda (routing fácil, producción estándar)
@@ -63,7 +63,7 @@
 
 ### 2.3 Veredicto de Compactación
 
-**El board aprobado actualmente es 100 × 120 mm.** El factor de forma UNO Q no cambia; las dimensiones del Q-Shield pueden ajustarse. La densidad sigue siendo cómoda para un PCB de 4 capas con componentes THT y SMD mixtos, con margen para routing, guard rings, via fences y clearance de aislamiento galvánico.
+**El board aprobado actualmente es 125 × 120 mm.** El factor de forma UNO Q no cambia; las dimensiones del Q-Shield pueden ajustarse. La densidad sigue siendo cómoda para un PCB de 4 capas con componentes THT y SMD mixtos, con margen para routing, guard rings, via fences y clearance de aislamiento galvánico.
 
 ---
 
@@ -125,7 +125,7 @@
 | **Componentes** | J2 (pH), J3 (ORP), J5 (DO) |
 | **Dimensión** | 15.0 × 12.0 mm footprint, **25.0 mm altura** |
 | **Problema** | Protruyen 25mm sobre el PCB — el enclosure debe acomodar esta altura |
-| **Espacio lineal** | 3× BNC = 45 mm mínimo de borde → cabe en 100 mm |
+| **Espacio lineal** | 3× BNC = 45 mm mínimo de borde → cabe en 125 mm |
 
 **Recomendación:** Montar BNCs en el **borde superior** del PCB con orientación vertical (panel mount). El enclosure debe tener aberturas en el panel frontal para los BNCs. Alternativamente, considerar BNC right-angle (90°) para reducir altura a ~12mm a costa de más profundidad.
 
@@ -189,13 +189,13 @@
 
 ---
 
-## 5. Layout de Zonas Propuesto (100 × 120 mm — dimensiones ajustables)
+## 5. Layout de Zonas Propuesto (125 × 120 mm — dimensiones ajustables)
 
 ### 5.1 Mapa de Zonas Actualizado
 
 ```
     ┌──────────────────────────────────────────────────────────────────────────────────┐
-    │  100 mm                                                                          │
+    │  125 mm                                                                          │
     │  ┌──────────────────────────────────────────────────────────────────────────┐    │
     │  │  ZONA A: POTENCIA (20×30mm)     │  ZONA B: ANALÓGICA (50×45mm)         │    │
     │  │  ┌─────────────────────┐        │  ┌──────────────────────────────────┐ │    │
@@ -205,7 +205,7 @@
     │  │  │ U1 TPS54302 + L1   │        │  │                                  │ │    │
     │  │  │ U2 AMS1117         │        │  │ U4/U7/U10/U11 MCP6002 buffers   │ │    │
     │  │  │ C1, C2 (bulk caps) │        │  │ U5/U8/U12 SN6501 + T1-T3       │ │    │
-    │  │  │ U3 TPS3823 + SW1   │        │  │ U6/U9/U13 AMC1301 (isolation)   │ │  100
+    │  │  │ U3 TPS3823 + SW1   │        │  │ U6/U9/U13 AMC1301 (isolation)   │ │  125
     │  │  │ LED1-3, R4-R6      │        │  │ RC filters, ESD TVS              │ │  mm
     │  │  └─────────────────────┘        │  │ Guard ring GND                   │ │    │
     │  │                                  │  └──────────────────────────────────┘ │    │
@@ -227,8 +227,8 @@
     │  │  └─────────────────────────┘    │                                      │    │
     │  │                                                                        │    │
     │  │  ┌──────────────────────────────────────────────────────────────────┐  │    │
-    │  │  │            J21 — ARDUINO UNO Q SHIELD HEADER (2×20)              │  │    │
-    │  │  │                        98 mm                                      │  │    │
+    │  │  │            J21 — ARDUINO UNO Q SHIELD HEADER (32 pines)          │  │    │
+    │  │  │                        ~50.8 mm                                    │  │    │
     │  │  └──────────────────────────────────────────────────────────────────┘  │    │
     │  └──────────────────────────────────────────────────────────────────────────┘    │
     └──────────────────────────────────────────────────────────────────────────────────┘
@@ -242,7 +242,7 @@
 | B — Analógica | 50 × 45 mm | 2,250 mm² | 949 mm² fp | 42% |
 | C — Digital | 40 × 30 mm | 1,200 mm² | 465 mm² fp | 39% |
 | D — Actuadores | 40 × 40 mm | 1,600 mm² | 1,186 mm² fp | 74% |
-| E — J21 strip | 100 × 8 mm | 800 mm² | 553 mm² fp | 69% |
+| E — J21 strip | ~50.8 × 8 mm | ~400 mm² | 553 mm² fp | revisar |
 | **Margen/routing** | — | ~3,550 mm² | — | **35% libre** |
 
 ### 5.3 Reglas de Separación entre Zonas
@@ -311,11 +311,11 @@ Mover a BOT para reducir congestión TOP:
 
 | Pregunta | Respuesta |
 |----------|-----------|
-| **¿Cabe todo en 100×120mm?** | **Sí** — densidad de 29.5% es cómoda |
-| **¿Se requiere PCB más grande?** | **No** — 100×120mm aprobado; el factor de forma UNO Q no cambia |
+| **¿Cabe todo en 125×120mm?** | **Sí** — densidad de 23.6% es cómoda |
+| **¿Se requiere PCB más grande?** | **No** — 125×120mm aprobado; el factor de forma UNO Q no cambia |
 | **Cuello de botella principal** | Zona de actuadores (74% ocupación local) |
 | **Componente más crítico (altura)** | BNC connectors (25mm) → define enclosure |
-| **Componente más crítico (área)** | J21 shield header (490 mm², 98% del ancho) |
+| **Componente más crítico (área)** | J21 shield header (~490 mm², ajustar con layout final) |
 | **Recomendación #1** | Sustituir TO-220 por D²PAK (reduce 7.5mm altura) |
 | **Recomendación #2** | Sustituir C2 electrolítico por 2× MLCC 1210 |
 | **Recomendación #3** | Mover pasivos 0402/SOD-323 a cara BOT |
@@ -324,7 +324,7 @@ Mover a BOT para reducir congestión TOP:
 
 ## 9. Actualización Fase 2 — Edge.Cuts y Keepouts (2026-07-09)
 
-Con el board aprobado de **100 mm × 120 mm**, el footprint `Arduino_UNO_Q_Shield` se coloca en `(5.08, 35.56)` y el área ocupada por el UNO Q va de `(3.81, 34.29)` a `(74.93, 90.17)` mm. Los recortes y keepouts añadidos en `kicad/nebula_qshield.kicad_pcb` son:
+Con el board aprobado de **125 mm × 120 mm**, el footprint `Arduino_UNO_Q_Shield` se coloca en `(5.08, 35.56)` y el área ocupada por el UNO Q va de `(3.81, 34.29)` a `(74.93, 90.17)` mm. Los recortes y keepouts añadidos en `kicad/nebula_qshield.kicad_pcb` son:
 
 | Elemento | Tipo | Coordenadas (mm) | Propósito |
 |----------|------|-------------------|-----------|
