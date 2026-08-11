@@ -38,7 +38,7 @@
 | Capa | Nombre | Función | Contenido |
 |------|--------|---------|-----------|
 | L1 (TOP) | Signal_Top | Señales y componentes | Pistas de señal, componentes SMD/THT, pads |
-| L2 | GND | Plano de tierra | **Continuo sin interrupciones** — retorno de corriente para todas las señales; polígono extendido al board 100 × 120 mm |
+| L2 | GND | Plano de tierra | **Continuo sin interrupciones** — retorno de corriente para todas las señales; polígono extendido al board 125 × 120 mm |
 | L3 | PWR | Planos de potencia | Islas: 12V, 5V, 3.3V separadas por clearance |
 | L4 (BOT) | Signal_Bot | Señales secundarias | Pistas secundarias, componentes SMD (cara inferior), test points; también flood `GND` para retorno |
 
@@ -66,7 +66,7 @@
     └────────────────────────────────────────────────────────┘
 ```
 
-> **Nota de estado actual:** el board es 100 × 120 mm. La zona `/12V_RAIL` en `In2.Cu` (prioridad 1) ya cubre todo el board; las islas `/5V_RAIL` y `/3V3_RAIL` (prioridades 2-9) se recortan automáticamente formando un split-plane por prioridades. `kicad-cli pcb drc --severity-error` pasa sin violaciones. Ver `docs/INSIGHT_FABRICATION_ROADMAP.md` Fase 4.
+> **Nota de estado actual:** el board es **125 × 120 mm** (se amplió el ancho durante Fase 5 para que los conectores de borde no sobresalgan). La zona `/12V_RAIL` en `In2.Cu` (prioridad 1) ya cubre todo el board; las islas `/5V_RAIL` y `/3V3_RAIL` (prioridades 2-9) se recortan automáticamente formando un split-plane por prioridades. Durante Fase 5, `In1.Cu` se usó como capa de señal adicional durante el autoruteo para reducir desconectados; esto debe revisarse antes de fabricación. `kicad-cli pcb drc --severity-error` pasa sin violaciones (47 unconnected items). Ver `docs/INSIGHT_FABRICATION_ROADMAP.md` Fases 4-5.
 
 ---
 
@@ -114,7 +114,7 @@
 
 ```
     ┌──────────────────────────────────────────────────────────────────────────────────┐
-    │  100 mm                                                                          │
+    │  125 mm                                                                          │
     │  ┌──────────────────────────────────────────────────────────────────────────┐    │
     │  │                                                                          │    │
     │  │  ZONA A: POTENCIA (20×30mm)     │  ZONA B: ANALÓGICA (50×45mm)         │    │
@@ -123,7 +123,7 @@
     │  │  │ D1 TVS, F1 PTC     │        │  │ J5 (DO BNC)                      │ │    │
     │  │  │ D2 SS34            │        │  │ J4 (CO₂ JST) J6 (NTC) J7 (Hum) │ │    │
     │  │  │ U1 TPS54302 + L1   │        │  │ U4/U7/U10/U11 MCP6002 buffers   │ │    │
-    │  │  │ U2 AMS1117         │        │  │ U5/U8/U12 SN6501 + T1-T3       │ │  100
+    │  │  │ U2 AMS1117         │        │  │ U5/U8/U12 SN6501 + T1-T3       │ │  125
     │  │  │ C1, C2 (bulk caps) │        │  │ U6/U9/U13 AMC1301 (isolation)   │ │  mm
     │  │  │ U3 TPS3823 + SW1   │        │  │ RC filters, ESD TVS              │ │    │
     │  │  │ LED1-3, R4-R6      │        │  │ Guard ring GND                   │ │    │
@@ -145,7 +145,7 @@
     │  │  └─────────────────────────┘    │                                      │    │
     │  │                                                                        │    │
     │  │  ┌──────────────────────────────────────────────────────────────────┐  │    │
-    │  │  │          J21 — ARDUINO UNO Q SHIELD HEADER (2×20, 98mm)         │  │    │
+    │  │  │          J21 — ARDUINO UNO Q SHIELD HEADER (32 pines, ~50.8mm) │  │    │
     │  │  └──────────────────────────────────────────────────────────────────┘  │    │
     │  └──────────────────────────────────────────────────────────────────────────┘    │
     └──────────────────────────────────────────────────────────────────────────────────┘

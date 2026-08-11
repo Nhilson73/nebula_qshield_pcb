@@ -1,8 +1,8 @@
 # UNO Q Re-architecture — Implementation Report
 
 **Branch:** `devin/uno-q-rearchitecture`
-**Date:** 2026-07-09
-**Status:** Historical report of the UNO Q placement iteration. The final board was approved as 100 mm × 120 mm and the J21 symbol update was later applied (see `docs/INSIGHT_FABRICATION_ROADMAP.md`).
+**Date:** 2026-07-09  
+**Estado (2026-08-11):** reporte histórico; el board actual es 125 × 120 mm, DRC/ERC 0, 47 nets desconectadas en Fase 5. Fuente de verdad actual en `docs/INSIGHT_FABRICATION_ROADMAP.md`.
 
 ## 1. What was applied to `kicad/nebula_qshield.kicad_pcb`
 
@@ -114,7 +114,7 @@ The 365 unconnected items are expected because all tracks/vias were cleared duri
 
 | Property | Value |
 |----------|-------|
-| Outline | 100 mm × 120 mm rounded rectangle, 2.5 mm corner radius |
+| Outline | 125 mm × 120 mm rounded rectangle, 2.5 mm corner radius |
 | J21 origin | (5.08, 35.56) mm |
 | J21 footprint | `nebula_footprints:Arduino_UNO_Q_Shield` |
 | `track_dangling` | 16 |
@@ -161,7 +161,7 @@ In addition, the old tracks from the original `J21` position and the moved compo
 
 ## 4. Placement optimization attempted
 
-An exhaustive 2.54 mm grid search was run before the board size was increased to 100 mm × 120 mm. The best alternative found is:
+An exhaustive 2.54 mm grid search was run before the board size was increased to 125 mm × 120 mm. The best alternative found is:
 
 ```text
 J21 origin -> (2.54 mm, 43.18 mm)
@@ -175,7 +175,7 @@ At this origin the courtyard overlap count drops to **10** (the same 10 componen
 
 Before DRC can reach 0 errors, one of the following is required:
 
-1. **Increase the Q-Shield board size** to 100 mm × 120 mm so the UNO footprint and relays can coexist.
+1. **Increase the Q-Shield board size** to 125 mm × 120 mm so the UNO footprint and relays can coexist.
 2. **Use a two-board stack**: keep the Q-Shield as-is and add a separate UNO-to-Q adapter/shield daughter-board.
 3. **Remove or relocate functions** from the Q-Shield (e.g., move relays / BNC connectors off-board to a daughter module) to free the UNO area.
 4. **Return to the previous 2×20 header** and use a flex/cable adapter to the UNO Q instead of a rigid shield.

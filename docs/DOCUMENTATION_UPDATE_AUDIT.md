@@ -1,7 +1,7 @@
 # Auditoría de Documentación — Archivos Markdown a Actualizar
 
-**Fecha:** 2026-07-09 (actualizado 2026-07-09)  
-**Contexto:** Re-arquitectura UNO Q para fabricación JLCPCB del tier **Insight**.  
+**Fecha:** 2026-07-09 (actualizado 2026-08-11)  
+**Contexto:** Re-arquitectura UNO Q para fabricación JLCPCB del tier **Insight**. Estado actual: board 125 × 120 mm, DRC/ERC 0, 47 nets desconectadas en Fase 5.  
 **Documento de verdad:** `docs/INSIGHT_FABRICATION_ROADMAP.md`  
 **Nueva referencia de factor de forma:** `docs/UNO_Q_FORM_FACTOR.md`
 
@@ -17,12 +17,10 @@ Esta auditoría lista los archivos `.md` del repo que contienen información des
 - `docs/UNO_Q_FORM_FACTOR.md` — creado. Contiene las dimensiones del UNO Q, posición de headers/mounting holes, keepouts/cutouts y la regla inmutable: el patrón UNO Q no puede cambiar aunque el tamaño del Q-Shield sí.
 
 ### 1. `README.md`
-- [Resuelto] **Dimensiones:** actualizado a `100 × 120 mm`.
-- **Header J21:** dice `(2×20 shield header)`, 40 pines; el footprint aprobado es compatible UNO R3/Q de **32 pines** (1×8/1×6/1×10/1×8, sin SD/MISO/MOSI/SCK).
-- **Mapeo analógico en la tabla "12 Componentes":**
-  - Temperatura está en `A4`, CO₂ en `A2`, DO en `A3`, humedad en `A5`.
-  - Fuente de verdad firmware (`Nebula_ArduinoAPPLab_UNOQ`): `A0=pH`, `A1=ORP`, `A2=temp`, `A3=hum`, `A4=CO₂`, `A5=DO`.
-- **Mapeo de actuadores:** dice `GPIO D4–D7, D9`. Con la re-arquitectura aprobada los pines deben reflejar `D5=PUMP_PWM`, `D6=PUMP_DIR`, `D7=CO2_SOL`, `D9=CO2_PWM`, `D8=CHILLER` (Signature), `D4=MCU_WDI` (pendiente decisión final).
+- [Resuelto] **Dimensiones:** actualizado a `125 × 120 mm`.
+- [Resuelto] **Header J21:** actualizado a `(32-pin shield header)` en README y `docs/01_PCB_ARCHITECTURE.md`.
+- [Resuelto] **Mapeo analógico en la tabla "12 Componentes":** actualizado a `A0=pH`, `A1=ORP`, `A2=temp`, `A3=hum`, `A4=CO₂`, `A5=DO`.
+- [Resuelto] **Mapeo de actuadores:** actualizado a `D5=PUMP_PWM`, `D6=PUMP_DIR`, `D7=CO2_SOL`, `D9=CO2_PWM`, `D8=CHILLER` (Insight+), `D4=MCU_WDI`.
 - **I2C:** diagrama dice `I2C bus (7 devices)` sin ubicación; ahora el bus principal está en **D20/D21** con pull-ups `R36/R37`.
 - **Recomendación:** actualizar el diagrama ASCII, la tabla de 12 componentes, la tabla de especificaciones y agregar un enlace a `docs/INSIGHT_FABRICATION_ROADMAP.md`.
 
@@ -31,12 +29,11 @@ Esta auditoría lista los archivos `.md` del repo que contienen información des
 - **Recomendación:** añadir un paso: "revisar y actualizar `docs/INSIGHT_FABRICATION_ROADMAP.md`, `README.md` y los documentos afectados (`01`, `04`, `06`, `07`, `08`) cuando un cambio toque pinout, esquemático o layout".
 
 ### 3. `docs/01_PCB_ARCHITECTURE.md`
-- [Resuelto] **Dimensiones:** `100 × 120 mm`.
-- **Canal analógico A4/A5:** se asignan a temperatura y humedad; deben ser `A4=CO2_ADC`, `A5=DO_ADC`.
-- **Canal analógico A2/A3:** dice CO₂ y DO; deben ser `A2=TEMP_ADC`, `A3=HUM_ADC` (Signature).
+- [Resuelto] **Dimensiones:** `125 × 120 mm`.
+- [Resuelto] **Canales analógicos A2–A5:** actualizado a `A2=TEMP_ADC`, `A3=HUM_ADC` (Signature), `A4=CO2_ADC`, `A5=DO_ADC`.
 - **Bloque I2C:** figura `STM32U585 I2C1` en SDA/SCL sin ubicación de pines; actualizar a `I2C2` en `D20/D21` (pines 31/32 de J21), con pull-ups `R36/R37`.
-- **Tabla de pines J21 (4.3):** SDA/A4 y SCL/A5 están invertidos/duplicados; actualizar según `docs/INSIGHT_FABRICATION_ROADMAP.md`.
-- **Mapa de zonas (5):** `100 × 120 mm`; header `2×20` pendiente de actualizar a 32 pines.
+- [Resuelto] **Tabla de pines J21 (4.3):** actualizado según `docs/INSIGHT_FABRICATION_ROADMAP.md`.
+- [Resuelto] **Mapa de zonas (5):** `125 × 120 mm`; header actualizado a 32 pines.
 
 ### 4. `docs/04_BOM_PRODUCTION.md`
 - **J21:** descripción "Pin header, 2×20 stackable, 40" → actualizar a header Arduino UNO R3/Q de **32 pines** (1×8/1×6/1×10/1×8).
@@ -47,10 +44,10 @@ Esta auditoría lista los archivos `.md` del repo que contienen información des
 
 ### 5. `docs/06_PCB_LAYOUT_STACKUP.md`
 - [Resuelto] **Dimensiones del board:** no se encontró referencia incorrecta en el archivo; verificar mapa ASCII/header.
-- **Header J21:** dice `(2×20, 98mm)`.
+- [Resuelto] **Header J21:** actualizado a `(32 pines, ~50.8mm)`.
 - **Faltan keepouts/cutouts:** no documenta los recortes perimetrales para USB-C, botón de power, `JCTL`, `SPI2`/`Qwiic` aprobados en la re-arquitectura.
-- [Resuelto] **Plano GND L2:** actualizado para indicar polígono `GND` en `In1.Cu` y `B.Cu` extendido al board 100 × 120 mm.
-- [Resuelto] **Plano de potencia `In2.Cu`:** actualizado para indicar que el split-plane `/12V_RAIL`/`/5V_RAIL`/`/3V3_RAIL` funciona por prioridades y el polígono `/12V_RAIL` ya cubre el board 100 × 120 mm; pendiente aclarar islas `GND_ISO_*`.
+- [Resuelto] **Plano GND L2:** actualizado para indicar polígono `GND` en `In1.Cu` y `B.Cu` extendido al board 125 × 120 mm.
+- [Resuelto] **Plano de potencia `In2.Cu`:** actualizado para indicar que el split-plane `/12V_RAIL`/`/5V_RAIL`/`/3V3_RAIL` funciona por prioridades y el polígono `/12V_RAIL` ya cubre el board 125 × 120 mm; pendiente aclarar islas `GND_ISO_*`.
 - **Reglas de diseño vs. JLCPCB:** añadir validación de JLCPCB (4/4 mil, 0.2 mm drill, 0.2 mm track, etc.).
 
 ### 6. `docs/07_KICAD_NETLIST.md`
@@ -64,17 +61,15 @@ Esta auditoría lista los archivos `.md` del repo que contienen información des
 - **Generación de Gerber:** sección 7.1 refiere a `KiCad 9`; actualizar a comandos `kicad-cli` de KiCad 10 y salidas `production/`.
 
 ### 7. `docs/08_MECHANICAL_ANALYSIS.md`
-- [Resuelto] **Dimensiones:** actualizado a `100 × 120 mm` y `12,000 mm²`.
-- **Header J21:** `2×20`, 98 mm de ancho; actualizar a 32 pines, 53.34 mm de alto según patrón UNO Q, y ancho 2×(2.54 mm × filas) = ~50.8 mm entre columnas; revisar layout 100×120.
-- **Cuello #2:** basado en ancho 98 mm; en 100×120 mm ya no es cuello de ancho.
+- [Resuelto] **Dimensiones:** actualizado a `125 × 120 mm` y `15,000 mm²`.
+- [Resuelto] **Header J21:** actualizado a 32 pines; el ancho entre columnas es ~50.8 mm según patrón UNO Q.
+- **Cuello #2:** basado en ancho 98 mm; en 125×120 mm ya no es cuello de ancho.
 - **Recortes y keepouts:** agregar sección con los slots Edge.Cuts y keepouts Eco1.User para USB-C, botón power, JCTL, SPI2/Qwiic.
-- [Resuelto] **Veredicto compactación:** actualizado a "100×120 aprobado".
-- [Resuelto] **Mapa de zonas propuesto:** ASCII actualizado a 100×120 y posición J21 `(5.08, 35.56)`.
+- [Resuelto] **Veredicto compactación:** actualizado a "125×120 aprobado".
+- [Resuelto] **Mapa de zonas propuesto:** ASCII actualizado a 125×120 y posición J21 `(5.08, 35.56)`.
 
 ### 8. `kicad/UNO_Q_rearchitecture_report.md`
-- **Estado:** dice "Schematic J21 symbol update still pending". Posterior al PR #34 ya está aplicado.
-- **Mapeo de pines D4–D9:** contiene una asignación pre-aprobada (`D4=PUMP_DIR`, `D5=PUMP_PWM`, `D6=CO2_PWM`, `D7=CO2_SOL`, `D8=MCU_WDI`, `D9=CHILLER`) que difiere del plan aprobado en `docs/INSIGHT_FABRICATION_ROADMAP.md`.
-- **Recomendación:** añadir nota de arriba indicando que es un reporte histórico del branch `devin/uno-q-rearchitecture`, y que el pinout definitivo está en `docs/INSIGHT_FABRICATION_ROADMAP.md`; o reescribir el mapeo.
+- [Resuelto] **Estado y nota histórica:** se añadió nota de reporte histórico; el pinout definitivo y el estado actual están en `docs/INSIGHT_FABRICATION_ROADMAP.md`.
 
 ---
 
@@ -94,5 +89,5 @@ Esta auditoría lista los archivos `.md` del repo que contienen información des
 2. `docs/07_KICAD_NETLIST.md` — corregir I2C, versión KiCad, ADC mapping, estructura de archivos.
 3. `docs/01_PCB_ARCHITECTURE.md` — dimensiones, mapeo analógico, I2C D20/D21, mapa de zonas.
 4. `docs/04_BOM_PRODUCTION.md` — J21 32 pines, añadir R36/R37 y bloque RS485 bridge, variante Insight/Signature.
-5. `docs/06_PCB_LAYOUT_STACKUP.md` y `docs/08_MECHANICAL_ANALYSIS.md` — dimensiones 100×120, header, keepouts, recortes.
+5. `docs/06_PCB_LAYOUT_STACKUP.md` y `docs/08_MECHANICAL_ANALYSIS.md` — dimensiones 125×120, header, keepouts, recortes.
 6. `kicad/UNO_Q_rearchitecture_report.md` — nota de histórico y enlace al roadmap.

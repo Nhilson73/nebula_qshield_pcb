@@ -1,5 +1,7 @@
 # Arduino UNO Q shield footprint / header proposal
 
+> **Estado (2026-08-11):** propuesta histórica aprobada. El board actual es 125 × 120 mm, DRC/ERC 0, 47 nets desconectadas en Fase 5. Fuente de verdad actual en `docs/INSIGHT_FABRICATION_ROADMAP.md`.
+
 ## 1. New footprint: `nebula_footprints:Arduino_UNO_Q_Shield`
 
 The new footprint follows the official UNO Q CAD drill data (`48DMVQAD1_SGB-20250729a4-1-8.drl`) and the UNO Q datasheet (`ABX00162-datasheet.pdf`).
@@ -66,7 +68,7 @@ The new footprint follows the official UNO Q CAD drill data (`48DMVQAD1_SGB-2025
 
 ## 3. J21 placement proposal
 
-To keep the UNO Q board centered on the 100 × 120 mm Q-Shield:
+To keep the UNO Q board centered on the 125 × 120 mm Q-Shield:
 
 ```text
 J21 footprint origin  ->  (15.71 mm, 33.33 mm)
@@ -74,7 +76,7 @@ UNO board on Q-Shield ->  x = 15.71 .. 84.29 mm
                          y = 33.33 .. 86.67 mm
 ```
 
-This is a safe starting point. If it overlaps with already-placed components, move the origin in 2.54 mm steps (header pitch) so that the four mounting holes and the header rows stay on the 100 × 120 mm `Edge.Cuts`. The final approved origin used in the layout is `(5.08 mm, 35.56 mm)` (see `docs/INSIGHT_FABRICATION_ROADMAP.md`).
+This is a safe starting point. If it overlaps with already-placed components, move the origin in 2.54 mm steps (header pitch) so that the four mounting holes and the header rows stay on the 125 × 120 mm `Edge.Cuts`. The final approved origin used in the layout is `(5.08 mm, 35.56 mm)` (see `docs/INSIGHT_FABRICATION_ROADMAP.md`).
 
 ## 4. Keepout / cutout proposal
 

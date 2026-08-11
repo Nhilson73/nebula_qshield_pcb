@@ -10,7 +10,7 @@ Built by [Cafelium SRL](https://github.com/Nhilson73) · Dominican Republic
 >
 > **Firmware source of truth:** [`Nhilson73/Nebula_ArduinoAPPLab_UNOQ`](https://github.com/Nhilson73/Nebula_ArduinoAPPLab_UNOQ). No usar `Nebula_UNOQ_ArduinoIDE_Core` para validaciones de pinout/hardware.
 >
-> **Estado actual:** esquemático completo validado (ERC 0 violaciones), PCB migrado a KiCad 10.0.5, factor de forma UNO Q aplicado, dimensiones 100 mm × 120 mm, Fase 4 de ruteo de potencia pendiente de revisión en KiCad GUI.
+> **Estado actual (2026-08-11):** esquemático validado (ERC 0 violaciones), PCB en KiCad 10.0.5, factor de forma UNO Q inmutable, dimensiones **125 mm × 120 mm** (se amplió el ancho para que los conectores de borde no sobresalgan), Fase 4 de potencia completa y Fase 5 de ruteo de señales en progreso: DRC 0 violaciones, 47 nets desconectados restantes. Ver `docs/INSIGHT_FABRICATION_ROADMAP.md`.
 
 ---
 
@@ -199,7 +199,7 @@ nebula_qshield.kicad_sch (raíz)
 
 | Parámetro | Valor |
 |-----------|-------|
-| **Dimensiones** | 100 mm × 120 mm (factor de forma Arduino UNO Q inmutable; el tamaño exterior puede variar) |
+| **Dimensiones** | 125 mm × 120 mm (factor de forma Arduino UNO Q inmutable; el tamaño exterior puede variar) |
 | **Capas** | 4 (Signal–GND–Power–Signal) |
 | **Material** | FR-4 Tg 170°C |
 | **Acabado** | ENIG (RoHS) |

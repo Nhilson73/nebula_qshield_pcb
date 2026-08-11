@@ -1,5 +1,7 @@
 # Nebula Q-Shield® — Arquitectura PCB Completa
 
+> **Estado (2026-08-11):** board 125 × 120 mm, DRC/ERC 0, 47 nets desconectadas en Fase 5. Ver `docs/INSIGHT_FABRICATION_ROADMAP.md`.
+>
 > **Documento:** NQS-ARCH-001 · **Rev:** 1.0 · **Fecha:** Mayo 2026
 >
 > **Clasificación:** Ingeniería — Diseño de Hardware
@@ -14,7 +16,7 @@
 
 | Parámetro | Valor | Justificación |
 |-----------|-------|---------------|
-| **Dimensiones** | 100 × 120 mm (puede variar) | Factor de forma para acople con Arduino UNO Q; el patrón UNO Q es inmutable |
+| **Dimensiones** | 125 × 120 mm (puede variar) | Factor de forma para acople con Arduino UNO Q; el patrón UNO Q es inmutable |
 | **Capas** | 4 (Signal–GND–Power–Signal) | EMC Clase B, aislamiento analógico/digital |
 | **Espesor total** | 1.6 mm ± 10% | Estándar IPC-2221B |
 | **Material base** | FR-4 Tg 170°C (IT-180A o equivalente) | Operación hasta +55°C ambiente |
@@ -423,10 +425,10 @@ Los sensores pH, ORP y DO comparten el mismo líquido (mosto de fermentación). 
 |-------------|-----------|-----------|---------|------------|------|
 | A0 | PA0 | ADC1_IN0 | pH analog input | 12-bit + 8× oversample | Essential+ |
 | A1 | PA1 | ADC1_IN1 | ORP analog input | 12-bit + 8× oversample | Essential+ |
-| A2 | PA2 | ADC1_IN2 | CO₂ pressure | 12-bit + 8× oversample | Insight+ |
-| A3 | PA3 | ADC1_IN3 | Dissolved oxygen | 12-bit + 8× oversample | Insight+ |
-| A4 | PA4 | ADC1_IN4 | Temperature NTC | 12-bit + 8× oversample | Essential+ |
-| A5 | PA5 | ADC1_IN5 | Humidity SHT30 | 12-bit + 8× oversample | Signature |
+| A2 | PA2 | ADC1_IN2 | Temperature NTC | 12-bit + 8× oversample | Essential+ |
+| A3 | PA3 | ADC1_IN3 | Humidity SHT30 | 12-bit + 8× oversample | Signature |
+| A4 | PA4 | ADC1_IN4 | CO₂ pressure | 12-bit + 8× oversample | Insight+ |
+| A5 | PA5 | ADC1_IN5 | Dissolved oxygen | 12-bit + 8× oversample | Insight+ |
 
 ### 4.2 Pines Digitales (GPIO)
 
@@ -438,7 +440,7 @@ Los sensores pH, ORP y DO comparten el mismo líquido (mosto de fermentación). 
 | D5 | PA11 | Pump PWM (TIM1_CH4) | OUTPUT (PWM) | Insight+ |
 | D6 | PB1 | Pump direction | OUTPUT | Insight+ |
 | D7 | — | CO₂ solenoid valve | OUTPUT | Insight+ |
-| D8 | PB4 | Chiller relay | OUTPUT | Signature |
+| D8 | PB4 | Chiller relay | OUTPUT | Insight+ |
 | D9 | PB8 | CO₂ flow PWM (TIM4_CH3) | OUTPUT (PWM) | Insight+ |
 | D10 | PB9 | RS485 bridge ~IRQ (SC16IS740) | INPUT | Signature |
 | D13 | — | Status LED | OUTPUT | Todos |
@@ -502,7 +504,7 @@ Cada IC recibe un capacitor de desacoplo lo más cerca posible de sus pines VCC/
 
 ```
     ┌──────────────────────────────────────────────────────────────────────────────────┐
-    │                        Q-SHIELD TOP VIEW (100 × 120 mm)                          │
+    │                        Q-SHIELD TOP VIEW (125 × 120 mm)                          │
     │                                                                                  │
     │  ┌──────────────────────┐  ┌────────────────────────────────────────────────┐   │
     │  │ ZONA POTENCIA        │  │    ZONA ANALÓGICA (guard ring GND)             │   │
@@ -550,16 +552,16 @@ El Q-Shield usa una **PCB única** para los tres tiers. Los componentes no pobla
 |-----------|:---------:|:-------:|:---------:|
 | pH (A0 + buffer) | ✓ | ✓ | ✓ |
 | ORP (A1 + buffer) | ✓ | ✓ | ✓ |
-| Temp (A4 + divisor) | ✓ | ✓ | ✓ |
+| Temp (A2 + divisor) | ✓ | ✓ | ✓ |
 | Load cell (HX711) | ✓ | ✓ | ✓ |
 | GPS (I2C) | ✓ | ✓ | ✓ |
 | RTC (I2C) | ✓ | ✓ | ✓ |
 | HMI UART (Nextion) | ✓ | ✓ | ✓ |
-| CO₂ presión (A2) | DNP | ✓ | ✓ |
-| DO (A3 + buffer) | DNP | ✓ | ✓ |
+| CO₂ presión (A4) | DNP | ✓ | ✓ |
+| DO (A5 + buffer) | DNP | ✓ | ✓ |
 | Bomba (driver) | DNP | ✓ | ✓ |
 | CO₂ inyección (relay+PWM) | DNP | ✓ | ✓ |
-| Humedad (A5) | DNP | DNP | ✓ |
+| Humedad (A3) | DNP | DNP | ✓ |
 | Cell density (I2C) | DNP | DNP | ✓ |
 | Chiller (relay) | DNP | DNP | ✓ |
 
