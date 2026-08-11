@@ -583,7 +583,7 @@
       },
       {
         "bus_width": 12,
-        "clearance": 2.5,
+        "clearance": 0.5,
         "name": "RelayHV",
         "pcb_color": "rgba(0, 0, 0, 0.000)",
         "priority": 4,
