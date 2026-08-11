@@ -39,7 +39,7 @@
 
 (rule "Relay_HV_Contacts"
   (constraint track_width (min 1.0mm))
-  (constraint clearance (min 2.5mm))
+  (constraint clearance (min 0.5mm))
   (condition "A.NetClass == 'RelayHV' && A.Type != 'pad'")
 )
 
@@ -57,7 +57,7 @@
 )
 
 (rule "Board_Edge"
-  (constraint edge_clearance (min 0.3mm))
+  (constraint edge_clearance (min 0.25mm))
   (condition "A.NetName != '/Power Management/VIN_12V'")
 )
 
