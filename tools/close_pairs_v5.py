@@ -3,7 +3,7 @@
 import re, math, pcbnew
 MM=1_000_000
 BOARD_PATH='/workspace/kicad/nebula_qshield.kicad_pcb'
-DRC_PATH='/workspace/nebula_qshield-drc.rpt'
+DRC_PATH='/workspace/kicad/nebula_qshield-drc.rpt'
 
 BOARD_LEFT=-8.0; BOARD_RIGHT=142.0; BOARD_BOTTOM=-2.0; BOARD_TOP=118.0; BOARD_CORNER_R=2.5
 EDGE_MARGIN=0.25
@@ -178,10 +178,64 @@ for fp in brd.GetFootprints():
         pads_by_ref[(fp.GetReference(), str(p.GetNumber()))]=(fp,p,get_pad_rect(p))
 
 def pad_info(it):
-    m=re.match(r'Pad (\d+)', it['type'])
+    m=re.match(r'(?:PTH )?Pad (\d+)', it['type'])
     if m and it['ref']:
         return pads_by_ref.get((it['ref'], m.group(1)))
     return None
+
+def exact_track_nearest(track, px, py):
+    sx=track.GetStart().x/MM; sy=track.GetStart().y/MM
+    ex=track.GetEnd().x/MM; ey=track.GetEnd().y/MM
+    dx=ex-sx; dy=ey-sy; l2=dx*dx+dy*dy
+    if l2==0: return (sx, sy)
+    t=max(0.0,min(1.0,((px-sx)*dx+(py-sy)*dy)/l2))
+    return (sx+t*dx, sy+t*dy)
+
+def track_endpoints_nm(t):
+    return (t.GetStart().x, t.GetStart().y, t.GetEnd().x, t.GetEnd().y)
+
+def find_track_exact(drc_point, other_pt, net, layer_str):
+    """Find the track/via that the DRC report is referring to.
+    The DRC point is the nearest point on the track to the other item,
+    so we match the track whose nearest point to other_pt is the DRC point.
+    We return the actual nearest *endpoint* of that track (exact nm), to ensure the
+    new track merges cleanly with the existing segment."""
+    px,py=drc_point; ox,oy=other_pt
+    best=None; bd=1e9; bestlen=-1
+    for t in brd.GetTracks():
+        if isinstance(t, pcbnew.PCB_VIA):
+            if t.GetNetname()!=net: continue
+            if 'F.Cu - B.Cu' not in layer_str: continue
+            x=t.GetPosition().x/MM; y=t.GetPosition().y/MM
+            d=math.hypot(x-px,y-py)
+            if d < bd: bd=d; best=t
+        elif isinstance(t, pcbnew.PCB_TRACK):
+            if t.GetNetname()!=net: continue
+            if layer_str=='F.Cu' and t.GetLayer()!=pcbnew.F_Cu: continue
+            if layer_str=='B.Cu' and t.GetLayer()!=pcbnew.B_Cu: continue
+            sx=t.GetStart().x/MM; sy=t.GetStart().y/MM; ex=t.GetEnd().x/MM; ey=t.GetEnd().y/MM
+            # nearest point on this track to other item
+            nx,ny = exact_track_nearest(t, ox, oy)
+            d_to_drc = math.hypot(nx-px, ny-py)
+            length = math.hypot(ex-sx, ey-sy)
+            # candidate: nearest point must match DRC point (rounded to 4 decimals)
+            if d_to_drc < 0.05 and length > 1e-6:
+                score = d_to_drc - length*1e-6
+                if score < bd:
+                    bd=score; best=t; bestlen=length
+    if isinstance(best, pcbnew.PCB_VIA):
+        x=best.GetPosition().x/MM; y=best.GetPosition().y/MM
+        return (x,y,False,None)
+    if best:
+        sx,sy,ex,ey = track_endpoints_nm(best)
+        # choose endpoint nearest to the other item
+        d_s = (sx-ox*MM)**2 + (sy-oy*MM)**2
+        d_e = (ex-ox*MM)**2 + (ey-oy*MM)**2
+        if d_s <= d_e:
+            return (sx/MM, sy/MM, False, None)
+        else:
+            return (ex/MM, ey/MM, False, None)
+    return (px,py,False,None)
 
 def find_track(point, net, layer_raw):
     """Find the track/via object corresponding to a DRC item."""
@@ -206,27 +260,17 @@ def find_track(point, net, layer_raw):
     return best, bd
 
 def connection_point(it, other_pt):
-    """Return the best point to connect on the item and whether it's inside a pad."""
+    """Return the best point to connect on the item with exact board coordinates."""
     typ=it['type']; net=it['net']
     if 'Pad' in typ:
         info=pad_info(it)
         if info:
-            rect=get_pad_rect(info[1])
-            return ((rect[0]+rect[2])/2.0, (rect[1]+rect[3])/2.0, True, rect)
-    # Track or Via
-    obj,d=find_track((it['x'],it['y']), net, it['layer_raw'])
-    if obj is None:
-        return (it['x'],it['y'],False,None)
-    if isinstance(obj, pcbnew.PCB_VIA):
-        x=obj.GetPosition().x/MM; y=obj.GetPosition().y/MM
-        return (x,y,False,None)
-    sx=obj.GetStart().x/MM; sy=obj.GetStart().y/MM; ex=obj.GetEnd().x/MM; ey=obj.GetEnd().y/MM
-    # nearest point on segment to other point
-    dx=ex-sx; dy=ey-sy; l2=dx*dx+dy*dy
-    if l2==0:
-        return (sx,sy,False,None)
-    t=max(0.0,min(1.0,((other_pt[0]-sx)*dx+(other_pt[1]-sy)*dy)/l2))
-    return (sx+t*dx, sy+t*dy, False, None)
+            p=info[1]
+            x=p.GetPosition().x/MM; y=p.GetPosition().y/MM
+            rect=get_pad_rect(p)
+            return (x, y, True, rect)
+    # Track or Via: find the real object using the other point to identify the correct track
+    return find_track_exact((it['x'], it['y']), other_pt, net, it['layer_raw'])
 
 def parse_pairs():
     text=open(DRC_PATH).read()
@@ -235,9 +279,12 @@ def parse_pairs():
     for block in blocks[1:]:
         items=[]
         for line in block.split('\n'):
-            m=re.match(r'\s+@\(([-\d\.]+) mm, ([-\d\.]+) mm\): (Pad \d+|Track|Via) \[([^\]]+)\](?: of ([^\n]+?))? on ([\w\. \-]+)', line)
+            m=re.match(r'\s+@\(([-\d\.]+) mm, ([-\d\.]+) mm\): (Pad \d+|PTH pad \d+|Track|Via) \[([^\]]+)\](?: of ([^\n]+?))?(?: on ([\w\. \-]+))?', line)
             if m:
-                items.append({'x':float(m.group(1)),'y':float(m.group(2)),'type':m.group(3),'net':m.group(4),'ref':m.group(5),'layer_raw':m.group(6).strip()})
+                layer=m.group(6).strip() if m.group(6) else 'F.Cu - B.Cu'
+                if 'PTH' in m.group(3):
+                    layer='F.Cu - B.Cu'
+                items.append({'x':float(m.group(1)),'y':float(m.group(2)),'type':m.group(3),'net':m.group(4),'ref':m.group(5),'layer_raw':layer})
         if len(items)==2:
             pairs.append(items)
     return pairs
