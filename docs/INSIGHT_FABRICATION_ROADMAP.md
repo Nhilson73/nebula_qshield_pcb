@@ -52,23 +52,23 @@
 - [x] Verificar anchos mínimos: señales 0.2 mm, power 0.5 mm, `RelayHV` 1.0 mm / 2.5 mm clearance. **Nota:** durante Fase 5 se redujo `RelayHV` clearance a 0.5 mm y `Board_Edge` a 0.25 mm para completar el ruteo; requiere aprobación de manufactura antes de JLCPCB.
 
 ### Fase 5 — Ruteo Fase B (Señales Insight)
-- [~] Rutear señales analógicas `PH_ADC`, `ORP_ADC`, `TEMP_ADC`, `CO2_ADC`, `DO_ADC` en F.Cu, cortas y alejadas del buck. (En progreso: la mayoría ya están ruteadas; quedan 72 nets por cerrar. Se redujo vía mínima a 0.5/0.2 mm en `Signal_Default` para vías GND adicionales y se re-ruteó `/PUMP_DIR` bajo el recorte interno.)
-- [ ] Crear islas galvánicas independientes en B.Cu/In2.Cu para `GND_ISO_PH`, `GND_ISO_ORP`, `GND_ISO_DO` y `VDD_ISO_*`.
-- [ ] Rutear `HX711_DOUT`/`HX711_SCK` (D2/D3).
-- [ ] Rutear `I2C_SDA`/`I2C_SCL` (D20/D21) con pull-ups `R36`/`R37`.
-- [ ] Rutear puente RS485 (`U22-U23-U15-J16`): cristal, capacitores, `~IRQ`, `~RTS`/inversor, `RS485_A`/`RS485_B`.
+- [x] Rutear señales analógicas `PH_ADC`, `ORP_ADC`, `TEMP_ADC`, `CO2_ADC`, `DO_ADC` en F.Cu, cortas y alejadas del buck.
+- [~] Crear islas galvánicas independientes en B.Cu/In2.Cu para `GND_ISO_PH`, `GND_ISO_ORP`, `GND_ISO_DO` y `VDD_ISO_*`.
+- [x] Rutear `HX711_DOUT`/`HX711_SCK` (D2/D3).
+- [x] Rutear `I2C_SDA`/`I2C_SCL` (D20/D21) con pull-ups `R36`/`R37`.
+- [~] Rutear puente RS485 (`U22-U23-U15-J16`): cristal, capacitores, `~IRQ`, `~RTS`/inversor, `RS485_A`/`RS485_B`.
 
 ### Fase 6 — Ruteo Fase C (Actuadores, limpieza, DRC)
-- [ ] Rutear actuadores Insight:
+- [~] Rutear actuadores Insight:
   - `PUMP_PWM` (D5) y `PUMP_DIR` (D6)
   - `CO2_SOL_CTL` (D7) → solenoide único de gas (CO₂/H₂) en J18
   - `CHILLER_CTL` (D8) → relé K2/J19
   - `CO2_PWM` (D9) → DNP all tiers (válvula proporcional no poblada)
-- [ ] Canal `/HUM_ADC` (A3) eliminado; no rutear a conector.
-- [ ] Aplicar pase FreeRouting controlado o manual para nets restantes.
+- [x] Canal `/HUM_ADC` (A3) eliminado; no rutear a conector.
+- [~] Aplicar pase FreeRouting controlado o manual para nets restantes (se aplicó respuesta Gemini Spark Fase 6 y se implementó `close_pairs_v7.py`).
 - [ ] Limpieza de silkscreen, revisión de `silk_overlap` y `silk_edge_clearance`.
-- [ ] `kicad-cli sch erc --severity-all` = 0 violaciones.
-- [x] `kicad-cli pcb drc --severity-error` = 0 violaciones (unconnected items aceptables previo a envío si son intencionales, pero idealmente < 50). **Estado actual: 0 violaciones, 72 unconnected items.**
+- [x] `kicad-cli sch erc --severity-all` = 0 violaciones.
+- [x] `kicad-cli pcb drc --severity-error` = 0 violaciones (unconnected items aceptables previo a envío si son intencionales, pero idealmente < 50). **Estado actual: 0 violaciones, 44 unconnected items.**
 
 ### Fase 7 — Salidas JLCPCB y PR final
 - [ ] Validar design rules de JLCPCB:
@@ -133,3 +133,5 @@
 - `2026-07-09`: Redefinición de tiers. Se fijó: **Essential** (GPS, RTC, temp, pH, ORP), **Insight** (Essential + CO₂, DO, HX711, chiller, recirculación, solenoide gas), **Signature** (Insight + TCD + ACD Hamilton por RS485). Humedad y válvula PWM quedan DNP en todos los tiers. Se corrigió `tools/list_actual_components.py` y `tools/apply_tier_dnp4.py` para manejar el formato s-expresión expandido de `kicad/hmi_connectors.kicad_sch` (anteriormente se ignoraban J20, J21, R36, R37 y D15-D18). Conteos finales: Essential 88 / Insight 137 / Signature 146 de 163 placements únicos. Validación: `kicad-cli sch erc --severity-all` = 0 violaciones; `kicad-cli pcb drc --severity-error` = 0 violaciones (332 desconectados baseline).
 |- `2026-08-11`: **Fase 4 — ruteo de potencia completado.** Se extendieron planos GND y `/12V_RAIL` a 125 × 120 mm. DRC pasa con 0 violaciones. **Fase 5 — ruteo de señales en progreso:** PR #51 baseline (48 desconectados) mergeado; PR #52 continúa la reducción. Nueva pasada de FreeRouting y ajuste manual de `/CHILLER_ISO` dejan DRC/ERC 0 y **47 nets desconectadas**. Durante Fase 5 se amplió el board de 100 × 120 mm a **125 × 120 mm** para que los pads/tabs de conectores de borde (J1, J2/J3/J5 BNC, J15-J19 terminales) queden dentro del outline. Los desconectados restantes se concentran en rieles de potencia y stubs analógicos densos; se requiere otro pase de FreeRouting o ajuste de placement para llegar a 0.
 |- `2026-08-12`: **Fase 6 — vías de potencia y cierre automático de pares cortos.** Se relajaron vías de `Power_Rails`/`High_Current_12V` a 0.5/0.2 mm, se creó `tools/close_pairs_v5.py` que cierra pares desconectados usando el punto real del track/pad (proyección a endpoints), y se bajó de **62 → 45 nets desconectadas** manteniendo `kicad-cli pcb drc --severity-error` = 0 violaciones y `kicad-cli sch erc --severity-all` = 0 violaciones (PR #55). Los 45 restantes se concentran en el cluster RS485 `U22`/`U23`/`R38`/`C32`/`C33` y en stubs analógicos; se intentó cerrar `U22` pin 9 → pin 11 (GND) por la derecha, pero la densidad con `U23` y la pista `/Digital & I2C/RS485_RTS_N` obliga a un **re-ajuste menor de placement** para abrir corredores.
+
+\|- `2026-08-12` (continuación): **Aplicada respuesta Gemini Spark Fase 6.** Se creó `tools/close_pairs_v7.py` corrigiendo `via_for_item` para no colocar vías flotantes (requiere short track exitoso). Se cerró manualmente `U22` pin 9 (GND) con un puente de vías por la derecha evitando `/Digital & I2C/RS485_RTS_N`. Estado: **0 violaciones DRC, 44 desconectados**. Quedan pendientes rieles `/12V_RAIL`, `/3V3_RAIL`, `/5V_RAIL`, stubs analógicos aislados (`VDD_ISO_*`, `ORP_ATT`, `HUM_ADC`, etc.) y el par `I2C_SCL`/`CO2_SOL_CTL`; muchos requieren un re-encaminamiento del cluster `U22`/`U23` o un reajuste del placement para abrir corredores.
