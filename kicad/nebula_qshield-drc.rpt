@@ -1,5 +1,5 @@
 ** Drc report for nebula_qshield.kicad_pcb **
-** Created on 2026-08-12T18:52:56 **
+** Created on 2026-08-12T21:43:08 **
 ** Report includes: Errors **
 
 ** Found 0 DRC violations **
@@ -8,11 +8,11 @@
 [unconnected_items]: Missing connection between items
     Local override; error
     @(71.8200 mm, 31.8700 mm): Pad 1 [/Analog Acquisition/ORP_ATT] of R32 on F.Cu
-    @(67.4911 mm, 35.1403 mm): Track [/Analog Acquisition/ORP_ATT] on B.Cu, length 3.3759 mm
+    @(67.0102 mm, 35.1403 mm): Track [/Analog Acquisition/ORP_ATT] on B.Cu, length 0.4809 mm
 [unconnected_items]: Missing connection between items
     Local override; error
     @(71.8300 mm, 33.1100 mm): Pad 1 [/HUM_ADC] of C23 on F.Cu
-    @(65.0700 mm, 31.8700 mm): Track [/HUM_ADC] on F.Cu, length 0.9436 mm
+    @(65.0700 mm, 31.8700 mm): Pad 1 [/HUM_ADC] of R18 on F.Cu
 [unconnected_items]: Missing connection between items
     Local override; error
     @(4.4598 mm, 25.9154 mm): Via [GND] on F.Cu - B.Cu
@@ -43,40 +43,40 @@
     @(72.3983 mm, 23.2477 mm): Via [/3V3_RAIL] on F.Cu - B.Cu
 [unconnected_items]: Missing connection between items
     Local override; error
-    @(70.3500 mm, 28.5500 mm): Pad 1 [/Analog Acquisition/VDD_ISO_ORP] of D21 on F.Cu
+    @(70.3500 mm, 28.5500 mm): Via [/Analog Acquisition/VDD_ISO_ORP] on F.Cu - B.Cu
     @(61.6950 mm, 25.8250 mm): Track [/Analog Acquisition/VDD_ISO_ORP] on F.Cu, length 0.7500 mm
 [unconnected_items]: Missing connection between items
     Local override; error
-    @(70.3500 mm, 28.5500 mm): Pad 1 [/Analog Acquisition/VDD_ISO_ORP] of D21 on F.Cu
+    @(70.3500 mm, 28.5500 mm): Via [/Analog Acquisition/VDD_ISO_ORP] on F.Cu - B.Cu
     @(84.3898 mm, 28.5614 mm): Via [/Analog Acquisition/VDD_ISO_ORP] on F.Cu - B.Cu
 [unconnected_items]: Missing connection between items
     Local override; error
-    @(41.6600 mm, 86.3600 mm): Via [/CO2_SOL_CTL] on F.Cu - B.Cu
-    @(105.0000 mm, 95.5100 mm): Via [/CO2_SOL_CTL] on F.Cu - B.Cu
+    @(41.6600 mm, 86.3600 mm): PTH pad 22 [/CO2_SOL_CTL] of J21
+    @(105.0000 mm, 95.5100 mm): Pad 1 [/CO2_SOL_CTL] of R26 on F.Cu
 [unconnected_items]: Missing connection between items
     Local override; error
     @(85.5400 mm, 31.8600 mm): Track [/Analog Acquisition/GND_ISO_PH] on F.Cu, length 1.1223 mm
     @(69.5700 mm, 31.8700 mm): Via [/Analog Acquisition/GND_ISO_PH] on F.Cu - B.Cu
 [unconnected_items]: Missing connection between items
     Local override; error
-    @(78.5700 mm, 20.1200 mm): Via [/Analog Acquisition/ORP_SIG] on F.Cu - B.Cu
+    @(78.5700 mm, 20.1200 mm): Pad 1 [/Analog Acquisition/ORP_SIG] of R9 on F.Cu
     @(89.6000 mm, 20.6000 mm): Track [/Analog Acquisition/ORP_SIG] on F.Cu, length 0.7500 mm
 [unconnected_items]: Missing connection between items
     Local override; error
-    @(68.0550 mm, 96.0000 mm): Via [/I2C_SCL] on F.Cu - B.Cu
-    @(68.5800 mm, 86.3600 mm): Track [/I2C_SCL] on B.Cu, length 1.2267 mm
+    @(68.0550 mm, 96.0000 mm): Pad 1 [/I2C_SCL] of R37 on F.Cu
+    @(68.5800 mm, 86.3600 mm): PTH pad 32 [/I2C_SCL] of J21
 [unconnected_items]: Missing connection between items
     Local override; error
-    @(83.1227 mm, 11.8250 mm): Track [/Analog Acquisition/PH_BUF] on F.Cu, length 2.0271 mm
-    @(68.3400 mm, 31.8700 mm): Via [/Analog Acquisition/PH_BUF] on F.Cu - B.Cu
+    @(83.6950 mm, 11.8250 mm): Track [/Analog Acquisition/PH_BUF] on F.Cu, length 0.5723 mm
+    @(68.3400 mm, 31.8700 mm): Pad 2 [/Analog Acquisition/PH_BUF] of R30 on F.Cu
 [unconnected_items]: Missing connection between items
     Local override; error
     @(84.6723 mm, 21.0750 mm): Track [/Analog Acquisition/VDD_ISO_PH] on F.Cu, length 1.3821 mm
     @(64.2719 mm, 27.4719 mm): Track [/Analog Acquisition/VDD_ISO_PH] on F.Cu, length 2.0000 mm
 [unconnected_items]: Missing connection between items
     Local override; error
-    @(10.0000 mm, 0.0000 mm): Zone [/5V_RAIL] on In2.Cu, priority 2
-    @(25.0200 mm, 0.0000 mm): Zone [/5V_RAIL] on In2.Cu, priority 3
+    @(21.3200 mm, 7.8700 mm): Track [/5V_RAIL] on F.Cu, length 1.8500 mm
+    @(41.0000 mm, 1.3000 mm): PTH pad 1 [/5V_RAIL] of J20
 [unconnected_items]: Missing connection between items
     Local override; error
     @(78.0500 mm, 18.0500 mm): Track [/5V_RAIL] on F.Cu, length 2.0130 mm
@@ -91,7 +91,7 @@
     @(85.1261 mm, 24.8836 mm): Track [/5V_RAIL] on F.Cu, length 0.8206 mm
 [unconnected_items]: Missing connection between items
     Local override; error
-    @(65.0800 mm, 33.1100 mm): Track [/Analog Acquisition/VDD_ISO_DO] on F.Cu, length 2.5000 mm
+    @(64.9261 mm, 33.2639 mm): Track [/Analog Acquisition/VDD_ISO_DO] on F.Cu, length 0.2176 mm
     @(75.3500 mm, 30.0500 mm): Track [/Analog Acquisition/VDD_ISO_DO] on F.Cu, length 0.5000 mm
 [unconnected_items]: Missing connection between items
     Local override; error
@@ -99,20 +99,20 @@
     @(69.5700 mm, 30.6200 mm): Track [/Analog Acquisition/DO_FILT] on F.Cu, length 1.2300 mm
 [unconnected_items]: Missing connection between items
     Local override; error
-    @(110.4135 mm, 68.7984 mm): Via [/Actuator Drivers/MOTOR_HO] on F.Cu - B.Cu
-    @(117.0714 mm, 75.1659 mm): Track [/Actuator Drivers/MOTOR_HO] on F.Cu, length 1.0000 mm
+    @(110.4135 mm, 68.7984 mm): PTH pad 1 [/Actuator Drivers/MOTOR_HO] of Q1
+    @(117.0714 mm, 75.1659 mm): Pad 7 [/Actuator Drivers/MOTOR_HO] of U17 on F.Cu
 [unconnected_items]: Missing connection between items
     Local override; error
-    @(7.3441 mm, 24.4989 mm): Track [/12V_RAIL] on F.Cu, length 0.5000 mm
+    @(7.3441 mm, 24.4989 mm): Track [/12V_RAIL] on F.Cu, length 3.5000 mm
     @(2.8200 mm, 22.3700 mm): Pad 1 [/12V_RAIL] of R4 on F.Cu
 [unconnected_items]: Missing connection between items
     Local override; error
-    @(14.4000 mm, 20.1500 mm): Via [/12V_RAIL] on F.Cu - B.Cu
-    @(14.9250 mm, 23.4563 mm): Track [/12V_RAIL] on F.Cu, length 0.5000 mm
+    @(14.1500 mm, 20.1500 mm): Track [/12V_RAIL] on F.Cu, length 0.2500 mm
+    @(14.9250 mm, 23.4563 mm): Track [/12V_RAIL] on F.Cu, length 0.2500 mm
 [unconnected_items]: Missing connection between items
     Local override; error
-    @(14.5205 mm, 23.7502 mm): Via [/12V_RAIL] on F.Cu - B.Cu
-    @(7.3441 mm, 24.4989 mm): Track [/12V_RAIL] on F.Cu, length 3.5000 mm
+    @(14.9250 mm, 23.4563 mm): Track [/12V_RAIL] on F.Cu, length 0.5000 mm
+    @(10.8441 mm, 24.4989 mm): Via [/12V_RAIL] on F.Cu - B.Cu
 [unconnected_items]: Missing connection between items
     Local override; error
     @(14.9250 mm, 23.4563 mm): Track [/12V_RAIL] on F.Cu, length 0.5000 mm
@@ -132,7 +132,7 @@
 [unconnected_items]: Missing connection between items
     Local override; error
     @(80.2150 mm, 27.3250 mm): Pad 2 [/Analog Acquisition/DO_BUF] of U13 on F.Cu
-    @(74.4650 mm, 20.8750 mm): Track [/Analog Acquisition/DO_BUF] on F.Cu, length 1.2700 mm
+    @(75.7350 mm, 20.8750 mm): Pad 6 [/Analog Acquisition/DO_BUF] of U11 on F.Cu
 [unconnected_items]: Missing connection between items
     Local override; error
     @(89.3500 mm, 27.6000 mm): Pad 1 [/Analog Acquisition/DO_SIG] of D6 on F.Cu
@@ -151,7 +151,7 @@
     @(84.8125 mm, 27.5500 mm): Pad 3 [/Analog Acquisition/SN_D1_ORP] of U8 on F.Cu
 [unconnected_items]: Missing connection between items
     Local override; error
-    @(87.0875 mm, 25.6500 mm): Via [/Analog Acquisition/SN_D2_ORP] on F.Cu - B.Cu
+    @(87.0875 mm, 25.6500 mm): Pad 5 [/Analog Acquisition/SN_D2_ORP] of U8 on F.Cu
     @(71.3400 mm, 18.0500 mm): Track [/Analog Acquisition/SN_D2_ORP] on F.Cu, length 2.5000 mm
 [unconnected_items]: Missing connection between items
     Local override; error
