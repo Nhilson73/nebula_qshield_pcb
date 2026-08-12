@@ -12,16 +12,18 @@
 (rule "Power_Rails"
   (constraint track_width (min 0.5mm))
   (constraint clearance (min 0.25mm))
-  (constraint via_diameter (min 0.8mm))
-  (constraint hole_size (min 0.4mm))
+  (constraint via_diameter (min 0.5mm))
+  (constraint hole_size (min 0.2mm))
+  (constraint annular_width (min 0.15mm))
   (condition "A.NetClass == 'Power' && A.Type != 'pad'")
 )
 
 (rule "High_Current_12V"
   (constraint track_width (min 0.5mm))
   (constraint clearance (min 0.3mm))
-  (constraint via_diameter (min 0.8mm))
-  (constraint hole_size (min 0.4mm))
+  (constraint via_diameter (min 0.5mm))
+  (constraint hole_size (min 0.2mm))
+  (constraint annular_width (min 0.15mm))
   (condition "A.NetClass == 'HighCurrent' && A.Type != 'pad'")
 )
 
