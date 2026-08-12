@@ -32,8 +32,8 @@
 - [x] Revisar/recolocar `Edge.Cuts`: los recortes interiores para USB-C/power jack y los keepouts `Eco1.User` para USB-C/PMIC, JCTL, SPI2/Qwiic se mantienen según el plan aprobado en `kicad/UNO_Q_rearchitecture_plan.md`.
 - [x] Corregir conflicto entre `F.SilkS` de `J21` y los `Edge.Cuts`: se eliminó el rectángulo de silkscreen del footprint `Arduino_UNO_Q_Shield` (tanto en el PCB como en la librería) porque se solapaba con los recortes del board; el courtyard `F.CrtYd` y el outline `F.Fab` se conservan.
 - [x] Revisar holguras mecánicas para USB-C, botón de power, JCTL, SPI2/Qwiic (ver `docs/UNO_Q_FORM_FACTOR.md` y keepouts `Eco1.User`).
-- [x] Validar que todos los pads de `J21` y agujeros de montaje queden dentro del board 125 mm × 120 mm.
-- [x] Confirmar dimensiones finales del board (125 mm × 120 mm) y posición `J21` (5.08, 35.56).
+- [x] Validar que todos los pads de `J21` y agujeros de montaje queden dentro del board 150 mm × 120 mm.
+- [x] Confirmar dimensiones finales del board (150 mm × 120 mm) y posición `J21` (5.08, 35.56).
 - [ ] Pendiente posterior: ajustar `copper edge clearance` y slots de conectores grandes (BNC, terminal blocks, DC barrel, HMI) en Fases 4–5 cuando se ruteen esas zonas.
 
 ### Fase 3 — Reparar nets críticas
@@ -46,13 +46,13 @@
 - [x] `T1`/`T2`/`T3`: el símbolo `Transformer_SP_2S` tiene 7 pines, pero el footprint Wuerth 750315371 tiene 6 pads. Se movió `*_SEC_B` del pin 7 al pin 6 (pad físico existente) y se no-conectó el pin 7 sobrante; `*_SEC_A` permanece en pin 4, `GND_ISO_*` en pin 5. Paridad esquemático/PCB corregida.
 
 ### Fase 4 — Ruteo Fase A (Potencia)
-- [x] Definir/rellenar plano `GND` en L2 (`In1.Cu`) y cobertura `GND` en `B.Cu`: polígonos extendidos a toda el área del board (125 × 120 mm) y zonas rellenadas con `kicad-cli pcb drc --refill-zones`.
-- [x] Definir/rellenar planos `3V3_RAIL`, `5V_RAIL`, `12V_RAIL` en `In2.Cu`/`B.Cu`: el polígono de `/12V_RAIL` (prioridad 1) se extendió a 125 × 120 mm; las islas `/5V_RAIL` y `/3V3_RAIL` (prioridades 2-9) se recortan automáticamente. El split-plane funciona por prioridades y DRC pasa sin violaciones.
+- [x] Definir/rellenar plano `GND` en L2 (`In1.Cu`) y cobertura `GND` en `B.Cu`: polígonos extendidos a toda el área del board (150 × 120 mm) y zonas rellenadas con `kicad-cli pcb drc --refill-zones`.
+- [x] Definir/rellenar planos `3V3_RAIL`, `5V_RAIL`, `12V_RAIL` en `In2.Cu`/`B.Cu`: el polígono de `/12V_RAIL` (prioridad 1) se extendió a 150 × 120 mm; las islas `/5V_RAIL` y `/3V3_RAIL` (prioridades 2-9) se recortan automáticamente. El split-plane funciona por prioridades y DRC pasa sin violaciones.
 - [x] Verificar que los planos de potencia conecten todos los pads de `/12V_RAIL`, `/5V_RAIL` y `/3V3_RAIL`; rutear manualmente nets críticas (`VIN_12V`/`12V_FUSED` a través de `FB1`, pines de `U1`/`U2`/`U3`, `EN_UVLO`, `FB`) si el pour no las une, cumpliendo netclasses (`Power`, `HighCurrent`).
 - [x] Verificar anchos mínimos: señales 0.2 mm, power 0.5 mm, `RelayHV` 1.0 mm / 2.5 mm clearance. **Nota:** durante Fase 5 se redujo `RelayHV` clearance a 0.5 mm y `Board_Edge` a 0.25 mm para completar el ruteo; requiere aprobación de manufactura antes de JLCPCB.
 
 ### Fase 5 — Ruteo Fase B (Señales Insight)
-- [~] Rutear señales analógicas `PH_ADC`, `ORP_ADC`, `TEMP_ADC`, `CO2_ADC`, `DO_ADC` en F.Cu, cortas y alejadas del buck. (En progreso: la mayoría ya están ruteadas; quedan 47 nets por cerrar.)
+- [~] Rutear señales analógicas `PH_ADC`, `ORP_ADC`, `TEMP_ADC`, `CO2_ADC`, `DO_ADC` en F.Cu, cortas y alejadas del buck. (En progreso: la mayoría ya están ruteadas; quedan 86 nets por cerrar tras re-arquitectura 150×120 y placement Spark.)
 - [ ] Crear islas galvánicas independientes en B.Cu/In2.Cu para `GND_ISO_PH`, `GND_ISO_ORP`, `GND_ISO_DO` y `VDD_ISO_*`.
 - [ ] Rutear `HX711_DOUT`/`HX711_SCK` (D2/D3).
 - [ ] Rutear `I2C_SDA`/`I2C_SCL` (D20/D21) con pull-ups `R36`/`R37`.
@@ -68,7 +68,7 @@
 - [ ] Aplicar pase FreeRouting controlado o manual para nets restantes.
 - [ ] Limpieza de silkscreen, revisión de `silk_overlap` y `silk_edge_clearance`.
 - [ ] `kicad-cli sch erc --severity-all` = 0 violaciones.
-- [x] `kicad-cli pcb drc --severity-error` = 0 violaciones (unconnected items aceptables previo a envío si son intencionales, pero idealmente < 50). **Estado actual: 0 violaciones, 47 unconnected items.**
+- [x] `kicad-cli pcb drc --severity-error` = 0 violaciones (unconnected items aceptables previo a envío si son intencionales, pero idealmente < 50). **Estado actual: 0 violaciones, 86 unconnected items.**
 
 ### Fase 7 — Salidas JLCPCB y PR final
 - [ ] Validar design rules de JLCPCB:
