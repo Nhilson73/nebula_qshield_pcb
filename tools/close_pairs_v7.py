@@ -246,9 +246,9 @@ def parse_pairs():
     for block in blocks[1:]:
         items=[]
         for line in block.split('\n'):
-            m=re.match(r'\s+@\(([\-\d\.]+) mm, ([\-\d\.]+) mm\): (Pad \d+|PTH pad \d+|Track|Via|Zone) \[([^\]]+)\](?: of ([^\n]+?))?(?: on ([\w\. \-]+))?', line)
+            m=re.match(r'\s+@\(([\-\d\.]+) mm, ([\-\d\.]+) mm\): (Pad \d+|PTH pad \d+|Track|Via|Zone) \[([^\]]+)\](?: of ([^ ]+))?(?: on ([\w\. \-]+))?', line)
             if m:
-                layer=m.group(6).strip() if m.group(6) else 'F.Cu - B.Cu'
+                layer=m.group(6).strip() if m.group(6) else ('F.Cu - B.Cu' if 'PTH' in m.group(3) else 'F.Cu')
                 if 'PTH' in m.group(3): layer='F.Cu - B.Cu'
                 items.append({'x':float(m.group(1)),'y':float(m.group(2)),'type':m.group(3),'net':m.group(4),'ref':m.group(5),'layer_raw':layer})
         if len(items)==2:
@@ -402,7 +402,7 @@ def handle_plane_pair(it1,it2):
     p2_init=(it2['x'],it2['y'])
     v1=via_for_item(it1, p2_init)
     v2=via_for_item(it2, (it1['x'],it1['y']))
-    return bool(v1) or bool(v2)
+    return bool(v1) and bool(v2)
 
 def handle_signal_pair(it1,it2):
     if it1['net']!=it2['net']: return False
