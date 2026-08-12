@@ -1,0 +1,114 @@
+1. /Analog Acquisition/ORP_ATT
+   A: (71.82,31.87) type=Pad 1 ref=R32 layer=F.Cu in_env=False dist=3.69
+   B: (67.4911,35.1403) type=Track ref=None layer=B.Cu in_env=False dist=0.42
+2. /HUM_ADC
+   A: (71.83,33.11) type=Pad 1 ref=C23 layer=F.Cu in_env=False dist=2.45
+   B: (65.07,31.87) type=Track ref=None layer=F.Cu in_env=False dist=3.69
+3. GND
+   A: (4.4598,25.9154) type=Via ref=None layer=F.Cu - B.Cu in_env=False dist=9.66
+   B: (3.79,24.86) type=Pad 2 ref=C11 layer=F.Cu in_env=False dist=10.78
+4. GND
+   A: (63.6826,19.1636) type=Via ref=None layer=F.Cu - B.Cu in_env=False dist=16.40
+   B: (65.505,20.875) type=Pad 5 ref=U9 layer=F.Cu in_env=False dist=14.69
+5. GND
+   A: (68.29,33.11) type=Pad 2 ref=C21 layer=F.Cu in_env=False dist=2.45
+   B: (71.2772,33.8472) type=Track ref=None layer=F.Cu in_env=False dist=1.71
+6. GND
+   A: (72.79,33.11) type=Track ref=None layer=F.Cu in_env=False dist=2.45
+   B: (75.04,32.11) type=Pad 2 ref=C14 layer=F.Cu in_env=False dist=3.72
+7. GND
+   A: (89.35,21.9) type=Pad 2 ref=D5 layer=F.Cu in_env=False dist=20.80
+   B: (88.185,26.0062) type=Track ref=None layer=F.Cu in_env=False dist=17.39
+8. /3V3_RAIL
+   A: (19.2866,102.5482) type=Track ref=None layer=F.Cu in_env=False dist=13.65
+   B: (22.8625,104.025) type=Pad 14 ref=U22 layer=F.Cu in_env=False dist=15.12
+9. /3V3_RAIL
+   A: (67.445,22.1518) type=Track ref=None layer=F.Cu in_env=False dist=13.41
+   B: (72.3983,23.2477) type=Via ref=None layer=F.Cu - B.Cu in_env=False dist=12.31
+10. /Analog Acquisition/VDD_ISO_ORP
+   A: (70.35,28.55) type=Pad 1 ref=D21 layer=F.Cu in_env=False dist=7.01
+   B: (61.695,25.825) type=Track ref=None layer=F.Cu in_env=False dist=9.74
+11. /Analog Acquisition/VDD_ISO_ORP
+   A: (70.35,28.55) type=Pad 1 ref=D21 layer=F.Cu in_env=False dist=7.01
+   B: (84.3898,28.5614) type=Via ref=None layer=F.Cu - B.Cu in_env=False dist=12.81
+12. /CO2_SOL_CTL
+   A: (41.66,86.36) type=Via ref=None layer=F.Cu - B.Cu in_env=True dist=0.00
+   B: (105.0,95.51) type=Via ref=None layer=F.Cu - B.Cu in_env=False dist=32.03
+13. /Analog Acquisition/GND_ISO_PH
+   A: (85.54,31.86) type=Track ref=None layer=F.Cu in_env=False dist=12.44
+   B: (69.57,31.87) type=Via ref=None layer=F.Cu - B.Cu in_env=False dist=3.69
+14. /Analog Acquisition/ORP_SIG
+   A: (78.57,20.12) type=Via ref=None layer=F.Cu - B.Cu in_env=False dist=16.20
+   B: (89.6,20.6) type=Track ref=None layer=F.Cu in_env=False dist=21.86
+15. /I2C_SCL
+   A: (68.055,96.0) type=Via ref=None layer=F.Cu - B.Cu in_env=False dist=7.10
+   B: (68.58,86.36) type=Track ref=None layer=B.Cu in_env=True dist=0.00
+16. /Analog Acquisition/PH_BUF
+   A: (83.1227,11.825) type=Track ref=None layer=F.Cu in_env=False dist=25.55
+   B: (68.34,31.87) type=Via ref=None layer=F.Cu - B.Cu in_env=False dist=3.69
+17. /Analog Acquisition/VDD_ISO_PH
+   A: (84.6723,21.075) type=Track ref=None layer=F.Cu in_env=False dist=18.20
+   B: (64.2719,27.4719) type=Track ref=None layer=F.Cu in_env=False dist=8.09
+18. /5V_RAIL
+   A: (10.0,0.0) type=Zone ref=None layer=In2.Cu in_env=False dist=35.56
+   B: (25.02,0.0) type=Zone ref=None layer=In2.Cu in_env=False dist=35.56
+19. /5V_RAIL
+   A: (78.05,18.05) type=Track ref=None layer=F.Cu in_env=False dist=18.05
+   B: (84.8125,21.9) type=Track ref=None layer=F.Cu in_env=False dist=17.63
+20. /5V_RAIL
+   A: (85.1261,24.8836) type=Via ref=None layer=F.Cu - B.Cu in_env=False dist=15.67
+   B: (84.8125,21.9) type=Track ref=None layer=F.Cu in_env=False dist=17.63
+21. /5V_RAIL
+   A: (91.7685,26.4338) type=Via ref=None layer=F.Cu - B.Cu in_env=False dist=20.28
+   B: (85.1261,24.8836) type=Track ref=None layer=F.Cu in_env=False dist=15.67
+22. /Analog Acquisition/VDD_ISO_DO
+   A: (65.08,33.11) type=Track ref=None layer=F.Cu in_env=False dist=2.45
+   B: (75.35,30.05) type=Track ref=None layer=F.Cu in_env=False dist=5.76
+23. /Analog Acquisition/DO_FILT
+   A: (78.58,32.86) type=Track ref=None layer=F.Cu in_env=False dist=5.61
+   B: (69.57,30.62) type=Track ref=None layer=F.Cu in_env=False dist=4.94
+24. /Actuator Drivers/MOTOR_HO
+   A: (110.4135,68.7984) type=Via ref=None layer=F.Cu - B.Cu in_env=False dist=36.75
+   B: (117.0714,75.1659) type=Track ref=None layer=F.Cu in_env=False dist=43.41
+25. /12V_RAIL
+   A: (7.3441,24.4989) type=Track ref=None layer=F.Cu in_env=False dist=11.06
+   B: (2.82,22.37) type=Pad 1 ref=R4 layer=F.Cu in_env=False dist=13.38
+26. /12V_RAIL
+   A: (14.4,20.15) type=Via ref=None layer=F.Cu - B.Cu in_env=False dist=15.41
+   B: (14.925,23.4563) type=Track ref=None layer=F.Cu in_env=False dist=12.10
+27. /12V_RAIL
+   A: (14.5205,23.7502) type=Via ref=None layer=F.Cu - B.Cu in_env=False dist=11.81
+   B: (7.3441,24.4989) type=Track ref=None layer=F.Cu in_env=False dist=11.06
+28. /12V_RAIL
+   A: (14.925,23.4563) type=Track ref=None layer=F.Cu in_env=False dist=12.10
+   B: (50.8,38.1) type=Via ref=None layer=F.Cu - B.Cu in_env=True dist=0.00
+29. /Analog Acquisition/DO_SEC_B
+   A: (75.51,6.81) type=Via ref=None layer=F.Cu - B.Cu in_env=False dist=28.81
+   B: (63.65,31.1) type=Via ref=None layer=F.Cu - B.Cu in_env=False dist=4.46
+30. /Analog Acquisition/CO2_SIG
+   A: (75.07,27.87) type=Pad 1 ref=R11 layer=F.Cu in_env=False dist=7.82
+   B: (89.0,24.1) type=Via ref=None layer=F.Cu - B.Cu in_env=False dist=19.15
+31. /Analog Acquisition/PH_ATT
+   A: (84.965,19.575) type=Track ref=None layer=F.Cu in_env=False dist=19.58
+   B: (67.3614,31.7963) type=Track ref=None layer=B.Cu in_env=False dist=3.76
+32. /Analog Acquisition/DO_BUF
+   A: (80.215,27.325) type=Pad 2 ref=U13 layer=F.Cu in_env=False dist=10.53
+   B: (74.465,20.875) type=Track ref=None layer=F.Cu in_env=False dist=14.71
+33. /Analog Acquisition/DO_SIG
+   A: (89.35,27.6) type=Pad 1 ref=D6 layer=F.Cu in_env=False dist=17.59
+   B: (67.32,30.62) type=Pad 1 ref=R13 layer=F.Cu in_env=False dist=4.94
+34. /Analog Acquisition/SN_D1_DO
+   A: (56.2625,30.05) type=Via ref=None layer=F.Cu - B.Cu in_env=False dist=5.51
+   B: (75.71,18.55) type=Via ref=None layer=F.Cu - B.Cu in_env=False dist=17.13
+35. /Analog Acquisition/SN_D2_DO
+   A: (80.39,18.05) type=Track ref=None layer=F.Cu in_env=False dist=18.76
+   B: (58.3375,28.15) type=Track ref=None layer=F.Cu in_env=False dist=7.41
+36. /Analog Acquisition/SN_D1_ORP
+   A: (66.26,18.05) type=Via ref=None layer=F.Cu - B.Cu in_env=False dist=17.51
+   B: (84.8125,27.55) type=Pad 3 ref=U8 layer=F.Cu in_env=False dist=13.73
+37. /Analog Acquisition/SN_D2_ORP
+   A: (87.0875,25.65) type=Via ref=None layer=F.Cu - B.Cu in_env=False dist=16.69
+   B: (71.34,18.05) type=Track ref=None layer=F.Cu in_env=False dist=17.51
+38. /Analog Acquisition/SN_D2_PH
+   A: (87.0875,21.9) type=Via ref=None layer=F.Cu - B.Cu in_env=False dist=19.15
+   B: (62.09,18.05) type=Track ref=None layer=F.Cu in_env=False dist=17.51
