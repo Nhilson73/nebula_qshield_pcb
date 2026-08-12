@@ -52,7 +52,7 @@
 - [x] Verificar anchos mínimos: señales 0.2 mm, power 0.5 mm, `RelayHV` 1.0 mm / 2.5 mm clearance. **Nota:** durante Fase 5 se redujo `RelayHV` clearance a 0.5 mm y `Board_Edge` a 0.25 mm para completar el ruteo; requiere aprobación de manufactura antes de JLCPCB.
 
 ### Fase 5 — Ruteo Fase B (Señales Insight)
-- [~] Rutear señales analógicas `PH_ADC`, `ORP_ADC`, `TEMP_ADC`, `CO2_ADC`, `DO_ADC` en F.Cu, cortas y alejadas del buck. (En progreso: la mayoría ya están ruteadas; quedan 86 nets por cerrar tras re-arquitectura 150×120 y placement Spark.)
+- [~] Rutear señales analógicas `PH_ADC`, `ORP_ADC`, `TEMP_ADC`, `CO2_ADC`, `DO_ADC` en F.Cu, cortas y alejadas del buck. (En progreso: la mayoría ya están ruteadas; quedan 72 nets por cerrar. Se redujo vía mínima a 0.5/0.2 mm en `Signal_Default` para vías GND adicionales y se re-ruteó `/PUMP_DIR` bajo el recorte interno.)
 - [ ] Crear islas galvánicas independientes en B.Cu/In2.Cu para `GND_ISO_PH`, `GND_ISO_ORP`, `GND_ISO_DO` y `VDD_ISO_*`.
 - [ ] Rutear `HX711_DOUT`/`HX711_SCK` (D2/D3).
 - [ ] Rutear `I2C_SDA`/`I2C_SCL` (D20/D21) con pull-ups `R36`/`R37`.
@@ -68,7 +68,7 @@
 - [ ] Aplicar pase FreeRouting controlado o manual para nets restantes.
 - [ ] Limpieza de silkscreen, revisión de `silk_overlap` y `silk_edge_clearance`.
 - [ ] `kicad-cli sch erc --severity-all` = 0 violaciones.
-- [x] `kicad-cli pcb drc --severity-error` = 0 violaciones (unconnected items aceptables previo a envío si son intencionales, pero idealmente < 50). **Estado actual: 0 violaciones, 86 unconnected items.**
+- [x] `kicad-cli pcb drc --severity-error` = 0 violaciones (unconnected items aceptables previo a envío si son intencionales, pero idealmente < 50). **Estado actual: 0 violaciones, 72 unconnected items.**
 
 ### Fase 7 — Salidas JLCPCB y PR final
 - [ ] Validar design rules de JLCPCB:

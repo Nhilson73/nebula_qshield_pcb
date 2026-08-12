@@ -10,7 +10,7 @@ Built by [Cafelium SRL](https://github.com/Nhilson73) · Dominican Republic
 >
 > **Firmware source of truth:** [`Nhilson73/Nebula_ArduinoAPPLab_UNOQ`](https://github.com/Nhilson73/Nebula_ArduinoAPPLab_UNOQ). No usar `Nebula_UNOQ_ArduinoIDE_Core` para validaciones de pinout/hardware.
 >
-> **Estado actual (2026-08-12):** esquemático validado (ERC 0 violaciones), PCB en KiCad 10.0.5, factor de forma UNO Q inmutable, dimensiones **150 mm × 120 mm** (se amplió el ancho para la propuesta de placement de Gemini Spark), Fase 4 de potencia completa y Fase 5/6 de ruteo en progreso: DRC 0 violaciones, 86 nets desconectados restantes. Ver `docs/INSIGHT_FABRICATION_ROADMAP.md`.
+> **Estado actual (2026-08-12):** esquemático validado (ERC 0 violaciones), PCB en KiCad 10.0.5, factor de forma UNO Q inmutable, dimensiones **150 mm × 120 mm** (se amplió el ancho para la propuesta de placement de Gemini Spark), Fase 4 de potencia completa y Fase 5/6 de ruteo en progreso: DRC 0 violaciones, 72 nets desconectados restantes. Se ajustó `Signal_Default` a vía mínima 0.5/0.2 mm para mejorar conectividad GND. Ver `docs/INSIGHT_FABRICATION_ROADMAP.md`.
 
 ---
 
