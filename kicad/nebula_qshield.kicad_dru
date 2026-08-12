@@ -4,8 +4,8 @@
 (rule "Signal_Default"
   (constraint track_width (min 0.2mm))
   (constraint clearance (min 0.2mm))
-  (constraint via_diameter (min 0.6mm))
-  (constraint hole_size (min 0.3mm))
+  (constraint via_diameter (min 0.5mm))
+  (constraint hole_size (min 0.2mm))
   (constraint annular_width (min 0.15mm))
 )
 
